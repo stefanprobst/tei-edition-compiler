@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import { compile } from '../src';
-import { EditionSchema, DateValueSchema } from '@tei-edition/ir';
+import { EditionSchema, DateValueSchema } from '@acdh-oeaw/tei-edition-ir';
 import { createHash } from 'node:crypto';
 const fixtureDir = new URL('../../../fixtures/auden-musulin/', import.meta.url);
 const names = ['0001', '0040', '0078'].map(n => `amp-transcript__${n}.xml`);
@@ -54,7 +54,7 @@ describe('compiler contracts', () => {
         expect(edition.entities.some(e => ['left side', 'right side', 'photographer'].includes(e.label || ''))).toBe(false);
     });
     test('unknown source constructs emit diagnostics', () => {
-        const result = compile([{ name: 'sample', xml: minimal('<div type="letter"><choice><sic>word</sic><corr>correction</corr></choice></div>') }]);
+        const result = compile([{ name: 'sample', xml: minimal('<div type="letter"><unknown>word</unknown></div>') }]);
         expect(result.diagnostics[0].code).toBe('unmapped-content');
     });
     test('declarative project part mapping', () => { const result = compile([{ name: 'sample', xml: minimal('<div type="memo"><p>Memo</p></div>') }], { partKinds: { memo: 'memorandum' }, entityKinds: {} }); expect(result.documents[0].parts[0].kind).toBe('memorandum'); });

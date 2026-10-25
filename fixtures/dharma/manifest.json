@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/erc-dharma/tfd-sanskrit-philology",
+  "commit": "de63a675e759cd09905069655c9f90cd4a513d33",
+  "files": {
+    "DHARMA_CritEdAmaramalaBLBurnell436e.xml": "f1d029df85a299052029482939b3f30bb83d58813b06ba4026a8a5b76bab5007",
+    "LICENSE": "7e7170e3cebf88a9f60c7b8421418323c09304da1af4d5e90f4da1dc1c8a2661",
+    "DHARMA_CritEdSarvatathagatatattvasangraha.xml": "2ea4de84937dcd078fde30a49afae63b6e3e8476881a6ce53c1713b698bb6368"
+  },
+  "upstreamPaths": {
+    "DHARMA_CritEdAmaramalaBLBurnell436e.xml": "editions/DHARMA_CritEdAmaramalaBLBurnell436e.xml",
+    "LICENSE": "LICENCE.txt",
+    "DHARMA_CritEdSarvatathagatatattvasangraha.xml": "editions/DHARMA_CritEdSarvatathagatatattvasangraha.xml"
+  },
+  "gitBlobs": {
+    "DHARMA_CritEdAmaramalaBLBurnell436e.xml": "a9661c8f4db2b97f6d51215fbebc09f3a5583d66",
+    "LICENSE": "2f244ac814036ecd9ba9f69782e89ce6b1dca9eb",
+    "DHARMA_CritEdSarvatathagatatattvasangraha.xml": "e94dbd41fd5484a0ddbd14e8c76ee4388ac77eb1"
+  }
+}

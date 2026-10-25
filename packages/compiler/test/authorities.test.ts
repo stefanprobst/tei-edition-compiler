@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 import { compile, createSourceIndex, type AuthoritySource, type Mapping } from '../src';
-import { EditionSchema } from '@tei-edition/ir';
+import { EditionSchema } from '@acdh-oeaw/tei-edition-ir';
 const authority: AuthoritySource = {
     name: 'synthetic/authorities.xml', uri: 'https://example.test/authorities.xml',
     xml: await Bun.file(new URL('../../../fixtures/synthetic/authorities.xml', import.meta.url)).text(),

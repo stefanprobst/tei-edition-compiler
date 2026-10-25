@@ -1,5 +1,6 @@
 # TEI Edition Compiler
 
+- Workspace package names use the @acdh-oeaw scope and tei-edition- prefix (tei-edition-ir, tei-edition-compiler, tei-edition-viewer).
 - TEI/XML is always canonical. Edition IR is derived, disposable and versioned.
 - Compile semantic, typed web-native structures; never mechanically serialize XML into JSON.
 - Runtime consumers need no XPath, namespaces or TEI vocabulary. XPath/XSLT are acceptable compile-time tools.
@@ -9,7 +10,7 @@
 - Represent facsimiles as resources and anchors. Dates distinguish exact, interval and textual values.
 - Prefer project-configurable declarative mappings where feasible; procedural plugins only where needed. Do not build a framework ahead of working evidence.
 - First slice: amp-transcript__0001, __0040, __0078. Revision stress fixtures __0028 and __0062 are now vendored and tested; their containment model does not yet establish a complete revision graph.
-- Keep packages/ir and packages/compiler minimal; defer a reference UI.
+- Keep packages/ir and packages/compiler minimal. The authorized local reference viewer lives in packages/viewer and consumes compiled JSON only; keep source inspection and compiler dependencies out of its browser bundle.
 - Record upstream commit, attribution and licensing before vendoring. Preserve original fixtures byte-for-byte.
 - Record model changes in the current versioned IR design notes; docs/ir-v0.1.md is the historical baseline and docs/ir-v0.2.md documents the current contract. Run typecheck and compiler tests after changes.
 
@@ -34,3 +35,13 @@
 - Keep the original five-document baseline separate from the ten-document interpretation-closure cohort listed in the fixture manifest. Extend mappings from verified real-source evidence; preserve upstream bytes, attribution and checksums before vendoring dependencies.
 - Glyph handling preserves supplied literal readings and source-backed declaration descriptions. Empty or unsupported readings remain marked/diagnosed; never infer characters from description prose.
 - Keep compiler diagnostics separate from runtime projection issues. Closed-cohort verification must preserve source revision/provenance, ordered text, declared language evidence and reversible mappings under explicit policies; zero compiler diagnostics must never erase editorial uncertainty.
+
+- Unsupported apparatus/choice branches must not be concatenated into running text: emit source-backed uncompiled-content markers with precise diagnostics until a semantic alternatives model exists. Preserve explicit nonbreaking line continuations and manuscript page labels. The pinned DHARMA fixture is a diagnostic-bearing boundary cohort, not a claim of critical-edition support.
+
+- Text alternatives are currently a separate experimental v0.2 extension bound to a v0.2 edition fingerprint and existing markers. Keep candidate selection explicit, preserve empty/neutral readings and local witness scope, distinguish manuscripts from previous editions, and reject unsupported nested semantics atomically. Do not promote the experiment to the main IR or remove base diagnostics without resolving candidate-local interventions and reversible selection mappings.
+
+- Experimental candidate and note annotations use their own bounded UTF-16 ranges and parent graphs. Projection requires an explicit candidate and deletion policy; retain reverse mappings and missing-text issues. Empty readings and gap/omission markers are different evidence. Candidate-local projections remain distinct from the experimental document composition API; neither mutates base-edition markers.
+
+- Experimental document composition snapshots and fingerprint-checks the base artifact in the runtime, keeps part and candidate source coordinates discriminated, and records marker replacement spans separately. Base exclusions must not resurrect selected content; preserve anchors, empty-choice spans and unselected/unsupported issues. Do not infer reading choices or erase compiler diagnostics.
+
+- The study viewer offers explicit candidate controls and a separate projected preview, with source/witness/intervention inspection and history restoration. Keep source text and compiler diagnostics intact; clear stale projections and prevent pending demo loads from overwriting uploads. Demo extension metadata must not leak into standalone uploaded editions.

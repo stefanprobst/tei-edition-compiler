@@ -1,4 +1,4 @@
-import { DateValueSchema, type DateValue } from '@tei-edition/ir';
+import { DateValueSchema, type DateValue } from '@acdh-oeaw/tei-edition-ir';
 
 type Report = (code: string, message: string) => void;
 const groups = {

@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 import { mkdtemp, rm } from 'node:fs/promises';
-import { EditionSchema } from '@tei-edition/ir';
+import { EditionSchema } from '@acdh-oeaw/tei-edition-ir';
 import { verifyCompilationManifest } from '../src';
 const xml = (body: string) => '<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader><fileDesc><titleStmt><title>Diagnostics</title></titleStmt></fileDesc></teiHeader><text><body><div type="letter">' + body + '</div></body></text></TEI>';
 async function temporary(run: (directory: string) => Promise<void>) {
@@ -20,7 +20,7 @@ test('default CLI behavior retains diagnostics and a successful exit', async () 
         await Bun.write(source, xml('<choice><sic>original</sic><corr>corrected</corr></choice>'));
         const result = await cli(directory, [source]);
         expect(result.exit).toBe(0); expect(result.error).toBe('');
-        expect(EditionSchema.parse(JSON.parse(result.output)).diagnostics.map(d => d.code)).toEqual(['unmapped-content']);
+        expect(EditionSchema.parse(JSON.parse(result.output)).diagnostics.map(d => d.code)).toEqual(['unsupported-text-alternatives']);
     });
 });
 
@@ -30,7 +30,7 @@ test('diagnostic failure preserves validated IR and a matching manifest', async 
         await Bun.write(source, xml('<choice><sic>original</sic><corr>corrected</corr></choice><pb facs="#missing"/>'));
         const result = await cli(directory, ['--fail-on-diagnostics', source, '--manifest', manifestPath]);
         expect(result.exit).toBe(1);
-        expect(result.error).toBe('Compilation produced 2 diagnostic(s): unmapped-content=1, unresolved-facsimile=1\n');
+        expect(result.error).toBe('Compilation produced 2 diagnostic(s): unresolved-facsimile=1, unsupported-text-alternatives=1\n');
         const edition = EditionSchema.parse(JSON.parse(result.output));
         expect(edition.diagnostics).toHaveLength(2);
         expect(edition.diagnostics.every(d => d.provenance.source === source)).toBe(true);

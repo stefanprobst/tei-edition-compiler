@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EditionSchema, type Edition } from '@tei-edition/ir';
+import { EditionSchema, type Edition } from '@acdh-oeaw/tei-edition-ir';
 import type { CompileOptions, Mapping, Source } from './index';
 import { fingerprintJson, sha256Text } from './fingerprints';
 import { createSourceIndex } from './source';

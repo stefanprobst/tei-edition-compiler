@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test';
-import { EditionSchema, partLanguageRuns, documentEvents, projectDocumentText, projectSourceRange, sourceRangesForText } from '@tei-edition/ir';
+import { EditionSchema, partLanguageRuns, documentEvents, projectDocumentText, projectSourceRange, sourceRangesForText } from '@acdh-oeaw/tei-edition-ir';
 import { audenMusulinMapping, compileWithManifest, createSourceIndex, verifyCompilationManifest, verifyCompilationSources } from '../src';
 
 const fixtureManifest = await Bun.file('fixtures/auden-musulin/manifest.json').json();

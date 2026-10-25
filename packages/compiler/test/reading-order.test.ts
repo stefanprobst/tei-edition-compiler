@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test';
-import { EditionSchema, documentEvents } from '@tei-edition/ir';
+import { EditionSchema, documentEvents } from '@acdh-oeaw/tei-edition-ir';
 import { compile, createSourceIndex, audenMusulinMapping } from '../src';
 
 const directory = new URL('../../../fixtures/auden-musulin/', import.meta.url);

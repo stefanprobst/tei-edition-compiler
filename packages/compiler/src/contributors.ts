@@ -1,4 +1,4 @@
-import type { Provenance } from '@tei-edition/ir';
+import type { Provenance } from '@acdh-oeaw/tei-edition-ir';
 import { createSourceIndex, TEI_NAMESPACE as NS, XML_NAMESPACE as XML } from './source';
 import { referenceUri, type ReferenceMapping } from './references';
 

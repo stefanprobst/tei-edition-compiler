@@ -1,6 +1,6 @@
 import { sha256Text } from './fingerprints';
 import { DOMParser } from '@xmldom/xmldom';
-import type { Provenance } from '@tei-edition/ir';
+import type { Provenance } from '@acdh-oeaw/tei-edition-ir';
 
 export const TEI_NAMESPACE = 'http://www.tei-c.org/ns/1.0';
 export const XML_NAMESPACE = 'http://www.w3.org/XML/1998/namespace';

@@ -11,7 +11,7 @@ import { dateValue } from './dates';
 export { dateValue } from './dates';
 import { createSourceIndex, TEI_NAMESPACE as NS, XML_NAMESPACE as XML } from './source';
 export { createSourceIndex } from './source';
-import { EditionSchema, type Edition, type Provenance } from '@tei-edition/ir';
+import { EditionSchema, type Edition, type Provenance } from '@acdh-oeaw/tei-edition-ir';
 const attr = (e: Element, n: string) => e.getAttribute(n) || '';
 const text = (e: Element) => (e.textContent || '').replace(/\s+/g, ' ').trim();
 const children = (e: Element) => Array.from(e.childNodes).filter((n): n is Element => n.nodeType === 1);
@@ -208,12 +208,23 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                 }
                 if (el.localName === 'pb') {
                     const resources = facsimiles.resolve(el);
-                    out.anchors.push({ id: id(el), partId: p.id, order: nextOrder++, offset: content.length, resourceIds: resources, label: attr(el, 'ed') || undefined, provenance: prov(el) });
+                    out.anchors.push({ id: id(el), partId: p.id, order: nextOrder++, offset: content.length, resourceIds: resources, label: attr(el, 'ed') || attr(el, 'n') || undefined, provenance: prov(el) });
                     p.resourceIds.push(...resources);
                     return;
                 }
                 if (el.localName === 'lb') {
-                    content += '\n';
+                    if (attr(el, 'break') === 'no') annotation(el, 'line-continuation', [p.id], { partId: p.id, start: content.length, end: content.length }, parentAnnotationId);
+                    else content += '\n';
+                    return;
+                }
+                if (el.localName === 'app' || el.localName === 'choice') {
+                    const start = content.length;
+                    content += '\uFFFC';
+                    annotation(el, 'uncompiled-content', [p.id], { partId: p.id, start, end: content.length }, parentAnnotationId);
+                    const marker = out.annotations[out.annotations.length - 1];
+                    delete marker.body;
+                    marker.details.feature = el.localName === 'app' ? 'textual-apparatus' : 'text-alternatives';
+                    out.diagnostics.push({ code: el.localName === 'app' ? 'unsupported-textual-apparatus' : 'unsupported-text-alternatives', message: 'Uncompiled entry replaced by a source-backed marker; no reading selected', provenance: prov(el) });
                     return;
                 }
                 const transparent = new Set(['body', 'div', 'rs', 'persName', 'placeName', 'orgName', 'name', 'ab', 'opener', 'closer', 'address', 'dateline', 'salute', 'signed', 'date', 'seg', 'fw']);

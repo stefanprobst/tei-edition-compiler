@@ -1,0 +1,13 @@
+{
+  "version": "1",
+  "mapping": {
+    "partKinds": {
+      "edition": "edition",
+      "group": "section",
+      "translation": "translation",
+      "commentary": "commentary",
+      "bibliography": "bibliography"
+    },
+    "entityKinds": {}
+  }
+}

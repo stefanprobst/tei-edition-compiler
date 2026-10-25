@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test';
-import { EditionSchema, projectDocumentText, projectSourceRange } from '@tei-edition/ir';
+import { EditionSchema, projectDocumentText, projectSourceRange } from '@acdh-oeaw/tei-edition-ir';
 import { compile, createSourceIndex } from '../src';
 
 const source = (body: string) => ({ name: 'containment.xml', xml: `<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="containment"><teiHeader><fileDesc><titleStmt><title>Containment</title></titleStmt></fileDesc></teiHeader><text><body><div type="transcription">${body}</div></body></text></TEI>` });

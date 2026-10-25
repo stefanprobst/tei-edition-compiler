@@ -1,7 +1,7 @@
 import { expect, test } from 'bun:test';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { MappingSchema, MappingProfileSchema, audenMusulinMapping, compile, compileWithManifest, verifyCompilationManifest, type Mapping } from '../src';
-import { EditionSchema, partLanguageRuns, projectDocumentText } from '@tei-edition/ir';
+import { EditionSchema, partLanguageRuns, projectDocumentText } from '@acdh-oeaw/tei-edition-ir';
 const profilePath = 'fixtures/synthetic/generic-mapping.json';
 const documentPath = 'fixtures/synthetic/generic-edition.xml';
 const authorityPath = 'fixtures/synthetic/authorities.xml';

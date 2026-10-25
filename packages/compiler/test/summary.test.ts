@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 import { mkdtemp, rm } from 'node:fs/promises';
-import { EditionSchema, summarizeEdition } from '@tei-edition/ir';
+import { EditionSchema, summarizeEdition } from '@acdh-oeaw/tei-edition-ir';
 import { compile, MappingProfileSchema } from '../src';
 
 const sources = await Promise.all(['0001', '0040', '0078', '0028', '0062'].map(async n => {

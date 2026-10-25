@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import { createHash } from 'node:crypto';
-import { EditionSchema } from '@tei-edition/ir';
+import { EditionSchema } from '@acdh-oeaw/tei-edition-ir';
 import { compile } from '../src';
 
 const directory = new URL('../../../fixtures/auden-musulin/', import.meta.url);

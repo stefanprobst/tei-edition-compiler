@@ -2,7 +2,7 @@ import { expect, test } from 'bun:test';
 import { mkdtemp, rm, symlink, link } from 'node:fs/promises';
 import { compile, compileWithManifest, createSourceIndex, verifyCompilationManifest, verifyCompilationSources, CompilationManifestSchema, type Mapping, type Source } from '../src';
 import { fingerprintJson } from '../src/fingerprints';
-import { EditionSchema } from '@tei-edition/ir';
+import { EditionSchema } from '@acdh-oeaw/tei-edition-ir';
 
 const source: Source = { name: 'source.xml', uri: 'https://example.test/source.xml', xml: '<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="source"><teiHeader><fileDesc><titleStmt><title>Manifest</title></titleStmt></fileDesc></teiHeader><text><body><div type="letter" xml:id="letter">Original</div></body></text></TEI>' };
 const mapping: Mapping = { partKinds: { letter: 'letter', poem: 'poem' }, entityKinds: { person: 'person', place: 'place' } };

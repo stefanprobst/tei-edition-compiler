@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test';
-import { projectDocumentText, projectSourceRange, sourceRangesForText } from '@tei-edition/ir';
+import { projectDocumentText, projectSourceRange, sourceRangesForText } from '@acdh-oeaw/tei-edition-ir';
 import { compile } from '../src';
 const sample = (body: string) => compile([{ name: 'spacing.xml', xml: `<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="spacing"><teiHeader><fileDesc><titleStmt><title>Spacing</title></titleStmt></fileDesc></teiHeader><text><body><div type="transcription">${body}</div></body></text></TEI>` }]);
 

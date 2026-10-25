@@ -1,6 +1,6 @@
 import { expect, test } from 'bun:test';
 import { mkdtemp, rm } from 'node:fs/promises';
-import { EditionSchema, summarizeEdition } from '@tei-edition/ir';
+import { EditionSchema, summarizeEdition } from '@acdh-oeaw/tei-edition-ir';
 import { verifyCompilationManifest } from '../src';
 
 test('the pinned interpretation-context cohort compiles offline with no diagnostics', async () => {

@@ -1,5 +1,5 @@
 import { expect, test } from 'bun:test';
-import { partLanguageRuns, projectDocumentText, projectSourceRange } from '@tei-edition/ir';
+import { partLanguageRuns, projectDocumentText, projectSourceRange } from '@acdh-oeaw/tei-edition-ir';
 import { compile, createSourceIndex } from '../src';
 
 function source(body: string, language = 'en', header = '') {

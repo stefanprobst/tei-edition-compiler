@@ -61,7 +61,7 @@ Observed totals:
 
 Compiler diagnostics: zero. Runtime projection issues and editorial reading policies remain separate concerns; zero diagnostics does not imply a complete revision model, fully labelled authority records or universal TEI support.
 
-The offline dependency-closure integration test verifies successful strict-mode compilation, all input hashes, manifest binding, document/part/anchor counts and the absence of external annotation targets. New unit regressions preserve actual address/title/postscript/glyph evidence and test missing/empty/shared glyph cases. The full suite passes 187 tests plus TypeScript checking.
+The offline dependency-closure integration test verifies successful strict-mode compilation, all input hashes, manifest binding, document/part/anchor counts and the absence of external annotation targets. New unit regressions preserve actual address/title/postscript/glyph evidence and test missing/empty/shared glyph cases. The full suite passes 225 tests plus TypeScript checking.
 
 
 ## Closed-cohort runtime contract verification

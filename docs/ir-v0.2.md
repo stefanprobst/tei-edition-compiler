@@ -20,7 +20,7 @@ The edition validator checks unique document-local order values, source-tree-com
 
 ## Minimal runtime consumer
 
-`documentEvents(edition, documentId)` is an exported generator in `@tei-edition/ir`. Pass a schema-validated edition; unknown document IDs throw a clear error. It emits:
+`documentEvents(edition, documentId)` is an exported generator in `@acdh-oeaw/tei-edition-ir`. Pass a schema-validated edition; unknown document IDs throw a clear error. It emits:
 
 - `enter-part` and `exit-part`, with `partId`.
 - `text`, with `partId`, `start`, `end` and the text slice.
@@ -29,7 +29,7 @@ The edition validator checks unique document-local order values, source-tree-com
 The iterator indexes direct child parts and anchors, merges them using explicit order, slices parent text at their offsets, and visits nested parts in place. Every part boundary and anchor occurs once; concatenating text events for a part reproduces that part's emitted content exactly. Event text slices can be intersected with existing annotation/mention ranges. Annotation rendering, reading-text policies and document layout remain consumer choices.
 
 ```ts
-import { EditionSchema, documentEvents } from '@tei-edition/ir';
+import { EditionSchema, documentEvents } from '@acdh-oeaw/tei-edition-ir';
 const edition = EditionSchema.parse(JSON.parse(json));
 for (const event of documentEvents(edition, edition.documents[0].id)) {
   // Consume semantic events; no XML, namespaces or selector parsing.
@@ -91,7 +91,7 @@ The returned `TextProjection` contains:
 Offsets are UTF-16 throughout. `projectSourceRange(projection, partRange)` maps nonempty visible intersections into projected ranges. Wholly omitted or zero-width source ranges map to an empty array. `sourceRangesForText(projection, { start, end })` maps search/highlight offsets back to part ranges, preserving gaps caused by omissions and changes in part ownership. Empty projected ranges return no text ranges; anchors are mapped separately. Projected requests outside the result text or malformed numerical ranges are rejected. The resulting part ranges lead back through ordinary part provenance; these are not XML byte/character source maps.
 
 ```ts
-import { projectDocumentText, sourceRangesForText } from '@tei-edition/ir';
+import { projectDocumentText, sourceRangesForText } from '@acdh-oeaw/tei-edition-ir';
 const view = projectDocumentText(edition, documentId, { deletionText: 'omit' });
 const matches = sourceRangesForText(view, { start: 10, end: 20 });
 ```
@@ -123,7 +123,7 @@ The compiler preserves inherited part defaults and explicit language spans using
 `partLanguageRuns(edition, partId)` returns complete, half-open coverage of a nonempty part's text. Each run has `start`, `end`, optional `language`, `annotationIds` and `conflicted`. Nested declarations take precedence; narrower ranges break ties at the same depth. Equally specific contradictory declarations produce an unknown run with `conflicted: true` and all responsible annotation IDs. Tag equality ignores case, but source spellings remain available; the helper does not perform registry canonicalization, automatic language detection or text translation. Empty parts return no runs. Unknown part IDs throw a clear error.
 
 ```ts
-import { partLanguageRuns, projectSourceRange } from '@tei-edition/ir';
+import { partLanguageRuns, projectSourceRange } from '@acdh-oeaw/tei-edition-ir';
 const languages = partLanguageRuns(edition, partId);
 const visibleRanges = languages.flatMap(run =>
   projectSourceRange(projection, { partId, start: run.start, end: run.end })
@@ -183,7 +183,7 @@ Edition and mapping fingerprints use deterministic JSON with sorted object keys,
 `createSourceIndex(source, { expectedSha256 })` verifies a recorded source hash before parsing or resolving any selector. Its returned `sha256` is also available for inspection. A changed source with unchanged XML IDs is rejected instead of silently supplying different evidence. Without an expected hash, the existing source-index behavior remains available; the caller chooses whether revision verification is required.
 
 ```ts
-import { compileWithManifest, verifyCompilationManifest, createSourceIndex } from '@tei-edition/compiler';
+import { compileWithManifest, verifyCompilationManifest, createSourceIndex } from '@acdh-oeaw/tei-edition-compiler';
 const { edition, manifest } = compileWithManifest(sources, mapping);
 verifyCompilationManifest(edition, manifest);
 const expected = manifest.sources.find(s => s.name === provenance.source);
@@ -219,7 +219,7 @@ The default Auden preset moved to `packages/compiler/profiles/auden-musulin.json
 The project-authored `fixtures/synthetic/generic-mapping.json` and `generic-edition.xml` exercise a different structure: direct body text, nested verse, source entity types `human`/`location`, relative image URLs and an independent authority/URI namespace. They compile to generic text/verse parts and person/place entities, with supplied authority labels, dates, source-backed language/spacing, links and projections. They are synthetic mapping evidence, not another historical edition or an upstream corpus fixture.
 
 ```ts
-import { MappingProfileSchema, compile } from '@tei-edition/compiler';
+import { MappingProfileSchema, compile } from '@acdh-oeaw/tei-edition-compiler';
 const profile = MappingProfileSchema.parse(profileJson);
 const edition = compile(sources, profile.mapping, { authorities });
 ```
@@ -288,3 +288,15 @@ The compiler exports `verifyCompilationSources(validatedEdition, rawManifest, so
 Changed artifacts, missing/extra/duplicate source inputs, changed revisions and unresolved selectors throw. Hashes establish consistency with the supplied sidecar, not authenticity or correctness of scholarly interpretation. The ten-document saved JSON regression verifies all 10 sources and 8,379 provenance records through this API. No persisted schema or IR version change is required.
 
 The `bun run verify <edition.json> <manifest.json> --source <manifest-name> <local-path> [...]` command validates saved JSON before invoking the same helper. Every source is explicitly bound to a local path, allowing relocation without trusting manifest names as filesystem paths. Success emits only JSON counts with exit 0; any argument, input, validation or provenance failure emits stderr with exit 1 and no stdout result. No sources are fetched or recompiled, and input files are never modified.
+
+
+## First reference consumer
+
+The authorized local viewer now exercises the original three-document cohort using validated JSON only. Ordered part events and semantic ranges support text, overlapping evidence and nontextual documents without a schema change. See [consumer findings](reference-viewer.md) for image-service/rendition ambiguity, absent authority labels, source-link presentation metadata and the limited diplomatic reading policy. These are recorded as evidence rather than silently inferred data. IR remains v0.2.
+
+
+## Independent apparatus boundary
+
+The [second-edition validation](second-edition-validation.md) exposes a semantic limit in generic traversal. Unsupported apparatus/choice entries now become source-backed `uncompiled-content` markers with `details.feature` identifying `textual-apparatus` or `text-alternatives`, no combined reading body and precise compiler diagnostics. Their ranges cover one U+FFFC position. Explicit nonbreaking line boundaries instead become zero-width `line-continuation` annotations, preserving unbroken words and source evidence. Anchors can use ordinary manuscript page-number labels when the existing label source is absent.
+
+These use existing v0.2 shapes and do not implement a critical apparatus. Previously compiled alternatives/nonbreaking lines require recompilation for corrected text/offsets. The Auden snapshots remain unchanged. The independent DHARMA fixture retains 183 diagnostics, including unsupported note/bibliography semantics, and must not be treated as a publication reading.

@@ -133,3 +133,5 @@ export { documentEvents, type DocumentEvent } from './reading-order';
 export { projectDocumentText, projectSourceRange, sourceRangesForText, type TextProjection, type PartTextRange, type TextRange } from './text-projection';
 export { partLanguageRuns, type LanguageRun } from './languages';
 export { summarizeEdition, type EditionSummary } from './summary';
+
+export { canonicalJson } from './canonical-json';

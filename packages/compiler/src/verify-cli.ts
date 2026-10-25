@@ -1,4 +1,4 @@
-import { EditionSchema } from '@tei-edition/ir';
+import { EditionSchema } from '@acdh-oeaw/tei-edition-ir';
 import { verifyCompilationSources } from './index';
 
 const usage = 'Usage: bun run verify <edition.json> <manifest.json> --source <manifest-name> <local.xml> [...]';

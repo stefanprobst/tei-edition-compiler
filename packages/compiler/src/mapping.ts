@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EntitySchema } from '@tei-edition/ir';
+import { EntitySchema } from '@acdh-oeaw/tei-edition-ir';
 import audenMusulinProfile from '../profiles/auden-musulin.json';
 
 const nonempty = z.string().min(1);

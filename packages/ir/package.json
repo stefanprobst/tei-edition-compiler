@@ -1,1 +1,1 @@
-{"name":"@tei-edition/ir","version":"0.2.0","type":"module","exports":"./src/index.ts","dependencies":{"zod":"^4.1.12"}}
+{"name":"@acdh-oeaw/tei-edition-ir","version":"0.2.0","type":"module","exports":{".":"./src/index.ts","./experimental/alternatives":"./src/experimental/alternatives.ts","./experimental/document-alternatives":"./src/experimental/document-alternatives.ts"},"dependencies":{"zod":"^4.1.12"}}

@@ -14,10 +14,11 @@ bun run typecheck
 bun test
 ```
 
-The repository contains two minimal packages:
+The repository contains three small packages:
 
 - `packages/ir`: strict Zod contracts, inferred TypeScript types and XML-free consumer helpers.
 - `packages/compiler`: semantic TEI extraction, declarative project profiles, source inspection and command-line tools.
+- `packages/viewer`: local reference reader consuming compiled JSON only.
 
 ## Compile, inspect and verify
 
@@ -47,6 +48,17 @@ Verification checks the saved edition fingerprint, every source hash and every e
 
 No command implicitly fetches referenced documents, authority records or images.
 
+## Local reference viewer
+
+```sh
+bun run viewer:build
+bun run viewer
+```
+
+Open <http://127.0.0.1:3000/> to explore the original three documents: ordered envelope/letter/poem parts, editorial and entity evidence, page-image links, and photograph participants/setting. Choose **Critical-edition study** to explore explicit reading choices, witness evidence and a separate projected-text preview. See the [alternatives viewer guide](docs/alternatives-viewer.md). You can also open a local Edition JSON file. The reader retains deletions and source spacing; it does not infer a final reading.
+
+The demo maps the pinned sources’ retired IIIF service paths to the verified current service. Original resource URIs remain recorded evidence; image-load failures remain explicit. See [viewer behavior and browser checks](docs/reference-viewer.md) and the [reader-task review](docs/viewer-review.md). No historical images are vendored.
+
 ## Evidence and supported scope
 
 The fixture manifest separates three cohorts:
@@ -72,6 +84,10 @@ Entities receive canonical labels only from explicitly supplied authority record
 
 See [fixture provenance and licensing](fixtures/auden-musulin/README.md) and the [coverage audit](docs/coverage-audit.md). Vendored upstream XML is unchanged; images are not vendored.
 
+## Independent edition validation
+
+A pinned, attributed [DHARMA Amaramālā fixture](fixtures/dharma/README.md) tests the compiler against real critical-edition apparatus and manuscript line continuations. It exposed concatenated alternative readings and incorrectly broken words. Unsupported alternatives now remain explicit source markers with diagnostics; no reading is guessed. This fixture intentionally fails strict compilation and is separate from the Auden cohorts. See [validation findings](docs/second-edition-validation.md) and the [executable alternatives experiment](docs/alternatives-experiment-v0.2.md). The experiment keeps candidates and witness evidence separate without changing Edition IR v0.2. An [experimental document projection](docs/document-alternatives-projection.md) composes explicit choices with source mappings and anchor preservation.
+
 ## Project mappings and authorities
 
 The default profile is [auden-musulin.json](packages/compiler/profiles/auden-musulin.json). Strict versioned JSON profiles configure division and element part kinds, entity categories, document identity, reference prefixes and authority scopes. Header extraction and editorial rules remain procedural; this is not a general mapping framework.
@@ -90,7 +106,7 @@ bun run compile fixtures/synthetic/generic-edition.xml \
 Validate loaded JSON at the runtime boundary:
 
 ```ts
-import { EditionSchema, documentEvents, projectDocumentText } from '@tei-edition/ir';
+import { EditionSchema, documentEvents, projectDocumentText } from '@acdh-oeaw/tei-edition-ir';
 
 const edition = EditionSchema.parse(savedEditionJson);
 const document = edition.documents[0];
@@ -110,7 +126,7 @@ Other IR helpers include `sourceRangesForText`, `projectSourceRange`, `partLangu
 Compiler-side APIs include `compile`, `compileWithManifest`, `MappingSchema`, `MappingProfileSchema`, `CompilationManifestSchema`, `verifyCompilationManifest`, `verifyCompilationSources` and `createSourceIndex`:
 
 ```ts
-import { verifyCompilationSources, createSourceIndex } from '@tei-edition/compiler';
+import { verifyCompilationSources, createSourceIndex } from '@acdh-oeaw/tei-edition-compiler';
 
 const result = verifyCompilationSources(edition, savedManifestJson, sources);
 // sources: every manifest input as { name, xml }, including authorities.
@@ -128,4 +144,4 @@ Source inspection belongs outside runtime consumers. `Source.uri` supplies an ac
 - [Original evidence, interfaces and design questions](docs/ir-v0.1.md).
 - [Durable project constraints](AGENTS.md).
 
-There is no reference UI or complete TEI/revision implementation. Physical components versus intellectual works, richer revision alternatives/chronology and broader mappings need further source and consumer evidence. Runtime consumers currently use text plus semantic ranges; richer content trees remain an open question. Recompile canonical TEI to migrate older generated output rather than guessing missing order or corrected spacing offsets.
+The local reference viewer exercises the current slice; there is no complete TEI/revision implementation. Physical components versus intellectual works, richer revision alternatives/chronology and broader mappings need further source and consumer evidence. Runtime consumers currently use text plus semantic ranges; richer content trees remain an open question. Recompile canonical TEI to migrate older generated output rather than guessing missing order or corrected spacing offsets.
