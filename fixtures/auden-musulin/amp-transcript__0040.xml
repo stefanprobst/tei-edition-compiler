@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="amp-transcript__0040.xml" xml:base="https://id.acdh.oeaw.ac.at/auden-musulin-papers">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Auden Musulin Papers: A Digital Edition of W. H. Auden´s Letters to Stella Musulin (FWF P 33754)</title>
+            <title level="a">Autograph Letter Signed W. H. Auden to Stella Musulin 1969-06-10</title>
+            <author ref="https://d-nb.info/gnd/118650963">Auden, W. H.</author>
+            <editor><name xml:id="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name xml:id="tfruehwirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name xml:id="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></editor>
+            <funder>
+               <name>Austrian Science Fund (FWF)</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Vienna</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Vienna</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               <title>Autograph Letter Signed W. H. Auden to Stella Musulin 1969-06-10</title>
+            </edition>
+            <respStmt><resp>Transcription and commentary</resp><name sameAs="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name sameAs="tfruewirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name sameAs="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></respStmt>
+            <respStmt><resp>Generation of computer-vision visualizations</resp><name xml:id="sbrenner" ref="https://orcid.org/0000-0001-6909-7099">Brenner, Simon</name></respStmt>
+         <respStmt><resp>TEI Schema, ODD/RNG</resp><name ref="https://orcid.org/0000-0002-9575-9372" xml:id="pandorfer">Andorfer, Peter</name><name ref="https://orcid.org/0000-0002-0636-4476" xml:id="delsner">Elsner, Daniel</name></respStmt></editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2024">2024</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.en">
+                  <p>You are free to: Share — copy and redistribute the material in any medium or format; adapt — remix, transform, and build upon the material
+for any purpose, even commercially.</p>
+                  <p>The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms:</p>
+                  <p>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+                  <p>Notices:</p>
+                  <p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+               </licence>
+               <p>Copyright literary texts W. H. Auden Estate of W. H. Auden.</p>
+            </availability>
+         <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-C32D-4</idno></publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Auden Musulin Papers</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>St. Pölten</settlement>
+                        <repository>State Collections of Lower Austria</repository>
+                        <collection>Stella Musulin (Depot)</collection>
+                        <idno>1, 26</idno>
+                     </msIdentifier>
+                     <history>
+                        <origin>
+                           <origDate notBefore-iso="1969-06-10T00:00:00+01:00" notAfter-iso="1969-06-10T23:59:59+01:00">1969-06-10</origDate>
+                           <origPlace ref="#amp_place_id_2">Hinterholz 6</origPlace>
+                        </origin>
+                     </history>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <listPrefixDef>
+            <prefixDef ident="acdh" matchPattern="(.+)" replacementPattern="https://id.acdh.oeaw.ac.at/auden-musulin-papers/$1">
+               <p>Edition Documents Prefix</p>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="en">English</language>
+            <language ident="de">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <orgName><rs type="org" ref="#amp_organization_70">Postamt Kirchstetten (post office Kirchstetten)</rs></orgName>
+               <placeName><rs type="place" ref="#amp_place_id_5">Kirchstetten</rs></placeName>
+               <date notBefore-iso="1969-06-10T16:00:01+01:00" notAfter-iso="1969-06-10T17:00:00+01:00">1969-06-10T16:00:01+01:00/1969-06-10T17:00:00+01:00</date>
+            </correspAction>
+            <correspAction type="transmitted">
+               <orgName><rs type="org" ref="#amp_organization_73">Hauptpostamt 1030 (main post office 1030)</rs></orgName>
+               <placeName><rs type="place" ref="#amp_place_id_1">Vienna</rs></placeName>
+               <date notBefore-iso="1969-06-11T05:00:01+01:00" notAfter-iso="1969-06-11T06:00:00+01:00">1969-06-11T05:00:01+01:00/1969-06-11T06:00:00+01:00</date>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#amp_person_2">Musulin, Stella</persName>
+               <placeName><rs type="place" ref="#amp_place_id_11">Neulinggasse 26</rs></placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="#amp_person_1">Auden, W. H.</ref>
+               <ref type="belongsToCorrespondence" target="#amp_person_2">Musulin, Stella</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="#amp-transcript__0053.xml">Typed Letter Stella Musulin to [Edith Silbermann] 1969-05-29</ref>
+               <ref subtype="next_letter" type="withinCollection" target="#amp-transcript__0043.xml">Autograph Letter Signed W. H. Auden to Stella Musulin with Typescript W. H. Auden "Freedom and Necessity in the Arts" 1970-05-21</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="published">
+         <change who="pandorfer" when="2021-09-21">template populated with script "create_templates.py"</change>
+         <change who="tfruehwirth" when="2021-10-29">text transcribed</change>
+         <change who="smayer" when="2021-10-29">text transcribed</change>
+         <change who="smayer tfruehwirth" when="2021-10-29">transcriptions collated</change>
+         <change who="smayer tfruehwirth" when="2022-04-01">transcription reviewed, `space` element and `hand` attributes added, date format in `origDate` and `correspAction`/`date` modified</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2023-02-27">entities and correspDesc collated</change>
+         <change who="smayer tfruehwirth" when="2023-05-11">CVL transcription inserted</change>
+         <change who="smayer tfruehwirth" when="2023-08-08">container structure updated</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2024-01-12">entities updated, internal events created</change>
+         <change who="smayer tfruehwirth" when="2024-06-24">revision markup updated</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <surface ulx="0" uly="0" lrx="4584" lry="3466">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0067/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="4580" lry="3466">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0068/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="7195" lry="10254">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0069/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="8964" lry="12657">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0461/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="7060" lry="10271">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0070/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="8927" lry="12619">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0462/"/>
+      </surface>
+   </facsimile>
+   <text>
+      <body>
+         <div type="transcription" xml:id="transcription_amp_0040" xml:lang="en" hand="#handwritten">
+            <div type="envelope">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0067/" type="envelope" ed="1r"/>
+               <ab>
+                  Express<unclear>,</unclear>
+               </ab>
+               <ab xml:lang="de">
+                  <rs type="person" ref="#amp_person_2">Die Baronin<lb/>
+                  Stella Musulin</rs><lb/>
+                  <address>
+                     <rs type="place" ref="#amp_place_id_11">Wien III<lb/>
+                     Neulingg<unclear>as</unclear>se 26/14</rs>
+                  </address>
+               </ab>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0068/" type="envelope" ed="1v"/>
+               <ab>
+                  <rs type="person" ref="#amp_person_1">WH<unclear>.</unclear> A<unclear>uden</unclear></rs>
+                  <placeName>
+                     <seg hand="#printed">
+                        <address xml:lang="de">
+                           <rs type="place" ref="#amp_place_id_2">3062 KIRCHSTETTEN<lb/>
+                           BEZ. ST. PÖLTEN<lb/>
+                           HINTERHOLZ 6<lb/>
+                           N.-Ö., <foreign xml:lang="en">AUSTRIA</foreign></rs>
+                        </address>
+                     </seg>
+                  </placeName>
+               </ab>
+            </div>
+            <div type="letter">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0069/" type="sheet" ed="2r"/>
+               <div type="letter_message">
+                  <opener>
+                     <salute>
+                        Dear <rs type="person" ref="#amp_person_2">Stella</rs>:
+                     </salute>
+                  </opener>
+                  <p>
+                     <rs type="event" ref="#amp_event_id_97">Saturday w<unclear>i</unclear>ll be fine</rs>. Shall<lb/>
+                     look forward to it<unclear>,</unclear>
+                  </p>
+                  <closer>
+                     <salute>
+                        love
+                     </salute>
+                     <signed>
+                        <rs type="person" ref="#amp_person_1">Wystan</rs>
+                     </signed>
+                  </closer>
+               </div>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0461/" type="cv_sheet" ed="2r-cv"/>
+               <div hand="#typed">
+                  <fw type="pageNum">
+                     <space extent="undefined quantity of characters plus minimum" min="37" unit="char"/>(2
+                  </fw>
+               </div>
+               <div type="poem" hand="#typed">
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>issue proper ins<unclear>t</unclear>ru<unclear>c</unclear>tions?<gap quantity="1" unit="char" reason="illegible"/><unclear>N</unclear>ot,certainly,</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>our global archons <gap quantity="1" unit="char" reason="illegible"/><unclear>h</unclear>ose toplofty<gap quantity="1" unit="char" reason="illegible"/>slogans</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>are <unclear>a</unclear>s off the m<gap quantity="1" unit="char" reason="illegible"/>rk as their syntax<gap quantity="1" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>is vague.(They w<gap quantity="1" unit="char" reason="illegible"/>ul<unclear>d</unclear> be figures of fun,if</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>very c<unclear>l</unclear>ever little boys <unclear>ha</unclear>d not foun<gap quantity="1" unit="char" reason="illegible"/> it<gap quantity="1" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters"/><l>amusin<unclear>g</unclear> t<unclear>o</unclear> build devices for them,more</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><gap quantity="1" unit="char" reason="illegible"/>pt<gap quantity="1" unit="char" reason="illegible"/>at disasse<gap quantity="1" unit="char" reason="illegible"/>bl<unclear>y</unclear> t<unclear>h</unclear><gap quantity="1" unit="char" reason="illegible"/>n any</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>old fire-s<unclear>e</unclear>ewing theogoni<gap quantity="1" unit="char" reason="illegible"/>monster.)</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>To be responsible fo<gap quantity="1" unit="char" reason="illegible"/> the ha<gap quantity="2" unit="char" reason="illegible"/>iness</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>of the<gap quantity="1" unit="char" reason="illegible"/>Univ<unclear>e</unclear>rse is n<unclear>o</unclear>t <gap quantity="2" unit="char" reason="illegible"/> sin<gap quantity="1" unit="char" reason="illegible"/>cure:</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>in<gap quantity="1" unit="char" reason="illegible"/>elite l<gap quantity="1" unit="char" reason="illegible"/>n<unclear>d</unclear>s <gap quantity="3" unit="char" reason="illegible"/>r gener<gap quantity="1" unit="char" reason="illegible"/>tion</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><unclear>m</unclear><gap quantity="1" unit="char" reason="illegible"/><unclear>y</unclear><gap quantity="2" unit="char" reason="illegible"/>e c<gap quantity="1" unit="char" reason="illegible"/>lled<gap quantity="1" unit="char" reason="illegible"/>to <gap quantity="2" unit="char" reason="illegible"/>t<gap quantity="1" unit="char" reason="illegible"/>for a<gap quantity="2" unit="char" reason="illegible"/>isci<unclear>p</unclear>line</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>that outpeers the <unclear>m</unclear>o<unclear>n</unclear><gap quantity="1" unit="char" reason="illegible"/>s,<gap quantity="1" unit="char" reason="illegible"/> <gap quantity="1" unit="char" reason="illegible"/>ay of obe<gap quantity="1" unit="char" reason="illegible"/>ience,</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="1" unit="char" reason="illegible"/>ov<unclear>er</unclear>ty <gap quantity="1" unit="char" reason="illegible"/>nd - good<gap quantity="3" unit="char" reason="illegible"/>ief<gap quantity="1" unit="char" reason="illegible"/> - perh<gap quantity="2" unit="char" reason="illegible"/>s ch<gap quantity="2" unit="char" reason="illegible"/>tity,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>yet in <unclear>th</unclear>is <unclear>W</unclear>orld's ill-we<unclear>a</unclear>thered o<unclear>p</unclear>en,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>a fres<unclear>h</unclear> v<gap quantity="1" unit="char" reason="illegible"/>nture p<gap quantity="1" unit="char" reason="illegible"/>efig<unclear>u</unclear>r<gap quantity="1" unit="char" reason="illegible"/>d in folk-tales</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="1" unit="char" reason="illegible"/>s the <gap quantity="1" unit="char" reason="illegible"/>uest Perilous<unclear>.</unclear> <gap quantity="1" unit="char" reason="illegible"/>or such wayfarers,</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>w<gap quantity="1" unit="char" reason="illegible"/><unclear>a</unclear>t should we write <gap quantity="1" unit="char" reason="illegible"/>o give them the nourishment,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>w<unclear>a</unclear>rmth and<gap quantity="1" unit="char" reason="illegible"/>sh<unclear>e</unclear>lter the<unclear>y</unclear>'ll be in need of?</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><gap quantity="1" unit="char" reason="illegible"/>othing o<gap quantity="1" unit="char" reason="illegible"/>scene o<gap quantity="2" unit="char" reason="illegible"/>unple<unclear>a</unclear>sant: only</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>the unscarred overfed<gap quantity="1" unit="char" reason="illegible"/>enjoy Calvary</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="1" unit="char"/><l>as a verbal event. <gap quantity="2" unit="char" reason="illegible"/>r satiric: no</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>scorn will ashame<gap quantity="2" unit="char" reason="illegible"/>he<gap quantity="5" unit="char" reason="illegible"/><unclear>r</unclear>sary<unclear>.</unclear></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>Nor shod<gap quantity="1" unit="char" reason="illegible"/>ily m<gap quantity="1" unit="char" reason="illegible"/>de:<gap quantity="1" unit="char" reason="illegible"/>to give a stunning</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>display of concinnity<gap quantity="1" unit="char" reason="illegible"/><unclear>a</unclear>nd elegance</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>is<gap quantity="1" unit="char" reason="illegible"/>the le<gap quantity="2" unit="char" reason="illegible"/>t we<gap quantity="1" unit="char" reason="illegible"/>c<unclear>a</unclear>n<gap quantity="1" unit="char" reason="illegible"/>d<gap quantity="1" unit="char" reason="illegible"/><unclear>,</unclear>an<unclear>d</unclear> its domin<gap quantity="1" unit="char" reason="illegible"/>nt</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><subst><del rend="overtyped"><gap quantity="1" unit="char" reason="illegible"/>o<gap quantity="1" unit="char" reason="illegible"/>e</del><add place="above">mood</add></subst> shoul<gap quantity="1" unit="char" reason="illegible"/> be that<gap quantity="4" unit="char" reason="illegible"/>a<gap quantity="3" unit="char" reason="illegible"/>r<gap quantity="1" unit="char" reason="illegible"/>iv<gap quantity="1" unit="char" reason="illegible"/>l<unclear>.</unclear></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>Let<gap quantity="1" unit="char" reason="illegible"/>us hymn the<gap quantity="1" unit="char" reason="illegible"/>s<gap quantity="3" unit="char" reason="illegible"/><unclear>l</unclear>l <gap quantity="1" unit="char" reason="illegible"/>ut journal<gap quantity="1" unit="char" reason="illegible"/>wond<unclear>e</unclear>rs</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>of Nature and familie<gap quantity="2" unit="char" reason="illegible"/>and then finish</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>on<gap quantity="2" unit="char" reason="illegible"/> serio-comic <unclear>n</unclear>ote <gap quantity="1" unit="char" reason="illegible"/>ith legends<gap quantity="1" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>of ultimate <del rend="overtyped">e<gap quantity="2" unit="char" reason="illegible"/><unclear>n</unclear>t<gap quantity="2" unit="char" reason="illegible"/>t<gap quantity="1" unit="char" reason="illegible"/>phe</del> euc<unclear>a</unclear>tastrophe,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>regeneration bey<gap quantity="1" unit="char" reason="illegible"/>n<gap quantity="2" unit="char" reason="illegible"/> the w<gap quantity="1" unit="char" reason="illegible"/>ters.</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="1" unit="char" reason="illegible"/>ut perhaps you think<gap quantity="1" unit="char" reason="illegible"/><unclear>p</unclear>oems are as foolish</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>as most po<unclear>e</unclear>ts,and wou<unclear>l</unclear><gap quantity="1" unit="char" reason="illegible"/> rather<gap quantity="1" unit="char" reason="illegible"/>spend yo<unclear>u</unclear>r s<gap quantity="2" unit="char" reason="illegible"/>re</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>moments rom<unclear><subst><del rend="overtyped">f</del><add place="superimposed">p</add></subst></unclear>ing around in <unclear>C</unclear>antor's</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>logic<unclear>a</unclear>l paradise o<gap quantity="1" unit="char" reason="illegible"/> beseeching</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>such knotty points <gap quantity="1" unit="char" reason="illegible"/>s<gap quantity="1" unit="char" reason="illegible"/><hi rend="underline"><gap quantity="1" unit="char" reason="illegible"/><unclear>a</unclear>n we hang a robber</hi></l>
+                     <lb/><space extent="undefined quantity of characters"/><l><hi rend="underline">w<gap quantity="1" unit="char" reason="illegible"/>o is not there?</hi> or <hi rend="underline"><gap quantity="1" unit="char" reason="illegible"/>h<gap quantity="1" unit="char" reason="illegible"/>t is the color of</hi></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><hi rend="underline">the <gap quantity="3" unit="char" reason="illegible"/>ber Three</hi>. <gap quantity="1" unit="char" reason="illegible"/><unclear>h</unclear>y not? <gap quantity="1" unit="char" reason="illegible"/>ll <gap quantity="1" unit="char" reason="illegible"/>le<gap quantity="1" unit="char" reason="illegible"/>sures</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>come from <gap quantity="1" unit="char" reason="illegible"/>od. <gap quantity="1" unit="char" reason="illegible"/>in<gap quantity="1" unit="char" reason="illegible"/>e I <hi rend="underline">am</hi> your godfather,</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>let me close this letter with some worl<gap quantity="1" unit="char" reason="illegible"/>ly <gap quantity="1" unit="char" reason="illegible"/>axi<gap quantity="1" unit="char" reason="illegible"/>s:</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><hi rend="underline"><gap quantity="1" unit="char" reason="illegible"/>e <gap quantity="1" unit="char" reason="illegible"/>l<unclear>a</unclear>d<gap quantity="1" unit="char" reason="illegible"/>your<gap quantity="1" unit="char" reason="illegible"/>b<unclear>e</unclear>ing is<gap quantity="1" unit="char" reason="illegible"/>unnecessa<unclear>r</unclear>y</hi>,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><hi rend="underline">th<unclear>e</unclear>n,turn your toes out <unclear>a</unclear>s<gap quantity="1" unit="char" reason="illegible"/>you w<gap quantity="1" unit="char" reason="illegible"/>lk,de<gap quantity="1" unit="char" reason="illegible"/>r</hi>,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><hi rend="underline">and remember who y<gap quantity="1" unit="char" reason="illegible"/>u are,a<gap quantity="2" unit="char" reason="illegible"/><unclear>p</unclear>ender</hi>.</l>
+                  </lg>
+               </div>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0070/" type="sheet" ed="2v"/>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0462/" type="cv_sheet" ed="2v-cv"/>
+               <div type="poem" hand="#typed">
+                  <head>
+                     <space extent="undefined quantity of characters plus minimum" min="10" unit="char"/><rs type="lit_work" ref="#lit_work_id_166"><hi rend="underline"><unclear>E</unclear><gap quantity="7" unit="char" reason="illegible"/>TO<gap reason="illegible"/>GODS<gap quantity="2" unit="char" reason="illegible"/></hi></rs><lb/>
+                  </head>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l><hi rend="underline"><gap atLeast="12" atMost="13" unit="char" reason="illegible"/></hi><gap atMost="2" unit="char" reason="illegible"/>h<gap quantity="1" unit="char" reason="illegible"/>nk<gap reason="illegible"/><unclear>o</unclear>r<gap quantity="1" unit="char" reason="illegible"/>b<gap quantity="1" unit="char" reason="illegible"/>ozy g<unclear>od</unclear>f<gap quantity="1" unit="char" reason="illegible"/>thers"</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>y<gap quantity="1" unit="char" reason="illegible"/>u<gap quantity="1" unit="char" reason="illegible"/>wrote i<gap quantity="3" unit="char" reason="illegible"/>ur<gap quantity="1" unit="char" reason="illegible"/>gue<gap reason="illegible"/><unclear>t</unclear>-book,w<gap quantity="1" unit="char" reason="illegible"/>ich was flattering<unclear>:</unclear></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>t<unclear><del rend="overtyped">r</del></unclear>ough <gap quantity="1" unit="char" reason="illegible"/>'ve <unclear>r</unclear>ea<unclear>c</unclear>h<unclear>e</unclear><gap reason="illegible"/>the years wh<unclear>e</unclear>n discretion</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>calls for a<gap quantity="1" unit="char" reason="illegible"/>yearl<gap reason="illegible"/>me<gap quantity="1" unit="char" reason="illegible"/>ical check-up,</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l><unclear>w</unclear>ho<gap quantity="4" unit="char" reason="illegible"/>I<gap quantity="1" unit="char" reason="illegible"/>to<gap quantity="1" unit="char" reason="illegible"/>avo<gap quantity="1" unit="char" reason="illegible"/>ch f<gap reason="illegible"/>r<gap quantity="1" unit="char" reason="illegible"/>a Christian<gap atMost="5" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters"/><l>baby,f<unclear>a</unclear>r le<gap quantity="1" unit="char" reason="illegible"/>s offer <gap reason="illegible"/>o<gap quantity="1" unit="char" reason="illegible"/>tly pl<gap quantity="1" unit="char" reason="illegible"/>titudes</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>to a young man<gap quantity="2" unit="char" reason="illegible"/>I<gap reason="illegible"/> y<gap quantity="2" unit="char" reason="illegible"/>te<gap quantity="2" unit="char" reason="illegible"/>ti<gap quantity="1" unit="char" reason="illegible"/>es it</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>was diff<gap quantity="1" unit="char" reason="illegible"/>rent: th<gap reason="illegible"/> old could be helpful</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>when<gap quantity="1" unit="char" reason="illegible"/>they could<gap quantity="1" unit="char" reason="illegible"/>ni<gap reason="illegible"/>e<gap quantity="1" unit="char" reason="illegible"/>vi<unclear>s</unclear><gap quantity="1" unit="char" reason="illegible"/>ge<gap quantity="1" unit="char" reason="illegible"/><unclear>t</unclear>h<gap quantity="3" unit="char" reason="illegible"/>uture</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>as a <gap quantity="2" unit="char" reason="illegible"/>me<gap quantity="2" unit="char" reason="illegible"/>le settle<gap reason="illegible"/><unclear>la</unclear>n<gap quantity="2" unit="char" reason="illegible"/>c<gap quantity="1" unit="char" reason="illegible"/>p<gap quantity="2" unit="char" reason="illegible"/>t<gap quantity="2" unit="char" reason="illegible"/>ir children</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>woul<unclear>d</unclear> <unclear>m</unclear><gap quantity="1" unit="char" reason="illegible"/>ke <unclear>t</unclear>he<gap quantity="1" unit="char" reason="illegible"/>s<gap reason="illegible"/>e<gap quantity="1" unit="char" reason="illegible"/>sense of <gap quantity="3" unit="char" reason="illegible"/>they did,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>l<gap quantity="1" unit="char" reason="illegible"/>ug<unclear>h</unclear>ing and w<gap reason="illegible"/>ing at the same stories.</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l><del rend="overtyped"><gap quantity="1" unit="char" reason="illegible"/>hen</del></l>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="1" unit="char" reason="illegible"/><unclear>h</unclear>e<unclear>n</unclear> she<gap quantity="1" unit="char" reason="illegible"/><unclear>p</unclear> and g<unclear>o</unclear><gap quantity="1" unit="char" reason="illegible"/>t<gap reason="illegible"/>s<gap quantity="3" unit="char" reason="illegible"/>e<gap quantity="1" unit="char" reason="illegible"/>sy<gap quantity="1" unit="char" reason="illegible"/>to re<unclear>cogn</unclear>ize,</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>local f<gap quantity="1" unit="char" reason="illegible"/>un<unclear>a</unclear>:<gap quantity="1" unit="char" reason="illegible"/>g<unclear>oo</unclear>d m<gap reason="illegible"/>t <gap quantity="1" unit="char" reason="illegible"/>ile<gap quantity="1" unit="char" reason="illegible"/> the s<unclear>hoe</unclear>m<unclear>a</unclear>ker</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>t<unclear>a</unclear><gap quantity="1" unit="char" reason="illegible"/>ing<gap quantity="1" unit="char" reason="illegible"/><unclear>e</unclear>ar<unclear>e</unclear> of<gap quantity="1" unit="char" reason="illegible"/>t<gap reason="illegible"/> vill<gap quantity="1" unit="char" reason="illegible"/>ge ni<unclear>n</unclear><gap quantity="1" unit="char" reason="illegible"/>y,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><gap quantity="1" unit="char" reason="illegible"/>vil Count ffoul<gap reason="illegible"/>es who<gap quantity="1" unit="char" reason="illegible"/>in<gap quantity="1" unit="char" reason="illegible"/>hi<gap quantity="1" unit="char" reason="illegible"/> tall <unclear>d</unclear><gap quantity="1" unit="char" reason="illegible"/><unclear>n</unclear><gap quantity="2" unit="char" reason="illegible"/>n<gap quantity="1" unit="char" reason="illegible"/></l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>indulged in si<gap quantity="1" unit="char" reason="illegible"/>ist<gap reason="illegible"/> <gap quantity="3" unit="char" reason="illegible"/>e<gap quantity="2" unit="char" reason="illegible"/>riciti<gap quantity="1" unit="char" reason="illegible"/> <gap quantity="1" unit="char" reason="illegible"/>cxe<unclear>n</unclear>tricities.</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="2" unit="char" reason="illegible"/>t <hi rend="underline">I s<unclear>p</unclear>e<unclear>a</unclear>k from <unclear>ex</unclear><gap reason="illegible"/>i<gap quantity="1" unit="char" reason="illegible"/>nce</hi>,<gap quantity="1" unit="char" reason="illegible"/>ow could I</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>s<unclear>a</unclear>y th<gap quantity="1" unit="char" reason="illegible"/>t to  you,<gap reason="illegible"/><unclear>to</unclear> <gap quantity="1" unit="char" reason="illegible"/>an't re<unclear>m</unclear>e<gap quantity="1" unit="char" reason="illegible"/>ber</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>when everyone tr<gap reason="illegible"/>velled by r<gap quantity="1" unit="char" reason="illegible"/>ilway</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>and the<gap quantity="1" unit="char" reason="illegible"/>p<gap quantity="1" unit="char" reason="illegible"/>o<unclear>r</unclear>r<gap quantity="1" unit="char" reason="illegible"/>were <gap reason="illegible"/>t t<unclear>he</unclear>y were used to being,</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>the cre<gap quantity="1" unit="char" reason="illegible"/>t<unclear>o</unclear><gap quantity="1" unit="char" reason="illegible"/><unclear>s</unclear><gap quantity="1" unit="char" reason="illegible"/><unclear>of</unclear><gap quantity="1" unit="char" reason="illegible"/>w<gap reason="illegible"/>ot,as <gap quantity="2" unit="char" reason="illegible"/>w <unclear>t</unclear>hey are,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>a<gap quantity="2" unit="char" reason="illegible"/>expensive n<gap quantity="1" unit="char" reason="illegible"/>i<gap reason="illegible"/>.(<gap quantity="3" unit="char" reason="illegible"/>o<unclear>d</unclear>y<gap atMost="5" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>has dar<unclear>e</unclear>d suggest<gap quantity="1" unit="char" reason="illegible"/>g<gap quantity="1" unit="char" reason="illegible"/>ssing them,but someone</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>su<unclear>re</unclear>ly will<unclear>,</unclear>) <gap quantity="1" unit="char" reason="illegible"/>o<gap reason="illegible"/>n't n<unclear>ee</unclear>d <gap quantity="1" unit="char" reason="illegible"/>e t<unclear>o</unclear> tell you  what's</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="2" unit="char" reason="illegible"/>i<unclear>n</unclear><gap quantity="1" unit="char" reason="illegible"/> <unclear>o</unclear><gap quantity="2" unit="char" reason="illegible"/><unclear>:</unclear><gap quantity="1" unit="char" reason="illegible"/>the <gap quantity="2" unit="char" reason="illegible"/><unclear>ck</unclear><gap reason="illegible"/>r<gap quantity="1" unit="char" reason="illegible"/>tic media,<gap atMost="7" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>joint with <gap quantity="2" unit="char" reason="illegible"/>nd<gap reason="illegible"/>e<unclear>-</unclear><gap quantity="1" unit="char" reason="illegible"/>ryer gossi<unclear>p</unclear>,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>process and ven<gap reason="illegible"/>without intermission</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>all <unclear>T</unclear>o-<gap quantity="2" unit="char" reason="illegible"/>y's ugly <gap reason="illegible"/><unclear>r</unclear>ets<gap quantity="2" unit="char" reason="illegible"/> <unclear><del rend="overtyped">I</del></unclear><gap quantity="2" unit="char" reason="illegible"/><unclear>g</unclear><gap quantity="4" unit="char" reason="illegible"/><unclear>e</unclear> Imageable</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><unclear>n</unclear>o longer,a fe<gap quantity="1" unit="char" reason="illegible"/>tu<gap reason="illegible"/>less anonymous</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>thre<gap quantity="1" unit="char" reason="illegible"/>t<gap quantity="1" unit="char" reason="illegible"/>from<gap quantity="2" unit="char" reason="illegible"/>ehi<gap reason="illegible"/>d,<gap quantity="2" unit="char" reason="illegible"/>-<gap quantity="1" unit="char" reason="illegible"/>orrow has us</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>gallowed shitless: if what is to h<gap quantity="1" unit="char" reason="illegible"/>ppen</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>occurs a<gap quantity="3" unit="char" reason="illegible"/>r<gap quantity="1" unit="char" reason="illegible"/>ing to<gap reason="illegible"/> what <gap quantity="1" unit="char" reason="illegible"/>hu<gap quantity="1" unit="char" reason="illegible"/>ydides<unclear>d</unclear>es</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>defi<unclear>n</unclear>ed<gap quantity="1" unit="char" reason="illegible"/>as 'hu<gap quantity="2" unit="char" reason="illegible"/>n',<gap reason="illegible"/>'ve had<gap quantity="1" unit="char" reason="illegible"/>it,are in for</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>a dis<unclear>as</unclear>ter th<unclear>a</unclear>t <gap reason="illegible"/>o <gap quantity="1" unit="char" reason="illegible"/>our-letter</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>words will t<unclear>ard</unclear>y<unclear>.</unclear> I've beheld in <unclear>n</unclear>ightmares</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>(wh<gap quantity="4" unit="char" reason="illegible"/>s<unclear>n</unclear>'t?) lik<gap quantity="1" unit="char" reason="illegible"/>ly a<gap quantity="1" unit="char" reason="illegible"/>ominations: seet<unclear>h</unclear>ing</l>
+                     <lb/><space extent="undefined quantity of characters"/><l><gap quantity="2" unit="char" reason="illegible"/>h<unclear>a</unclear>vior<gap quantity="2" unit="char" reason="illegible"/> si<unclear>n</unclear>ks,t<unclear>h</unclear>e <unclear>:</unclear>us<unclear>e</unclear>s s<gap quantity="1" unit="char" reason="illegible"/>uttering,</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>s<gap quantity="1" unit="char" reason="illegible"/><unclear>e</unclear>lly,fro<unclear>m</unclear> <unclear>e</unclear>utr<gap reason="illegible"/>hi<unclear>o</unclear>d <gap quantity="1" unit="char" reason="illegible"/>elicon,<gap quantity="1" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>the <gap quantity="1" unit="char" reason="illegible"/>itches <unclear>S</unclear>ab<gap reason="illegible"/>th on Garbage <gap quantity="1" unit="char" reason="illegible"/>ount<gap quantity="1" unit="char" reason="illegible"/>in,</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>Herod's<gap quantity="7" unit="char" reason="illegible"/>ti<gap quantity="2" unit="char" reason="illegible"/>ge<gap reason="illegible"/>etic engin<gap quantity="1" unit="char" reason="illegible"/>ers comm<unclear>a</unclear>nded</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>to<gap quantity="4" unit="char" reason="illegible"/>ify<gap quantity="1" unit="char" reason="illegible"/>th<gap quantity="1" unit="char" reason="illegible"/> <gap quantity="3" unit="char" reason="illegible"/>o<gap reason="illegible"/>ts.<gap quantity="2" unit="char" reason="illegible"/>y<gap quantity="1" unit="char" reason="illegible"/>then,<gap quantity="1" unit="char" reason="illegible"/>ith</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><gap quantity="2" unit="char" reason="illegible"/><unclear>y</unclear> luck,the t<unclear>a</unclear><gap reason="illegible"/>gible Me shoul<gap atMost="4" unit="char" reason="illegible"/></l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>be mineral,too <unclear>s</unclear><gap reason="illegible"/>t in my habits</l>
+                  </lg>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters"/><l>to <unclear>d</unclear>istinguish light from d<gap quantity="1" unit="char" reason="illegible"/>rkness and valued,</l>
+                     <lb/><space extent="undefined quantity of characters"/><l>in current prices,<unclear>at</unclear> three-dollars-fifty:</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l><gap quantity="1" unit="char" reason="illegible"/>ut you could we<unclear>l</unclear>l be th<unclear>e</unclear>re if what is</l>
+                     <lb/><space extent="undefined quantity of characters plus minimum" min="3" unit="char"/><l>ri<gap quantity="1" unit="char" reason="illegible"/>ely is <unclear>n</unclear>ot pr<gap quantity="1" unit="char" reason="illegible"/>mptly done. Y<unclear>e</unclear>t who can</l>
+                  </lg>
+               </div>
+               <div hand="#typed">
+                  <ab>
+                     <space extent="undefined quantity of characters plus minimum" min="31" unit="char"/>P.T.O.
+                  </ab>
+               </div>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,10 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="synthetic-register">
+  <teiHeader><fileDesc><titleStmt><title>Synthetic authority register</title></titleStmt></fileDesc></teiHeader>
+  <text><body>
+    <listPerson><person xml:id="person1"><persName><forename>Ada</forename><surname>Example</surname></persName></person></listPerson>
+    <listPlace><place xml:id="place1"><placeName>Example Town</placeName></place></listPlace>
+    <listOrg><org xml:id="org1"><orgName>Example Society</orgName></org></listOrg>
+    <listEvent><event xml:id="event1"><label>Example Gathering</label></event></listEvent>
+    <listBibl><bibl xml:id="work1"><title>Example Work</title></bibl></listBibl>
+  </body></text>
+</TEI>

@@ -1,0 +1,16 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="generic-document.xml" xml:lang="en">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt><title level="a">Synthetic generic edition</title></titleStmt>
+      <sourceDesc><msDesc><history><origin><origDate when="1900">1900</origDate></origin></history></msDesc></sourceDesc>
+    </fileDesc>
+    <profileDesc><langUsage><language ident="en">English</language><language ident="de">German</language></langUsage></profileDesc>
+  </teiHeader>
+  <facsimile><surface xml:id="front"><graphic url="images/front.jpg"/></surface></facsimile>
+  <text><body>
+    <pb facs="#front"/>
+    <p>Hello <rs type="human" ref="#person1">A.</rs> in <rs type="location" ref="#place1">here</rs>.</p>
+    <lg xml:lang="de"><l>Ein <del>altes</del><add>neues</add><space quantity="1" unit="char"/>Wort.</l></lg>
+    <p>See <ref target="local:other.xml">another document</ref>.</p>
+  </body></text>
+</TEI>

@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="amp-transcript__0043.xml" xml:base="https://id.acdh.oeaw.ac.at/auden-musulin-papers">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Auden Musulin Papers: A Digital Edition of W. H. Auden´s Letters to Stella Musulin (FWF P 33754)</title>
+            <title level="a">Autograph Letter Signed W. H. Auden to Stella Musulin with Typescript W. H. Auden "Freedom and Necessity in the Arts" 1970-05-21</title>
+            <author ref="https://d-nb.info/gnd/118650963">Auden, W. H.</author>
+            <editor><name xml:id="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name xml:id="tfruehwirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name xml:id="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></editor>
+            <funder>
+               <name>Austrian Science Fund (FWF)</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Vienna</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Vienna</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               <title>Autograph Letter Signed W. H. Auden to Stella Musulin with Typescript W. H. Auden "Freedom and Necessity in the Arts" 1970-05-21</title>
+               <interpGrp>
+                  <interp xml:id="ana_025" source="ph_025"><!-- link -->
+                     <desc>
+                        According to her memoir <ref target="acdh:amp-transcript__0062.xml">"The Years in Austria"</ref> (26), <rs type="person" ref="#amp_person_2">Stella Musulin</rs> translated <rs type="person" ref="#amp_person_1">W. H. Auden</rs>'s speech <rs type="lit_work" ref="#lit_work_id_85">"Freedom and Necessity in the Arts"</rs>. This <rs type="lit_work" ref="#lit_work_id_91">translated speech</rs> he delivered at <rs type="event" ref="#amp_event_id_37">Lyrik 70</rs> and was published, without a title or indication of the translator, in the first issue of the literary journal <hi rend="italic">Podium</hi>.
+                        <listBibl>
+                           <bibl sameAs="acdh:amp-index-works.xml#lit_work_id_91">
+                              <author ref="acdh:amp-index-persons.xml#amp_person_1"/>
+                              <author role="translator" ref="acdh:amp-index-persons.xml#amp_person_2"/>
+                              <title level="a">No title</title>
+                              <title level="j">Podium</title>
+                              <editor>
+                                 <orgName>Literaturkreis Schloß Neulengbach</orgName>
+                              </editor>
+                              <publisher>Gottfried Grasl</publisher>
+                              <pubPlace>Bad Vöslau</pubPlace>
+                              <date when-iso="1971-04"/>
+                              <biblScope unit="page" from="31" to="34"/>
+                           </bibl>
+                           <bibl sameAs="acdh:amp-transcript__0062.xml">
+                              <citedRange unit="page" from="26" to="26"/>
+                           </bibl>
+                        </listBibl>
+                     </desc>
+                     <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                     <certainty cert="high" locus="value"/>
+                  </interp>
+               </interpGrp>
+            </edition>
+            <respStmt><resp>Transcription and commentary</resp><name sameAs="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name sameAs="tfruewirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name sameAs="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></respStmt>
+         <respStmt><resp>TEI Schema, ODD/RNG</resp><name ref="https://orcid.org/0000-0002-9575-9372" xml:id="pandorfer">Andorfer, Peter</name><name ref="https://orcid.org/0000-0002-0636-4476" xml:id="delsner">Elsner, Daniel</name></respStmt></editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2024">2024</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.en">
+                  <p>You are free to: Share — copy and redistribute the material in any medium or format; adapt — remix, transform, and build upon the material
+for any purpose, even commercially.</p>
+                  <p>The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms:</p>
+                  <p>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+                  <p>Notices:</p>
+                  <p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+               </licence>
+               <p>Copyright literary texts W. H. Auden Estate of W. H. Auden.</p>
+            </availability>
+         <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-C330-F</idno></publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Auden Musulin Papers</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>St. Pölten</settlement>
+                        <repository>State Collections of Lower Austria</repository>
+                        <collection>Stella Musulin (Depot)</collection>
+                        <idno>1, 34</idno>
+                     </msIdentifier>
+                     <history>
+                        <origin><origDate notBefore-iso="1970-05-21T00:00:00+01:00" notAfter-iso="1970-05-21T23:59:59+01:00">1970-05-21</origDate></origin>
+                     </history>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <charDecl>
+            <glyph xml:id="uml_a_lc_tt">
+               <desc>lower-case German ä rendered by superimposing typed double-quotation-mark character (") on typed lower-case a</desc>
+            </glyph>
+         </charDecl>
+         <listPrefixDef>
+            <prefixDef ident="acdh" matchPattern="(.+)" replacementPattern="https://id.acdh.oeaw.ac.at/auden-musulin-papers/$1">
+               <p>Edition Documents Prefix</p>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="en">English</language>
+            <language ident="de">German</language>
+            <language ident="fr">French</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="received">
+               <persName ref="#amp_person_2">Musulin, Stella</persName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="#amp_person_1">Auden, W. H.</ref>
+               <ref type="belongsToCorrespondence" target="#amp_person_2">Musulin, Stella</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="#amp-transcript__0040.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1969-06-10</ref>
+               <ref subtype="next_letter" type="withinCollection" target="#amp-transcript__0015.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1970-06-10</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="published">
+         <change who="pandorfer" when="2022-01-25">template populated with script "create_templates.py"</change>
+         <change who="smayer" when="2022-01-26">text transcribed</change>
+         <change who="tfruehwirth" when="2022-01-26">text transcribed using Transkribus</change>
+         <change who="smayer tfruehwirth" when="2022-01-27">transcriptions collated</change>
+         <change who="smayer tfruehwirth" when="2022-06-07">transcription reviewed, `space` element and `hand` attributes added, date format in `origDate` and `correspAction`/`date` modified</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2023-02-28">entities and correspDesc collated</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2024-01-15">correspondence container structure updated, entities updated</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2024-07-11">revision markup updated</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <surface ulx="0" uly="0" lrx="5690" lry="7752">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0099/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5692" lry="7754">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0100/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5692" lry="7756">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0145/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5690" lry="7756">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0146/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5694" lry="7752">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0147/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5692" lry="7752">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0148/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5694" lry="7752">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0149/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5692" lry="7756">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0150/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5690" lry="7752">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0151/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5690" lry="7756">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0152/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5686" lry="7754">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0153/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5692" lry="7752">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0154/"/>
+      </surface>
+   </facsimile>
+   <text>
+      <body>
+         <div type="transcription" xml:id="transcription_amp_0043" xml:lang="en" hand="#typed">
+            <div type="letter">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0099/" type="sheet" ed="1r"/>
+               <div type="prose">
+                  <ab>
+                     <title>
+                        <rs type="lit_work" ref="#lit_work_id_90"><hi rend="underline">FREEDOM AND NECESSITY IN THE ARTS</hi></rs>
+                     </title>
+                  </ab>   
+               </div>
+               <div type="letter_message" hand="#handwritten">
+                  <opener>
+                     <dateline>
+                        <date rend="#block">
+                           May 21st.
+                        </date>
+                     </dateline>
+                     <salute>
+                        Dear <rs type="person" ref="#amp_person_2">S<subst><del rend="overwritten"><unclear>e</unclear></del><add place="superimposed">t</add></subst>ella</rs><unclear>·</unclear><lb/>
+                     </salute>
+                  </opener>
+                  <p>
+                     <rs type="note" ana="#ana_025">You're an angel</rs>. I have to deliver <rs type="lit_work" ref="#lit_work_id_85">this</rs><lb/>
+                     in <rs type="event" ref="#amp_event_id_37"><rs type="place" ref="#amp_place_id_47">Neulengbach</rs> on Sun<unclear>day</unclear>, June 14th</rs>.
+                  </p>
+                  <p>
+                     In case your dictionary doesn't give it, the<lb/>
+                     German for the technical word <hi rend="underline">buddle</hi> (page I, near<lb/>
+                     bottom) is <hi rend="underline"><foreign xml:lang="de">Erzwaschtrog</foreign></hi> .
+                  </p>
+                  <p>
+                     I hope there is an equivalent German euphemism<lb/>
+                     for <unclear>"</unclear><add place="above"><unclear>t</unclear>e</add> Senior Citizen."<unclear>,</unclear>
+                  </p>
+                  <p>
+                     If there is a special honary title of adress<lb/>
+                     for a <hi rend="underline"><foreign xml:lang="de">Landeshaupt<unclear>m</unclear>an</foreign></hi>,please supply.
+                  </p>
+                  <closer>
+                     <salute>
+                        love
+                     </salute>
+                     <signed>
+                        <rs type="person" ref="#amp_person_1">Wystan</rs>
+                     </signed>
+                  </closer>
+                  <postscript>
+                     <p>
+                        P<unclear>_</unclear>S. <hi rend="underline">Adit</hi>= <hi rend="underline"><foreign xml:lang="de">Stollen</foreign></hi>.<lb/>
+                        <hi rend="underline">Concentrating Mill</hi> is,I <subst><del rend="overstrike">suspec</del><add place="above"><unclear>G</unclear>uess</add></subst>t, though I <unclear>ma</unclear>y<lb/>
+                        be wrong , <hi rend="underline"><foreign xml:lang="de">Vereinigungmühle</foreign></hi> <unclear>.</unclear>
+                     </p>
+                  </postscript>
+               </div>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0100/" type="sheet" ed="1v"/>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0145/" type="sheet" ed="2r"/>
+               <div type="prose">
+                  <fw type="pageNum" hand="#handwritten">
+                     <add place="margin">
+                        (<unclear>1</unclear>
+                     </add>
+                  </fw>
+                  <ab xml:lang="de">
+                     <space quantity="17" unit="char"/>Sehr vee<subst><del rend="metamark">rh</del><add place="inline">hr</add></subst>ter <rs type="person" ref="#amp_person_112">Herr Landeshauptman<add place="inline" hand="#handwritten"><unclear>n</unclear></add></rs>,meine Damen und Herren:
+                  </ab>
+                  <p>
+                     <space quantity="10" unit="char"/>I hope you will pardon me if I speak somewhat personally. I do so,<lb/>
+                     not out of vanity,but bec<subst><del rend="overtyped">ua</del><add place="superimposed">au</add></subst>se <space quantity="1" unit="char"/>I do <subst><del rend="overtyped">j</del><add place="superimposed">n</add></subst>ot wish to give the impression that I<lb/>
+                     am attempting to lay down absolute laws which are valid for all. I give you my<lb/>
+                     experience<unclear>s</unclear> as a poet,in the hope that you will be able to compare the<subst><del rend="overtyped">,</del><add place="superimposed">m</add></subst> with<lb/>
+                     your<add place="inline">s</add><del rend="overtyped">ow<unclear>n</unclear></del>,and form your own judgment about them.
+                  </p>
+                  <p>
+                     <space quantity="3" unit="char"/>Most of what I <subst><del rend="overtyped"><unclear>o</unclear></del><add place="superimposed">k</add></subst>now about the writing of poetry,or at least about the kind I<lb/>
+                     am interested in writing,I discovered long before I took an<add place="inline" hand="#handwritten">y</add> interest in poetry<lb/>
+                     itself.
+                  </p>
+                  <p>
+                     <space quantity="2" unit="char"/>Between the ages of six and twelve,I spent a great many of my waking hours in<lb/>
+                     the fab<del rend="overtyped">o</del>rication of a private secondary sacred world,the basic elements of which<lb/>
+                     were <del rend="overtyped">a<subst><del rend="overtyped"><unclear>t</unclear></del><add place="superimposed"><unclear>O</unclear></add></subst></del> a) a limestone landscape mainly derived from the <rs type="place" ref="#amp_place_id_41">Pennine Moors in the<lb/>
+                     North of England</rs> and b) an industry - lead-mining.
+                  </p>
+                  <p>
+                     <space quantity="3" unit="char"/>It is no doubt psychologically significant that my sacred world was autistic -<lb/>
+                     that is to say,I had no wish to share it with others no<subst><del rend="overtyped">t</del><add place="superimposed">r</add></subst> could I have done so.<lb/>
+                     However,though constructed for and inhabited by myself alone,I needed the help of<lb/>
+                     others,<rs type="person" ref="#amp_person_183 #amp_person_184">my parents</rs> in particular,in collecting its basic materials; others had to<lb/>
+                     procure for me the necessary text-books on geology and machinery,maps,catalog<subst><del rend="overtyped">i</del><add place="superimposed">u</add></subst>es,<lb/>
+                     guide-books and photographs,and,when occasion offered<del rend="overstrike">,to</del> ta<subst><del rend="overtyped">l</del><add place="superimposed">k</add></subst>e me down real mines,<lb/>
+                     tasks which they performed with unfailing patience and generosity.
+                  </p>
+                  <p>
+                     <space quantity="4" unit="char"/>From this activity,I learned certain principles which I was later to find applied<lb/>
+                     to all artistic fabrication. First,whatever other elements it may include,the<lb/>
+                     initial impulse to create a secondary world is a feeling of awe aroused by<lb/>
+                     encounters,in the Primary World,with sacred beings or events. <space quantity="1" unit="char"/>This feeling of awe<lb/>
+                     is an imperative,that is to<unclear>´</unclear> say,one is not free to choose the object or the event<lb/>
+                     that arouses it. Though every work of art is a secondary world,it cannot be<lb/>
+                     constructed <hi rend="underline">ex nihilo</hi>,but is a selection <add place="above">from</add> and <add place="above">a</add> recombination of the contents of<lb/>
+                     <space quantity="1" unit="char"/>the Primary World. Even the 'purest' poem,in the French <foreign xml:lang="fr">Symboliste</foreign> sense,is<lb/>
+                     made of words which are not the poet's private property,but the communal creation<lb/>
+                     of the linguistic group to whom he belongs,so that their meaning can be looked up<lb/>
+                     in a dictionary.
+                  </p>
+                  <p>
+                     <space quantity="5" unit="char"/>Secondly,in constructing my private world,I discovere<subst><del rend="overtyped">s</del><add place="superimposed">d</add></subst> that,though this was<lb/>
+                     a game,or rather precisely <hi rend="underline">because it was a game</hi> - that is to say,not a necessity<lb/>
+                     like eating or sleeping,but something I was free to do or not as I chose - it<lb/>
+                     could not be played without rules. Absolute freedom is meaningless: freedom can<lb/>
+                     only be realised in a choice between alternati<subst><del rend="overtyped">c</del><add place="superimposed">v</add></subst>es. A secondary world,be it a poem,<lb/>
+                     or a game of football or bridge,must be as much a world of law as the Primary,the<lb/>
+                     only difference being that in the world of games one is free to decide what its<lb/>
+                     laws shall be. But to all games as to real life,<rs type="person" ref="#amp_person_11">Goethe</rs>'s lines apply.
+                     <seg>
+                        <quote source="#lit_work_id_170">
+                           <lg xml:lang="de">
+                              <lb/><space quantity="14" unit="char"/><l><hi rend="underline">In der Beschr<g ref="#uml_a_lc_tt">ä</g>nkung zeigt sich erst der Meister</hi>,</l>
+                              <lb/><space quantity="14" unit="char"/><l><hi rend="underline">Und d<subst><del rend="overtyped">s</del><add place="superimposed">a</add></subst>s Gesetz nur kann uns Freiheit geben.</hi></l>
+                           </lg>
+                        </quote>
+                     </seg>
+                  </p>
+                  <p>
+                     <space quantity="3" unit="char"/>As regards my particu<subst><del rend="overwritten">al</del><add place="superimposed" hand="#handwritten">l<unclear>a</unclear></add></subst>r lead-mining world,I decided,or rather,without conscious<lb/>
+                     decision I instinctively felt,that I must impose two restrictions upon my freedom<lb/>
+                     of fantasy. In choosing what objects were to be included,I was free to select this<lb/>
+                     and reject that,on condition that both were real objects in the Primary World,to<lb/>
+                     choose,for example,between two kinds of water-turbine,which could be found in a<lb/>
+                     text-book <space quantity="1" unit="char"/>on mining machinery or a manufacturer's catalogue: but I was not free<lb/>
+                     to invent one. <space quantity="1" unit="char"/>In deciding how my world was to function,I <del rend="overtyped">was </del> could choose between<lb/>
+                     <space quantity="1" unit="char"/>t<subst><del rend="overtyped"><unclear>e</unclear></del><add place="superimposed">w</add></subst>o practical possibilit<subst><del rend="overtyped">es</del><add place="superimposed">ie</add></subst>s <space quantity="1" unit="char"/>- a mine can be drained either by an adit or a pump -<lb/>
+                     <space quantity="1" unit="char"/>but physic<unclear>a</unclear>l impossibili<subst><del rend="overtyped">es</del><add place="superimposed">ti</add></subst>es and magic means were forbidden. <subst><del rend="overtyped"><unclear>T</unclear></del><add place="superimposed">W</add></subst>hen I say forbidden,<lb/>
+                     <space quantity="1" unit="char"/>I mean that I felt,in some obscure way,that they were morally forbidden. Then there<lb/>
+                     <space quantity="1" unit="char"/>came a day when the moral issue became quite conscious. As I was planning my<lb/>
+                     <space quantity="1" unit="char"/>Platonic Idea of a concentrating-mill,I ran into difficulties. I had to choose<lb/>
+                     <space quantity="1" unit="char"/>between two types of a cer<subst><del rend="overwritten">at</del><add place="superimposed" hand="#handwritten">ta</add></subst>in machine for separating the sli<unclear>m</unclear>es,called a buddle.<lb/>
+                     <space quantity="1" unit="char"/>One type I found more sacred or '<del rend="overtyped">beat<subst><del rend="overtyped">i</del><add place="superimposed">u</add></subst>ful</del> beautiful',but the other type was,I<lb/>
+                     <space quantity="1" unit="char"/>knew from my reading,the more efficient. At this point I realised that it was my<lb/>
+                     <space quantity="1" unit="char"/>moral duty to sacrifice my <del rend="overtyped">aethetic</del> aesthetic preference to reality or truth.
+                  </p>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0146/" type="sheet" ed="2v"/>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0147/" type="sheet" ed="3r"/>
+                  <fw type="pageNum" hand="#handwritten">
+                     <add place="margin">
+                        (2
+                     </add>
+                  </fw>
+                  <p>
+                     <space quantity="4" unit="char"/>When,later,I began to write poetry’I found that,for me,at least,the same<lb/>
+                     obligation was binding. That is to say,I cannot accept the do<del rend="overtyped"><unclear>s</unclear></del>ctrine that,in<lb/>
+                     poetry,there is a 'suspension of belief<del rend="overtyped"><unclear>e</unclear></del>'. A poet must never make a statement<lb/>
+                     simply because it sounds poetically exciting: he must also bel<subst><del rend="overwritten">ei</del><add place="superimposed" hand="#handwritten">ie</add></subst>ve it to be<lb/>
+                     true. This does not mean,of course,that one can only appreciate a poet whose<lb/>
+                     beliefs happen to co-incide with one's own. I<add place="inline" hand="#handwritten">t</add> does mean,however,that one must<lb/>
+                     <subst><del rend="overtyped">n</del><add place="superimposed">b</add></subst>e convinced that the poet really believ<subst><del rend="overwritten"><gap reason="illegible" unit="char" quantity="1"/></del><add place="superimposed" hand="#handwritten">e</add></subst>s what he says,however odd <del rend="overtyped">that</del> the<lb/>
+                     belief may seem to oneself.
+                  </p>
+                  <p>
+                     <space quantity="7" unit="char"/>Between constructing a private <del rend="overtyped">fantsa</del>yfantasy world for oneself alone<lb/>
+                     and writing poetry,there is,of course,a profound difference. A <del rend="overtyped">fanatsy</del><lb/>
+                     fantasy world exists only in the head of its creator: a poem is a public<lb/>
+                     verbal object intended to be read and enjoyed by others. To become conscious<lb/>
+                     of others is to become conscious of historical time<del rend="overtyped">.</del> in various ways. The<lb/>
+                     contents of a poem are necessarily past <del rend="overtyped">expereinces</del> experiences,and the goal of<lb/>
+                     a poem is <del rend="overtyped">necessaily</del> necessarily in the future,since it cannot be read until<lb/>
+                     it has been written. Again<add place="inline" hand="#handwritten"><unclear>,</unclear></add>to write a poem is to engage in an<add place="inline" hand="#handwritten"> </add>activity which<lb/>
+                     human beings have practised for centuries. If one asks why human beings<lb/>
+                     make poems or paint pictures or compose music,I can see two possible answers.<lb/>
+                     Firstly all the artistic media are forms of an activity pecul<del rend="overstrike"><gap reason="illegible" unit="char" quantity="1"/></del>iar to human<lb/>
+                     beings,namely,Personal Speech. Many animals have impersonal codes of<lb/>
+                     communications,visual,olfactory,auditory signals,b<subst><del rend="overtyped"><gap reason="illegible" unit="char" quantity="1"/></del><add place="superimposed">y</add></subst> which they convey to<lb/>
+                     other members of their species vital information about food,territory,sex,<lb/>
+                     the presence of <del rend="overtyped">e<unclear>nm</unclear>ies</del> enemies etc,and in social animals like the bee,such<lb/>
+                     a code may be exceedingly comple<subst><del rend="overtyped">s</del><add place="superimposed">x</add></subst>. We,too,of course,often use words in the same<lb/>
+                     way,as when I ask a stranger the way to the railroad station. But when we<lb/>
+                     truly speak,we do something quite different. We <del rend="overtyped">spak</del> speak as person to person<lb/>
+                     in order to disclose ourselves to others and share our exper<subst><del rend="overwritten">ei</del><add place="superimposed" hand="#handwritten"><unclear>i</unclear>e</add></subst>nces with<lb/>
+                     them,not because we must,but becuase we enjoy doing so. This activity is<lb/>
+                     sometimes quite erroneously called 'self-expression'. If I write a poem<lb/>
+                     about <del rend="overtyped">ceratin</del> experiences I have had,I do so<del rend="overtyped">,not bec</del> bec<subst><del rend="overwritten">ua</del><add place="superimposed" hand="#handwritten"><unclear>a</unclear>u</add></subst>se I think it<lb/>
+                     <subst><del rend="overstrike">may</del><add place="left" hand="#handwritten">should</add></subst> be of interest and value to others<del rend="overtyped">,not</del>: the fact that it has till now<lb/>
+                     only been <subst><del rend="edited">my</del><add place="superimposed"><hi rend="underline" hand="#handwritten">my</hi></add></subst> exper<subst><del rend="overwritten">ei</del><add place="superimposed" hand="#handwritten">ie</add></subst>nce is accidental. What the poet or any artist has to convey<lb/><!-- we need to add 'span' from to and the correspondent word that the line is below  -->
+                     is a perception of a reality common to all,but seen from a unique perpsective,<lb/>
+                     which it is his duty as well as his pleasure to share with others. To small<lb/>
+                     truths as well as great,<rs type="person" ref="#amp_person_111">St Augustine</rs>'s words apply.<lb/>
+                     <seg>
+                        <quote source="#lit_work_id_171">
+                           <space quantity="12" unit="char"/><hi rend="underline">The truth is neither mine nor his nor another's;but belongs</hi><lb/> <!-- replace hi with add place below -->
+                           <space quantity="12" unit="char"/><hi rend="underline">to us all whom Thou callest to partake of it: warning us</hi><lb/>
+                           <space quantity="12" unit="char"/><hi rend="underline">terribly,not to account it private to ourselves,lest we be</hi><lb/>
+                           <space quantity="12" unit="char"/><hi rend="underline">deprived of it.</hi>
+                        </quote>
+                     </seg>
+                  </p>
+                  <p>
+                     <space quantity="2" unit="char"/>Then the second impulse to artistic fabrication is the desire to transcend<lb/>
+                     our mortality,by making objects which,unlike ourselves,are not subject to<lb/>
+                     natural death,but can remain <del rend="overtyped">permantly</del> permanently 'on hand' in the world,<lb/>
+                     long after we and our society have perished.
+                  </p>
+                  <p>
+                     <space quantity="3" unit="char"/>Every genuine work of art,I believe,exhibits two qualities,Nowness and<lb/>
+                     Permanence. By Nowness I mean the quality which enables an art-historian<lb/>
+                     to date a work,at least,approximately. If,for example,one listens to<lb/>
+                     a composition by <rs type="person" ref="#amp_person_24">Palestrina</rs> and one by <rs type="person" ref="#amp_person_13">Mozart</rs>,one knows immediately that,<lb/>
+                     quite aside from their artistic merits,<rs type="person" ref="#amp_person_24">Palestrina</rs> must have lived earlier<lb/>
+                     than <rs type="person" ref="#amp_person_13">Mozart</rs>: he could not possibly have written as he did after <rs type="person" ref="#amp_person_13">Mozart</rs>.<lb/>
+                     By <subst><del rend="overtyped">p</del><add place="superimposed">P</add></subst>erman<del rend="overstrike">a</del>ence,I mean <space quantity="1" unit="char"/>that the work continues to have relevance and<lb/>
+                     importance lo<unclear>m</unclear>g after its creator is dead. In the history of Art,unlike<lb/>
+                     the history of Science,no genuine work of art is made obsolete by a<lb/>
+                     later work. Past science is of interest only to the historian of science,not<lb/>
+                     to what scientists are doing at this moment. Past works of art,on the<lb/>
+                     other hand,are of the utmost importance to the contemporary <del rend="overtyped">praticioner<unclear>.</unclear></del><lb/>
+                     practic<subst><del rend="overtyped">o</del><add place="superimposed">i</add></subst><subst><del rend="overtyped">o</del><add place="above">oner</add></subst>ner. Every artist tries to produce something new,but in the hope<lb/>
+                     that,in time,it will take its <subst><del rend="overwritten"><gap reason="illegible" unit="char" quantity="1"/></del><add place="superimposed" hand="#handwritten">p</add></subst>roper place in the tradition of his art.<lb/>
+                     And he cannot produce anything significantly original unless he knows<lb/>
+                     well what has <del rend="overstrike">been</del> already <add place="above" hand="#handwritten">been </add>done<unclear>;</unclear>w<del rend="overstrike">ithout</del>,that is to say ,<del rend="overtyped">even in</del> he cannot<lb/>
+                     'rebel' against the past without having a profound reverence for it.
+                  </p>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0148/" type="sheet" ed="3v"/>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0149/" type="sheet" ed="4r"/>
+                  <fw type="pageNum" hand="#handwritten">
+                     <add place="margin">
+                        (3
+                     </add>
+                  </fw>
+                  <p>
+                     <space quantity="6" unit="char"/>There are periods in history when <del rend="overtyped">art</del> the arts develop uninterruptedly,<lb/>
+                     <space quantity="1" unit="char"/>each generation building on the achievements of the previous generation.<lb/>
+                     There are other periods when radical breaks seem to be necessary. However,<lb/>
+                     <subst><del rend="overtyped">t</del><add place="superimposed">w</add></subst>hen they are,one will generally find that the 'radical' artist does not<lb/>
+                     <del rend="overtyped">diswon</del> disown the past,but finds in works of a much earlier period or <add place="inline" hand="#handwritten">in</add><lb/>
+                     those<add place="inline" hand="#handwritten"> </add>of <del rend="overtyped">anotehr</del> culture than his own,the clue <add place="above" hand="#handwritten">as</add> to what he should do now.<lb/>
+                     In my own case,for example,I know how much I owe to Anglo-Saxon and<lb/>
+                     Medie<subst><del rend="overtyped">av</del><add place="superimposed">va</add></subst>l Poetry.
+                  </p>
+                  <p>
+                     <space quantity="4" unit="char"/>When I <del rend="overtyped">revei<unclear>w</unclear></del> review the contemporary artistic scene,<subst><del rend="overtyped">I</del><add place="superimposed"><unclear>i</unclear></add></subst>t strikes me how<lb/>
+                     <del rend="overtyped">extraorinary</del> extraordinarily fortunate men like <rs type="person" ref="#amp_person_25">Stravinsky</rs>,<rs type="person" ref="#amp_person_26">Picasso</rs>,<rs type="person" ref="#amp_person_27">Eliot</rs>,<lb/>
+                     etc,that is,those persons we think of as the founders of 'modern' art,<lb/>
+                     were in being born when they were,so that they came to manhood before<lb/>
+                     I9I4. Until the <del rend="overtyped">Fis </del> <rs type="event" ref="#amp_event_id_53">First World War</rs>,western society was still pretty much<lb/>
+                     what it had been in the nineteenth century. This meant that for these artists,<lb/>
+                     the felt need to create something new arose from an artistic imperative,<lb/>
+                     not a <del rend="overtyped">histroi</del> historic imperative. No one asked himself:"What is the proper<lb/>
+                     kind of music to compose or picture to paint or poem to write in the year<lb/>
+                     I9I2.?" <space quantity="1" unit="char"/>Secondly,their <del rend="overtyped">audiences</del> contemporary audiences <space quantity="1" unit="char"/>were mostly<lb/>
+                     cons<subst><del rend="overtyped">r</del><add place="superimposed">e</add></subst>rvative,but honestly so. <space quantity="1" unit="char"/>Those,for instance,who were scandalised by<lb/>
+                     <hi rend="underline"><rs type="lit_work" ref="#lit_work_id_35">Le Sacre du Printemps</rs></hi>,may seem to us now to have been old <del rend="overtyped">fgi</del> fogies,but<lb/>
+                     their reaction was genuine. They did not say to themselves:"Times have<lb/>
+                     changed and we must change with them in order <del rend="overtyped">to be up to date." </del> not to<lb/>
+                     be left behind."
+                  </p>
+                  <p>
+                     <space quantity="5" unit="char"/>Here are a few statements by <rs type="person" ref="#amp_person_25">Stravinsky</rs> to <del rend="overtyped">whcih</del> which the young,<subst><del rend="overtyped">w<unclear>h</unclear>ere</del><del rend="overtyped"><add place="above">where</add></del><add place="above">whether</add></subst><lb/>
+                     artists or critics would do well to listen and <del rend="overtyped">pknde </del> ponder over.<lb/>
+                     <seg>
+                        <quote source="#lit_work_id_172">
+                           <space quantity="11" unit="char"/><hi rend="underline">In my youth the new music grew out of,and in reaction to,traditions</hi>,<lb/>
+                           <space quantity="11" unit="char"/><hi rend="underline">whereas it appears to be evolving to-day as much from social needs</hi><lb/>
+                           <space quantity="11" unit="char"/><hi rend="underline">as interior artistic ones...The status of <del rend="overtyped">the</del> new music as a</hi><lb/>
+                           <space quantity="11" unit="char"/><hi rend="underline">category is another incomparable. It had none at all in my early</hi><lb/>
+                           <space quantity="12" unit="char"/><hi rend="underline">years,being in fact categorically opposed,and often with real</hi><lb/>
+                           <space quantity="10" unit="char"/><hi rend="underline">hostility. But the unsuccess of composers o<subst><del rend="overtyped">n</del><add place="superimposed">f</add></subst> my generation at</hi><lb/>
+                           <space quantity="10" unit="char"/><hi rend="underline">least kept them from trading on success,and our unsuccess may have</hi><lb/>
+                           <space quantity="11" unit="char"/><hi rend="underline">been less insidious than the automatic superlatives which nowadays</hi><lb/>
+                           <space quantity="10" unit="char"/><hi rend="underline">kill the new by absorbing it t<subst><del rend="overtyped">i</del><add place="superimposed">o</add></subst> de</hi>a<hi rend="underline">th.</hi><lb/>
+                        </quote>
+                        <space quantity="33" unit="char"/>***<lb/>
+                     </seg>
+                     <seg>
+                        <quote source="#lit_work_id_172">
+                           <space quantity="10" unit="char"/><hi rend="underline">The use of the new hardware naturally appears to the new musician</hi><lb/>
+                           <space quantity="10" unit="char"/>a<hi rend="underline">s "historically imperative"; but music is made out of musical</hi><lb/>
+                           <space quantity="10" unit="char"/><hi rend="underline">imperatives,and the awareness of historical processes is probably</hi><lb/>
+                           <space quantity="10" unit="char"/><hi rend="underline">best left to future and different kinds of wage-earners</hi>.<lb/>
+                        </quote>
+                        <space quantity="34" unit="char"/>***
+                     </seg>
+                  </p>
+                  <p>
+                     <space quantity="1" unit="char"/>In times,like our own,of rapid social change and political crisis,there i<unclear>s</unclear><lb/>
+                     always a danger of confusing the principles governing political action and<lb/>
+                     those governing artistic fabrication. <space quantity="1" unit="char"/>The most important of such confus<del rend="overtyped">u</del>ions<lb/>
+                     are thr<subst><del rend="overtyped">r</del><add place="superimposed">e</add></subst>e.
+                  </p>
+                  <p>
+                     <space quantity="2" unit="char"/>Firstly,one may come to think of artistic fabrication as <subst><del rend="overtyped">s</del><add place="superimposed"><unclear>a</unclear></add></subst> f<subst><del rend="overstrike">rom</del><add place="above" hand="#handwritten">orm</add></subst> of politic<unclear>a</unclear>l<lb/>
+                     action. Every citizen,<subst><del rend="overtyped">artists</del><add place="above">poets</add></subst> includ<subst><del rend="overtyped">i</del><add place="superimposed">e</add></subst>d,has a duty to be politically 'engage<add place="inline" hand="#handwritten">&#x301;</add>',<lb/>
+                     that is,to <del rend="overtyped">feel</del> play a responsible part in seeing that the society of which<lb/>
+                     he is a member shall function properly and improve. But the poet,qua poet,<lb/>
+                     has only one political function. Since lang<subst><del rend="overtyped">i</del><add place="superimposed">u</add></subst>age is his medium,it is his duty,<lb/>
+                     by his own example,to defend his <subst><del rend="overtyped">mot<del rend="overtyped">eh</del><add place="superimposed">he</add>r</del><add place="superimposed">mother</add><add place="above">mother</add></subst>-tongue against corruption by demagogues,<lb/>
+                     journalists,the mass-media etc. As <rs type="person" ref="#amp_person_81">Karl Kraus</rs><del rend="overtyped">s</del> said:<quote source="#lit_work_id_173">"<foreign xml:lang="de">D<subst><del rend="edited">ie Sprache ist die</del><add place="superimposed"><hi rend="underline" hand="#handwritten">ie Sprache ist die</hi></add></subst> <del rend="overtyped">Muuet</del><lb/>
+                     <space quantity="1" unit="char"/><hi rend="underline">Mutter,nicht das Magd,des <del rend="overtyped">d</del> <subst><del rend="overtyped">g</del><add place="superimposed">G</add></subst>edankens"</hi></foreign></quote>,and when language loses its meaning,<lb/>
+                     its <del rend="overtyped">palce</del> place is taken by violence. Of course,the poet may use political and<lb/>
+                     social events as subject-matter for poems - they are as much a part of human<lb/>
+                     experience as love or nature - but he must never imagine that his poems have<lb/>
+                     the power to affect the course of history. The politic<del rend="metamark"> </del>al and social history<lb/>
+                     of <rs type="place" ref="#amp_place_id_30">Europe</rs> w<unclear>o</unclear>uld be what it <del rend="overtyped">ahs</del> has been if <rs type="person" ref="#amp_person_9">Dante</rs>,<rs type="person" ref="#amp_person_10">Shakepeare</rs>,<rs type="person" ref="#amp_person_11">Goethe</rs>,<rs type="person" ref="#amp_person_28">Micha<subst><del rend="overtyped">le</del><add place="superimposed">el</add></subst><lb/>
+                     Angelo</rs>,<rs type="person" ref="#amp_person_12">Tit<subst><del rend="overtyped">ai</del><add place="superimposed">ia</add></subst>n</rs>,<rs type="person" ref="#amp_person_13">Mozart</rs>,<rs type="person" ref="#amp_person_29">Beethoven</rs>,e<subst><del rend="overtyped">y</del><add place="superimposed">t</add></subst>c,<del rend="overtyped">ahd</del> had never existed.
+                  </p>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0150/" type="sheet" ed="4v"/>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0151/" type="sheet" ed="5r"/>
+                  <fw type="pageNum" hand="#handwritten">
+                     <add place="margin">
+                        4
+                     </add>
+                  </fw>
+                  <p>
+                     <space quantity="3" unit="char"/>Where <del rend="overtyped">politicla</del> political and social <del rend="overtyped">eveils</del> evils are concerned,only<lb/>
+                     t<del rend="overtyped">k</del>wo things are effective<subst><del rend="overtyped">*</del><add place="superimposed"><unclear>:</unclear></add></subst> political action and straightforward,truthful,<lb/>
+                     detailed journalistic rapportage of the facts. The Arts are powerless.
+                  </p>
+                  <p>
+                     <space quantity="2" unit="char"/>The second confusion,of which <rs type="person" ref="#amp_person_30">Plato</rs> is the most famous example,is to take<lb/>
+                     arti<subst><del rend="overtyped">t</del><add place="superimposed">s</add></subst>tic fabrication as the model for a good society. <del rend="overtyped">The aim of any artist <space quantity="1" unit="char"/></del><lb/>
+                     Such a model,if put into practice,is bound to produce a tyrrany. The aim of<lb/>
+                     the artist<del rend="overstrike">s</del> is to produce an object which is complete and will endure without<lb/>
+                     change. <del rend="overtyped">A</del> In the 'city' of a poem,there are always the same inhabitants doing<lb/>
+                     exactly the same jobs for ever. A society which was really like a good poem,<lb/>
+                     embodying the aesthetic virtues of order,economy and subordination of the detail<lb/>
+                     to the whole,would be a nightmare of horror for,given the historical reality of<lb/>
+                     actual men,such a society could <add place="above">only</add> come into being through selective breeding,<lb/>
+                     ex<subst><del rend="overtyped">y</del><add place="superimposed">t</add></subst>ermination <space quantity="1" unit="char"/>of the physically and mentally unfit,absolute obedience to<lb/>
+                     its <subst><del rend="overtyped">D</del><add place="superimposed">d</add></subst>irector,a alrge slave cla<subst><del rend="overtyped">a</del><add place="superimposed">s</add></subst>s kept out of sight in <subst><del rend="overtyped">f</del><add place="superimposed">c</add></subst>ellars and the<lb/>
+                     strictest censur<add place="above">e</add><subst><del rend="overwritten">e</del><add place="superimposed" hand="#handwritten">s</add></subst>hip of the Arts,forbidding anything to be said which <del rend="overtyped">was</del> is<lb/>
+                     <del rend="overtyped">not</del> out of keeping with the official 'line.'
+                  </p>
+                  <p>
+                     <space quantity="3" unit="char"/>The third confusion,typical of our western <del rend="overtyped">civilisat</del> 'free' <del rend="overtyped">soncietis</del><lb/>
+                     societies at this time,is the opposite of <rs type="person" ref="#amp_person_30">Plato</rs>'s,namely to take political<lb/>
+                     act<subst><del rend="overtyped">u</del><add place="superimposed">i</add></subst>on as the model for arti<subst><del rend="overtyped">t</del><add place="superimposed">s</add></subst>tic fabrication. Political action is a necessity,<lb/>
+                     that is to say,a<subst><del rend="overtyped">y</del><add place="superimposed">t</add></subst> very moment something has to be done,and <del rend="overtyped">politicla</del> it<lb/>
+                     is momentary - action at this moment is immeiately followed by another action<lb/>
+                     at the next. <space quantity="1" unit="char"/>Artistic fabrication,on the other hand,is <del rend="overtyped">voluntarily</del> voluntary-<lb/>
+                     the alternative to one work of art can be no work of art - and the artistic<lb/>
+                     object is permanent,that is to say,immune to historical change. The attempt<lb/>
+                     to model arti<subst><del rend="overtyped">t</del><add place="superimposed">s</add></subst>tic fabrication o<subst><del rend="overtyped">s</del><add place="superimposed">n</add></subst> political action can therefore,only<lb/>
+                     reduce it to momentary <del rend="overtyped">(<unclear>h</unclear><space quantity="1" unit="char"/></del> a<subst><del rend="overtyped">d</del><add place="superimposed">n</add></subst>d arbitrary 'happenings',a conformism with<lb/>
+                     the tyrrany of the immediate moment which is far more enslaving and<lb/>
+                     destructive of integrity than any conformism with past tradition.
+                  </p>
+               </div>
+               <div>
+                  <ab hand="#handwritten">
+                     <add place="margin">
+                        i<unclear>n</unclear>sert<lb/>
+                        4<unclear>`</unclear>a
+                     </add>
+                  </ab>
+               </div>
+               <div type="prose">
+                  <p>
+                     <space quantity="3" unit="char"/>What then,can the Arts do for us? In my opi<subst><del rend="overtyped">o</del><add place="superimposed">n</add></subst>ion,they can do two things.<lb/>
+                     They can,as <rs type="person" ref="#amp_person_33">Dr Johns<subst><del rend="overtyped">t</del><add place="superimposed">o</add></subst>n</rs> said,<quote source="#lit_work_id_174">'enable us a little better to enjoy life or a<lb/>
+                     little better to <subst><del rend="overstrike">enjo</del><add place="above" hand="#handwritten">endure</add></subst>y it"</quote>. And,<del rend="overtyped">bec<unclear>aas</unclear>e</del> because they are objects <del rend="overtyped">permant</del><lb/>
+                     permanently on hand in the world,they are the chief means by which the <del rend="overtyped">lvi</del><lb/>
+                     living are able to break bread with the dead,and,without a communication<lb/>
+                     with the dead,I do not believe that a fully human civilised life is possible.
+                  </p>
+                  <p>
+                     <space quantity="2" unit="char"/>Perhaps,too,in our age,the mere making of a work of art is itself a<lb/>
+                     political act. So long as artists exist,making what they please or think<lb/>
+                     they ought to make,even if <del rend="overtyped">the worlks</del> their wor<subst><del rend="overtyped">l</del><add place="superimposed">k</add></subst>s are not terribly good,they<lb/>
+                     remind the Management of something managers need to be reminded of,namely,<lb/>
+                     that the managed are people with faces,not anonymous numbers,that <hi rend="underline">Homo</hi><lb/>
+                     <hi rend="underline">Laborans</hi> is also <hi rend="underline">Homo Ludens.</hi>
+                  </p>
+                  <p>
+                     <space quantity="9" unit="char"/>And now,I hope those of you who know no English will forgive me i<subst><del rend="overtyped">s</del><add place="superimposed">f</add></subst><lb/>
+                     I conclude<del rend="overtyped">d</del> these remarks with a light poem of my own,entitled<lb/>
+                     <hi rend="underline"><rs type="lit_work" ref="#lit_work_id_57">Doggerel <del rend="overtyped">of</del> by a Senior Citizen</rs></hi>.
+                  </p>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0152/" type="sheet" ed="5v"/>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0153/" type="sheet" ed="6r"/>
+                  <fw type="pageNum" hand="#handwritten">
+                     <add place="margin">
+                        (4a
+                     </add>
+                  </fw>
+               </div>
+               <div>
+                  <ab hand="#handwritten">
+                     <add place="margin">
+                            insert into next page
+                     </add>
+                  </ab>
+               </div>
+               <div type="prose">
+                  <p>
+                     <space quantity="7" unit="char"/>At this p<subst><del rend="overtyped">in</del><add place="superimposed">oi</add></subst>nt,a little digression on the subject of 'free' verse,which<lb/>
+                     <space quantity="2" unit="char"/>seems now to be almost universal among young poets. Though excellent<lb/>
+                     <space quantity="1" unit="char"/>examples,the poems of <rs type="person" ref="#amp_person_31">D.H.Lawrence</rs>,for example,exist,i<del rend="overstrike">n my opinion </del>they are<add place="inline" hand="#handwritten">,<unclear>in</unclear> my opinio<unclear>n</unclear></add><lb/>
+                     the exception,not the rule. The great virtue of formal metrical rules is<lb/>
+                     that they forbid automatic <del rend="overtyped">reposnse</del> resp<subst><del rend="overtyped">i</del><add place="superimposed">o</add></subst>nses and,by forcing the <del rend="overtyped">piet</del> poet<lb/>
+                     to have second thoughts,free <subst><del rend="overwritten">f</del><add place="superimposed" hand="#handwritten">h</add></subst>im f<subst><del rend="overwritten">or</del><add place="superimposed" hand="#handwritten">ro</add></subst>m the fetters of self. All too often,the<lb/>
+                     result of not having a fixed form to be true to,is a self-indulgence which in<lb/>
+                     the detached reader can only cause boredom. Further,in my exper<subst><del rend="overtyped">ei</del><add place="superimposed">ie</add></subst>nce ,contrary<lb/>
+                     to what one might exp<subst><del rend="overtyped">s</del><add place="superimposed">e</add></subst>ct,the <del rend="overtyped">writers o</del> free-verse poets sound much more<lb/>
+                     like each other than those who write in fixed forms. Whatever freedom may do,<lb/>
+                     it does not,it would seem,make for originality.
+                  </p>
+               </div>
+               <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0154/" type="sheet" ed="6v"/>
+         </div>
+      </div>
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="amp-transcript__0012.xml" xml:base="https://id.acdh.oeaw.ac.at/auden-musulin-papers">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Auden Musulin Papers: A Digital Edition of W. H. Auden´s Letters to Stella Musulin (FWF P 33754)</title>
+            <title level="a">Autograph Letter Signed W. H. Auden to Stella Musulin 1968-12-29</title>
+            <author ref="https://d-nb.info/gnd/118650963">Auden, W. H.</author>
+            <author ref="https://d-nb.info/gnd/127246711">Musulin, Stella Mary Bellairs</author>
+            <editor><name xml:id="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name xml:id="tfruehwirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name xml:id="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></editor>
+            <funder>
+               <name>Austrian Science Fund (FWF)</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Vienna</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Vienna</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               <title>Autograph Letter Signed W. H. Auden to Stella Musulin 1968-12-29</title>
+               <interpGrp>
+                  <interp xml:id="ana_013" source="ph_013"><!-- link to nanopub -->
+                     <desc>
+                        In <ref target="acdh:amp-transcript__0013.xml">his letter from 4 January 1969</ref>, Auden refers to his "old lawyer", <rs type="person" ref="#amp_person_14">Walter Redlich</rs>, as "supervising the case". Among the Auden papers held by the Archiv der Zeitgenossen, there is a letter to <rs type="person" ref="#amp_person_107">Hugo K.</rs> from 11 January 1969, in which Auden informs him that <rs type="person" ref="#amp_person_14">Redlich</rs> had retired and the case would be handled by a new lawyer, <rs type="person" ref="#amp_person_235">Erich Mikesch</rs>.
+                        <listBibl>
+                           <bibl sameAs="acdh:amp-transcript__0013.xml"/>
+                           <bibl>
+                              <title>Typed Letter Signed W. H. Auden to Hugo K. 1969-01-11</title>
+                              <msIdentifier>
+                                 <country ref="acdh:amp-index-places.xml#amp_place_id_10"/>
+                                 <settlement ref="acdh:amp-index-places.xml#amp_place_id_62"/>
+                                 <repository>Archiv der Zeitgenossen</repository>
+                                 <collection>NL W. H. Auden</collection>
+                              </msIdentifier>
+                           </bibl>
+                        </listBibl>
+                     </desc>
+                     <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                     <certainty cert="high" locus="value"/>
+                  </interp>
+               </interpGrp>
+            </edition>
+            <respStmt><resp>Transcription and commentary</resp><name sameAs="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name sameAs="tfruewirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name sameAs="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></respStmt>
+         <respStmt><resp>TEI Schema, ODD/RNG</resp><name ref="https://orcid.org/0000-0002-9575-9372" xml:id="pandorfer">Andorfer, Peter</name><name ref="https://orcid.org/0000-0002-0636-4476" xml:id="delsner">Elsner, Daniel</name></respStmt></editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2024">2024</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.en">
+                  <p>You are free to: Share — copy and redistribute the material in any medium or format; adapt — remix, transform, and build upon the material
+for any purpose, even commercially.</p>
+                  <p>The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms:</p>
+                  <p>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+                  <p>Notices:</p>
+                  <p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+               </licence>
+               <p>Copyright literary texts W. H. Auden Estate of W. H. Auden.</p>
+            </availability>
+         <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-C311-2</idno></publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Auden Musulin Papers</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>St. Pölten</settlement>
+                        <repository>State Collections of Lower Austria</repository>
+                        <collection>Stella Musulin (Depot)</collection>
+                        <idno>1, 23</idno>
+                     </msIdentifier>
+                     <history>
+                        <origin>
+                           <origDate notBefore-iso="1968-12-29T00:00:00-05:00" notAfter-iso="1968-12-29T23:59:59-05:00">1968-12-29</origDate>
+                           <origPlace ref="#amp_place_id_29">77 St. Mark's Place</origPlace>
+                        </origin>
+                     </history>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <listPrefixDef>
+            <prefixDef ident="acdh" matchPattern="(.+)" replacementPattern="https://id.acdh.oeaw.ac.at/auden-musulin-papers/$1">
+               <p>Edition Documents Prefix</p>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="en">English</language>
+            <language ident="de">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <orgName><rs type="org" ref="#amp_organization_85">United States General Post Office</rs></orgName>
+               <placeName><rs type="place" ref="#amp_place_id_28">New York City</rs></placeName>
+               <date notBefore-iso="1968-12-30T12:00:00-05:00" notAfter-iso="1968-12-30T23:59:59-05:00">1968-12-30T12:00:00-05:00/1968-12-30T23:59:59-05:00</date>
+            </correspAction>
+            <correspAction type="redirected">
+               <placeName><rs type="place" ref="#amp_place_id_1">Vienna</rs></placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#amp_person_2">Musulin, Stella</persName>
+               <placeName><rs type="place" ref="#amp_place_id_11">Neulinggasse 26</rs></placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="#amp_person_1">Auden, W. H.</ref>
+               <ref type="belongsToCorrespondence" target="#amp_person_2">Musulin, Stella</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="#amp-transcript__0011.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1968-12-13</ref>
+               <ref subtype="next_letter" type="withinCollection" target="#amp-transcript__0013.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1969-01-04</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="published">
+         <change who="pandorfer" when="2021-09-21">template populated with script "create_templates.py"</change>
+         <change who="smayer" when="2021-10-06">text transcribed</change>
+         <change who="tfruehwirth" when="2021-10-06">text transcribed</change>
+         <change who="smayer tfruehwirth" when="2021-10-06">transcriptions collated</change>
+         <change who="smayer tfruehwirth" when="2022-03-15">transcription reviewed, `space` element and `hand` attributes added, date format in `origDate` and `correspAction`/`date` modified</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2023-02-21">entities and correspDesc collated</change>
+         <change who="smayer tfruehwirth" when="2023-08-08">container structure updated</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2024-01-08">entities updated, interpGrp added</change>
+         <change who="smayer tfruehwirth" when="2024-06-21">revision markup updated</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <surface ulx="0" uly="0" lrx="6444" lry="3242">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0055/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="6444" lry="3240">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0056/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5442" lry="7352">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0057/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5442" lry="7352">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0058/"/>
+      </surface>
+   </facsimile>
+   <text>
+      <body>
+         <div type="transcription" xml:id="transcription_amp_0012" xml:lang="en" hand="#handwritten">
+            <div type="envelope">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0055/" type="envelope" ed="1r"/>
+               <ab hand="#typed">
+                  <rs type="person" ref="#amp_person_1">W.H.Auden</rs><lb/>
+                  <address>
+                     <rs type="place" ref="#amp_place_id_29">77 St Mark's Place<lb/>
+                     New York City<lb/>
+                     New York IOOO3<lb/>
+                     U.S.A.</rs>
+                  </address>
+               </ab>
+               <ab hand="#typed">
+                  Air-Mail
+               </ab>
+               <ab hand="#typed" xml:lang="de">
+                  <rs type="person" ref="#amp_person_2">Die Baronin<lb/>
+                  Stella Musulin</rs><lb/>
+                  <address>
+                     <rs type="place" ref="#amp_place_id_11">Wien <subst><del rend="overwritten">IV</del><add place="superimposed" hand="#handwritten">III</add></subst><lb/>
+                     Neulinggasse 26/I4<lb/>
+                     <foreign xml:lang="en">Austria</foreign></rs>
+                  </address>
+               </ab>
+               <ab>
+                  <add place="margin">
+                     <gap reason="illegible" unit="char" atLeast="4" atMost="5"/> <unclear>-</unclear><rs type="person" ref="#amp_person_23">B<unclear>ora</unclear>s</rs>
+                  </add>
+               </ab>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0056/" type="envelope" ed="1v"/>
+            </div>
+            <div type="letter">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0057/" type="sheet" ed="2r"/>
+               <div type="letter_message">
+                  <opener>
+                     <dateline>
+                        <placeName>
+                           <address>
+                              <rs type="place" ref="#amp_place_id_29">77 St Mark's Place<lb/>
+                              New York City<lb/>
+                              New York 10003</rs>
+                           </address>
+                        </placeName>
+                        <date rend="#block">
+                           Dec 29th
+                        </date>
+                     </dateline>
+                     <salute>
+                        Dear <rs type="person" ref="#amp_person_2">Stella</rs>:
+                     </salute>
+                  </opener>
+                  <p>
+                     I am in despair. I wrote to <rs type="person" ref="#amp_person_14" ana="#ana_013">my lawyer</rs><lb/>
+                     and to our factotum , <rs type="person" ref="#amp_person_21">Otto Ho<unclear>l</unclear>fmann</rs> to find<lb/>
+                     out details about the <rs type="event" ref="#amp_event_id_2">accident</rs> and the<lb/>
+                     whereabout<unclear>s</unclear> and condition of the car, but have<lb/>
+                     not heard a word. <rs type="person" ref="#amp_person_4">Chester</rs> postpones h<gap reason="illegible"/><lb/>
+                     visit to <rs type="place" ref="#amp_place_id_1">Vienna</rs> and I dont know his plans.<lb/>
+                     Could you possibly ring <rs type="person" ref="#amp_person_21">Ho<unclear>l</unclear>fmann</rs> to see if<lb/>
+                     he knows anything .
+                  </p>
+                  <p>
+                     Adress. <rs type="place" ref="#amp_place_id_48"><foreign xml:lang="de"><unclear>W</unclear>ien</foreign> VII, Schweighofergasse 4/21</rs><lb/>
+                     Tel : <unclear>9</unclear>3/88/155. .
+                  </p>
+                  <p>
+                     <unclear>Th</unclear>e Registrati<unclear>on</unclear> Number of my car is W. 618-948.
+                  </p>
+                  <closer>
+                     <salute>
+                        love
+                     </salute>
+                     <signed>
+                        <rs type="person" ref="#amp_person_1">Wystan</rs> .
+                     </signed>
+                  </closer>
+               </div>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0058/" type="sheet" ed="2v"/>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>

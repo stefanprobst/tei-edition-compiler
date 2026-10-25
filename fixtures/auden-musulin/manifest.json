@@ -1,0 +1,42 @@
+{
+  "repository": "https://github.com/Auden-Musulin-Papers/amp-data",
+  "commit": "289a52de61aef0b6354e3c8298173bf1f889feb2",
+  "files": {
+    "amp-transcript__0001.xml": "1a298d95a3f7c42a5c1540b8520e21d9cb7a0b852252a9346b49c9dba9987825",
+    "amp-transcript__0009.xml": "404fec377170acf657a9d137f7e676de54ebd6216846e3d5f089daa74bb7461b",
+    "amp-transcript__0012.xml": "2e4367e53f560e0e31ec5e615e1aff74a0a86d6b23ca3bf886a718e5ce63cf28",
+    "amp-transcript__0028.xml": "e0910a1a8a0d727aaf474f06404cc5f27590a86a50a3409963bcc74c46264212",
+    "amp-transcript__0031.xml": "77a3670f195e9163db6677b225da081dd6e9f889e13d66c165e4f19de75f2420",
+    "amp-transcript__0040.xml": "2e42771234ed05cd7184b5642bbc44afd62e658ec9202788af7622c3cdfe1b30",
+    "amp-transcript__0043.xml": "94eb57b9ad0918c1892a4acb6f199a351c0ba049ac844c675f62f5da5f7cb3ec",
+    "amp-transcript__0053.xml": "45dd44a5399f230d45709318b928a1c71937b4ed35ec215a14d523a1a4459059",
+    "amp-transcript__0062.xml": "51b106a64387211a94c1d08e7419cb4b0b4eaa5fbb57809e9f0a7bd680982fb9",
+    "amp-transcript__0078.xml": "8ef7a64edb8d9f915c72a20e12c840fd7e7a43097ea1bbd0bda8eae1906c6aea"
+  },
+  "cohorts": {
+    "initial": [
+      "amp-transcript__0001.xml",
+      "amp-transcript__0040.xml",
+      "amp-transcript__0078.xml"
+    ],
+    "baseline": [
+      "amp-transcript__0001.xml",
+      "amp-transcript__0040.xml",
+      "amp-transcript__0078.xml",
+      "amp-transcript__0028.xml",
+      "amp-transcript__0062.xml"
+    ],
+    "interpretation-closure": [
+      "amp-transcript__0001.xml",
+      "amp-transcript__0040.xml",
+      "amp-transcript__0078.xml",
+      "amp-transcript__0028.xml",
+      "amp-transcript__0062.xml",
+      "amp-transcript__0009.xml",
+      "amp-transcript__0012.xml",
+      "amp-transcript__0031.xml",
+      "amp-transcript__0043.xml",
+      "amp-transcript__0053.xml"
+    ]
+  }
+}

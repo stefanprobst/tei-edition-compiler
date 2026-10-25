@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="amp-transcript__0053.xml" xml:base="https://id.acdh.oeaw.ac.at/auden-musulin-papers">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="s">Auden Musulin Papers: A Digital Edition of W. H. Auden´s Letters to Stella Musulin (FWF P 33754)</title>
+                <title level="a">Typed Letter Stella Musulin to [Edith Silbermann] 1969-05-29</title>
+                <author ref="https://d-nb.info/gnd/127246711">Musulin, Stella</author>
+                <editor><name xml:id="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name xml:id="tfruehwirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name xml:id="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></editor>
+                <funder>
+                    <name>Austrian Science Fund (FWF)</name>
+                    <address>
+                        <street>Georg-Coch-Platz 2</street>
+                        <postCode>1010 Vienna</postCode>
+                        <placeName>
+                            <country>A</country>
+                            <settlement>Vienna</settlement>
+                        </placeName>
+                    </address>
+                </funder>
+            </titleStmt>
+            <editionStmt>
+                <edition>
+                    <title>Typed Letter Stella Musulin to [Edith Silbermann] 1969-05-29</title>
+                    <interpGrp>
+                        <interp xml:id="ana_014" source="ph_014"><!-- link to nanopub -->
+                            <desc><rs type="person" ref="#amp_person_2">Stella Musulin</rs>'s son, <rs type="person" ref="#amp_person_94">Marko Musulin</rs> (in an email from 15 February 2022), and the niece of <rs type="person" ref="#amp_person_151">Edith Silbermann</rs>, Amy-Diana Colin (in a personal interview conducted in 2022), have identified the addressee of this letter as <rs type="person" ref="#amp_person_151">Edith Silbermann</rs>. In the introduction to her book <hi rend="italic">Paul Celan - Edith Silbermann: Zeugnisse einer Freundschaft: Gedichte, Briefwechsel, Erinnerungen</hi>, Colin outlines the close acquaintance between Silbermann and <rs type="person" ref="#amp_person_167">Janko</rs> and <rs type="person" ref="#amp_person_2">Stella Musulin</rs>.
+                               <listPerson>
+                                   <person><persName ref="acdh:amp-index-persons.xml#amp_person_151"/></person>
+                               </listPerson>
+                               <listBibl>
+                                  <bibl>
+                                     <editor>
+                                         <name>
+                                             <surname>Colin</surname>
+                                             <forename>Amy-Diana</forename>
+                                         </name>
+                                     </editor>
+                                     <editor ref="acdh:amp-index-persons.xml#amp_person_151"/>
+                                     <title>Paul Celan - Edith Silbermann: Zeugnisse einer Freundschaft: Gedichte, Briefwechsel, Erinnerungen</title>
+                                     <publisher>Wilhelm Fink</publisher>
+                                      <pubPlace ref="acdh:amp-index-places.xml#amp_place_id_26"/>
+                                     <date when-iso="2010"/>
+                                     <idno type="ISBN">978-3-7705-4842-2</idno>
+                                     <citedRange unit="page" from="9" to="20"/>
+                                  </bibl>
+                                  <bibl type="email">
+                                      <author ref="acdh:amp-index-persons.xml#amp_person_94"/>
+                                      <title>WG:, received by Sandra Mayer</title>
+                                      <date when-iso="2022-02-15"/>
+                                  </bibl>
+                               </listBibl>
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="high" locus="value"/>
+                        </interp>
+                        <interp source="ph_015" xml:id="ana_015"><!-- link to nanopub -->
+                            <desc>According to <rs type="person" ref="#amp_person_2">Stella Musulin</rs>'s son, <rs type="person" ref="#amp_person_94">Marko Musulin</rs> (in an email from 25 October 2022), "T." stands for "Tee" ("tea").
+                                <bibl type="email">
+                                   <author ref="acdh:amp-index-persons.xml#amp_person_94"/>
+                                   <title>AW: Frage zu genannten Namen, received by Timo Frühwirth</title>
+                                   <date when-iso="2022-10-25"/>
+                                </bibl>
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="high" locus="value"/>
+                        </interp>
+                        <interp source="ph_016" xml:id="ana_016"><!-- link to nanopub -->
+                            <desc>
+                                In 1919, the German-based cosmetics company Schwarzkopf translated and adapted the English-language "shampoo" into "Schaumpon", which was subsequently used as a product name. <rs type="person" ref="#amp_person_2">Stella Musulin</rs>'s use of the word in her letter may be indicative of colloquial trademark genericization.
+                                <listBibl>
+                                    <bibl source="https://de.wikipedia.org/wiki/Schwarzkopf_(Kosmetik)">
+                                        <title xml:lang="de">Wikipedia article: Schwarzkopf (Kosmetik)</title>
+                                    </bibl>
+                                </listBibl>
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="high" locus="value"/>
+                        </interp>
+                        <interp source="ph_020" xml:id="ana_020"><!-- link to nanopub -->
+                            <desc>
+                                According to the article <ref target="https://www.diepresse.com/6187877/fledermaus-und-speck-die-queen-in-oesterreich">"'Fledermaus' und Speck: Die Queen in Österreich"</ref> in <rs type="org" ref="#amp_organization_39">Die Presse</rs> from 9 September 2022, <rs type="person" ref="#amp_person_138">Queen Elizabeth II</rs> attended a gala dinner at <rs type="place" ref="#amp_place_id_82">Schönbrunn Palace</rs> on 5 May 1969, which is the day of her arrival in <rs type="place" ref="#amp_place_id_10">Austria</rs> for her <rs type="event" ref="#amp_event_id_7">1969 state visit</rs>. The <ref target="https://www.wiener-staatsoper.at/en/staatsoper/media/detail/news/on-the-death-of-the-queen">media archive of the Vienna State Opera</ref> records her attendance of a <rs type="event" ref="#amp_event_id_96">special performance of "Die Fledermaus"</rs> on 6 May 1969.
+                                <listBibl>
+                                    <bibl sameAs="https://www.diepresse.com/6187877/fledermaus-und-speck-die-queen-in-oesterreich">
+                                        <author>
+                                            <persName>
+                                                <surname>Schrittwieser</surname>
+                                                <forename>Eva</forename>
+                                            </persName>
+                                        </author>
+                                        <title xml:lang="de">"Fledermaus" und Speck: Die Queen in Österreich</title>
+                                        <orgName ref="acdh:amp-index-organizations.xml#amp_organization_39"/>
+                                        <pubPlace ref="acdh:amp-index-places.xml#amp_place_id_1"/>
+                                        <date when-iso="2022-09-09"/>
+                                    </bibl>
+                                    <bibl sameAs="https://www.wiener-staatsoper.at/en/staatsoper/media/detail/news/on-the-death-of-the-queen">
+                                        <title xml:lang="en">On the Death of the Queen</title>
+                                        <orgName ref="acdh:amp-index-organizations.xml#amp_organization_90"/>
+                                        <date when-iso="2022-09-09"/>
+                                    </bibl>
+                                </listBibl>
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="high" locus="value"/>
+                        </interp>
+                        <interp source="ph_021" xml:id="ana_021"><!-- link -->
+                            <desc>
+                                The expression "draussen" ("out there") could refer either to <rs type="place" ref="#amp_place_id_7">Schloss Fridau</rs> or to <rs type="place" ref="#amp_place_id_74">Zell am See</rs>, where <rs type="person" ref="#amp_person_167">Janko Musulin</rs> owned the guest house <rs type="place" ref="#amp_place_id_258">Fallegg</rs>, which was managed by <rs type="person" ref="#amp_person_141">Sonja Lanier</rs> in the period circa 1957 to circa 1965. In an e-mail from 12 January 2024, <rs type="person" ref="#amp_person_142">Amelie Lanier</rs> states that she has never been to Fridau.
+                                <listPlace type="choice">
+                                    <place sameAs="acdh:amp-index-places.xml#amp_place_id_7"/>
+                                    <place sameAs="acdh:amp-index-places.xml#amp_place_id_258"/>
+                                </listPlace>
+                                <bibl type="email">
+                                    <author ref="acdh:amp-index-persons.xml#amp_person_142"/>
+                                    <title>Re: Anfrage zu Familienmitgliedern von Lanier und von Etthofen, received by Dimitra Grigoriou</title>
+                                    <date when-iso="2024-01-12"/>
+                                </bibl>
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="medium" locus="value"/>
+                        </interp>
+                        <interp source="ph_024" xml:id="ana_024"><!-- link -->
+                            <desc>
+                                The <rs type="event" ref="#amp_event_id_22">1969 visit by <rs type="person" ref="#amp_person_54">Friedrich Heer</rs> and <rs type="person" ref="#amp_person_2">Stella Musulin</rs> in Kirchstetten</rs> is documented by a <ref target="acdh:amp-transcript__0065.xml acdh:amp-transcript__0066.xml acdh:amp-transcript__0067.xml acdh:amp-transcript__0068.xml acdh:amp-transcript__0069.xml">series of photographs</ref> taken by Musulin.
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="high" locus="value"/>
+                        </interp>
+                        <interp source="ph_037" xml:id="ana_037"><!-- link -->
+                            <desc>
+                                The first part of this letter is translated into English by <rs type="person" ref="#amp_person_2">Stella Musulin</rs> in the typescript of her memoir <ref target="acdh:amp-transcript__0062.xml">"The Years in Austria"</ref> (9r).
+                                <bibl sameAs="acdh:amp-transcript__0062.xml">
+                                    <citedRange unit="page" from="9r" to="9r"/>
+                                </bibl>
+                            </desc>
+                            <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                            <certainty cert="high" locus="value"/>
+                        </interp>
+                    </interpGrp>
+                </edition>
+                <respStmt><resp>Transcription and commentary</resp><name sameAs="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name sameAs="tfruewirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name sameAs="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></respStmt>
+            <respStmt><resp>TEI Schema, ODD/RNG</resp><name ref="https://orcid.org/0000-0002-9575-9372" xml:id="pandorfer">Andorfer, Peter</name><name ref="https://orcid.org/0000-0002-0636-4476" xml:id="delsner">Elsner, Daniel</name></respStmt></editionStmt>
+            <publicationStmt>
+                <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+                <pubPlace>Vienna</pubPlace>
+                <date when="2024">2024</date>
+                <availability>
+                    <licence target="https://creativecommons.org/licenses/by/4.0/deed.en">
+                        <p>You are free to: Share — copy and redistribute the material in any medium or format; adapt — remix, transform, and build upon the material
+                            for any purpose, even commercially.</p>
+                        <p>The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms:</p>
+                        <p>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+                        <p>Notices:</p>
+                        <p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+                    </licence>
+                    <p>Copyright literary texts W. H. Auden Estate of W. H. Auden.</p>
+                </availability>
+                <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-C33A-5</idno></publicationStmt>
+            <seriesStmt>
+                <p>Machine-Readable Transcriptions of the Auden Musulin Papers</p>
+            </seriesStmt>
+            <sourceDesc>
+                <listWit>
+                    <witness n="1">
+                        <msDesc>
+                            <msIdentifier>
+                                <country>A</country>
+                                <settlement>St. Pölten</settlement>
+                                <repository>State Collections of Lower Austria</repository>
+                                <collection>Stella Musulin (Depot)</collection>
+                                <idno>2, 9</idno>
+                            </msIdentifier>
+                            <history>
+                                <origin><!-- mark up certainty values -->
+                                    <origDate notBefore-iso="1969-05-29T00:00:00+01:00" notAfter-iso="1969-05-29T23:59:59+01:00">1969-05-29</origDate>
+                                    <origPlace ref="#amp_place_id_10">Austria</origPlace>
+                                </origin>
+                            </history>
+                        </msDesc>
+                    </witness>
+                </listWit>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <listPrefixDef>
+                <prefixDef ident="acdh" matchPattern="(.+)" replacementPattern="https://id.acdh.oeaw.ac.at/auden-musulin-papers/$1">
+                    <p>Edition Documents Prefix</p>
+                </prefixDef>
+            </listPrefixDef>
+        </encodingDesc>
+        <profileDesc>
+            <langUsage>
+                <language ident="de">German</language>
+                <language ident="en">English</language>
+            </langUsage>
+            <correspDesc>
+                <correspAction type="received">
+                    <persName ref="#amp_person_151">Silbermann, Edith</persName><!-- certainty value -->
+                </correspAction>
+                <correspContext>
+                    <ref type="belongsToCorrespondence" target="#amp_person_151">Silbermann, Edith</ref><!-- certainty value -->
+                    <ref type="belongsToCorrespondence" target="#amp_person_2">Musulin, Stella</ref>
+                    <ref subtype="previous_letter" type="withinCollection" target="#amp-transcript__0014.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1969-05-21</ref>
+                    <ref subtype="next_letter" type="withinCollection" target="#amp-transcript__0040.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1969-06-10</ref>
+                </correspContext>
+            </correspDesc>
+        </profileDesc>
+        <revisionDesc status="published">
+            <change who="pandorfer" when="2021-09-21">template populated with script "create_templates.py"</change>
+            <change who="smayer" when="2021-12-15">text transcribed</change>
+            <change who="tfruehwirth" when="2021-12-15">text transcribed using Transkribus</change>
+            <change who="smayer tfruehwirth" when="2021-12-15">transcriptions collated</change>
+            <change who="dgrigoriou" when="2022-10-06">transcriptions updated v0.1</change>
+            <change who="dgrigoriou smayer tfruehwirth" when="2023-03-01">and correspDesc collated</change>
+            <change who="dgrigoriou" when="2023-08-18">container structure updated</change>
+            <change who="dgrigoriou smayer tfruehwirth" when="2024-01-11">entities updated, interpGrp added</change>
+            <change who="smayer tfruehwirth" when="2024-06-21">revision markup updated</change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+        <surface ulx="0" uly="0" lrx="5696" lry="7754">
+            <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0219/"/>
+        </surface>
+        <surface ulx="0" uly="0" lrx="5696" lry="7752">
+            <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0220/"/>
+        </surface>
+    </facsimile>
+    <text>
+        <body>
+            <div type="transcription" xml:id="transcription_amp_0053" xml:lang="de" hand="#typed">
+                <div type="letter">
+                <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0219/" type="sheet" ed="1r"/>
+                   <div type="letter_message">
+                      <opener>
+                         <dateline>
+                             <date>
+                                <seg rend="#block">
+                                   <space quantity="35" unit="char"/><date>29.Mai.</date>
+                                </seg>
+                             </date>
+                         </dateline>
+                         <salute><del rend="whiteout"><rs type="person" ref="#amp_person_237" ana="#ana_014">Liebling</rs>,</del></salute>
+                      </opener>
+                      <p>
+                         <space quantity="5" unit="char"/><rs type="person" ref="#amp_person_2">Ich</rs> habe schon sehr lange nicht geschrieben, Du wirst<lb/>
+                         Dich, fürchte ich, schon kränken. <space quantity="1" unit="char"/>Sehr schön war es, Deine<lb/>
+                         Stimme zu hören, leider hattest Du nicht viel davon.
+                      </p>
+                      <p>    
+                         <space quantity="5" unit="char"/><rs type="note" ana="#ana_037"><add place="inline" hand="#handwritten">&#x231C;</add>Heute stehe ich immer noch unter dem Eindruck des <rs type="event" ref="#amp_event_id_22" ana="#ana_024">gest<subst><del rend="overtyped">ir</del><add place="superimposed">ri</add></subst>gen<lb/>
+                         Ausflugs</rs> nach <rs type="place" ref="#amp_place_id_2">Kirchstetten</rs></rs> wohin ich <rs type="person" ref="#amp_person_54">Fritz Heer</rs> verabredeter-<lb/>
+                         maßen zum Essen mitnahm. <space quantity="1" unit="char"/>Diese manisch-depressive Genie,<del rend="overtyped">und</del><lb/>
+                         dieser innerlich verschreckte Lausbub <rs type="person" ref="#amp_person_54">Friedrich Heer</rs>, und der<lb/>
+                         grosse englische Dichter <rs type="person" ref="#amp_person_1">Auden</rs>, von <rs type="person" ref="#amp_person_4">Kallman</rs> ganz zu schweigen -<lb/>
+                         wie würde das gehen? <space quantity="1" unit="char"/>Es ging großartig. <space quantity="1" unit="char"/><rs type="person" ref="#amp_person_54">Fritz</rs> war wie ein aus<lb/>
+                         dem Gefängnis entlassener Mensch. <space quantity="1" unit="char"/>Monatelang kommt er nicht aus<lb/>
+                         der Arbeitsroutine heraus, er freute sich so über das satte Grün<lb/>
+                         des <rs type="place" ref="#amp_place_id_175">Wienerwalds</rs>, über die Akazienbäume die immer wieder silbern<lb/>
+                         schimmernd aus dem dü<subst><del rend="overtyped">h</del><add place="superimposed">n</add></subst>kleren Hintergrund herausleuchteten, ü<subst><del rend="overtyped">v</del><add place="superimposed">b</add></subst>er<lb/>
+                         die gute Luft, die klare Sicht nach dem Sturm vor zwei Tagen.<lb/>
+                         Ich habe ein wenig Angst gehabt, die <rs type="person" ref="#amp_person_54 #amp_person_1">beiden Großredner</rs> würden<lb/>
+                         gleichzeitig oder aneinander vorbeireden, aber das taten sie<lb/>
+                         nur manchmal: <space quantity="1" unit="char"/>sie wollten von einander etwas erfahren,<lb/>
+                         konnten aber natürlich nur immer wieder große Themen streifen,<lb/>
+                         Anekdoten erzählen und so. <space quantity="1" unit="char"/>Jedenfalls war die Stimmung herrlich,<lb/>
+                         <rs type="person" ref="#amp_person_54">Fritz</rs> entpuppte sich als begabter "<foreign xml:lang="en">mimic</foreign>", der nicht nur <rs type="person" ref="#amp_person_130">Hitler</rs><lb/>
+                         zum besten nachmachen konnte, das können viele, sondern auf<lb/>
+                         ganz unheimliche Weise <rs type="person" ref="#amp_person_55">Mussolini</rs> dem er plötzlich unglaublich<lb/>
+                         ähnlich sah. <space quantity="1" unit="char"/>Hatte er also die verdorbenen deutschen und<lb/>
+                         italienischen Sprachen illustriert, so ging er später auf die<lb/>
+                         französischen Intellektuellen los: <space quantity="1" unit="char"/>ein zimperlich-geschwollene<subst><del rend="overtyped">n</del><add place="superimposed">s</add></subst><lb/>
+                         Gespräch zwischen <rs type="person" ref="#amp_person_56">Gide</rs> und <rs type="person" ref="#amp_person_132">Claudel</rs>. <space quantity="1" unit="char"/>Es wurde über <rs type="person" ref="#amp_person_18">Wagner</rs>s<lb/>
+                         Texte gesprochen, über Liturgie-Reform, über <rs type="person" ref="#amp_person_5">Weinheber</rs>, <rs type="person" ref="#amp_person_57">Rudolf<lb/>
+                         Kassner</rs> und <rs type="person" ref="#amp_person_58">Freud</rs> - über<del rend="overtyped">d</del><unclear>i</unclear>diese drei hatte <rs type="person" ref="#amp_person_54">Fritz</rs> persönliche<lb/>
+                         Erlebnisse zu berichten gehabt. <space quantity="1" unit="char"/>Wenn ich <rs type="person" ref="#amp_person_54">Fritz</rs> beobachte, kann<lb/>
+                         es sehr oft vorkommen, daß ich sein Gehaben mit den Augen der<lb/>
+                         Konvention sehe, ohne diese Vor<del rend="overtyped">ein</del>urteile zu empfinden - wenn<lb/>
+                         Du das irgendwie verstehen kannst. <space quantity="1" unit="char"/>So hat <rs type="person" ref="#amp_person_54">er</rs>, als <rs type="person" ref="#amp_person_1">Auden</rs> ihn<lb/>
+                         begrüßte, ihm die Hand geküßt, und das war einerseits "unmöglich"<lb/>
+                         und grenzte auch tatsächlich ans Lächerliche, wa<subst><del rend="overtyped">f</del><add place="superimposed">r</add></subst> es aber doch<lb/>
+                         nicht, weil <rs type="person" ref="#amp_person_54">Fritz</rs> einfach aus allen Kategorien, in die man ihn<lb/>
+                         hineinpressen möchte, herausplatzt. <space quantity="1" unit="char"/>Die Erklärung dafür, daß<lb/>
+                         er doch nicht ganz lächerlich wirkt, ist die Natürlichkeit, die<lb/>
+                         kind<subst><del rend="overtyped">ische</del><add place="above">liche</add></subst> Freude, die er empfindet, im gegeben Fall das plötzliche<lb/>
+                         und völlig unaffektierte Bedürfnis, einen großen Mann zu<lb/>
+                         huldigen. <space quantity="1" unit="char"/>Interessant, daß <rs type="person" ref="#amp_person_54">Heer</rs> mit der <rs type="person" ref="#amp_person_133">Droste-Hülshoff</rs> und<lb/>
+                         auch mit <rs type="person" ref="#amp_person_134">Bertha Suttner</rs> verwandt ist.
+                      </p>
+                      <p>     
+                         <space quantity="5" unit="char"/>Ohne Zweifel liegt in und um das Wesen <rs type="person" ref="#amp_person_54">Heer</rs>s etwas Tragisches<unclear>.</unclear><lb/>
+                         Er ist ebenso unentbehrlich wie unbrauchbar. <space quantity="1" unit="char"/>Seine große Linie<lb/>
+                         stimmt, die Details nicht, das geht für seine geistige Arbeit<lb/>
+                         wie für seine Persönlichkeit. <space quantity="1" unit="char"/>Die akademische Welt, wo immer<lb/>
+                         sie von sturer, g<subst><del rend="overtyped">e</del><add place="superimposed">r</add></subst>adliniger Mittelmäßigkeit (wie in <rs type="place" ref="#amp_place_id_1">Wien</rs>)<lb/>
+                         beherrscht wird, empört sich und schiebt ihn von sich: er ist<lb/>
+                         frivol, frevelhaft, frech, unorthodox, unberechenbar und - fast<lb/>
+                         übertreibe ich da ein bißl - im soziologisch-biologischen Sinne<lb/>
+                         artfremd. <space quantity="1" unit="char"/>Aber nicht nur in <rs type="place" ref="#amp_place_id_10">Österreich</rs>: <space quantity="1" unit="char"/><rs type="person" ref="#amp_person_54">er</rs> sagte <rs type="person" ref="#amp_person_2">mir</rs>, vor<lb/>
+                         kurzem sagte ihm ein deutscher Universitätsprofessor ("er konnte<lb/>
+                         es sagen, weiler Naturwissenschaftler ist"): <space quantity="1" unit="char"/>"<rs type="person" ref="#amp_person_54">Sie</rs> müssen es<lb/>
+                         mir glauben, daß es sich kein deutsches Professorenkollegium<lb/>
+                         leisten kann, Sie zu sich zu nehmen." Ist <rs type="person" ref="#amp_person_54">er</rs> einfach zu<lb/>
+                         unbequem? <space quantity="1" unit="char"/>Was aber seine Person enbelangt, so empfindet er es
+                      </p>
+                   <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0220/" type="sheet" ed="1v"/>
+                      <p prev="true">
+                         als weitaus schwieriger, mit sich selbst auszukommen, als<lb/>
+                         dies <add place="above">für</add> d<subst><del rend="overtyped">en</del><add place="superimposed">ie</add></subst> Mitmenschen der Fall ist. <space quantity="1" unit="char"/>"<rs type="person" ref="#amp_person_54">Ich</rs> bin noch immer das<lb/>
+                         verschreckte, verheulte Kind, das sich irgendwie durchschlagen<lb/>
+                         mußte. <space quantity="1" unit="char"/>Ich bin nie reif geworden. <space quantity="1" unit="char"/>Ich heiratete zu früh, für<lb/>
+                         die Ehe völlig unreif, mußte kämpfen, um meine F<subst><del rend="overtyped">q</del><add place="superimposed">a</add></subst>milie zu<lb/>
+                         ernähren und hatte nie Zeit und Ruhe, um nachzudenken...<lb/>
+                         ein völliges Versagen... <space quantity="1" unit="char"/>Mein Leben lang ringe ich mit dem<lb/>
+                         Tod, kämpfe ich gegen Selbstmordgedanken... <space quantity="1" unit="char"/>Ich bin passé:<lb/>
+                         man schreibt aus meinen alten Arbeiten kommentarlos ab"usw. usf.<lb/>
+                         Diese und <subst><del rend="overtyped"><unclear>ü</unclear></del><add place="superimposed">ä</add></subst>hnliche Dinge erzählte <rs type="person" ref="#amp_person_54">er</rs> <rs type="person" ref="#amp_person_2">mir</rs> auf der Rückfahrt,<lb/>
+                         wo ich eine<del rend="overtyped">n</del> ruhige<del rend="overtyped">n</del> Nebenstrasse nach <rs type="place" ref="#amp_place_id_1">Wien</rs> wählte und langsam<lb/>
+                         gefahren bin, aber inmitten dieser Depression war er immer wieder<lb/>
+                         über die schöne Natur glücklich, über ruhige Dörfer und hübsche<lb/>
+                         Häuser. sprach über diesen uralten Kulturboden, "wo die Leute<lb/>
+                         noch heute Sachen tun, die vier, fünf Jahrtausende zurück<del rend="overtyped">liegen</del><lb/>
+                         reichen, und sie wissen es nicht."
+                      </p>
+                      <p>     
+                         <space quantity="5" unit="char"/>Des Rätsels Lösung, des fast überentwickelten Geistes neben<lb/>
+                         der zerrissenen, ungleichmäßig ausgereiften Persönlichkeit,<lb/>
+                         kennt <rs type="person" ref="#amp_person_54">er</rs> selbst, oder wenigstens zum Teil. <space quantity="1" unit="char"/>Es liegt i<subst><del rend="overtyped">n</del><add place="superimposed">m</add></subst><lb/>
+                         Entsetzen des 4-jährigen Kindes und in den seelischen<lb/>
+                         Entbehrungen, die die Scheidung seiner Eltern verursachte.<add place="inline" hand="#handwritten">&#x231F;</add>
+                      </p>
+                      <p>      
+                         <space quantity="5" unit="char"/>Ärgerst <rs type="person" ref="#amp_person_237">Du</rs> Dich schon darüber, daß ich so viel über <rs type="person" ref="#amp_person_54">Fritz<lb/>
+                         Heer</rs> schreibe und wahrscheinlich deshalb weniger über andere<lb/>
+                         Dinge weil die Zeit fehlen wird? <space quantity="1" unit="char"/><add place="inline" hand="#handwritten">&#x231C;</add>Ich tue es teils weil <del rend="overtyped">e</del> ich<lb/>
+                         Dir darüber erzählen möchte, teils als eine Art von self-<lb/>
+                         expression, weil mich <rs type="person" ref="#amp_person_54">der Mann</rs> seit 20 Jahren interessiert, seit<lb/>
+                         ich seine Stimme zum ersten Mal 1948 in der <rs type="org" ref="#amp_organization_25">"Furche"</rs> hörte.<lb/>
+                         Damals habe ich sofort gewusst: <space quantity="1" unit="char"/>hier ist etwas Gr<subst><del rend="overtyped">ßs</del><add place="superimposed">oß</add></subst>es, das wir<lb/>
+                         jetzt brauchen wie ein bißchen Brot. <space quantity="1" unit="char"/>(Damals keine abgedroschene<lb/>
+                         Phrase.) <space quantity="1" unit="char"/>Und er ist auch für Dich interessant: <space quantity="1" unit="char"/>ich liefere<lb/>
+                         Dir gern Zeugnisse, daß es Menschen gibt - Österreicher! - dem<lb/>
+                         die nötigen Eigenschaften, die Zutaten aus dem ein Faschist<lb/>
+                         geformt werden kann, gänzlich fehlen. <space quantity="1" unit="char"/>Plötzlich sagte er mir<lb/>
+                         <del rend="overtyped">stah</del> strahlend: <space quantity="1" unit="char"/>"<rs type="person" ref="#amp_person_4">Kallman</rs> hat <rs type="person" ref="#amp_person_54">mir</rs> er<subst><del rend="overtyped">äz</del><add place="superimposed">zä</add></subst>hlt, seine Vorfahren<lb/>
+                         waren Juden aus <rs type="place" ref="#amp_place_id_176">Riga</rs>... Juden aus <hi rend="underline"><rs type="place" ref="#amp_place_id_176">Riga</rs></hi>." <space quantity="1" unit="char"/>Aus irgend einen Grund<lb/>
+                         freute <rs type="person" ref="#amp_person_54">ihn</rs> das enorm, und gleich <del rend="overtyped"><unclear>k</unclear>rie</del> kreisten seine Gedanken<lb/>
+                         <del>u</del>in weiß Gott was für Konvolutionen. <space quantity="1" unit="char"/>Ach ja, jetzt weiß ich<lb/>
+                         warum, er hat in <rs type="place" ref="#amp_place_id_176">Riga</rs> studiert und kannte wahrscheinlich jüdische<lb/>
+                         Menschen dort.<add place="inline" hand="#handwritten">&#x231F;</add>
+                      </p>
+                      <p>     
+                         <space quantity="5" unit="char"/>Also Schluß. <space quantity="1" unit="char"/>Pfingsten: <space quantity="1" unit="char"/>fast durchwegs herrliches Wetter,<lb/>
+                         es war <rs type="note" ana="#ana_015">zum T.</rs> Besuch <rs type="place" ref="#amp_place_id_328" ana="#ana_021">draussen</rs>, u.a. <rs type="person" ref="#amp_person_141">Sony</rs>, <rs type="person" ref="#amp_person_146">ihre Mutter</rs> und die<lb/>
+                         <rs type="person" ref="#amp_person_142">Amélie</rs>. <space quantity="1" unit="char"/><rs type="person" ref="#amp_person_94">Marko</rs> und ich sind Samstag vormittag hinaus- und<lb/>
+                         erst Dienstag am späten Nachmittag hereingefahren. <space quantity="1" unit="char"/>Ich habe<lb/>
+                         einen sehr netten Brief vom <rs type="person" ref="#amp_person_199">foreign editor</rs> der <rs type="org" ref="#amp_organization_23">Financial Times</rs><lb/>
+                         bekommen, <del rend="overtyped">um</del> in dem er sagt, er ist mit meiner Arbeit sehr<lb/>
+                         zufrieden und war auch darüber freudig überrascht, daß ich<lb/>
+                         imstande bin, in ih<subst><del rend="overtyped">e</del><add place="superimposed">r</add></subst>em Stil zu schreiben - "wenigen gelingt es".<lb/>
+                         Jetzt will ich Deine Fragen beantworten und sonst noch schauen<lb/>
+                         was in Deinem letzten Brief steht. <space quantity="1" unit="char"/><rs type="event" ref="#amp_event_id_7">Die grande toilette der <rs type="person" ref="#amp_person_147">Eva</rs><lb/>
+                         für <rs type="event" ref="#amp_event_id_103" ana="#ana_020">Schönbrunn</rs> war - ich kann Kleider so schlecht schildern -<lb/>
+                         ein bis zum Boden reichendes Kleid in sanft grüner Farbe, aus<lb/>
+                         <del rend="overtyped">einer</del> mit winzigen Perlen besticker, schwerer Seide. <space quantity="1" unit="char"/>Der Mantel<lb/>
+                         mit ein wenig hochstehendem Kragen war aus dem gleichen aber<lb/>
+                         unbesticktem Stoff. <space quantity="1" unit="char"/>Mein eigenes Kleid für die <rs type="event" ref="#amp_event_id_96" ana="#ana_020"><rs type="org" ref="#amp_organization_90">Oper</rs></rs> war leider<lb/>
+                         auch grün, ganz schlicht, gold-lurex Art, mit Seitenschlitz<lb/>
+                         links bis zum Knie. <space quantity="1" unit="char"/>Für den makellosen Teint der <rs type="person" ref="#amp_person_138">Königin</rs> ist<lb/>
+                         Veranlagung verantwortlich, ich habe selten jemanden mit einem<lb/>
+                         so herrlichen Teint gesehen wie seinerzeit <del rend="overtyped">die</del> ihre <rs type="person" ref="#amp_person_139">Mutter</rs>,<lb/>
+                         und diesen hat auch die <rs type="person" ref="#amp_person_140">Prinzessin Anne</rs> gee<del rend="overtyped">h</del>rbt.</rs>
+                      </p>
+                      <p>
+                         <space quantity="5" unit="char"/>Daß Deine Haut im Augenblick <subst><del rend="overtyped">k</del><add place="superimposed">i</add></subst>n keinem guten Zustand ist,<lb/>
+                         ist sehr ärgerlich und ich frage mich, was die Ursache sein<lb/>
+                         könnte. <space quantity="1" unit="char"/>Daß Du Schuppen hast, habe ich nie gemerkt, aber nimm<lb/>
+                         doch einen guten Schuppen-<rs type="note" ana="#ana_016">Schaumpon</rs>. <space quantity="1" unit="char"/>Freilich kann das alles<lb/>
+                         mit dem Alter zu tun <subst><del rend="overtyped"><unclear>z</unclear></del><add place="superimposed">h</add></subst>aben. <space quantity="1" unit="char"/>Freuen wir uns auf den Teint, den<lb/>
+                         Du nachher haben wirst... <space quantity="1" unit="char"/>Ich will mir <rs type="person" ref="#amp_person_148">Livia</rs>s Stimme, wie sie
+                      </p>
+                   </div>
+                </div>    
+            </div>
+        </body>
+    </text>
+</TEI>

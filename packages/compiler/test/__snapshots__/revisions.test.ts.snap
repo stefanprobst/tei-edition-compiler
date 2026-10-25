@@ -1,0 +1,246 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`revision stress fixtures compact semantic summary snapshot 1`] = `
+[
+  {
+    "anchors": 38,
+    "diagnostics": [
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0053.xml#ana_024",
+        "provenance": {
+          "selector": "id("transcription_amp_0028")/div[7]/p[3]/rs[7]",
+          "source": "amp-transcript__0028.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0009.xml#ana_012",
+        "provenance": {
+          "selector": "id("transcription_amp_0028")/div[14]/p[1]/rs[2]",
+          "source": "amp-transcript__0028.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0031.xml#ana_031",
+        "provenance": {
+          "selector": "id("transcription_amp_0028")/div[16]/p[1]/rs[4]",
+          "source": "amp-transcript__0028.xml",
+        },
+      },
+    ],
+    "document": "amp-transcript__0028.xml",
+    "parts": [
+      {
+        "characters": 381,
+        "kind": "transcript",
+        "parentId": undefined,
+        "parentOffset": undefined,
+      },
+      {
+        "characters": 0,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 0,
+      },
+      {
+        "characters": 2555,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 45,
+      },
+      {
+        "characters": 4892,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 91,
+      },
+      {
+        "characters": 2384,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 137,
+      },
+      {
+        "characters": 2552,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 183,
+      },
+      {
+        "characters": 298,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 229,
+      },
+      {
+        "characters": 4816,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 276,
+      },
+      {
+        "characters": 0,
+        "kind": "embedded-text",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")/div[14]",
+        "parentOffset": 1134,
+      },
+      {
+        "characters": 191,
+        "kind": "letter",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")/div[14]/quote[1]/floatingText[1]",
+        "parentOffset": 0,
+      },
+      {
+        "characters": 2597,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 284,
+      },
+      {
+        "characters": 0,
+        "kind": "embedded-text",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")/div[16]",
+        "parentOffset": 343,
+      },
+      {
+        "characters": 5136,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")/div[16]/floatingText[1]",
+        "parentOffset": 0,
+      },
+      {
+        "characters": 13031,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 331,
+      },
+      {
+        "characters": 1331,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 335,
+      },
+      {
+        "characters": 1840,
+        "kind": "prose",
+        "parentId": "amp-transcript__0028.xml:id("transcription_amp_0028")",
+        "parentOffset": 381,
+      },
+    ],
+    "substitutions": 166,
+  },
+  {
+    "anchors": 96,
+    "diagnostics": [
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0031.xml#ana_030",
+        "provenance": {
+          "selector": "id("transcription_amp_0062")/div[1]/head[1]/rs[1]",
+          "source": "amp-transcript__0062.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0053.xml#ana_014",
+        "provenance": {
+          "selector": "id("transcription_amp_0062")/div[1]/p[21]/rs[4]",
+          "source": "amp-transcript__0062.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0053.xml#ana_024",
+        "provenance": {
+          "selector": "id("transcription_amp_0062")/div[1]/p[22]/quote[1]/seg[1]/rs[2]",
+          "source": "amp-transcript__0062.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0012.xml#ana_013",
+        "provenance": {
+          "selector": "id("transcription_amp_0062")/div[7]/p[14]/rs[29]",
+          "source": "amp-transcript__0062.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0009.xml#ana_012",
+        "provenance": {
+          "selector": "id("transcription_amp_0062")/div[9]/p[1]/seg[1]/quote[1]/seg[2]/rs[1]",
+          "source": "amp-transcript__0062.xml",
+        },
+      },
+      {
+        "code": "unresolved-interpretation",
+        "message": "acdh:amp-transcript__0031.xml#ana_031",
+        "provenance": {
+          "selector": "id("transcription_amp_0062")/div[9]/p[8]/rs[6]",
+          "source": "amp-transcript__0062.xml",
+        },
+      },
+    ],
+    "document": "amp-transcript__0062.xml",
+    "parts": [
+      {
+        "characters": 36,
+        "kind": "transcript",
+        "parentId": undefined,
+        "parentOffset": undefined,
+      },
+      {
+        "characters": 26114,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")",
+        "parentOffset": 0,
+      },
+      {
+        "characters": 7181,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")",
+        "parentOffset": 4,
+      },
+      {
+        "characters": 17406,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")",
+        "parentOffset": 18,
+      },
+      {
+        "characters": 22163,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")",
+        "parentOffset": 24,
+      },
+      {
+        "characters": 0,
+        "kind": "embedded-text",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")/div[7]",
+        "parentOffset": 11166,
+      },
+      {
+        "characters": 16498,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")/div[7]/quote[1]/floatingText[1]",
+        "parentOffset": 0,
+      },
+      {
+        "characters": 8455,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")",
+        "parentOffset": 30,
+      },
+      {
+        "characters": 11659,
+        "kind": "prose",
+        "parentId": "amp-transcript__0062.xml:id("transcription_amp_0062")",
+        "parentOffset": 36,
+      },
+    ],
+    "substitutions": 380,
+  },
+]
+`;

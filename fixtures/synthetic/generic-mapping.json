@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "mapping": {
+    "partKinds": {},
+    "elementPartKinds": { "body": "text", "lg": "verse" },
+    "entityKinds": { "human": "person", "location": "place" },
+    "documentBaseUri": "https://example.test/edition/",
+    "referencePrefixes": { "local": "https://example.test/edition/" },
+    "authorityDocuments": {
+      "person": "https://example.test/authorities.xml",
+      "place": "https://example.test/authorities.xml"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"name":"tei-edition-compiler","private":true,"type":"module","workspaces":["packages/*"],"scripts":{"test":"bun test","typecheck":"tsc --noEmit","compile":"bun packages/compiler/src/cli.ts","inspect":"bun packages/ir/src/inspect-cli.ts","verify":"bun packages/compiler/src/verify-cli.ts"},"devDependencies":{"@types/bun":"^1.3.0","typescript":"^5.9.3"}}

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="amp-transcript__0009.xml" xml:base="https://id.acdh.oeaw.ac.at/auden-musulin-papers">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Auden Musulin Papers: A Digital Edition of W. H. Auden´s Letters to Stella Musulin (FWF P 33754)</title>
+            <title level="a">Autograph Letter Signed W. H. Auden to Stella Musulin 1968-10-15</title>
+            <author ref="https://d-nb.info/gnd/118650963">Auden, W. H.</author>
+            <author ref="https://d-nb.info/gnd/127246711">Musulin, Stella Mary Bellairs</author>
+            <editor><name xml:id="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name xml:id="tfruehwirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name xml:id="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></editor>
+            <funder>
+               <name>Austrian Science Fund (FWF)</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Vienna</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Vienna</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               <title>Autograph Letter Signed W. H. Auden to Stella Musulin 1968-10-15</title>
+               <interpGrp>
+                  <interp xml:id="ana_012" source="ph_012"><!-- link to nanopub -->
+                     <desc>
+                        In her memoir <rs type="lit_work" ref="#lit_work_id_162">"Auden in Kirchstetten"</rs>, <rs type="person" ref="#amp_person_2">Stella Musulin</rs> writes that after the <rs type="event" ref="#amp_event_id_42">"uprising in Czechoslovakia in August and September 1968"</rs>, <rs type="person" ref="#amp_person_1">W. H. Auden</rs> considered the "idea of lending <rs type="place" ref="#amp_place_id_2">the house</rs> to <rs type="person" ref="#amp_person_155 #amp_person_171">two Czechs</rs>" (217). In <ref target="acdh:amp-transcript__0044.xml">Auden's letter to Musulin from 24 October 1968</ref>, he refers to the couple as "the Langers". Eventually, these plans did not materialize. In his <ref target="acdh:amp-transcript__0010.xml">letter from 6 November 1968</ref>, Auden expresses his relief: "Of course, selfishly, I'm rather relieved. How horrid one is!"
+                        <listBibl>
+                           <bibl>
+                              <author ref="acdh:amp-index-persons.xml#amp_person_2"/>
+                              <title level="a">Auden in Kirchstetten</title>
+                              <title level="m">W.H. Auden: 'In Solitude, for Company': W.H. Auden After 1940</title>
+                              <editor ref="acdh:amp-index-persons.xml#amp_person_231"/>
+                              <editor>
+                                 <persName>
+                                    <surname>Jenkins</surname>
+                                    <forename>Nicholas</forename>
+                                 </persName>
+                              </editor>
+                              <publisher>Clarendon Press</publisher>
+                              <pubPlace ref="acdh:amp-index-places.xml#amp_place_id_46"/>
+                              <date when-iso="1995"/>
+                              <idno type="ISBN">0-19-818294-5</idno>
+                              <biblScope unit="page" from="207" to="233"/>
+                              <citedRange unit="page" from="217" to="217"/>
+                           </bibl>
+                        </listBibl>
+                     </desc>
+                     <respons resp="dgrigoriou smayer tfruehwirth" locus="value"/>
+                     <certainty cert="high" locus="value"/>
+                  </interp>
+               </interpGrp>
+            </edition>
+            <respStmt><resp>Transcription and commentary</resp><name sameAs="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name sameAs="tfruewirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name sameAs="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></respStmt>
+         <respStmt><resp>TEI Schema, ODD/RNG</resp><name ref="https://orcid.org/0000-0002-9575-9372" xml:id="pandorfer">Andorfer, Peter</name><name ref="https://orcid.org/0000-0002-0636-4476" xml:id="delsner">Elsner, Daniel</name></respStmt></editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2024">2024</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.en">
+                  <p>You are free to: Share — copy and redistribute the material in any medium or format; adapt — remix, transform, and build upon the material
+for any purpose, even commercially.</p>
+                  <p>The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms:</p>
+                  <p>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+                  <p>Notices:</p>
+                  <p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+               </licence>
+               <p>Copyright literary texts W. H. Auden Estate of W. H. Auden.</p>
+            </availability>
+         <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-C30E-7</idno></publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Auden Musulin Papers</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>St. Pölten</settlement>
+                        <repository>State Collections of Lower Austria</repository>
+                        <collection>Stella Musulin (Depot)</collection>
+                        <idno>1, 20</idno>
+                     </msIdentifier>
+                     <history>
+                        <origin>
+                           <origDate notBefore-iso="1968-10-15T00:00:00+01:00" notAfter-iso="1968-10-15T23:59:59+01:00">1968-10-15</origDate>
+                           <origPlace ref="#amp_place_id_45">32 Bryanston Square</origPlace>
+                        </origin>
+                     </history>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <listPrefixDef>
+            <prefixDef ident="acdh" matchPattern="(.+)" replacementPattern="https://id.acdh.oeaw.ac.at/auden-musulin-papers/$1">
+               <p>Edition Documents Prefix</p>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="en">English</language>
+            <language ident="de">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <orgName><rs type="org" ref="#amp_organization_82">London Western District Office</rs></orgName>
+               <placeName><rs type="place" ref="#amp_place_id_56">London</rs></placeName>
+               <date notBefore-iso="1968-10-15T13:15:01+01:00" notAfter-iso="1968-10-15T13:44:59+01:00">1968-10-15T13:15:01+01:00/1968-10-15T13:44:59+01:00</date>
+            </correspAction>
+            <correspAction type="redirected">
+               <placeName><rs type="place" ref="#amp_place_id_1">Vienna</rs></placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#amp_person_2">Musulin, Stella</persName>
+               <placeName><rs type="place" ref="#amp_place_id_11">Neulinggasse 26</rs></placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="#amp_person_1">Auden, W. H.</ref>
+               <ref type="belongsToCorrespondence" target="#amp_person_2">Musulin, Stella</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="#amp-transcript__0008.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1968-10-12</ref>
+               <ref subtype="next_letter" type="withinCollection" target="#amp-transcript__0044.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1968-10-24</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="published">
+         <change who="pandorfer" when="2021-09-21">template populated with script "create_templates.py"</change>
+         <change who="tfruehwirth" when="2021-09-30">text transcribed</change>
+         <change who="smayer" when="2021-10-01">text transcribed</change>
+         <change who="smayer tfruehwirth" when="2021-10-01">transcriptions collated</change>
+         <change who="smayer tfruehwirth" when="2022-03-15">transcription reviewed, `space` element and `hand` attributes added, date format in `origDate` and `correspAction`/`date` modified</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2023-02-20">entities and correspDesc collated</change>
+         <change who="smayer tfruehwirth" when="2023-08-04">container structure updated</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2024-01-05">entities updated, events created, interpGrp added</change>
+         <change who="smayer tfruehwirth" when="2024-06-21">revision markup updated</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <surface ulx="0" uly="0" lrx="6430" lry="3622">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0043/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="6420" lry="3624">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0044/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5674" lry="7758">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0045/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5676" lry="7758">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0046/"/>
+      </surface>
+   </facsimile>
+   <text>
+      <body>
+         <div type="transcription" xml:id="transcription_amp_0009" xml:lang="en" hand="#handwritten">
+            <div type="envelope">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0043/" type="envelope" ed="1r"/>
+               <ab>
+                  <rs type="person" ref="#amp_person_1">W<unclear>.</unclear>H<unclear>.</unclear>Auden</rs><lb/>
+                  ℅ <rs type="person" ref="#amp_person_19">Heyworth</rs><lb/>
+                  <address>
+                     <rs type="place" ref="#amp_place_id_45">32 Bryanston Square<lb/>
+                     London. W.I.<lb/>
+                     England</rs>
+                  </address>
+               </ab>
+               <ab>
+                  <subst><del rend="overwritten"><gap reason="illegible" unit="char" quantity="1"/></del><add place="superimposed">A</add></subst><hi rend="underline">ir-M<unclear>ail</unclear></hi>
+               </ab>
+               <ab xml:lang="de">
+                  <rs type="person" ref="#amp_person_2">Die Baronin<lb/>
+                  Stella Musulin</rs><lb/>
+                  <address>
+                     <rs type="place" ref="#amp_place_id_11">Wien <subst><del rend="overwritten">IV</del><add place="superimposed">III</add></subst><lb/>
+                     Neulinggasse 26<lb/>
+                     <foreign xml:lang="en">A<hi rend="underline">ustria </hi></foreign>.</rs>
+                  </address>
+               </ab>
+               <ab>
+                  <add place="margin">
+                     Re <rs type="person" ref="#amp_person_155 #amp_person_171">Czech refugees</rs> .
+                  </add>
+               </ab>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0044/" type="envelope" ed="1v"/>
+            </div>
+            <div type="letter">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0045/" type="sheet" ed="2r"/>
+               <div type="letter_message">
+                  <opener>
+                     <dateline>
+                        <placeName>
+                           <seg>
+                              <address>
+                                 <addrLine>℅ <rs type="person" ref="#amp_person_19">Heyworth</rs></addrLine><lb/>
+                              </address>
+                           </seg>
+                           <seg hand="#printed">
+                              <address>
+                                 <rs type="place" ref="#amp_place_id_45">32 BRYANSTON SQUARE <space quantity="1" unit="char"/>LONDON W1 · AMBASSADOR 8906</rs>
+                              </address>
+                           </seg>
+                        </placeName>
+                        <date rend="#block">
+                           Tuesday
+                        </date>
+                     </dateline>
+                     <salute>
+                        Dear <rs type="person" ref="#amp_person_2">Stella</rs>:
+                     </salute>
+                  </opener>
+                  <p>
+                     <rs type="event" ref="#amp_event_id_87">Got back from <rs type="place" ref="#amp_place_id_46">Oxford</rs> yesterday</rs> and found <rs type="event" ref="#amp_event_id_88">your<lb/>
+                     lett<unclear>e</unclear>r</rs> waiting.
+                  </p>
+                  <p>
+                     <seg>
+                        <lb/>1) I think I ought to take the <rs type="person" ref="#amp_person_155 #amp_person_171" ana="#ana_012">couple</rs> <rs type="place" ref="#amp_place_id_2">in</rs> , but<lb/>
+                        I must leave it to you to decide whether<lb/>
+                        they are O.K. If they are , all rooms, includi<unclear>ng</unclear><lb/>
+                        my study ( which can't be heated are open to them<unclear>.</unclear>
+                     </seg>
+                     <seg>
+                        <seg>
+                           <lb/>2). How much money will they need to keep going ?<lb/>
+                           <add place="inline">And how shall I make the arrangements for payment.</add>
+                        </seg>
+                        <add place="left">
+                           <lb/>Here, I suggest<lb/>
+                           you cont<unclear>a</unclear>ct<lb/>
+                           <rs type="person" ref="#amp_person_21">Otto Hoffmann</rs>.<lb/>
+                           <rs type="place" ref="#amp_place_id_48">
+                              <foreign xml:lang="de">Wien</foreign> VII<lb/>
+                              Karl Schweighofgasse<lb/>
+                              4/21
+                           </rs><lb/>
+                           Tel. 93/88/155.
+                        </add>
+                     </seg>
+                     <seg>
+                        <lb/>3) Will they be able to find work or emigrate before<lb/>
+                        I return in April,<unclear>w</unclear>hen <unclear>I</unclear>'m afraid there will<lb/>
+                        not be room for them.?
+                     </seg>
+                     <seg>
+                        <lb/>4) I'm worried about how they will get gas-cylinders<lb/>
+                        for cooking from <rs type="place" ref="#amp_place_id_47">Neulengbach</rs> ,since, presumably <unclear>.</unclear> they<lb/>
+                        have no car. I expect someone in the <rs type="place" ref="#amp_place_id_5">village</rs><lb/>
+                        will help.
+                     </seg>
+                     <seg>
+                        <lb/>5). <unclear>If</unclear> and when they come, I must know in advance<lb/>
+                        so that I can write a note to the<lb/>
+                        <rs type="person" ref="#amp_person_22"><foreign xml:lang="de">Burgomeister</foreign></rs>.
+                     </seg>
+                  </p>
+                  <p>
+                     Shall be here <unclear>in</unclear> my address until Oc<unclear>t</unclear> 31.st <rs type="event" ref="#amp_event_id_89">A<unclear>f</unclear>ter that<lb/>
+                     <rs type="place" ref="#amp_place_id_29">77 St Mark's Place .N.Y.C. N.Y 10003</rs></rs> .
+                  </p>
+                  <closer>
+                     <salute>
+                        love
+                     </salute>
+                     <signed>
+                        <rs type="person" ref="#amp_person_1">Wystan</rs>
+                     </signed>
+                  </closer>
+               </div>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0046/" type="sheet" ed="2v"/>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
