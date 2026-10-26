@@ -1,5 +1,7 @@
 # Second real-edition validation: Amaramālā
 
+Historical validation counts below describe the initial boundary. The [note-separation follow-up](note-separation.md) records current behavior and diagnostic counts.
+
 This validation uses one complete original file from [DHARMA’s Sanskrit philology corpus](https://github.com/erc-dharma/tfd-sanskrit-philology/tree/de63a675e759cd09905069655c9f90cd4a513d33), pinned at `de63a675e759cd09905069655c9f90cd4a513d33`. Attribution, file-level CC BY 4.0 licensing, checksums and byte-preservation evidence are recorded in the [fixture README](../fixtures/dharma/README.md) and manifest. The draft status in the source is retained. This is a real edition, not the repository’s separately named sample/template file.
 
 ## Selection evidence

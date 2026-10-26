@@ -1,36 +1,13 @@
+import { renderAnnotatedText, annotatedTextEvidence } from './annotated-text';
 import type { Edition, Provenance } from '@acdh-oeaw/tei-edition-ir';
 import type { AlternativesStudy } from '@acdh-oeaw/tei-edition-ir/experimental/alternatives';
 import { projectDocumentAlternatives, type DocumentAlternativesProjection } from '@acdh-oeaw/tei-edition-ir/experimental/document-alternatives';
 import { alternativeGroupsForDocument } from './model';
 
-type Content = AlternativesStudy['groups'][number]['candidates'][number]['content'];
 const human = (value: string) => value.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[-_]/g, ' ');
 function element<K extends keyof HTMLElementTagNameMap>(tag: K, text?: string) {
     const result = document.createElement(tag); if (text !== undefined) result.textContent = text; return result;
 }
-export function renderAlternativeContent(content: Content) {
-    const output = element('div'); output.className = 'candidate-text';
-    if (content.language !== undefined) output.lang = content.language;
-    const annotations = new Map(content.annotations.map(annotation => [annotation.id, annotation]));
-    const depth = (id: string) => { let count = 0; let current = annotations.get(id); while (current?.parentId) { count++; current = annotations.get(current.parentId); } return count; };
-    const points = [...new Set([0, content.text.length, ...content.annotations.flatMap(annotation => [annotation.range.start, annotation.range.end])])].sort((a, b) => a - b);
-    for (let i = 0; i < points.length - 1; i++) {
-        const start = points[i], end = points[i + 1];
-        const covering = content.annotations.filter(annotation => annotation.range.start <= start && annotation.range.end >= end);
-        const span = element('span', content.text.slice(start, end).replaceAll('\uFFFC', '◇')); span.className = 'text-token';
-        for (const annotation of covering) span.classList.add(annotation.kind);
-        const languages = covering.filter(annotation => annotation.kind === 'language').sort((a, b) => depth(b.id) - depth(a.id) || (a.range.end - a.range.start) - (b.range.end - b.range.start));
-        if (languages.length) {
-            const first = languages[0];
-            const tied = languages.filter(annotation => depth(annotation.id) === depth(first.id) && annotation.range.end - annotation.range.start === first.range.end - first.range.start);
-            span.lang = new Set(tied.map(annotation => annotation.language ?? '')).size === 1 ? first.language ?? '' : '';
-        }
-        if (covering.length) span.title = [...new Set(covering.map(annotation => human(annotation.kind)))].join(', ');
-        output.append(span);
-    }
-    return output;
-}
-
 export function alternativesPanel(edition: Edition, study: AlternativesStudy, documentId: string, options: {
     selections: Map<string, string>; candidateDeletionText: 'retain' | 'omit';
     onChange: (policy: 'retain' | 'omit') => void; onInspect: (id: string) => void;
@@ -98,26 +75,16 @@ export function alternativesPanel(edition: Edition, study: AlternativesStudy, do
             const names = candidate.witnessIds.map(id => { const witness = witnesses.get(id)!; return `${witness.label ?? 'Unlabelled'} (${witness.kind})`; }).join(', ') || 'no witness assertion';
             select.append(new Option(`${human(candidate.role)} · ${names} · ${candidate.content.text ? candidate.content.text.replaceAll('\uFFFC', '◇').slice(0, 75) : '(empty reading)'}`, candidate.id));
             const card = element('article'); card.className = 'candidate-card';
-            card.append(element('h3', `${human(candidate.role)} · ${names}`), renderAlternativeContent(candidate.content));
+            card.append(element('h3', `${human(candidate.role)} · ${names}`), renderAnnotatedText(candidate.content));
             const inspect = element('button', 'Inspect candidate'); inspect.type = 'button'; inspect.className = 'record-link'; inspect.onclick = () => options.onInspect(candidate.id); card.append(inspect);
-            if (candidate.content.annotations.length) {
-                const annotations = element('details'); annotations.append(element('summary', `Interventions (${candidate.content.annotations.length})`));
-                for (const annotation of candidate.content.annotations) {
-                    annotations.append(element('p', `${human(annotation.kind)}: ${candidate.content.text.slice(annotation.range.start, annotation.range.end).replaceAll('\uFFFC', '◇') || '(zero width)'}`));
-                    if (annotation.certainty) annotations.append(element('p', 'Certainty: ' + annotation.certainty));
-                    for (const [key, value] of Object.entries(annotation.details)) annotations.append(element('p', human(key) + ': ' + value));
-                    if (annotation.kind === 'language') annotations.append(element('p', 'Language: ' + (annotation.language || 'unknown')));
-                    annotations.append(options.evidence(annotation.provenance));
-                }
-                card.append(annotations);
-            }
+            const evidence = annotatedTextEvidence(candidate.content, options.evidence); if (evidence) card.append(evidence);
             details.append(card);
         }
         select.value = options.selections.get(group.id) ?? '';
         select.onchange = () => { if (select.value) options.selections.set(group.id, select.value); else options.selections.delete(group.id); updateSummary(); options.onChange(policy.value as 'retain' | 'omit'); void refresh(); };
         label.append(select); details.insertBefore(label, details.children[1] ?? null);
         const jump = element('button', 'Show choice in preview'); jump.type = 'button'; jump.className = 'record-link preview-jump'; jump.dataset.groupId = group.id; jump.disabled = true; jump.onclick = () => showChoice(group.id); details.insertBefore(jump, label.nextSibling);
-        for (const note of group.notes) details.append(element('h3', 'Apparatus note'), renderAlternativeContent(note.content), options.evidence(note.provenance));
+        for (const note of group.notes) details.append(element('h3', 'Apparatus note'), renderAnnotatedText(note.content), options.evidence(note.provenance));
         details.append(options.evidence(group.provenance)); section.append(details);
     });
     // Start after the section has entered the document; stale results never update another view.

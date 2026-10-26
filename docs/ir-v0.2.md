@@ -1,5 +1,7 @@
 # Edition IR v0.2 — explicit document order
 
+Historical core contract: [IR v0.3](ir-v0.3.md) adds shared annotation content and supersedes the current-version references below.
+
 Status: experimental; current compiler output and runtime schemas use the literal version `0.2`. The [v0.1 design](ir-v0.1.md) records the first slice, evidence and remaining constraints. TEI remains canonical and generated IR remains disposable. This revision addresses a consumer-visible ambiguity without introducing a UI, XML runtime or generic mapping framework.
 
 ## Evidence and contract change
@@ -300,3 +302,7 @@ The authorized local viewer now exercises the original three-document cohort usi
 The [second-edition validation](second-edition-validation.md) exposes a semantic limit in generic traversal. Unsupported apparatus/choice entries now become source-backed `uncompiled-content` markers with `details.feature` identifying `textual-apparatus` or `text-alternatives`, no combined reading body and precise compiler diagnostics. Their ranges cover one U+FFFC position. Explicit nonbreaking line boundaries instead become zero-width `line-continuation` annotations, preserving unbroken words and source evidence. Anchors can use ordinary manuscript page-number labels when the existing label source is absent.
 
 These use existing v0.2 shapes and do not implement a critical apparatus. Previously compiled alternatives/nonbreaking lines require recompilation for corrected text/offsets. The Auden snapshots remain unchanged. The independent DHARMA fixture retains 183 diagnostics, including unsupported note/bibliography semantics, and must not be treated as a publication reading.
+
+## Separate note bodies
+
+Inline notes outside quarantined alternatives now become zero-width `note` annotations with source insertion-point anchors. Plain bodies and recorded attribution/evidence remain separate from part text; richer note bodies or attachment semantics remain uncompiled with diagnostics. See [scope, real-source counts and recompilation requirements](note-separation.md). This uses existing v0.2 fields, and affected offsets/fingerprints require regenerating derived artifacts.

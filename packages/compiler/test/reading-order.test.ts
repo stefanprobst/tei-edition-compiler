@@ -90,7 +90,7 @@ test('version 0.1 payloads are rejected rather than guessing ambiguous order', (
     const copy = JSON.parse(JSON.stringify(edition));
     copy.version = '0.1';
     expect(EditionSchema.safeParse(copy).success).toBe(false);
-    copy.version = '0.2';
+    copy.version = '0.3';
     delete copy.documents[0].parts[0].order;
     expect(EditionSchema.safeParse(copy).success).toBe(false);
 });

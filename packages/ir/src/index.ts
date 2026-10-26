@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { dateExtent, reversedInterval } from './dates';
-export const ProvenanceSchema = z.object({ source: z.string().min(1), selector: z.string().min(1) }).strict();
+import { ProvenanceSchema } from './provenance';
+import { AnnotatedTextSchema } from './annotated-text';
+export { ProvenanceSchema } from './provenance';
+export { AnnotatedTextSchema, LocalAnnotationSchema, textEvidenceFields, type AnnotatedText, type LocalTextAnnotation } from './annotated-text';
 const base = { id: z.string().min(1), provenance: ProvenanceSchema };
 const DatePointSchema = z.string().refine(v => dateExtent(v) !== undefined, 'Unsupported or invalid Gregorian date value');
 export const DateValueSchema = z.discriminatedUnion('kind', [
@@ -13,17 +16,23 @@ export const PartSchema = z.object({ ...base, kind: z.string(), order: z.number(
 export const EntitySchema = z.object({ ...base, kind: z.enum(['person', 'place', 'organization', 'event', 'work', 'unknown']), authorityRef: z.string(), label: z.string().optional(), resolution: z.literal('external') }).strict();
 export const MentionSchema = z.object({ ...base, entityIds: z.array(z.string()), range: RangeSchema, label: z.string() }).strict();
 export const RelationSchema = z.object({ ...base, subjectId: z.string(), predicate: z.string(), objectIds: z.array(z.string()), externalTargets: z.array(z.object({ kind: z.literal('document'), sourceId: z.string().min(1) }).strict()).optional(), description: z.string().optional(), date: DateValueSchema.optional() }).strict();
-export const AnnotationSchema = z.object({ ...base, kind: z.string(), targetIds: z.array(z.string()), externalTargets: z.array(z.object({ kind: z.literal('annotation'), source: z.string().url(), selector: z.string().min(1) }).strict()).optional(), parentId: z.string().optional(), range: RangeSchema.optional(), body: z.string().optional(), responsibility: z.array(z.string()), certainty: z.string().optional(), evidence: z.array(z.string()), details: z.record(z.string(), z.string()) }).strict();
+export const AnnotationSchema = z.object({ ...base, kind: z.string(), targetIds: z.array(z.string()), externalTargets: z.array(z.object({ kind: z.literal('annotation'), source: z.string().url(), selector: z.string().min(1) }).strict()).optional(), parentId: z.string().optional(), range: RangeSchema.optional(), body: z.string().optional(), content: AnnotatedTextSchema.optional(), responsibility: z.array(z.string()), certainty: z.string().optional(), evidence: z.array(z.string()), details: z.record(z.string(), z.string()) }).strict();
 export const ResourceSchema = z.object({ ...base, kind: z.literal('image'), uri: z.string().url(), bounds: z.object({ x: z.number(), y: z.number(), width: z.number().nonnegative(), height: z.number().nonnegative() }).strict().optional() }).strict();
 export const AnchorSchema = z.object({ ...base, partId: z.string(), order: z.number().int().nonnegative().safe(), offset: z.number().int().nonnegative(), resourceIds: z.array(z.string()), label: z.string().optional() }).strict();
 export const DocumentSchema = z.object({ ...base, metadata: z.object({ title: z.string(), dates: z.array(DateValueSchema), languages: z.array(z.string()), identifiers: z.array(z.string()), rights: z.array(z.string()) }).strict(), parts: z.array(PartSchema), resourceIds: z.array(z.string()), relationIds: z.array(z.string()), annotationIds: z.array(z.string()) }).strict();
-export const EditionSchema = z.object({ version: z.literal('0.2'), id: z.string(), documents: z.array(DocumentSchema), entities: z.array(EntitySchema), mentions: z.array(MentionSchema), relations: z.array(RelationSchema), annotations: z.array(AnnotationSchema), resources: z.array(ResourceSchema), anchors: z.array(AnchorSchema), diagnostics: z.array(z.object({ code: z.string(), message: z.string(), provenance: ProvenanceSchema }).strict()) }).strict().superRefine((v, ctx) => {
+export const EditionSchema = z.object({ version: z.literal('0.3'), id: z.string(), documents: z.array(DocumentSchema), entities: z.array(EntitySchema), mentions: z.array(MentionSchema), relations: z.array(RelationSchema), annotations: z.array(AnnotationSchema), resources: z.array(ResourceSchema), anchors: z.array(AnchorSchema), diagnostics: z.array(z.object({ code: z.string(), message: z.string(), provenance: ProvenanceSchema }).strict()) }).strict().superRefine((v, ctx) => {
     const objects = [...v.documents, ...v.documents.flatMap(d => d.parts), ...v.entities, ...v.mentions, ...v.relations, ...v.annotations, ...v.resources, ...v.anchors];
     const ids = new Set<string>();
     for (const o of objects) {
         if (ids.has(o.id))
             ctx.addIssue({ code: 'custom', message: `Duplicate ID ${o.id}` });
         ids.add(o.id);
+    }
+    const contentIds = new Set(ids);
+    for (const annotation of v.annotations) for (const local of annotation.content?.annotations ?? []) {
+        if (contentIds.has(local.id)) ctx.addIssue({ code: 'custom', message: 'Duplicate content ID ' + local.id });
+        contentIds.add(local.id);
+        if (local.provenance.source !== annotation.provenance.source) ctx.addIssue({ code: 'custom', message: 'Content provenance must belong to its owner source' });
     }
     const parts = new Map(v.documents.flatMap(d => d.parts).map(p => [p.id, p]));
     const entities = new Map(v.entities.map(e => [e.id, e]));
@@ -94,6 +103,10 @@ export const EditionSchema = z.object({ version: z.literal('0.2'), id: z.string(
         if (content.slice(m.range.start, m.range.end) !== m.label) issue('Mention label differs from its content range');
     }
     for (const a of v.annotations) {
+        if (a.content && a.body !== undefined) issue('Annotation cannot have both body and structured content');
+        if (a.kind === 'note' && a.body !== undefined) issue('Notes use structured content');
+        if (a.kind === 'note' && a.details.contentStatus === 'compiled' && !a.content) issue('Compiled notes require structured content');
+        if (a.kind === 'note' && a.details.contentStatus === 'uncompiled' && a.content) issue('Uncompiled notes cannot claim structured content');
         a.targetIds.forEach(id => check(id));
         if (a.range) range(a.range);
         if (a.parentId !== undefined) {
@@ -135,3 +148,12 @@ export { partLanguageRuns, type LanguageRun } from './languages';
 export { summarizeEdition, type EditionSummary } from './summary';
 
 export { canonicalJson } from './canonical-json';
+
+
+/** Every emitted source-backed record, including annotation-local content spans. */
+export function editionProvenanceRecords(edition: Edition) {
+    return [...edition.documents, ...edition.documents.flatMap(document => document.parts), ...edition.entities,
+        ...edition.mentions, ...edition.relations, ...edition.annotations,
+        ...edition.annotations.flatMap(annotation => annotation.content?.annotations ?? []),
+        ...edition.resources, ...edition.anchors, ...edition.diagnostics];
+}

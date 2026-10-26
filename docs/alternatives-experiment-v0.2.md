@@ -1,5 +1,7 @@
 # Text alternatives experiment v0.2
 
+The experimental payload remains v0.2. The current base edition is [IR v0.3](ir-v0.3.md), whose notes now use the same shared annotated-text schema. Rebuild paired artifacts for the new base fingerprint.
+
 This is the current experimental extension. The main Edition IR remains v0.2 with its existing fields and diagnostics. The [v0.1 experiment](alternatives-experiment.md) is historical: its leaf-text limitation has been tested against real mixed-content readings, rather than relaxed by flattening them.
 
 ## Source evidence and result

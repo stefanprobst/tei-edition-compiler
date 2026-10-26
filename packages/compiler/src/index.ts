@@ -1,3 +1,4 @@
+import { compileAnnotatedText } from './annotated-text';
 import { MappingSchema, audenMusulinMapping, ownEntry, type Mapping } from './mapping';
 export { MappingSchema, MappingProfileSchema, audenMusulinMapping, type Mapping, type MappingProfile } from './mapping';
 import { buildManifest } from './manifest';
@@ -26,7 +27,7 @@ export interface Source {
 export interface CompileOptions { authorities?: AuthoritySource[] }
 export function compile(sources: Source[], mapping: Mapping = audenMusulinMapping, options: CompileOptions = {}): Edition {
     mapping = MappingSchema.parse(mapping);
-    const out: Edition = { version: '0.2', id: 'edition', documents: [], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] };
+    const out: Edition = { version: '0.3', id: 'edition', documents: [], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] };
     const names = new Set<string>();
     for (const source of [...sources, ...(options.authorities ?? [])]) {
         if (names.has(source.name)) throw new Error(`Duplicate source name ${source.name}`);
@@ -217,6 +218,20 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                     else content += '\n';
                     return;
                 }
+                if (el.localName === 'note') {
+                    annotation(el, 'note', [p.id], { partId: p.id, start: content.length, end: content.length }, parentAnnotationId);
+                    const note = out.annotations[out.annotations.length - 1];
+                    for (const [attribute, key] of Object.entries({ type: 'classification', subtype: 'subclassification', n: 'label' })) if (el.hasAttribute(attribute)) note.details[key] = attr(el, attribute);
+                    delete note.body;
+                    try {
+                        note.content = compileAnnotatedText(el, note.id, sourceIndex, false, ['place', 'n']);
+                        note.details.contentStatus = 'compiled';
+                    } catch {
+                        note.details.contentStatus = 'uncompiled';
+                        out.diagnostics.push({ code: 'unsupported-note-content', message: 'Note body or attachment remains uncompiled; inspect the canonical source', provenance: prov(el) });
+                    }
+                    return;
+                }
                 if (el.localName === 'app' || el.localName === 'choice') {
                     const start = content.length;
                     content += '\uFFFC';
@@ -250,8 +265,10 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                     out.diagnostics.push({ code: 'unmapped-entity', message: `Unmapped entity category ${attr(el, 'type')}`, provenance: prov(el) });
                 if (refs.length)
                     out.mentions.push({ id: id(el, ':mention'), entityIds: refs, range, label: content.slice(start), provenance: prov(el) });
-                if (editorial[el.localName])
+                if (editorial[el.localName]) {
                     annotation(el, editorial[el.localName], [p.id], { ...range }, parentAnnotationId);
+                    if (annotationKind !== 'language' && all(el, 'note').length) out.annotations[out.annotations.length - 1].body = content.slice(start, range.end) || undefined;
+                }
                 let languageAnnotation: Edition['annotations'][number] | undefined;
                 if (hasLanguage) {
                     if (annotationKind !== 'language') annotation(el, 'language', [p.id], { ...range }, parentAnnotationId);

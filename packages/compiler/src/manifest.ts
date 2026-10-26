@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EditionSchema, type Edition } from '@acdh-oeaw/tei-edition-ir';
+import { EditionSchema, editionProvenanceRecords, type Edition } from '@acdh-oeaw/tei-edition-ir';
 import type { CompileOptions, Mapping, Source } from './index';
 import { fingerprintJson, sha256Text } from './fingerprints';
 import { createSourceIndex } from './source';
@@ -51,11 +51,7 @@ export function verifyCompilationManifest(edition: Edition, input: unknown): Com
     const manifest = CompilationManifestSchema.parse(input);
     if (manifest.editionSha256 !== fingerprintJson(edition)) throw new Error('Edition does not match compilation manifest');
     const sources = new Map(manifest.sources.map(source => [source.name, source]));
-    const records = [
-        ...edition.documents, ...edition.documents.flatMap(d => d.parts), ...edition.entities,
-        ...edition.mentions, ...edition.relations, ...edition.annotations, ...edition.resources,
-        ...edition.anchors, ...edition.diagnostics,
-    ];
+    const records = editionProvenanceRecords(edition);
     for (const record of records) if (!sources.has(record.provenance.source)) throw new Error('Compilation manifest is missing provenance source ' + record.provenance.source);
     for (const document of edition.documents) if (sources.get(document.provenance.source)?.role !== 'document') throw new Error('Document provenance must refer to a document-role manifest source');
     return manifest;
@@ -73,11 +69,7 @@ export function verifyCompilationSources(edition: Edition, input: unknown, sourc
         indexes.set(source.name, createSourceIndex(source, { expectedSha256: entry.sha256 }));
     }
     for (const name of expected.keys()) if (!indexes.has(name)) throw new Error('Missing supplied source ' + name);
-    const records = [
-        ...edition.documents, ...edition.documents.flatMap(d => d.parts), ...edition.entities,
-        ...edition.mentions, ...edition.relations, ...edition.annotations, ...edition.resources,
-        ...edition.anchors, ...edition.diagnostics,
-    ];
+    const records = editionProvenanceRecords(edition);
     for (const record of records) {
         if (!indexes.get(record.provenance.source)!.resolve(record.provenance)) {
             throw new Error('Unresolved provenance in ' + record.provenance.source + ': ' + record.provenance.selector);

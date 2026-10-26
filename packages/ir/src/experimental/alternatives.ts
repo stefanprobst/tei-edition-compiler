@@ -1,38 +1,10 @@
 import { z } from 'zod';
-import { ProvenanceSchema, type Edition } from '../index';
+import { ProvenanceSchema, AnnotatedTextSchema, LocalAnnotationSchema, textEvidenceFields, type Edition } from '../index';
 
-const evidence = {
-    responsibilityTokens: z.array(z.string()),
-    sourceReferences: z.array(z.string()),
-    certainty: z.string().optional(),
-    details: z.record(z.string(), z.string()),
-};
+const evidence = textEvidenceFields;
 const record = { id: z.string().min(1), provenance: ProvenanceSchema };
-const LocalRangeSchema = z.object({ start: z.number().int().nonnegative().safe(), end: z.number().int().nonnegative().safe() }).strict().refine(range => range.end >= range.start, 'Reversed local range');
-export const LocalAnnotationSchema = z.object({
-    ...record, kind: z.enum(['deletion', 'insertion', 'language', 'emphasis', 'uncertain-reading', 'supplied-text', 'work-title', 'missing-text']),
-    range: LocalRangeSchema, parentId: z.string().optional(), language: z.string().optional(), ...evidence,
-}).strict();
-export const AlternativeContentSchema = z.object({
-    kind: z.literal('text'), text: z.string(), language: z.string().optional(), annotations: z.array(LocalAnnotationSchema),
-}).strict().superRefine((content, context) => {
-    const annotations = new Map(content.annotations.map(annotation => [annotation.id, annotation]));
-    const issue = (message: string) => context.addIssue({ code: 'custom', message });
-    for (const annotation of content.annotations) {
-        if (annotation.range.end > content.text.length) issue('Local annotation exceeds content');
-        if (annotation.language !== undefined && annotation.kind !== 'language') issue('Language value requires a language annotation');
-        if (annotation.kind === 'missing-text' && content.text.slice(annotation.range.start, annotation.range.end) !== '\uFFFC') issue('Missing text requires a source marker');
-        if (annotation.parentId) {
-            const parent = annotations.get(annotation.parentId);
-            if (!parent || annotation.range.start < parent.range.start || annotation.range.end > parent.range.end) issue('Local annotation must lie within its own content parent');
-        }
-        const seen = new Set<string>(); let current: string | undefined = annotation.id;
-        while (current && annotations.has(current)) {
-            if (seen.has(current)) { issue('Local annotation parent cycle'); break; }
-            seen.add(current); current = annotations.get(current)?.parentId;
-        }
-    }
-});
+export { LocalAnnotationSchema };
+export const AlternativeContentSchema = AnnotatedTextSchema;
 export const WitnessSchema = z.object({ ...record, kind: z.enum(['manuscript', 'edition', 'unspecified']), label: z.string().min(1).optional() }).strict();
 export const CandidateSchema = z.object({
     ...record, role: z.enum(['editorial-base', 'variant']),
@@ -134,7 +106,7 @@ export function projectAlternativeSourceRange(projection: AlternativeProjection,
 export function assertAlternativeAnchors(edition: Edition, study: AlternativesStudy): void {
     const markers = new Map(edition.annotations.filter(annotation => annotation.kind === 'uncompiled-content').map(marker => [marker.id, marker]));
     const parts = new Map(edition.documents.flatMap(document => document.parts).map(part => [part.id, part]));
-    const coreIds = new Set([...edition.documents, ...parts.values(), ...edition.annotations, ...edition.entities, ...edition.mentions, ...edition.relations, ...edition.anchors, ...edition.resources].map(record => record.id));
+    const coreIds = new Set([...edition.documents, ...parts.values(), ...edition.annotations, ...edition.annotations.flatMap(annotation => annotation.content?.annotations ?? []), ...edition.entities, ...edition.mentions, ...edition.relations, ...edition.anchors, ...edition.resources].map(record => record.id));
     const sources = new Set(edition.documents.map(document => document.provenance.source));
     for (const record of [...study.witnesses, ...study.groups, ...study.groups.flatMap(group => [...group.candidates, ...group.notes, ...[...group.candidates, ...group.notes].flatMap(owner => owner.content.annotations)])]) {
         if (coreIds.has(record.id)) throw new Error('Study ID collides with an edition record');

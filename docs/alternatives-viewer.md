@@ -23,6 +23,8 @@ The two sources expose 22 and 13 represented groups respectively. A note-only pa
 
 Candidate cards preserve deletion/insertion styling, declared language evidence, missing-text markers, local intervention details and source links. Apparatus notes are shown separately from candidate text. The **Source-backed diplomatic view** remains available as a collapsible view; part and passage navigation opens it when necessary. Compiler diagnostics are likewise available without forcing a large error listing into the main reading flow.
 
+The **Notes** index exposes separate body-note annotations and source evidence. Note prose is excluded from both text views; supported rich notes preserve annotated content; unsupported bodies and attachments remain explicit. See [note separation](note-separation.md).
+
 ## History and asynchronous behavior
 
 Choices and candidate deletion policy are encoded as opaque IDs and values in the existing document/inspector URL fragment. Back, Forward and reload restore them. Inspection does not silently select a reading. Unknown, malformed or duplicate/conflicting URL selections do not become inferred choices. Internal document navigation starts that document without a selection; prior views remain available through browser history.
@@ -42,4 +44,4 @@ playwright-cli -s=tei-viewer open http://127.0.0.1:3000/
 playwright-cli -s=tei-viewer run-code --filename=packages/viewer/scripts/alternatives-browser-check.js
 ```
 
-The original reader keeps its separate `browser-check.js`. Typecheck, the viewer build and all 225 tests pass. This is a plain browser-API consumer of the existing contracts; neither Edition IR nor the experimental extension changes persisted shape for these controls.
+The original reader keeps its separate `browser-check.js`. Typecheck, the viewer build and all 231 tests pass. This is a plain browser-API consumer of the existing contracts; IR v0.3 supplies shared note content; the experimental extension remains v0.2.

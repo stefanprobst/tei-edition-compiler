@@ -2,7 +2,9 @@ import { EditionSchema, documentEvents, type Edition, type Provenance } from '@a
 import { remoteUrl, textSegments, partLabels, alternativeGroupsForDocument } from './model';
 import { AlternativesStudySchema, type AlternativesStudy } from '@acdh-oeaw/tei-edition-ir/experimental/alternatives';
 import { projectDocumentAlternatives } from '@acdh-oeaw/tei-edition-ir/experimental/document-alternatives';
-import { alternativesPanel, renderAlternativeContent } from './alternatives-panel';
+import { alternativesPanel } from './alternatives-panel';
+import { renderAnnotatedText, annotatedTextEvidence } from './annotated-text';
+import type { AnnotatedText } from '@acdh-oeaw/tei-edition-ir';
 import { readerHash, readReaderHash } from './navigation';
 
 type Presentation = { attribution: string; sourceLinks: Record<string, string>; previews: Record<string, string> };
@@ -127,7 +129,9 @@ function inspect(id: string, mode: HistoryMode = 'push') {
         if (!record.label) inspector.append(node('p', 'Canonical label unavailable. Occurrence labels are not authority names.', 'notice'));
         inspector.append(link(String(record.authorityRef), String(record.authorityRef)));
     }
-    if (record.content && Array.isArray((record.content as { annotations?: unknown }).annotations)) inspector.append(renderAlternativeContent(record.content as AlternativesStudy['groups'][number]['candidates'][number]['content']));
+    if (record.content && Array.isArray((record.content as { annotations?: unknown }).annotations)) { const content = record.content as AnnotatedText; inspector.append(renderAnnotatedText(content)); const evidence = annotatedTextEvidence(content, provenance); if (evidence) inspector.append(evidence); }
+    if (record.kind === 'note' && (record.details as Record<string, string>)?.contentStatus === 'uncompiled') inspector.append(node('p', 'This note body or attachment is uncompiled. Inspect the canonical source for its content.', 'notice'));
+    if (record.kind === 'note' && (record.content as { text?: string })?.text === '') inspector.append(node('p', 'Empty note.'));
     if (record.body) inspector.append(node('p', String(record.body), 'body-text'));
     if (record.description) inspector.append(node('p', String(record.description)));
     if (record.certainty) inspector.append(node('p', 'Certainty: ' + record.certainty));
@@ -221,6 +225,21 @@ function showDocument(id: string, mode: HistoryMode = 'push') {
             section.append(row);
         } main.append(section);
     }
+    const localPartIds = new Set(current.parts.map(part => part.id));
+    const notes = edition.annotations.filter(annotation => annotation.kind === 'note' && annotation.range && localPartIds.has(annotation.range.partId));
+    if (notes.length) {
+        const index = node('details'); index.className = 'notes-index'; index.append(node('summary', `Notes (${notes.length})`));
+        index.append(node('p', 'Notes are separate from running text. Their anchors identify source insertion points, not inferred reference ranges.'));
+        for (const part of [...current.parts].sort((a, b) => a.order - b.order)) {
+            const local = notes.filter(note => note.range!.partId === part.id).sort((a, b) => a.range!.start - b.range!.start);
+            if (!local.length) continue;
+            index.append(node('h3', recordLabel(part.id)));
+            const list = node('ul');
+            for (const note of local) { const item = node('li'); item.append(button((note.content?.text ?? note.body)?.trim().replace(/\s+/g, ' ').slice(0, 100) || (note.details.contentStatus === 'uncompiled' ? 'Uncompiled note' : 'Empty note'), () => inspect(note.id), 'record-link')); list.append(item); }
+            index.append(list);
+        }
+        main.append(index);
+    }
     const hasText = current.parts.some(part => part.content?.text.length);
     if (hasText && !activeStudy) main.append(node('p', 'DIPLOMATIC VIEW · Deletions retained · Source spacing', 'reading-policy'), node('p', 'Underlined: entity mention · Red strike: deletion · Green: insertion · ◇: source marker. Select marked text to inspect overlapping evidence.', 'legend'));
     else if (!hasText) main.append(node('p', 'This document has no transcribed text. Explore its image, participants and setting.', 'notice'));
@@ -272,7 +291,7 @@ function showDocument(id: string, mode: HistoryMode = 'push') {
     const label = node('label', 'Choose an annotation'); const select = node('select'); select.append(new Option('Select a record…', ''));
     for (const annotation of annotations) {
         const part = annotation.range ? current.parts.find(part => part.id === annotation.range!.partId) : undefined;
-        const excerpt = annotation.range ? part?.content?.text.slice(annotation.range.start, annotation.range.end) : annotation.body;
+        const excerpt = (annotation.range ? part?.content?.text.slice(annotation.range.start, annotation.range.end) : undefined) || annotation.content?.text || annotation.body;
         select.append(new Option(`${human(annotation.kind)} · ${excerpt?.replace(/\s+/g, ' ').slice(0, 70) || '(no text range)'}`, annotation.id));
     }
     select.onchange = () => { if (select.value) inspect(select.value); }; label.append(select); annotationSection.append(label); main.append(annotationSection);
@@ -303,7 +322,7 @@ document.querySelector<HTMLInputElement>('#upload')!.onchange = async event => {
     const input = event.target as HTMLInputElement; const file = input.files?.[0]; if (!file) return;
     const generation = ++inputGeneration;
     try { const data: unknown = JSON.parse(await file.text()); if (generation === inputGeneration) load(data, { attribution: '', previews: {}, sourceLinks: {} }); }
-    catch { if (generation === inputGeneration) status.textContent = 'Could not open file: expected valid Edition IR v0.2. The current edition is unchanged.'; }
+    catch { if (generation === inputGeneration) status.textContent = 'Could not open file: expected valid Edition IR v0.3. The current edition is unchanged.'; }
     if (generation === inputGeneration) input.value = '';
 };
 const demoGeneration = inputGeneration;

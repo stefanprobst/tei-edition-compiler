@@ -30,7 +30,7 @@ test('viewer respects event boundaries, empty ranges and invalid requests', () =
 });
 
 test('viewer boundary accepts nontextual documents without fabricating text or names', () => {
-    const photograph = EditionSchema.parse({ version: '0.2', id: 'photo-edition', documents: [{ id: 'photo', metadata: { title: 'Photograph', dates: [], languages: [], identifiers: [], rights: [] }, parts: [{ id: 'image-part', kind: 'photograph', order: 0, resourceIds: [], provenance: { source: 'photo.xml', selector: 'opaque' } }], resourceIds: [], relationIds: [], annotationIds: [], provenance: { source: 'photo.xml', selector: 'opaque' } }], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] });
+    const photograph = EditionSchema.parse({ version: '0.3', id: 'photo-edition', documents: [{ id: 'photo', metadata: { title: 'Photograph', dates: [], languages: [], identifiers: [], rights: [] }, parts: [{ id: 'image-part', kind: 'photograph', order: 0, resourceIds: [], provenance: { source: 'photo.xml', selector: 'opaque' } }], resourceIds: [], relationIds: [], annotationIds: [], provenance: { source: 'photo.xml', selector: 'opaque' } }], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] });
     expect(textSegments(photograph, 'image-part', 0, 0)).toEqual([]);
     expect([...documentEvents(photograph, 'photo')].some(event => event.kind === 'text')).toBe(false);
 });

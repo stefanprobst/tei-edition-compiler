@@ -10,6 +10,17 @@ async page => {
     check(await page.locator('#navigation .document-button').count() === 2, 'Expected two study documents');
     check(await page.locator('.candidate-choice').count() === 22, 'Expected 22 represented groups in first document');
     check(await page.locator('.candidate-choice').evaluateAll(selects => selects.every(select => select.value === '')), 'No implicit reading selection');
+    const baseEdition = await (await page.request.get('http://127.0.0.1:3000/study-edition.json')).json();
+    const note = baseEdition.annotations.find(annotation => annotation.kind === 'note' && annotation.provenance.source === baseEdition.documents[0].provenance.source && annotation.content?.text.trim().length > 40);
+    await page.locator('.notes-index > summary').click();
+    await page.locator('.notes-index').getByRole('button', { name: note.content.text.trim().replace(/\s+/g, ' ').slice(0, 100), exact: true }).click();
+    check(await page.locator('#inspector .candidate-text').textContent() === note.content.text, 'Separated note body must remain inspectable');
+    const runningText = (await page.locator('.reading .transcription').allTextContents()).join('');
+    check(!runningText.includes(note.content.text.trim()), 'Note prose must not leak into diplomatic text');
+    check(!(await page.locator('.preview-text').textContent()).includes(note.content.text.trim()), 'Note prose must not leak into selected reading');
+    const richNote = baseEdition.annotations.find(annotation => annotation.kind === 'note' && annotation.provenance.source === baseEdition.documents[0].provenance.source && annotation.content?.annotations.length);
+    await page.locator('.notes-index').getByRole('button', { name: richNote.content.text.trim().replace(/\s+/g, ' ').slice(0, 100), exact: true }).click();
+    check(await page.locator('#inspector .candidate-text .emphasis').count() > 0, 'Rich note emphasis must remain structured and visible');
     await page.locator('.reading-choice').first().locator('summary').first().click();
     const firstSelect = page.locator('.candidate-choice').first();
     const variantId = await firstSelect.evaluate(select => select.options[2].value);
