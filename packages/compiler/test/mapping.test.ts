@@ -134,3 +134,17 @@ test('document reference rules validate bounded target syntax and URI templates'
         { prefix: 'https://example.test/', suffix: '.xml', targetKind: 'arbitrary' },
     ]) expect(MappingSchema.safeParse({ partKinds: {}, entityKinds: {}, documentReferenceRules: { diary: rule } }).success).toBe(false);
 });
+
+test('a declared title path selects one source heading, and missing or ambiguous headings are diagnosed', () => {
+    const source = (headings: string) => ({ name: 'meeting.xml', xml: `<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader><fileDesc><titleStmt><title>Fallback</title>${headings}</titleStmt></fileDesc></teiHeader><text><body/></text></TEI>` });
+    const mapping = { partKinds: {}, entityKinds: {}, documentTitlePath: 'teiHeader/fileDesc/titleStmt/meeting' };
+    const result = compile([source('<meeting>A meeting <date>yesterday</date></meeting>')], mapping);
+    expect(result.documents[0].metadata.title).toBe('A meeting yesterday');
+    expect(result.diagnostics).toEqual([]);
+    for (const headings of ['', '<meeting/>', '<meeting>One</meeting><meeting>Two</meeting>']) {
+        const result = compile([source(headings)], mapping);
+        expect(result.documents[0].metadata.title).toBe('Fallback');
+        expect(result.diagnostics[0].code).toBe('unresolved-document-title');
+    }
+    expect(MappingSchema.safeParse({ ...mapping, documentTitlePath: '//meeting' }).success).toBe(false);
+});

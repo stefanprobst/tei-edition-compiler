@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/acdh-oeaw/akademie-data",
+  "commit": "e070de78deee44a725c9615e83e0582d80b83ef4",
+  "files": {
+    "C_0001.xml": {
+      "path": "data/editions/C_0001.xml",
+      "role": "document",
+      "sha256": "0dbffc8092d90abc1abee161f0c55c1a66266a3fad2d80c92dd21b599b72c8fb",
+      "gitBlob": "31be1eb1c4079129731717a3f25cc33d549f95ae"
+    },
+    "A_0058.xml": {
+      "path": "data/editions/A_0058.xml",
+      "role": "document",
+      "sha256": "8584f70a24314c1a7937b40392738f1e2d93db093f69b6fd367003ef822b7e71",
+      "gitBlob": "a23fd70adb2b03f7c3c224c092524c186f4f8e36"
+    },
+    "listperson.xml": {
+      "path": "data/indices/listperson.xml",
+      "role": "authority",
+      "sha256": "e6987ab4856a52877055a95fe5531173317cee89965a3cb222e0c9056ce8b1b0",
+      "gitBlob": "5cf759d26f5d0be37d2bf10991784622f28a7322"
+    },
+    "arche_constants.rdf": {
+      "path": "data/meta/arche_constants.rdf",
+      "role": "license-evidence",
+      "sha256": "e171161db49f43316b27f895f43317e53140ec928e25e07158861405afc5e9ea",
+      "gitBlob": "b35819cb4e50e51edd598fa743a8d25b0c01b375"
+    },
+    "about.xml": {
+      "path": "data/meta/about.xml",
+      "role": "project-description",
+      "sha256": "6a9ebd41da2d0f6ccbfd60b93430961536e40b8a753594e2fc3c47ca268f6ddc",
+      "gitBlob": "cd8005ef3af3a9ab6df89f58ded9e3fd051a7b7d"
+    }
+  }
+}

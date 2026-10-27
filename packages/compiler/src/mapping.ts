@@ -7,6 +7,7 @@ const authorityScope = nonempty.refine(value => !value.includes('#'), 'Authority
 export const MappingSchema = z.object({
     partKinds: z.record(nonempty, nonempty),
     entityKinds: z.record(nonempty, EntitySchema.shape.kind),
+    documentTitlePath: z.string().regex(/^[A-Za-z][A-Za-z0-9-]*(\/[A-Za-z][A-Za-z0-9-]*)*$/, 'Expected a TEI child-element path relative to the root').optional(),
     documentDatePaths: z.array(z.string().regex(/^[A-Za-z][A-Za-z0-9-]*(\/[A-Za-z][A-Za-z0-9-]*)*$/, 'Expected a TEI child-element path relative to the root')).optional(),
     elementPartKinds: z.record(nonempty, nonempty).optional(),
     documentBaseUri: z.string().url().refine(value => {

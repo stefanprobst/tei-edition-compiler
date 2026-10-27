@@ -84,3 +84,21 @@ test('paired letter notes have working source-point backlinks and cross-edition 
         expect(letter).toContain('Die Datierung');
     }
 });
+
+test('independent meeting edition retains incomplete-reading notices and valid static routes', async () => {
+    const fixtureDirectory = new URL('../../../fixtures/akademieprotokolle/', import.meta.url);
+    const mapping = MappingProfileSchema.parse(await Bun.file(new URL('mapping.json', fixtureDirectory)).json()).mapping;
+    const sourceInputs = await Promise.all(['C_0001.xml', 'A_0058.xml'].map(async name => ({ name, uri: 'https://id.acdh.oeaw.ac.at/akademieprotokolle/' + name, xml: await Bun.file(new URL(name, fixtureDirectory)).text() })));
+    const bundle = compileWithManifest(sourceInputs, mapping, { authorities: [{ name: 'listperson.xml', uri: mapping.authorityDocuments!.person!, xml: await Bun.file(new URL('listperson.xml', fixtureDirectory)).text() }] });
+    for (const basePath of ['/', '/akademie/']) {
+        const files = await generateSite(bundle.edition, bundle.manifest, { ...options, basePath, sourceLinks: undefined });
+        checkLinks(files, basePath);
+        expect(files.size).toBe(89);
+        expect(files.get('diagnostics.html')).toContain('73 compiler diagnostics');
+        const general = [...files.values()].find(html => html.includes('<h1>Gesamtsitzung am'))!;
+        expect(general).toContain('Incomplete transcription: 6 source entries remain uncompiled');
+        expect(general).toContain('Source marker');
+        expect(general).toContain('Seite_NaN');
+        expect(general).toContain('unsupported-facsimile-zones');
+    }
+});

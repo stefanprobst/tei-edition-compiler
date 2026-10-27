@@ -102,6 +102,8 @@ Open <http://127.0.0.1:3011/diary/>. For real person-register names, run `bun ru
 
 The [paired letter-and-diary study](docs/paired-commentary-study.md) adds source-attached notes and a cross-edition diary link. Run `bun run site:prepare-pair`, `bun run site:build-pair`, then `PORT=3013 bun packages/site/scripts/serve.ts packages/site/dist/paired-public /pair/` and open <http://127.0.0.1:3013/pair/>.
 
+An independent [Akademieprotokolle study](docs/akademieprotokolle-study.md) tests meeting metadata, page structure and a different authority corpus. Run `bun run site:prepare-akademie`, `bun run site:build-akademie`, then `PORT=3014 bun packages/site/scripts/serve.ts packages/site/dist/akademie-public /akademie/`. Its 73 diagnostics explicitly retain unsupported reading choices, polygon zones and project layout; it is a partial-publication boundary cohort.
+
 ## Project mappings and authorities
 
 The default profile is [auden-musulin.json](packages/compiler/profiles/auden-musulin.json). Strict versioned JSON profiles configure division and element part kinds, entity categories, document identity, reference prefixes, authority scopes, preferred authority-label types and explicit document date paths. `documentDatePaths` selects restricted TEI child-element paths relative to the root (for example `text/body/div/p/date`); it does not run in consumers. Header extraction and editorial rules remain procedural; this is not a general mapping framework.

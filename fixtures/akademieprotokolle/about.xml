@@ -1,0 +1,28 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:base="https://id.acdh.oeaw.ac.at/akademieprotokolle" xml:id="about.xml">
+    <teiHeader>
+        <fileDesc>
+           <titleStmt>
+              <title type="main">Über das Projekt</title>
+              <title type="sub">Sitzungsprotokolle der ÖAW</title>
+           </titleStmt> 
+         <publicationStmt>
+            <p>Die Sitzungsprotokolle der beiden Klassen der Akademie (philosophisch-historische Klasse und mathematisch-naturwissenschaftliche Klasse) sowie jene der Gesamtakademie sind für die Geschichte und die Historiographie der Akademie von zentraler Bedeutung. Hier wurden (und werden) sämtliche Entscheidungen getroffen, die die Entwicklung der Institution maßgeblich bestimmt haben. Die Entscheidungsfindung innerhalb der Akademie bildet sich in den Protokollen direkt ab.</p>
+            <p>Die Aktivitäten und das Engagement einzelner Protagonisten lassen sich deutlich erkennen; Kompetenzen und Aufgabenbereiche werden transparent und der geographische Aufgabenbereich der Akademie lässt sich herausarbeiten.</p>
+            <p>Im Archiv der Österreichischen Akademie der Wissenschaften werden komplette Reihen dieser Protokolle verwahrt.</p>
+            <p>In einem Pilotprojekt, das von der Magistratsabteilung 7 (Kultur, Wissenschafts- und Forschungsförderung) der Stadt Wien finanziert wurde, wurden in den Jahren 2019/2020 die ersten knapp vier Jahre (110 Protokolle) der philosophisch-historischen Klasse bearbeitet. Es wird der Zeitraum von der Gründung der Akademie mit den ersten Sitzungen im November 1847 bis zum Sommer 1851 behandelt, der für die Akademie eine ganz wichtige Phase der Weichenstellung für die kommenden Jahrzehnte gewesen ist.</p>
+            <p>Mit der Online-Präsentation dieser zentralen Quelle werden zunächst die ersten Protokolle der philosophisch-historischen Klasse vorgelegt – eine Erweiterung sowohl in zeitlicher Hinsicht, als auch auf die Protokolle der mathematisch-naturwissenschaftlichen Klasse sowie die Gesamtakademie ist vorgesehen.</p>
+            <p>Während die bislang bearbeiteten 110 Protokolle der philosophisch-historischen Klasse 1847-1851 nach Personen und Orten durchsucht werden können, wurden die 149 Protokolle der Gesamtakademie 1847-1861 zunächst unbearbeitet online gestellt. Durch die parallele Ansicht des Digitalisats neben der Transkription ist eine korrekte Nutzung dieser Protokolle gewährleistet.</p>
+         </publicationStmt>
+           <sourceDesc>
+              <p>Alle Rechte 2020 Österreichische Akademie der Wissenschaften.</p>
+           </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+         <p>Von den 735 Sitzungsprotokollen der Gesamtakademie und den jeweils 2045 Sitzungsprotokollen der beiden Klassen bis zum Ende der Habsburgermonarchie im Jahre 1918 wurden 2019/20 die ersten 110 Protokolle der philosophisch-historischen Klasse zunächst digitalisiert und die Digitalisate anschließend mittels <ref target="https://transkribus.eu/Transkribus/">TRANSKRIBUS</ref> transkribiert.</p>
+         <p>In einem zweiten Schritt wurden die Transkriptionen mittels <ref target="https://tei-c.org/">TEI</ref> ins xml-Format übertragen sowie sämtliche vorkommenden <ref target="https://fun-with-editions.github.io/akademie-static/listperson.html">Personen</ref> und <ref target="https://fun-with-editions.github.io/akademie-static/listplace.html">Orte</ref> identifiziert und mit der bereits an der ÖAW bestehenden Datenbank PAAS (später <ref target="https://www.oeaw.ac.at/acdh/projects/mine-mitglieder-der-oesterreichischen-akademie-der-wissenschaften-1847-2022">MINE</ref>) verknüpft. Hierbei handelt es sich um das Akronym für „Prosopography of the Members of the Austrian Academy of Sciences 1847–2022“ resp. „Mitglieder Institutionen Netzwerke Ereignisse“. Die Datenbank wurde im Rahmen der Vorbereitungen auf das 175-Jahr-Jubiläum der Gründung der Akademie im Jahre 2022 angelegt, ist jedoch noch nicht online verfügbar. Ein Verweis darauf ist daher derzeit noch nicht möglich. Jene Personen, die in den Protokollen vorkommen und keine Mitglieder der Akademie waren, mussten neu angelegt werden; ebenso mussten etliche Orte identifiziert werden.</p>
+                 <p>Diesen Anforderungen an eine kritische Edition konnte nur für die Dauer der Finanzierung des Pilotprojektes entsprochen werden. Der in Angriff genommenen Bearbeitung der Sitzungsprotokollen der Gesamtakademie fehlen diese erläuternden Verknüpfungen noch. Um eine Rezeption dieser Protokolle dennoch zu ermöglichen, wurden diese gleichfalls online gestellt.</p>
+        </body>
+    </text>
+  </TEI>

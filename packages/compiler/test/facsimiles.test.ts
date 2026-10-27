@@ -99,3 +99,10 @@ test('direct facsimile graphics resolve IDs and URLs alongside surfaces without 
     expect(new Set(result.anchors[0].resourceIds)).toEqual(new Set(result.resources.map(r => r.id)));
     expect(result.diagnostics.map(d => d.code)).toEqual(['invalid-resource-uri']);
 });
+
+test('polygon zones are diagnosed per owning surface while keeping page images usable', () => {
+    const result = compile([source('<surface xml:id="outer"><graphic url="outer.jpg"/><zone xml:id="polygon" points="0,0 10,0 0,10"><zone points="1,1 2,1 1,2"/></zone><surface xml:id="inner"><graphic url="inner.jpg"/><zone points="0,0 1,0 0,1"/></surface></surface>', '<pb facs="#outer #inner"/>')]);
+    expect(result.resources).toHaveLength(2);
+    expect(result.anchors[0].resourceIds).toHaveLength(2);
+    expect(result.diagnostics.map(d => [d.code, d.message.split(' ')[0]])).toEqual([['unsupported-facsimile-zones', '2'], ['unsupported-facsimile-zones', '1']]);
+});

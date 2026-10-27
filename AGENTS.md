@@ -62,3 +62,6 @@
 
 - Single local note attachments resolve only to explicit compiled reference points; preserve note insertion positions separately and express attachment as an annotates relation, never an inferred phrase range. Stage note references atomically with body/attachment validation; unsupported attributes and missing targets must not leak partial relations.
 - Project documentReferenceRules expand only declared reference types and validated complete dates/simple identifiers at compile time. Keep missing destination documents external and preserve source date wording alongside encoded values in publication. Runtime consumers see semantic relations and resolved IDs/URIs, not shorthand TEI conventions.
+
+- The independent Akademieprotokolle cohort is diagnostic-bearing: preserve unselected abbreviation choices, polygon zones and layout limitations explicitly. A source attendance heading does not establish participant roles for nearby mentions. Preserve questionable image identifiers rather than guessing repairs.
+- documentTitlePath selects exactly one nonempty source heading at compile time; diagnose missing/ambiguous selection and retain fallback titles. Number expressions and literal abbreviation marks are semantic text annotations, not inferred numeric values or expansions. Runtime source markers and incomplete-transcription notices must remain visible.

@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "mapping": {
+    "partKinds": {
+      "page": "page"
+    },
+    "entityKinds": {
+      "person": "person",
+      "place": "place"
+    },
+    "documentBaseUri": "https://id.acdh.oeaw.ac.at/akademieprotokolle/",
+    "documentDatePaths": [
+      "teiHeader/fileDesc/titleStmt/meeting/date"
+    ],
+    "authorityDocuments": {
+      "person": "https://id.acdh.oeaw.ac.at/akademieprotokolle/indices/listperson.xml",
+      "place": "https://id.acdh.oeaw.ac.at/akademieprotokolle/indices/listplace.xml"
+    },
+    "documentTitlePath": "teiHeader/fileDesc/titleStmt/meeting",
+    "authorityLabelTypes": {
+      "person": [
+        ""
+      ]
+    }
+  }
+}

@@ -76,8 +76,12 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             definitions.push(definition);
             contributorDefinitions.set(definition.identity, definitions);
         }
-        const mappedDates = (mapping.documentDatePaths ?? []).flatMap(path => path.split('/').reduce<Element[]>((nodes, name) => nodes.flatMap(node => children(node).filter(child => child.namespaceURI === NS && child.localName === name)), [root]));
-        const d: Edition['documents'][number] = { id: docId, provenance: prov(root), metadata: { title: text(all(header, 'title').find(e => attr(e, 'level') === 'a') || all(header, 'title')[0] || header), dates: [...all(header, 'origDate'), ...all(header, 'setting').flatMap(e => all(e, 'date')), ...mappedDates].filter((element, index, values) => values.indexOf(element) === index).map(readDate), languages: all(header, 'language').map(e => attr(e, 'ident')), identifiers: all(header, 'idno').map(text), rights: all(header, 'availability').map(text) }, parts: [], resourceIds: [], relationIds: [], annotationIds: [] };
+        const selectPath = (path: string) => path.split('/').reduce<Element[]>((nodes, name) => nodes.flatMap(node => children(node).filter(child => child.namespaceURI === NS && child.localName === name)), [root]);
+        const mappedDates = (mapping.documentDatePaths ?? []).flatMap(selectPath);
+        const mappedTitles = mapping.documentTitlePath ? selectPath(mapping.documentTitlePath) : [];
+        if (mapping.documentTitlePath && (mappedTitles.length !== 1 || !text(mappedTitles[0]))) out.diagnostics.push({ code: 'unresolved-document-title', message: 'Configured title path requires exactly one nonempty source element', provenance: prov(root) });
+        const mappedTitle = mappedTitles.length === 1 && text(mappedTitles[0]) ? mappedTitles[0] : undefined;
+        const d: Edition['documents'][number] = { id: docId, provenance: prov(root), metadata: { title: text(mappedTitle || all(header, 'title').find(e => attr(e, 'level') === 'a') || all(header, 'title')[0] || header), dates: [...all(header, 'origDate'), ...all(header, 'setting').flatMap(e => all(e, 'date')), ...mappedDates].filter((element, index, values) => values.indexOf(element) === index).map(readDate), languages: all(header, 'language').map(e => attr(e, 'ident')), identifiers: all(header, 'idno').map(text), rights: all(header, 'availability').map(text) }, parts: [], resourceIds: [], relationIds: [], annotationIds: [] };
         out.documents.push(d);
         const entity = (ref: string, kind: Edition['entities'][number]['kind'], e: Element, bareIdentifier = false) => {
             const canonical = entityReference(ref, uris.primary, mapping, mapping.authorityDocuments?.[kind], bareIdentifier);
@@ -129,7 +133,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             const aid = id(e, `:annotation:${kind}`);
             const a: Edition['annotations'][number] = { id: aid, kind, targetIds, ...(parentId ? { parentId } : {}), provenance: prov(e), ...(range ? { range } : {}), body: kind === 'language' ? undefined : text(e) || undefined, responsibility: [...new Set([attr(e, 'resp'), ...all(e, 'respons').map(r => attr(r, 'resp'))].flatMap(words))], certainty: attr(e, 'cert') || all(e, 'certainty').map(c => attr(c, 'cert')).join(' ') || undefined, evidence: words(attr(e, 'source')).concat(all(e, 'bibl').map(b => attr(b, 'source')).filter(Boolean)), details: {} };
             if (kind === 'name-component') a.details.component = nameComponents[e.localName];
-            const properties: Record<string, string> = { place: 'placement', rend: 'rendering', reason: 'reason', quantity: 'quantity', unit: 'unit', extent: 'extent', min: 'minimum', atMost: 'maximum', 'xml:lang': 'language', hand: 'authoringHand', target: 'destination' };
+            const properties: Record<string, string> = { place: 'placement', rend: 'rendering', reason: 'reason', quantity: 'quantity', unit: 'unit', extent: 'extent', min: 'minimum', atMost: 'maximum', 'xml:lang': 'language', hand: 'authoringHand', target: 'destination', rendition: 'renderingReference', facs: 'sourceResourcePointer' };
             for (const [k, v] of Object.entries(properties))
                 if (attr(e, k))
                     a.details[v] = attr(e, k);
@@ -187,8 +191,9 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
         }
         const partKind = (e: Element) => e.namespaceURI === NS ? (e.localName === 'div' ? ownEntry(mapping.partKinds, attr(e, 'type')) : ownEntry(mapping.elementPartKinds, e.localName)) : undefined;
         const semantic = (e: Element) => !!partKind(e);
-        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', time: 'time-expression', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
+        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', num: 'number-expression', am: 'abbreviation-marker', time: 'time-expression', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
         const blocks = new Set(['p', 'l', 'lg', 'opener', 'closer', 'ab', 'address', 'dateline', 'salute', 'signed', 'head', 'addrLine', 'postscript']);
+        let presentationReported = false;
         let nextOrder = 0;
         const compilePart = (e: Element, parentId?: string, parentOffset?: number, containingAnnotationId?: string) => {
             const p: Edition['documents'][number]['parts'][number] = { id: id(e), kind: partKind(e)!, order: nextOrder++, ...(parentId ? { parentId, parentOffset } : {}), resourceIds: [], provenance: prov(e) };
@@ -217,6 +222,10 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                 if (el.namespaceURI !== NS) {
                     out.diagnostics.push({ code: 'foreign-element', message: 'Foreign content omitted', provenance: prov(el) });
                     return;
+                }
+                if (el.hasAttribute('rendition') && !presentationReported) {
+                    presentationReported = true;
+                    out.diagnostics.push({ code: 'uncompiled-presentation', message: 'Source rendering references are retained as evidence; project layout rules are not compiled', provenance: prov(el) });
                 }
                 if (semantic(el) && el !== e) {
                     compilePart(el, p.id, content.length, parentAnnotationId);

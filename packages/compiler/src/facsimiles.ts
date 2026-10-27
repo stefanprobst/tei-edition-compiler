@@ -45,6 +45,12 @@ export function createFacsimileIndex(options: Options) {
         }
     };
     for (const surface of Array.from(root.getElementsByTagNameNS(NS, 'surface'))) {
+        const zones = Array.from(surface.getElementsByTagNameNS(NS, 'zone')).filter(zone => {
+            let owner = zone.parentNode as Element | null;
+            while (owner && !(owner.namespaceURI === NS && owner.localName === 'surface')) owner = owner.parentNode as Element | null;
+            return owner === surface;
+        });
+        if (zones.length) report('unsupported-facsimile-zones', `${zones.length} image zones remain uncompiled; no polygon geometry or text-region alignment inferred`, surface);
         const names = ['ulx', 'uly', 'lrx', 'lry'];
         const present = names.filter(name => surface.hasAttribute(name));
         let bounds: Resource['bounds'];
