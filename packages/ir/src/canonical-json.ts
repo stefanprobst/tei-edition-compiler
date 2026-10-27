@@ -10,3 +10,11 @@ const canonical = (value: unknown): unknown => {
 
 /** Deterministic JSON shared by artifact producers and browser-side binding checks. */
 export const canonicalJson = (value: unknown): string => JSON.stringify(canonical(value));
+
+
+/** Browser-compatible digest; canonicalize synchronously before the asynchronous hash. */
+export async function fingerprintJsonWeb(value: unknown): Promise<string> {
+    if (!globalThis.crypto?.subtle) throw new Error('Artifact verification requires Web Crypto');
+    const bytes = new TextEncoder().encode(canonicalJson(value));
+    return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('');
+}

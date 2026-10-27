@@ -19,6 +19,7 @@ await Promise.all([
     Bun.write(output + '/index.html', Bun.file('packages/viewer/src/index.html')),
     Bun.write(output + '/style.css', Bun.file('packages/viewer/src/style.css')),
     Bun.write(output + '/presentation.json', JSON.stringify({
+        version: '1', editionSha256: bundle.manifest.editionSha256,
         attribution: 'Auden–Musulin Papers · Austrian Academy of Sciences. XML: CC BY 4.0; literary and image rights remain separate. Images load from the upstream service.',
         sourceLinks: Object.fromEntries(sources.map(source => [source.name, `https://github.com/Auden-Musulin-Papers/amp-data/blob/${manifest.commit}/data/editions/${source.name}`])),
         // Explicit demo adapter. Runtime consumers receive rendition URLs, never project URI rules.
@@ -35,8 +36,10 @@ const studyBundle = compileWithManifest(studySources, profile.mapping);
 const study = compileAlternativesStudy(studyBundle.edition, studyBundle.manifest, studySources);
 await Promise.all([
     Bun.write(output + '/study-edition.json', JSON.stringify(studyBundle.edition)),
+    Bun.write(output + '/study-edition.manifest.json', JSON.stringify(studyBundle.manifest)),
     Bun.write(output + '/study.json', JSON.stringify(study)),
     Bun.write(output + '/study-presentation.json', JSON.stringify({
+        version: '1', editionSha256: studyBundle.manifest.editionSha256,
         attribution: 'DHARMA / ERC 809994 · Arlo Griffiths, Zakariya Pamuji Aminullah and Ryugen Tanemura. Source XML: CC BY 4.0. Experimental partial compilation; consult source evidence.',
         sourceLinks: Object.fromEntries(studySources.map(source => [source.name, `https://github.com/erc-dharma/tfd-sanskrit-philology/blob/${studyManifest.commit}/editions/${source.name}`])),
         previews: {},

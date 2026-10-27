@@ -1,4 +1,4 @@
-const files = new Set(['index.html', 'app.js', 'style.css', 'edition.json', 'edition.manifest.json', 'presentation.json', 'study-edition.json', 'study.json', 'study-presentation.json']);
+const files = new Set(['index.html', 'app.js', 'style.css', 'edition.json', 'edition.manifest.json', 'presentation.json', 'study-edition.json', 'study-edition.manifest.json', 'study.json', 'study-presentation.json']);
 const server = Bun.serve({
     hostname: '127.0.0.1', port: Number(process.env.PORT ?? 3000),
     async fetch(request) {

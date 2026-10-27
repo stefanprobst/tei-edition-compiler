@@ -1,6 +1,6 @@
 # Reference viewer: first consumer evidence
 
-The local viewer in `packages/viewer` exercises the three initial documents against compiled IR v0.2. Its purpose is to find concrete consumer gaps before extending the core model. It does not establish a complete reading edition or revision chronology.
+The local viewer in `packages/viewer` exercises the three initial documents against compiled IR v0.3. Its purpose is to find concrete consumer gaps before extending the core model. It does not establish a complete reading edition or revision chronology.
 
 ## Run
 
@@ -77,3 +77,7 @@ Uploaded files remain in memory. Reloading loads the generated demo, so an uploa
 ## Critical-edition study controls
 
 A second demo now loads the two pinned DHARMA sources and their experimental extension. It provides explicit candidate choices, candidate deletion policy, witness/intervention inspection and a separate source-mapped preview. The original three-document demo remains available. See the [study workflow and browser checks](alternatives-viewer.md) for scope and limitations.
+
+## Independent artifact loading
+
+The explicit local loader accepts Edition JSON plus its compilation manifest and optional alternatives/presentation files. It validates all supplied bindings before replacing the active view, and clears omitted metadata. The quick single-file control remains schema-only. See the [artifact loading contract and checks](artifact-loading.md).

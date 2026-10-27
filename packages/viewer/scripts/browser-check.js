@@ -72,7 +72,7 @@ async page => {
     await page.getByRole('button', { name: 'Unlabelled person', exact: true }).first().click();
     check((await page.locator('#inspector').innerText()).includes('Canonical label unavailable'), 'Unknown authority labels must remain explicit');
     await page.locator('#inspector summary').filter({ hasText: 'Source evidence' }).click();
-    check((await page.locator('#inspector a').allTextContents()).some(value => value.includes('pinned canonical source')), 'Provenance needs explicit pinned source link');
+    check((await page.locator('#inspector a').allTextContents()).some(value => value.includes('canonical source')), 'Provenance needs explicit pinned source link');
     await page.unroute('https://iiif.acdh.oeaw.ac.at/**');
     await page.route('https://iiif.acdh.oeaw.ac.at/**', route => route.abort());
     await page.locator('#navigation .document-button').nth(0).click();

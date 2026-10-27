@@ -55,7 +55,7 @@ bun run viewer:build
 bun run viewer
 ```
 
-Open <http://127.0.0.1:3000/> to explore the original three documents: ordered envelope/letter/poem parts, editorial and entity evidence, page-image links, and photograph participants/setting. Choose **Critical-edition study** to explore explicit reading choices, witness evidence and a separate projected-text preview. See the [alternatives viewer guide](docs/alternatives-viewer.md). You can also open a local Edition JSON file. The reader retains deletions and source spacing; it does not infer a final reading.
+Open <http://127.0.0.1:3000/> to explore the original three documents: ordered envelope/letter/poem parts, editorial and entity evidence, page-image links, and photograph participants/setting. Choose **Critical-edition study** to explore explicit reading choices, witness evidence and a separate projected-text preview. See the [alternatives viewer guide](docs/alternatives-viewer.md). Use **Open compiled artifacts** to load an edition and its manifest, with optional alternatives and presentation metadata, without changing the build script. See the [artifact loading guide](docs/artifact-loading.md). The separate Edition JSON control provides quick schema-only inspection. The reader retains deletions and source spacing; it does not infer a final reading.
 
 The demo maps the pinned sources’ retired IIIF service paths to the verified current service. Original resource URIs remain recorded evidence; image-load failures remain explicit. See [viewer behavior and browser checks](docs/reference-viewer.md) and the [reader-task review](docs/viewer-review.md). No historical images are vendored.
 

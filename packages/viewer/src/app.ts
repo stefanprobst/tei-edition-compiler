@@ -1,7 +1,7 @@
+import { readArtifactFiles, validateArtifactSet } from './artifacts';
 import { EditionSchema, documentEvents, type Edition, type Provenance } from '@acdh-oeaw/tei-edition-ir';
 import { remoteUrl, textSegments, partLabels, alternativeGroupsForDocument } from './model';
-import { AlternativesStudySchema, type AlternativesStudy } from '@acdh-oeaw/tei-edition-ir/experimental/alternatives';
-import { projectDocumentAlternatives } from '@acdh-oeaw/tei-edition-ir/experimental/document-alternatives';
+import { type AlternativesStudy } from '@acdh-oeaw/tei-edition-ir/experimental/alternatives';
 import { alternativesPanel } from './alternatives-panel';
 import { renderAnnotatedText, annotatedTextEvidence } from './annotated-text';
 import type { AnnotatedText } from '@acdh-oeaw/tei-edition-ir';
@@ -15,6 +15,7 @@ const inspector = document.querySelector<HTMLElement>('#inspector')!;
 const status = document.querySelector<HTMLElement>('#status')!;
 let edition: Edition;
 let inputGeneration = 0;
+let artifactStatus = 'Edition schema validated; artifact binding not checked';
 let presentation: Presentation = { attribution: '', sourceLinks: {}, previews: {} };
 let activeStudy: AlternativesStudy | undefined;
 let readingSelections = new Map<string, string>();
@@ -84,8 +85,8 @@ function reference(id: string) { return button(recordLabel(id), () => inspect(id
 function provenance(value: Provenance) {
     const details = node('details', undefined, 'provenance'); details.append(node('summary', 'Source evidence'));
     details.append(node('p', value.source), node('code', value.selector));
-    const uri = presentation.sourceLinks[value.source];
-    if (uri) details.append(link('Open pinned canonical source ↗', uri));
+    const uri = Object.hasOwn(presentation.sourceLinks, value.source) ? presentation.sourceLinks[value.source] : undefined;
+    if (uri) details.append(link('Open canonical source ↗', uri));
     else details.append(node('p', 'No source link supplied for this edition.'));
     return details;
 }
@@ -93,7 +94,7 @@ function media(resourceId: string) {
     const resource = edition.resources.find(resource => resource.id === resourceId);
     const figure = node('figure');
     if (!resource) return figure;
-    const uri = remoteUrl(presentation.previews[resourceId] ?? resource.uri);
+    const uri = remoteUrl(Object.hasOwn(presentation.previews, resourceId) ? presentation.previews[resourceId] : resource.uri);
     if (uri) {
         const image = node('img'); image.alt = 'Facsimile image'; image.loading = 'lazy'; image.referrerPolicy = 'no-referrer';
         const failure = node('p', 'Image could not be loaded. Try opening the image directly below.', 'image-error'); failure.hidden = true;
@@ -298,11 +299,12 @@ function showDocument(id: string, mode: HistoryMode = 'push') {
     const diagnostics = edition.diagnostics.filter(diagnostic => diagnostic.provenance.source === current.provenance.source);
     if (diagnostics.length) { const section = node(activeStudy ? 'details' : 'section'); section.append(node(activeStudy ? 'summary' : 'h2', `Compiler diagnostics (${diagnostics.length})`)); for (const diagnostic of diagnostics) section.append(node('p', diagnostic.code + ': ' + diagnostic.message), provenance(diagnostic.provenance)); main.append(section); }
     inspector.replaceChildren(node('h2', 'Explore the document'), node('p', 'Select marked text, a page marker, a participant or an annotation to inspect its evidence.'));
-    status.textContent = `${edition.documents.length} documents · IR ${edition.version} · ${edition.diagnostics.length} compiler diagnostics`;
+    status.textContent = `${edition.documents.length} documents · IR ${edition.version} · ${edition.diagnostics.length} compiler diagnostics · ${artifactStatus}`;
 }
-function load(input: unknown, metadata: Presentation, restore = false, study?: AlternativesStudy) {
+function load(input: unknown, metadata: Presentation, restore = false, study?: AlternativesStudy, verification = 'Edition schema validated; artifact binding not checked') {
     const validated = EditionSchema.parse(input);
-    edition = validated; presentation = metadata; activeStudy = study; readingSelections = new Map(); candidateDeletionText = 'retain';
+    edition = validated; presentation = metadata; artifactStatus = verification;
+    document.querySelector<HTMLElement>('#artifact-error')!.hidden = true; activeStudy = study; readingSelections = new Map(); candidateDeletionText = 'retain';
     labels = new Map(edition.documents.flatMap(document => [...partLabels(document.parts)]));
     records = new Map([...edition.documents, ...edition.documents.flatMap(d => d.parts), ...edition.entities, ...edition.mentions, ...edition.annotations, ...edition.relations, ...edition.resources, ...edition.anchors].map(record => [record.id, record as unknown as RecordValue]));
     if (activeStudy) {
@@ -316,7 +318,7 @@ function load(input: unknown, metadata: Presentation, restore = false, study?: A
         else showDocument(edition.documents[0].id, 'replace');
         recordNavigation(activeRecordIds, 'replace', readReaderHash(location.hash)?.partId);
     }
-    else { navigation.replaceChildren(); main.replaceChildren(node('h1', 'Empty edition')); inspector.replaceChildren(); status.textContent = 'Valid edition with no documents'; }
+    else { navigation.replaceChildren(); main.replaceChildren(node('h1', 'Empty edition')); inspector.replaceChildren(); status.textContent = 'Valid edition with no documents · ' + artifactStatus; }
 }
 document.querySelector<HTMLInputElement>('#upload')!.onchange = async event => {
     const input = event.target as HTMLInputElement; const file = input.files?.[0]; if (!file) return;
@@ -325,18 +327,35 @@ document.querySelector<HTMLInputElement>('#upload')!.onchange = async event => {
     catch { if (generation === inputGeneration) status.textContent = 'Could not open file: expected valid Edition IR v0.3. The current edition is unchanged.'; }
     if (generation === inputGeneration) input.value = '';
 };
+document.querySelector<HTMLFormElement>('#artifact-form')!.onsubmit = async event => {
+    event.preventDefault();
+    const file = (role: string) => document.querySelector<HTMLInputElement>('#artifact-' + role)!.files?.[0];
+    const editionFile = file('edition'), manifestFile = file('manifest');
+    if (!editionFile || !manifestFile) return;
+    const files = { edition: editionFile, manifest: manifestFile, alternatives: file('alternatives'), presentation: file('presentation') };
+    const generation = ++inputGeneration;
+    const error = document.querySelector<HTMLElement>('#artifact-error')!; error.hidden = true;
+    status.textContent = 'Checking compiled artifacts…';
+    try {
+        const result = await readArtifactFiles(files);
+        if (generation !== inputGeneration) return;
+        load(result.edition, result.presentation, false, result.alternatives, 'Artifact binding verified; source files not inspected');
+    } catch (failure) {
+        if (generation !== inputGeneration) return;
+        error.textContent = (failure instanceof Error ? failure.message : 'Could not validate artifacts') + '. The current edition is unchanged.';
+        error.hidden = false; status.textContent = 'Artifact load failed. The current edition is unchanged.';
+    }
+};
 const demoGeneration = inputGeneration;
 try {
     const studyDemo = new URLSearchParams(location.search).get('edition') === 'study';
-    const [response, metadata, studyResponse] = await Promise.all([
+    const [response, metadata, manifest, studyResponse] = await Promise.all([
         fetch(studyDemo ? '/study-edition.json' : '/edition.json'),
         fetch(studyDemo ? '/study-presentation.json' : '/presentation.json'),
+        fetch(studyDemo ? '/study-edition.manifest.json' : '/edition.manifest.json'),
         studyDemo ? fetch('/study.json') : Promise.resolve(undefined),
     ]);
-    if (!response.ok || !metadata.ok || (studyResponse && !studyResponse.ok)) throw new Error('Missing generated data');
-    const input = EditionSchema.parse(await response.json());
-    const study = studyResponse ? AlternativesStudySchema.parse(await studyResponse.json()) : undefined;
-    if (demoGeneration === inputGeneration && study && input.documents.length) await projectDocumentAlternatives(input, study, input.documents[0].id, [], { deletionText: 'retain', candidateDeletionText: 'retain' });
-    const presentation: Presentation = await metadata.json();
-    if (demoGeneration === inputGeneration) load(input, presentation, true, study);
+    if (!response.ok || !metadata.ok || !manifest.ok || (studyResponse && !studyResponse.ok)) throw new Error('Missing generated data');
+    const result = await validateArtifactSet({ edition: await response.json(), manifest: await manifest.json(), presentation: await metadata.json(), ...(studyResponse ? { alternatives: await studyResponse.json() } : {}) });
+    if (demoGeneration === inputGeneration) load(result.edition, result.presentation, true, result.alternatives, 'Artifact binding verified; source files not inspected');
 } catch { if (demoGeneration === inputGeneration) status.textContent = 'Could not load the demo. Build it with bun run viewer:build, or open a valid Edition JSON file.'; }

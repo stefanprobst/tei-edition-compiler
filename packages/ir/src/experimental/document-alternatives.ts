@@ -1,4 +1,5 @@
-import { EditionSchema, canonicalJson, projectDocumentText, projectSourceRange, type Edition, type PartTextRange, type TextProjection, type TextRange } from '../index';
+import { fingerprintJsonWeb } from '../canonical-json';
+import { EditionSchema, projectDocumentText, projectSourceRange, type Edition, type PartTextRange, type TextProjection, type TextRange } from '../index';
 import { AlternativesStudySchema, assertAlternativeAnchors, projectAlternative, type AlternativeProjection, type AlternativesStudy } from './alternatives';
 
 export type SelectedSourceRange =
@@ -27,9 +28,7 @@ export async function projectDocumentAlternatives(
     const edition = EditionSchema.parse(editionInput), study = AlternativesStudySchema.parse(studyInput);
     const selected = selections.map(selection => ({ ...selection })), policies = { ...options };
     if (!['retain', 'omit'].includes(policies.candidateDeletionText)) throw new Error('Unknown candidate deletion policy');
-    if (!globalThis.crypto?.subtle) throw new Error('Artifact verification requires Web Crypto');
-    const bytes = new TextEncoder().encode(canonicalJson(edition));
-    const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('');
+    const hash = await fingerprintJsonWeb(edition);
     if (hash !== study.editionSha256) throw new Error('Alternatives study does not match the edition artifact');
     assertAlternativeAnchors(edition, study);
     const base = projectDocumentText(edition, documentId, policies);
