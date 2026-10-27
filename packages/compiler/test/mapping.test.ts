@@ -118,3 +118,10 @@ test('authority-document scopes cannot silently replace an existing fragment', (
     }
     expect(MappingSchema.safeParse({ partKinds: {}, entityKinds: {}, authorityDocuments: { person: 'https://example.test/people%23register.xml' } }).success).toBe(true);
 });
+
+test('authority label type rules are strict and permit explicit untyped names', () => {
+    expect(MappingProfileSchema.safeParse({ version: '1', mapping: { partKinds: {}, entityKinds: {}, authorityLabelTypes: { person: [''] } } }).success).toBe(true);
+    for (const authorityLabelTypes of [{ person: [] }, { person: [1] }, { unknownKind: ['preferred'] }]) {
+        expect(MappingProfileSchema.safeParse({ version: '1', mapping: { partKinds: {}, entityKinds: {}, authorityLabelTypes } }).success).toBe(false);
+    }
+});

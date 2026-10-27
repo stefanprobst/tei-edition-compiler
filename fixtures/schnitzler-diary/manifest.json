@@ -1,0 +1,35 @@
+{
+  "repository": "https://github.com/arthur-schnitzler/schnitzler-tagebuch-data",
+  "commit": "c035856ff36b3466399dc88ace33bee9b4f5b39d",
+  "files": {
+    "entry__1909-06-09.xml": {
+      "path": "editions/entry__1909-06-09.xml",
+      "sha256": "6cc50d8fa2fd008425f0e58b28ea3dd374e41444c1efbee8f9f61cb2b4211a80",
+      "gitBlob": "6ecc1789b600b2322b31fcd84879fad89f29dfb1"
+    },
+    "entry__1909-06-10.xml": {
+      "path": "editions/entry__1909-06-10.xml",
+      "sha256": "3743573df1faabb51823c901a0f40e3c879c15f5c6203a020dfb84ee877d8041",
+      "gitBlob": "dc72d9e6ca4b42c6ec0e147d0b4da5e8fa8c7df7"
+    },
+    "entry__1909-06-11.xml": {
+      "path": "editions/entry__1909-06-11.xml",
+      "sha256": "cd38c3f67e0c93a06373457dbf1d8284541674750fe8c9b3a5d20178f41d5bed",
+      "gitBlob": "3d5b3e4f2ba4f450026deec0257a64433fc8e79e"
+    },
+    "LICENSE": {
+      "path": "LICENSE",
+      "sha256": "7abe19ec9bb73b36141b999b861d24ad855e808bafe0f81e84cce28556f6c297",
+      "gitBlob": "3b7b82d0da2db857eda1a798dbd908ea136f07b5"
+    }
+  },
+  "authorityFiles": {
+    "listperson.xml": {
+      "path": "indices/listperson.xml",
+      "uri": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-tagebuch/indices/listperson.xml",
+      "sha256": "528ff3c765a4fecdb8dbb7daf9e83bddb8e6c3cc3f30719346a0472f0b851ae6",
+      "gitBlob": "a8cf8ebbaa99e29b069390dd8370b1c9a16de226",
+      "bytes": 24081075
+    }
+  }
+}

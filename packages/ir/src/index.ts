@@ -157,3 +157,5 @@ export function editionProvenanceRecords(edition: Edition) {
         ...edition.annotations.flatMap(annotation => annotation.content?.annotations ?? []),
         ...edition.resources, ...edition.anchors, ...edition.diagnostics];
 }
+
+export { entityDisplayName } from './entity-display';

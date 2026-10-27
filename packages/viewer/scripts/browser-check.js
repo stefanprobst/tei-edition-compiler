@@ -69,8 +69,8 @@ async page => {
     check(['left side', 'right side', 'photographer', 'setting', '1970-09-22'].every(value => context.includes(value)), 'Photograph context must expose roles, setting and date');
     await page.locator('#main img').scrollIntoViewIfNeeded();
     await page.waitForFunction(() => [...document.querySelectorAll('#main img')].some(image => image.naturalWidth > 0));
-    await page.getByRole('button', { name: 'Unlabelled person', exact: true }).first().click();
-    check((await page.locator('#inspector').innerText()).includes('Canonical label unavailable'), 'Unknown authority labels must remain explicit');
+    await page.getByRole('button', { name: 'Unnamed person', exact: true }).first().click();
+    check((await page.locator('#inspector').innerText()).includes('No authority-register name was supplied'), 'Unknown authority labels must remain explicit');
     await page.locator('#inspector summary').filter({ hasText: 'Source evidence' }).click();
     check((await page.locator('#inspector a').allTextContents()).some(value => value.includes('canonical source')), 'Provenance needs explicit pinned source link');
     await page.unroute('https://iiif.acdh.oeaw.ac.at/**');

@@ -96,3 +96,37 @@ test('the CLI reads explicitly supplied authorities without emitting them as doc
 test('authority document identity cannot carry an empty fragment marker', () => {
     expect(() => compile([source('')], mapping, { authorities: [{ ...authority, uri: authority.uri + '#' }] })).toThrow('fragment');
 });
+
+test('explicit authority label types select preferred forms without guessing among alternatives', () => {
+    const input = register('<listPerson><person xml:id="person1"><persName><forename>Richard</forename><surname>Example</surname></persName><persName type="legacy">Example, Richard</persName><persName type="pseudonym">R.</persName></person></listPerson>');
+    const sourceInput = source('<rs type="person" ref="#person1">Richard</rs>');
+    const ambiguous = compile([sourceInput], mapping, { authorities: [input] });
+    expect(ambiguous.entities[0].label).toBeUndefined();
+    expect(ambiguous.diagnostics[0].code).toBe('ambiguous-authority-label');
+    const preferred = compile([sourceInput], { ...mapping, authorityLabelTypes: { person: [''] } }, { authorities: [input] });
+    expect(preferred.entities[0].label).toBe('Richard Example');
+    expect(preferred.mentions).toEqual(ambiguous.mentions);
+    expect(preferred.entities[0].provenance).toEqual(ambiguous.entities[0].provenance);
+    expect(preferred.diagnostics).toEqual([]);
+    const pseudonym = compile([sourceInput], { ...mapping, authorityLabelTypes: { person: ['pseudonym'] } }, { authorities: [input] });
+    expect(pseudonym.entities[0].label).toBe('R.');
+});
+
+test('configured label types remain conservative when no label or several distinct labels match', () => {
+    const input = register('<listPerson><person xml:id="person1"><persName type="preferred">Ada</persName><persName type="preferred">Adele</persName></person></listPerson>');
+    const sourceInput = source('<rs type="person" ref="#person1">A.</rs>');
+    for (const [types, code] of [[['preferred'], 'ambiguous-authority-label'], [['missing'], 'missing-authority-label']] as const) {
+        const result = compile([sourceInput], { ...mapping, authorityLabelTypes: { person: [...types] } }, { authorities: [input] });
+        expect(result.entities[0].label).toBeUndefined();
+        expect(result.diagnostics[0].code).toBe(code);
+    }
+});
+
+test('bibliographies nested inside authority descriptions are not independent work registers', () => {
+    const input = register('<listPerson><person xml:id="person1"><persName>Ada Example</persName><listBibl><bibl>A reference without an identity</bibl><bibl xml:id="embedded"><title>Descriptive bibliography</title></bibl></listBibl></person></listPerson><listBibl><bibl xml:id="work1"><title>Independent work</title></bibl></listBibl>');
+    const result = compile([source('<rs type="person" ref="#person1">Ada</rs> <rs type="work" ref="#work1">the work</rs> <rs type="work" ref="#embedded">a citation</rs>')], mapping, { authorities: [input] });
+    expect(result.diagnostics).toEqual([]);
+    expect(result.entities.map(e => e.label)).toEqual(['Ada Example', 'Independent work', undefined]);
+    expect(result.entities[1].provenance.selector).toBe('id("work1")');
+    expect(result.entities[2].provenance.source).toBe('document.xml');
+});

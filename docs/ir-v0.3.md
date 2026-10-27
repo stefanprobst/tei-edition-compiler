@@ -51,3 +51,11 @@ The Auden text, offsets, parts, resources and scholarly data remain unchanged. I
 ## Verification
 
 Typecheck, viewer build and all 231 tests pass. Tests cover shared content validation, the four real emphasis spans, source inspection of nested note provenance, invalid local ranges/parents/IDs, foreign ownership, dual-body rejection, stale-version rejection, existing candidate projections and unchanged Auden data. Browser checks inspect rich notes through the shared renderer and retain both original and study workflows.
+
+## Additional compiler evidence: diary publication
+
+The [Schnitzler diary study](static-site-study.md) adds no IR fields. It demonstrates direct facsimile graphics as image resources, source-declared document sequence as explicit relations, restricted compile-time date-path mapping and inherited `xml:space` preservation in part text. These corrections require recompilation, not a version-literal edit or offset guessing. The separate static publisher consumes IR and manifest JSON only; publication settings remain outside core IR.
+
+Name components compile as source-backed `name-component` annotations with `details.component` values `given-name`, `family-name` and `role-name`. They preserve source wording and do not imply entity identity. `entityDisplayName` is a derived presentation helper: it reports whether display text comes from a supplied register label, recorded mention forms or an unnamed fallback. It never populates `Entity.label` from mentions.
+
+Optional diary person-register enrichment uses explicit `authorityLabelTypes` project mapping (empty type for the untyped preferred person name). It changes entity labels/provenance only, leaves mention wording and identity stable, and requires the complete original register as an explicit verified input. Nested descriptive bibliographies are not independent work-authority records. This adds no core IR fields.

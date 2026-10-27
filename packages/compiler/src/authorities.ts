@@ -1,6 +1,7 @@
 import type { Edition, Provenance } from '@acdh-oeaw/tei-edition-ir';
 import { createSourceIndex, TEI_NAMESPACE as NS, XML_NAMESPACE as XML } from './source';
-import { referenceUri, type ReferenceMapping } from './references';
+import { referenceUri } from './references';
+import { ownEntry, type Mapping } from './mapping';
 
 type Kind = Edition['entities'][number]['kind'];
 export interface AuthoritySource { name: string; xml: string; uri: string }
@@ -14,7 +15,7 @@ const records: Record<string, { kind: Kind; label: string }> = {
 const labelText = (element: Element): string => Array.from(element.childNodes).map(n => n.nodeType === 1 ? labelText(n as Element) : n.nodeType === 3 || n.nodeType === 4 ? n.nodeValue ?? '' : '').join(' ').replace(/\s+/g, ' ').replace(/\s+([,.;:!?])/g, '$1').trim();
 
 /** Explicit, supplied TEI authority records only. No fetching, fuzzy matching or XML serialization. */
-export function indexAuthorities(sources: AuthoritySource[], mapping: ReferenceMapping, report: Report): Map<string, AuthorityRecord> {
+export function indexAuthorities(sources: AuthoritySource[], mapping: Mapping, report: Report): Map<string, AuthorityRecord> {
     const result = new Map<string, AuthorityRecord>();
     const seenUris = new Set<string>();
     for (const source of sources) {
@@ -32,12 +33,21 @@ export function indexAuthorities(sources: AuthoritySource[], mapping: ReferenceM
             const expectedParent = { person: 'listPerson', place: 'listPlace', org: 'listOrg', event: 'listEvent', bibl: 'listBibl' }[element.localName];
             const parent = element.parentNode as Element | null;
             if (parent?.namespaceURI !== NS || parent.localName !== expectedParent) continue;
+            // A bibliography inside a person description is evidence about that person,
+            // not a second independent authority register.
+            let nested = false;
+            for (let ancestor = parent.parentNode; ancestor?.nodeType === 1; ancestor = ancestor.parentNode) {
+                const owner = ancestor as Element;
+                if (owner.namespaceURI === NS && Object.hasOwn(records, owner.localName)) { nested = true; break; }
+            }
+            if (nested) continue;
             recognized++;
             const provenance = index.provenance(element);
             const fragment = element.getAttributeNS(XML, 'id');
             if (!fragment) { report('authority-record-without-id', `Authority ${rule.kind} record has no XML ID`, provenance); continue; }
             const identity = referenceUri(`#${encodeURIComponent(fragment)}`, uri.href, mapping)!.href;
-            const labels = [...new Set(Array.from(element.childNodes).filter((n): n is Element => n.nodeType === 1 && (n as Element).namespaceURI === NS && (n as Element).localName === rule.label).map(labelText).filter(Boolean))];
+            const allowedTypes = mapping.authorityLabelTypes && ownEntry(mapping.authorityLabelTypes, rule.kind);
+            const labels = [...new Set(Array.from(element.childNodes).filter((n): n is Element => n.nodeType === 1 && (n as Element).namespaceURI === NS && (n as Element).localName === rule.label).filter(label => !allowedTypes || allowedTypes.includes(label.getAttribute('type') ?? '')).map(labelText).filter(Boolean))];
             if (labels.length !== 1) report(labels.length ? 'ambiguous-authority-label' : 'missing-authority-label', `${identity}: ${labels.length ? labels.join(' | ') : 'no display label'}`, provenance);
             result.set(identity, { kind: rule.kind, ...(labels.length === 1 ? { label: labels[0] } : {}), provenance });
         }

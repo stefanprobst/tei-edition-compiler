@@ -25,6 +25,13 @@
         "zod": "^4.1.12",
       },
     },
+    "packages/site": {
+      "name": "@acdh-oeaw/tei-edition-site",
+      "version": "0.1.0",
+      "dependencies": {
+        "@acdh-oeaw/tei-edition-ir": "workspace:*",
+      },
+    },
     "packages/viewer": {
       "name": "@acdh-oeaw/tei-edition-viewer",
       "version": "0.1.0",
@@ -37,6 +44,8 @@
     "@acdh-oeaw/tei-edition-compiler": ["@acdh-oeaw/tei-edition-compiler@workspace:packages/compiler"],
 
     "@acdh-oeaw/tei-edition-ir": ["@acdh-oeaw/tei-edition-ir@workspace:packages/ir"],
+
+    "@acdh-oeaw/tei-edition-site": ["@acdh-oeaw/tei-edition-site@workspace:packages/site"],
 
     "@acdh-oeaw/tei-edition-viewer": ["@acdh-oeaw/tei-edition-viewer@workspace:packages/viewer"],
 

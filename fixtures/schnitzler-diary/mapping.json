@@ -1,0 +1,27 @@
+{
+  "version": "1",
+  "mapping": {
+    "partKinds": {
+      "diary-day": "entry"
+    },
+    "entityKinds": {
+      "person": "person",
+      "place": "place",
+      "work": "work"
+    },
+    "documentBaseUri": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-tagebuch/editions/",
+    "documentDatePaths": [
+      "text/body/div/p/date"
+    ],
+    "authorityDocuments": {
+      "person": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-tagebuch/indices/listperson.xml",
+      "place": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-tagebuch/indices/listplace.xml",
+      "work": "https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-tagebuch/indices/listwork.xml"
+    },
+    "authorityLabelTypes": {
+      "person": [
+        ""
+      ]
+    }
+  }
+}

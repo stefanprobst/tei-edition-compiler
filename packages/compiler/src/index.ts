@@ -17,6 +17,7 @@ const attr = (e: Element, n: string) => e.getAttribute(n) || '';
 const text = (e: Element) => (e.textContent || '').replace(/\s+/g, ' ').trim();
 const children = (e: Element) => Array.from(e.childNodes).filter((n): n is Element => n.nodeType === 1);
 const all = (e: Element, n: string) => Array.from(e.getElementsByTagNameNS(NS, n));
+const nameComponents: Record<string, string> = { forename: 'given-name', surname: 'family-name', roleName: 'role-name' };
 const words = (s: string) => s.trim().split(/\s+/).filter(Boolean);
 export interface Source {
     name: string;
@@ -73,7 +74,8 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             definitions.push(definition);
             contributorDefinitions.set(definition.identity, definitions);
         }
-        const d: Edition['documents'][number] = { id: docId, provenance: prov(root), metadata: { title: text(all(header, 'title').find(e => attr(e, 'level') === 'a') || all(header, 'title')[0] || header), dates: [...all(header, 'origDate'), ...all(header, 'setting').flatMap(e => all(e, 'date'))].map(readDate), languages: all(header, 'language').map(e => attr(e, 'ident')), identifiers: all(header, 'idno').map(text), rights: all(header, 'availability').map(text) }, parts: [], resourceIds: [], relationIds: [], annotationIds: [] };
+        const mappedDates = (mapping.documentDatePaths ?? []).flatMap(path => path.split('/').reduce<Element[]>((nodes, name) => nodes.flatMap(node => children(node).filter(child => child.namespaceURI === NS && child.localName === name)), [root]));
+        const d: Edition['documents'][number] = { id: docId, provenance: prov(root), metadata: { title: text(all(header, 'title').find(e => attr(e, 'level') === 'a') || all(header, 'title')[0] || header), dates: [...all(header, 'origDate'), ...all(header, 'setting').flatMap(e => all(e, 'date')), ...mappedDates].filter((element, index, values) => values.indexOf(element) === index).map(readDate), languages: all(header, 'language').map(e => attr(e, 'ident')), identifiers: all(header, 'idno').map(text), rights: all(header, 'availability').map(text) }, parts: [], resourceIds: [], relationIds: [], annotationIds: [] };
         out.documents.push(d);
         const entity = (ref: string, kind: Edition['entities'][number]['kind'], e: Element, bareIdentifier = false) => {
             const canonical = entityReference(ref, uris.primary, mapping, mapping.authorityDocuments?.[kind], bareIdentifier);
@@ -113,9 +115,18 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             documentReferences.push({ relation: record, refs, documentUri: uris.primary, hashMeansDocumentId });
             if (!refs.length) out.diagnostics.push({ code: 'empty-document-reference', message: attr(e, 'target'), provenance: prov(e) });
         };
+        for (const [attribute, predicate] of [['prev', 'previous-document'], ['next', 'next-document']] as const) {
+            if (!root.hasAttribute(attribute)) continue;
+            const refs = [...new Set(words(attr(root, attribute)))];
+            const relation: Edition['relations'][number] = { id: id(root, `:relation:${predicate}`), subjectId: docId, predicate, objectIds: [], provenance: prov(root) };
+            out.relations.push(relation); d.relationIds.push(relation.id);
+            documentReferences.push({ relation, refs, documentUri: uris.primary, hashMeansDocumentId: false });
+            if (!refs.length) out.diagnostics.push({ code: 'empty-document-reference', message: attribute, provenance: prov(root) });
+        }
         const annotation = (e: Element, kind: string, targetIds: string[], range?: Edition['annotations'][number]['range'], parentId?: string) => {
             const aid = id(e, `:annotation:${kind}`);
             const a: Edition['annotations'][number] = { id: aid, kind, targetIds, ...(parentId ? { parentId } : {}), provenance: prov(e), ...(range ? { range } : {}), body: kind === 'language' ? undefined : text(e) || undefined, responsibility: [...new Set([attr(e, 'resp'), ...all(e, 'respons').map(r => attr(r, 'resp'))].flatMap(words))], certainty: attr(e, 'cert') || all(e, 'certainty').map(c => attr(c, 'cert')).join(' ') || undefined, evidence: words(attr(e, 'source')).concat(all(e, 'bibl').map(b => attr(b, 'source')).filter(Boolean)), details: {} };
+            if (kind === 'name-component') a.details.component = nameComponents[e.localName];
             const properties: Record<string, string> = { place: 'placement', rend: 'rendering', reason: 'reason', quantity: 'quantity', unit: 'unit', extent: 'extent', min: 'minimum', atMost: 'maximum', 'xml:lang': 'language', hand: 'authoringHand', target: 'destination' };
             for (const [k, v] of Object.entries(properties))
                 if (attr(e, k))
@@ -174,7 +185,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
         }
         const partKind = (e: Element) => e.namespaceURI === NS ? (e.localName === 'div' ? ownEntry(mapping.partKinds, attr(e, 'type')) : ownEntry(mapping.elementPartKinds, e.localName)) : undefined;
         const semantic = (e: Element) => !!partKind(e);
-        const editorial: Record<string, string> = { add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
+        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
         const blocks = new Set(['p', 'l', 'lg', 'opener', 'closer', 'ab', 'address', 'dateline', 'salute', 'signed', 'head', 'addrLine', 'postscript']);
         let nextOrder = 0;
         const compilePart = (e: Element, parentId?: string, parentOffset?: number, containingAnnotationId?: string) => {
@@ -191,9 +202,11 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             const walk = (n: Node, parentAnnotationId?: string, languageDepth = 0) => {
                 if (n.nodeType === 3 || n.nodeType === 4) {
                     const raw = n.nodeValue || '';
-                    if (!raw.trim() && /[\r\n]/.test(raw))
-                        return;
-                    content += raw.replace(/\s+/g, ' ');
+                    let owner = n.parentNode?.nodeType === 1 ? n.parentNode as Element : null;
+                    while (owner && !owner.hasAttributeNS(XML, 'space')) owner = owner.parentNode?.nodeType === 1 ? owner.parentNode as Element : null;
+                    const preserve = owner?.getAttributeNS(XML, 'space') === 'preserve';
+                    if (!preserve && !raw.trim() && /[\r\n]/.test(raw)) return;
+                    content += preserve ? raw : raw.replace(/\s+/g, ' ');
                     return;
                 }
                 if (n.nodeType !== 1)

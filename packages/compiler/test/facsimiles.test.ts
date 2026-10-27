@@ -90,3 +90,12 @@ test('absolute graphic URIs can recover from an invalid inherited base', () => {
     expect(result.anchors[0].resourceIds).toEqual([result.resources[0].id]);
     expect(result.diagnostics.map(d => d.code)).toEqual(['invalid-resource-base']);
 });
+
+test('direct facsimile graphics resolve IDs and URLs alongside surfaces without inferred bounds', () => {
+    const result = compile([source('<graphic xml:id="direct" url="direct.jpg"/><surface xml:id="surface"><graphic url="surface.jpg"/></surface><graphic/>', '<pb facs="#direct direct.jpg #surface"/>')]);
+    expect(result.resources).toHaveLength(2);
+    const direct = result.resources.find(r => r.uri.endsWith('direct.jpg'))!;
+    expect(direct.bounds).toBeUndefined();
+    expect(new Set(result.anchors[0].resourceIds)).toEqual(new Set(result.resources.map(r => r.id)));
+    expect(result.diagnostics.map(d => d.code)).toEqual(['invalid-resource-uri']);
+});

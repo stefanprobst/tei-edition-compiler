@@ -71,6 +71,19 @@ export function createFacsimileIndex(options: Options) {
             pointer(graphic, resourceId);
         }
     }
+    // A facsimile need not introduce surfaces: direct graphics are document resources.
+    // Their order does not establish page-to-text alignment.
+    for (const graphic of Array.from(root.getElementsByTagNameNS(NS, 'graphic'))) {
+        const parent = graphic.parentNode as Element | null;
+        if (parent?.namespaceURI !== NS || parent.localName !== 'facsimile') continue;
+        const raw = graphic.getAttribute('url')?.trim() ?? '';
+        const uri = raw ? uriFor(raw, baseUri(graphic)) : undefined;
+        if (!uri) { report('invalid-resource-uri', raw || 'Missing graphic URL or usable base URI', graphic); continue; }
+        const resourceId = id(graphic);
+        resources.push({ id: resourceId, kind: 'image', uri, provenance: provenance(graphic) });
+        add(byUri, uri, resourceId);
+        pointer(graphic, resourceId);
+    }
     const resolve = (element: Element): string[] => {
         const raw = element.getAttribute('facs') ?? '';
         const pointers = [...new Set(raw.trim().split(/\s+/).filter(Boolean))];

@@ -1,0 +1,1 @@
+{"name":"@acdh-oeaw/tei-edition-site","version":"0.1.0","private":true,"type":"module","dependencies":{"@acdh-oeaw/tei-edition-ir":"workspace:*"}}

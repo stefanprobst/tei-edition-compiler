@@ -1,0 +1,13 @@
+import { mkdir } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { generateSite, type SiteOptions } from '../src';
+const [editionPath, manifestPath, configPath, output] = process.argv.slice(2);
+if (!editionPath || !manifestPath || !configPath || !output) throw new Error('Usage: bun packages/site/scripts/build.ts <edition.json> <manifest.json> <site.json> <output-directory>');
+const [edition, manifest, config] = await Promise.all([editionPath, manifestPath, configPath].map(path => Bun.file(path).json()));
+if (!config || typeof config.title !== 'string' || typeof config.attribution !== 'string' || typeof config.basePath !== 'string' || (config.sourceLinks !== undefined && (typeof config.sourceLinks !== 'object' || config.sourceLinks === null || Array.isArray(config.sourceLinks) || Object.values(config.sourceLinks).some(value => typeof value !== 'string')))) throw new Error('Invalid site configuration');
+const files = await generateSite(edition, manifest, config as SiteOptions);
+const inputs = new Set([editionPath, manifestPath, configPath].map(path => resolve(path)));
+for (const name of files.keys()) if (inputs.has(resolve(output, name))) throw new Error('Output would overwrite an input');
+await mkdir(output, { recursive: true });
+for (const [name, contents] of files) await Bun.write(resolve(output, name), contents);
+console.log(`Generated ${files.size} static files in ${output}. No XML loaded.`);

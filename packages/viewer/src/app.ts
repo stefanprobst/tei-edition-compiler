@@ -1,5 +1,5 @@
 import { readArtifactFiles, validateArtifactSet } from './artifacts';
-import { EditionSchema, documentEvents, type Edition, type Provenance } from '@acdh-oeaw/tei-edition-ir';
+import { EditionSchema, documentEvents, entityDisplayName, type Edition, type Provenance } from '@acdh-oeaw/tei-edition-ir';
 import { remoteUrl, textSegments, partLabels, alternativeGroupsForDocument } from './model';
 import { type AlternativesStudy } from '@acdh-oeaw/tei-edition-ir/experimental/alternatives';
 import { alternativesPanel } from './alternatives-panel';
@@ -75,7 +75,7 @@ function recordLabel(id: string) {
     if (!record) return id;
     if (labels.has(id)) return labels.get(id)!;
     if (typeof record.label === 'string') return record.label;
-    if ('authorityRef' in record) return 'Unlabelled ' + String(record.kind);
+    if ('authorityRef' in record) { const display = entityDisplayName(edition, id); return display.label + (display.source === 'text' ? ' (as written)' : ''); }
     if (typeof record.role === 'string') return human(record.role);
     if ('predicate' in record) return human(String(record.predicate));
     if ('metadata' in record) return (record.metadata as Edition['documents'][number]['metadata']).title;
@@ -127,7 +127,7 @@ function inspect(id: string, mode: HistoryMode = 'push') {
     highlightRange(record.range as { partId: string; start: number; end: number } | undefined);
     inspector.replaceChildren(node('p', 'RECORD INSPECTOR', 'eyebrow'), node('h2', recordLabel(id)));
     if ('authorityRef' in record) {
-        if (!record.label) inspector.append(node('p', 'Canonical label unavailable. Occurrence labels are not authority names.', 'notice'));
+        if (!record.label) inspector.append(node('p', 'No authority-register name was supplied for this entity. Names shown as written come from the text and may be abbreviated or have several forms.', 'notice'));
         inspector.append(link(String(record.authorityRef), String(record.authorityRef)));
     }
     if (record.content && Array.isArray((record.content as { annotations?: unknown }).annotations)) { const content = record.content as AnnotatedText; inspector.append(renderAnnotatedText(content)); const evidence = annotatedTextEvidence(content, provenance); if (evidence) inspector.append(evidence); }

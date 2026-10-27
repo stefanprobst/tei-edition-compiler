@@ -88,9 +88,21 @@ See [fixture provenance and licensing](fixtures/auden-musulin/README.md) and the
 
 A pinned, attributed [DHARMA Amaramālā fixture](fixtures/dharma/README.md) tests the compiler against real critical-edition apparatus and manuscript line continuations. It exposed concatenated alternative readings and incorrectly broken words. Unsupported alternatives now remain explicit source markers with diagnostics; no reading is guessed. This fixture intentionally fails strict compilation and is separate from the Auden cohorts. See [validation findings](docs/second-edition-validation.md) and the [executable alternatives experiment](docs/alternatives-experiment-v0.2.md). The experiment keeps candidates and witness evidence separate without changing Edition IR v0.3. Inline notes are now [separated from running text](docs/note-separation.md), with shared annotated text for supported rich note bodies and explicit diagnostics for unsupported content. An [experimental document projection](docs/document-alternatives-projection.md) composes explicit choices with source mappings and anchor preservation.
 
+## Static publication study
+
+A separate JSON-only consumer generates static overview, document and entity pages for three pinned Schnitzler diary entries. It includes typed dates, passage backlinks, source evidence and visible diagnostics; reading works without JavaScript. This is the first functional comparison with DSE Static, not full feature or visual parity.
+
+```sh
+bun run site:prepare
+bun run site:build
+PORT=3011 bun packages/site/scripts/serve.ts
+```
+
+Open <http://127.0.0.1:3011/diary/>. For real person-register names, run `bun run site:fetch-authorities`, then `bun run site:prepare --person-register packages/site/dist/sources/listperson.xml` and rebuild. The explicit fetch is hash checked; the default build stays offline and unenriched. See the [study results and limitations](docs/static-site-study.md) and [cross-edition validation plan](docs/dse-static-validation.md).
+
 ## Project mappings and authorities
 
-The default profile is [auden-musulin.json](packages/compiler/profiles/auden-musulin.json). Strict versioned JSON profiles configure division and element part kinds, entity categories, document identity, reference prefixes and authority scopes. Header extraction and editorial rules remain procedural; this is not a general mapping framework.
+The default profile is [auden-musulin.json](packages/compiler/profiles/auden-musulin.json). Strict versioned JSON profiles configure division and element part kinds, entity categories, document identity, reference prefixes, authority scopes, preferred authority-label types and explicit document date paths. `documentDatePaths` selects restricted TEI child-element paths relative to the root (for example `text/body/div/p/date`); it does not run in consumers. Header extraction and editorial rules remain procedural; this is not a general mapping framework.
 
 A separate synthetic project exercises a different structure and authority scope:
 
