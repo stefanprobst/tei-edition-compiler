@@ -31,7 +31,7 @@ const inlineKinds = new Map<string, Content['annotations'][number]['kind']>([
     ['del', 'deletion'], ['add', 'insertion'], ['foreign', 'language'], ['hi', 'emphasis'],
     ['unclear', 'uncertain-reading'], ['supplied', 'supplied-text'], ['title', 'work-title'], ['gap', 'missing-text'],
 ]);
-export function compileAnnotatedText(element: Element, ownerId: string, index: ReturnType<typeof createSourceIndex>, witnessed = false, rootAttributes: string[] = []): Content {
+export function compileAnnotatedText(element: Element, ownerId: string, index: ReturnType<typeof createSourceIndex>, witnessed = false, rootAttributes: string[] = [], onReference?: (element: Element) => void): Content {
     checkTextAttributes(element, witnessed, rootAttributes);
     const language = declaredLanguage(element);
     const result: Content = { kind: 'text', text: '', ...(language !== undefined ? { language } : {}), annotations: [] };
@@ -39,6 +39,16 @@ export function compileAnnotatedText(element: Element, ownerId: string, index: R
         if (node.nodeType === 3 || node.nodeType === 4) { result.text += node.nodeValue ?? ''; return; }
         if (node.nodeType !== 1) return;
         const child = node as Element;
+        if (child.namespaceURI === TEI_NAMESPACE && child.localName === 'ref' && onReference) {
+            for (const attribute of Array.from(child.attributes)) {
+                if (attribute.namespaceURI === 'http://www.w3.org/2000/xmlns/' || (attribute.namespaceURI === XML_NAMESPACE && attribute.localName === 'id') || (!attribute.namespaceURI && ['target', 'type', 'subtype'].includes(attribute.localName))) continue;
+                throw new Error('Unsupported note reference attribute ' + attribute.name);
+            }
+            if (!value(child, 'target').trim()) throw new Error('Note reference requires a destination');
+            onReference(child);
+            for (const nested of Array.from(child.childNodes)) walk(nested, parentId);
+            return;
+        }
         const kind = child.namespaceURI === TEI_NAMESPACE ? inlineKinds.get(child.localName) : undefined;
         if (!kind) throw new Error('Unsupported nested reading or note content');
         checkTextAttributes(child, false, kind === 'missing-text' ? ['reason'] : kind === 'insertion' ? ['place'] : []);

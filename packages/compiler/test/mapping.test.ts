@@ -125,3 +125,12 @@ test('authority label type rules are strict and permit explicit untyped names', 
         expect(MappingProfileSchema.safeParse({ version: '1', mapping: { partKinds: {}, entityKinds: {}, authorityLabelTypes } }).success).toBe(false);
     }
 });
+
+test('document reference rules validate bounded target syntax and URI templates', () => {
+    for (const rule of [
+        { prefix: 'https://example.test/#fragment', suffix: '.xml', targetKind: 'date' },
+        { prefix: 'relative/', suffix: '.xml', targetKind: 'date' },
+        { prefix: 'https://example.test/', suffix: '../file', targetKind: 'date' },
+        { prefix: 'https://example.test/', suffix: '.xml', targetKind: 'arbitrary' },
+    ]) expect(MappingSchema.safeParse({ partKinds: {}, entityKinds: {}, documentReferenceRules: { diary: rule } }).success).toBe(false);
+});

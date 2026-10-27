@@ -21,7 +21,7 @@ The build establishes separate document, overview, register and supporting-page 
 | --- | --- | --- |
 | Auden–Musulin Papers | Existing correspondence, compound objects, images and nontextual document baseline; already listed by DSE Static | Existing pinned fixtures and compiler tests |
 | Schnitzler Tagebuch | Date browsing, sequence, person/work mentions, registers, repeated occurrences | Three adjacent pinned entries vendored and tested; authority enrichment deferred |
-| Schnitzler Briefe | Correspondence roles, commentary attachments, cross-edition references, image identifiers | One pinned source inspected; boundary cases identified |
+| Schnitzler Briefe | Correspondence roles, commentary attachments, cross-edition references, image identifiers | One pinned letter paired with the diary, with tested note attachments and cross-edition links; see paired-commentary-study.md |
 | Akademieprotokolle | Different editorial genre: meeting structure and transcript/facsimile presentation | Candidate only; source repository and representative TEI not yet verified |
 
 The first two new cohorts share a subject and authority conventions. They test different editorial structures but do not establish broad independence. Follow them with a non-Schnitzler edition. The Akademieprotokolle homepage currently reports partial functionality during technical revision, so source evidence must be assessed separately from live-site failures.

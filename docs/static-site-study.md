@@ -65,7 +65,7 @@ The real sources prompted five generic compiler corrections/extensions without c
 | Search | Overview/entity filtering only. Full-text indexing, query results and editorial projection policy are deferred. |
 | Publishing | Plain static output works at root and a non-root base path, with JavaScript optional for reading/navigation. No deployment was performed. |
 
-Geographic maps, calendar UI, place/work authority enrichment, citation formatting, project essays/imprint, production accessibility review, full-corpus performance, full-text search and visual comparison remain outside this first slice. The paired Schnitzler letter's attached commentary and date-shorthand cross-edition link are not yet compiled as part of this cohort. The original DSE Static site's full capabilities are not claimed as implemented.
+Geographic maps, calendar UI, place/work authority enrichment, citation formatting, project essays/imprint, production accessibility review, full-corpus performance, full-text search and visual comparison remain outside this first slice. The paired letter now has a separate [linked-commentary study](paired-commentary-study.md); it is not included in the diary-only cohort. The original DSE Static site's full capabilities are not claimed as implemented.
 
 ## Verification
 

@@ -1,3 +1,5 @@
+import { DateValueSchema } from '@acdh-oeaw/tei-edition-ir';
+import type { Mapping } from './mapping';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 /** Compile-time URI rules; consumers only see resolved IDs or explicit external targets. */
@@ -47,3 +49,13 @@ export function entityReference(ref: string, documentUri: string, mapping: Refer
 }
 
 export const referenceKey = (uri: string, fragment: string) => JSON.stringify([uri, fragment]);
+
+/** Explicit project rule for typed shorthand references, never a runtime URI guess. */
+export function mappedDocumentReference(raw: string, type: string, mapping: Mapping): string | undefined {
+    const rule = mapping.documentReferenceRules && Object.hasOwn(mapping.documentReferenceRules, type) ? mapping.documentReferenceRules[type] : undefined;
+    if (!rule) return raw;
+    const valid = rule.targetKind === 'date'
+        ? /^\d{4}-\d{2}-\d{2}$/.test(raw) && DateValueSchema.safeParse({ kind: 'exact', value: raw, label: raw }).success
+        : /^[A-Za-z_][\w.-]*$/.test(raw);
+    return valid ? rule.prefix + encodeURIComponent(raw) + rule.suffix : undefined;
+}

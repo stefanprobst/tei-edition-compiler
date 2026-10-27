@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/arthur-schnitzler/schnitzler-briefe-data",
+  "commit": "7b047487db1b10b887992f2b5249b93ac4e0e102",
+  "files": {
+    "L02549.xml": {
+      "path": "data/editions/L02549.xml",
+      "sha256": "fd436a3e83d0085340e8598a4c63127b0d9b237c8c8d751471a892b49feb9636",
+      "gitBlob": "8e1c7b382f2e03592c40769530231087e4c667a2"
+    },
+    "LICENSE": {
+      "path": "LICENSE",
+      "sha256": "c8a069485345681574e88256adc9c53b290009eafe09af6063bc9d22c1cc5d38",
+      "gitBlob": "1ef33553dae507ee9f0059c3672ef22dcf100df1"
+    }
+  }
+}

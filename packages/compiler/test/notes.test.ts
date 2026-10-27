@@ -112,3 +112,37 @@ test('IR v0.3 rejects stale versions, duplicate content IDs, foreign owners and 
     expect(EditionSchema.safeParse(missing).success).toBe(false);
     expect(local).toHaveLength(2);
 });
+
+test('explicit point attachments resolve after indexing, without inferring a phrase span', () => {
+    const source = fixture('<anchor xml:id="point"/>word<note corresp="#point">Comment</note><note corresp="later">Forward attachment</note><anchor xml:id="later"/>');
+    const { edition } = compileWithManifest([source], mapping);
+    expect(edition.diagnostics).toEqual([]);
+    expect(edition.annotations.filter(a => a.kind === 'reference-point')).toHaveLength(2);
+    expect(edition.relations.filter(r => r.predicate === 'annotates')).toHaveLength(2);
+    const note = edition.annotations.find(a => a.kind === 'note')!;
+    expect(note.range).toMatchObject({ start: 4, end: 4 });
+    expect(edition.annotations.find(a => a.kind === 'reference-point')!.range).toMatchObject({ start: 0, end: 0 });
+});
+
+test('unsupported or unresolved attachments discard staged references rather than leaking partial semantics', () => {
+    for (const attribute of ['corresp="missing"', 'corresp="#one #two"', 'target="#point"']) {
+        const { edition } = compileWithManifest([fixture(`<anchor xml:id="point"/><note ${attribute}>Comment <ref target="https://example.test/document"/></note>`)], mapping);
+        const note = edition.annotations.find(a => a.kind === 'note')!;
+        expect(note.details.contentStatus).toBe('uncompiled');
+        expect(note.content).toBeUndefined();
+        expect(edition.relations).toEqual([]);
+        expect(edition.diagnostics).toHaveLength(1);
+    }
+    const { edition } = compileWithManifest([fixture('<note><ref target="https://example.test/document"/><unknown/></note>')], mapping);
+    expect(edition.relations).toEqual([]);
+    expect(edition.annotations.find(a => a.kind === 'note')!.content).toBeUndefined();
+});
+
+test('note reference attributes with unrepresented semantics stay unsupported atomically', () => {
+    for (const attribute of ['xml:lang="fr"', 'cert="low"', 'resp="#ed"']) {
+        const { edition } = compileWithManifest([fixture(`<note><ref target="https://example.test/document" ${attribute}>label</ref></note>`)], mapping);
+        expect(edition.relations).toEqual([]);
+        expect(edition.annotations.find(a => a.kind === 'note')!.content).toBeUndefined();
+        expect(edition.diagnostics[0].code).toBe('unsupported-note-content');
+    }
+});

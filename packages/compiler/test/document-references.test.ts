@@ -91,3 +91,11 @@ test('an empty fragment on a document pointer resolves to the document itself', 
     expect(links(edition)[0].objectIds).toEqual(['b']);
     expect(edition.diagnostics).toEqual([]);
 });
+
+test('typed document shorthand rules require valid dates and never infer undeclared types', async () => {
+    const { mappedDocumentReference } = await import('../src/references');
+    const mapping = { partKinds: {}, entityKinds: {}, documentReferenceRules: { diary: { prefix: 'https://example.test/entry-', suffix: '.xml', targetKind: 'date' as const } } };
+    expect(mappedDocumentReference('1909-06-10', 'diary', mapping)).toBe('https://example.test/entry-1909-06-10.xml');
+    expect(mappedDocumentReference('1909-06-10', 'undeclared', mapping)).toBe('1909-06-10');
+    for (const value of ['1909-02-30', '1909', '../1909-06-10', 'https://elsewhere.test/']) expect(mappedDocumentReference(value, 'diary', mapping)).toBeUndefined();
+});

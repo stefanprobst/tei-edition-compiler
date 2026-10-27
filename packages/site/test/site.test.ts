@@ -65,3 +65,22 @@ test('notes, interventions and nontextual documents remain renderable without so
     expect(document).toContain('photograph');
     checkLinks(files, options.basePath);
 });
+
+test('paired letter notes have working source-point backlinks and cross-edition routes', async () => {
+    const letterDirectory = new URL('../../../fixtures/schnitzler-letters/', import.meta.url);
+    const pairedProfile = MappingProfileSchema.parse(await Bun.file(new URL('mapping.json', letterDirectory)).json());
+    const paired = compileWithManifest([
+        ...sources.map(source => ({ ...source, uri: 'https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-tagebuch/editions/' + source.name })),
+        { name: 'L02549.xml', uri: 'https://id.acdh.oeaw.ac.at/schnitzler/schnitzler-briefe/editions/L02549.xml', xml: await Bun.file(new URL('L02549.xml', letterDirectory)).text() },
+    ], pairedProfile.mapping);
+    for (const basePath of ['/', '/pair/']) {
+        const files = await generateSite(paired.edition, paired.manifest, { ...options, basePath, sourceLinks: undefined });
+        checkLinks(files, basePath);
+        const letter = [...files.values()].find(html => html.includes('<h1>Olga Schnitzler'))!;
+        expect(letter).toContain('aria-label="Note 1"');
+        expect(letter).toContain('Source attachment point');
+        expect(letter).toContain('Donnerstag, 10. Juni 1909');
+        expect(letter).toContain('[9. 6. 1909?]');
+        expect(letter).toContain('Die Datierung');
+    }
+});

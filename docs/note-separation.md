@@ -38,3 +38,7 @@ Recompile affected base editions and regenerate their alternatives extensions: t
 ## Verification
 
 Typecheck, the viewer build and all 229 tests pass; the two Auden snapshots remain unchanged. New tests cover plain/empty notes, unsupported content and attachment, explicit attribution, parent containment, surrounding text, anchor offsets, independent filtering and hash-verified source provenance across both complete real sources. Browser acceptance verifies note inspection and exclusion from both text views, rich-note feedback, existing choices/history and zero XML requests/runtime exceptions.
+
+## Supported local attachments and note references
+
+The [paired commentary study](paired-commentary-study.md) adds single local `corresp` attachments to explicit identified reference points, expressed as `annotates` relations. Note insertion ranges stay lexical and zero-width; no phrase span is inferred. Supported note references become `references` relations from the note, with explicit compile-time shorthand mappings where configured. Missing/unsupported attachments and unsupported reference attributes remain atomic uncompiled boundaries. Candidate content is unchanged.

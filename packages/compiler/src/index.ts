@@ -3,7 +3,7 @@ import { MappingSchema, audenMusulinMapping, ownEntry, type Mapping } from './ma
 export { MappingSchema, MappingProfileSchema, audenMusulinMapping, type Mapping, type MappingProfile } from './mapping';
 import { buildManifest } from './manifest';
 export { CompilationManifestSchema, verifyCompilationManifest, verifyCompilationSources, type CompilationManifest } from './manifest';
-import { annotationReference, documentUris, entityReference, referenceKey, referenceUri } from './references';
+import { annotationReference, mappedDocumentReference, documentUris, entityReference, referenceKey, referenceUri } from './references';
 import { indexAuthorities, type AuthoritySource } from './authorities';
 export type { AuthoritySource } from './authorities';
 import { contributors, type Contributor } from './contributors';
@@ -39,7 +39,9 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
     const interpretations = new Map<string, Edition['annotations'][number]>();
     const sourceUris = new Set<string>();
     const referenceTargets = new Map<string, string>();
-    const documentReferences: { relation: Edition['relations'][number]; refs: string[]; documentUri: string; hashMeansDocumentId: boolean }[] = [];
+    const noteFinalizers: (() => void)[] = [];
+    const referencePoints = new Map<string, Edition['annotations'][number]>();
+    const documentReferences: { referenceType?: string; relation: Edition['relations'][number]; refs: string[]; documentUri: string; hashMeansDocumentId: boolean }[] = [];
     const contributorDefinitions = new Map<string, Contributor[]>();
     const contributorsByElement = new WeakMap<Element, Contributor>();
     const sourceIndexes = new Map<string, ReturnType<typeof createSourceIndex>>();
@@ -112,7 +114,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             const record: Edition['relations'][number] = { id: id(e, ':relation'), subjectId, predicate, objectIds: [], provenance: prov(e) };
             out.relations.push(record);
             d.relationIds.push(record.id);
-            documentReferences.push({ relation: record, refs, documentUri: uris.primary, hashMeansDocumentId });
+            documentReferences.push({ relation: record, refs, documentUri: uris.primary, hashMeansDocumentId, referenceType: attr(e, 'type') });
             if (!refs.length) out.diagnostics.push({ code: 'empty-document-reference', message: attr(e, 'target'), provenance: prov(e) });
         };
         for (const [attribute, predicate] of [['prev', 'previous-document'], ['next', 'next-document']] as const) {
@@ -185,7 +187,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
         }
         const partKind = (e: Element) => e.namespaceURI === NS ? (e.localName === 'div' ? ownEntry(mapping.partKinds, attr(e, 'type')) : ownEntry(mapping.elementPartKinds, e.localName)) : undefined;
         const semantic = (e: Element) => !!partKind(e);
-        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
+        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', time: 'time-expression', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
         const blocks = new Set(['p', 'l', 'lg', 'opener', 'closer', 'ab', 'address', 'dateline', 'salute', 'signed', 'head', 'addrLine', 'postscript']);
         let nextOrder = 0;
         const compilePart = (e: Element, parentId?: string, parentOffset?: number, containingAnnotationId?: string) => {
@@ -231,14 +233,38 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                     else content += '\n';
                     return;
                 }
+                if (el.localName === 'anchor' && el.getAttributeNS(XML, 'id') && !el.textContent?.trim() && Array.from(el.attributes).every(attribute => attribute.namespaceURI === 'http://www.w3.org/2000/xmlns/' || (attribute.namespaceURI === XML && attribute.localName === 'id') || (!attribute.namespaceURI && ['type', 'subtype'].includes(attribute.localName)))) {
+                    const pointId = annotation(el, 'reference-point', [p.id], { partId: p.id, start: content.length, end: content.length }, parentAnnotationId);
+                    const point = out.annotations.find(a => a.id === pointId)!;
+                    delete point.body;
+                    referencePoints.set(JSON.stringify([docId, el.getAttributeNS(XML, 'id')]), point);
+                    return;
+                }
                 if (el.localName === 'note') {
                     annotation(el, 'note', [p.id], { partId: p.id, start: content.length, end: content.length }, parentAnnotationId);
                     const note = out.annotations[out.annotations.length - 1];
                     for (const [attribute, key] of Object.entries({ type: 'classification', subtype: 'subclassification', n: 'label' })) if (el.hasAttribute(attribute)) note.details[key] = attr(el, attribute);
                     delete note.body;
                     try {
-                        note.content = compileAnnotatedText(el, note.id, sourceIndex, false, ['place', 'n']);
+                        const attachment = el.hasAttribute('corresp') ? attr(el, 'corresp') : undefined;
+                        if (attachment !== undefined && !/^#?[A-Za-z_][\w.-]*$/.test(attachment)) throw new Error('Unsupported note attachment');
+                        const refs: Element[] = [];
+                        note.content = compileAnnotatedText(el, note.id, sourceIndex, false, ['place', 'n', 'corresp'], reference => refs.push(reference));
                         note.details.contentStatus = 'compiled';
+                        noteFinalizers.push(() => {
+                            if (attachment !== undefined) {
+                                const point = referencePoints.get(JSON.stringify([docId, attachment.replace(/^#/, '')]));
+                                if (!point) {
+                                    delete note.content; note.details.contentStatus = 'uncompiled';
+                                    out.diagnostics.push({ code: 'unresolved-note-attachment', message: attachment, provenance: note.provenance });
+                                    return;
+                                }
+                                const relationId = note.id + ':attachment';
+                                out.relations.push({ id: relationId, subjectId: note.id, predicate: 'annotates', objectIds: [point.id], provenance: note.provenance });
+                                d.relationIds.push(relationId);
+                            }
+                            for (const ref of refs) queueDocumentReference(ref, note.id);
+                        });
                     } catch {
                         note.details.contentStatus = 'uncompiled';
                         out.diagnostics.push({ code: 'unsupported-note-content', message: 'Note body or attachment remains uncompiled; inspect the canonical source', provenance: prov(el) });
@@ -332,6 +358,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             visit(body);
         }
     }
+    for (const finalize of noteFinalizers) finalize();
     const glyphDefinitions = new Map<Element, Edition['annotations'][number]>();
     for (const { occurrence, refs, documentUri } of glyphs) for (const ref of refs) {
         const pointer = annotationReference(ref, documentUri, mapping);
@@ -359,10 +386,11 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
         }
         if (!record.targetIds.includes(occurrence.id)) record.targetIds.push(occurrence.id);
     }
-    for (const { relation, refs, documentUri, hashMeansDocumentId } of documentReferences) {
+    for (const { relation, refs, documentUri, hashMeansDocumentId, referenceType } of documentReferences) {
         for (const raw of refs) {
             const ref = hashMeansDocumentId && raw.startsWith('#') ? raw.slice(1) : raw;
-            const uri = ref ? referenceUri(ref, documentUri, mapping) : undefined;
+            const mapped = mappedDocumentReference(ref, referenceType ?? '', mapping);
+            const uri = mapped ? referenceUri(mapped, documentUri, mapping) : undefined;
             const target = uri && referenceTargets.get(uri.href);
             if (target) {
                 if (!relation.objectIds.includes(target)) relation.objectIds.push(target);
@@ -370,7 +398,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                 relation.externalTargets ??= [];
                 const sourceId = uri?.href ?? raw;
                 if (!relation.externalTargets.some(t => t.sourceId === sourceId)) relation.externalTargets.push({ kind: 'document', sourceId });
-                if (!uri) out.diagnostics.push({ code: 'invalid-document-reference', message: raw, provenance: relation.provenance });
+                if (!uri) out.diagnostics.push({ code: mapped === undefined ? 'invalid-typed-document-reference' : 'invalid-document-reference', message: raw, provenance: relation.provenance });
                 else if (uri.hash) {
                     const source = new URL(uri.href); source.hash = '';
                     if (sourceUris.has(source.href)) out.diagnostics.push({ code: 'unresolved-document-fragment', message: raw, provenance: relation.provenance });

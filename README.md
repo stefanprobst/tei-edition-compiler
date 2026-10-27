@@ -100,6 +100,8 @@ PORT=3011 bun packages/site/scripts/serve.ts
 
 Open <http://127.0.0.1:3011/diary/>. For real person-register names, run `bun run site:fetch-authorities`, then `bun run site:prepare --person-register packages/site/dist/sources/listperson.xml` and rebuild. The explicit fetch is hash checked; the default build stays offline and unenriched. See the [study results and limitations](docs/static-site-study.md) and [cross-edition validation plan](docs/dse-static-validation.md).
 
+The [paired letter-and-diary study](docs/paired-commentary-study.md) adds source-attached notes and a cross-edition diary link. Run `bun run site:prepare-pair`, `bun run site:build-pair`, then `PORT=3013 bun packages/site/scripts/serve.ts packages/site/dist/paired-public /pair/` and open <http://127.0.0.1:3013/pair/>.
+
 ## Project mappings and authorities
 
 The default profile is [auden-musulin.json](packages/compiler/profiles/auden-musulin.json). Strict versioned JSON profiles configure division and element part kinds, entity categories, document identity, reference prefixes, authority scopes, preferred authority-label types and explicit document date paths. `documentDatePaths` selects restricted TEI child-element paths relative to the root (for example `text/body/div/p/date`); it does not run in consumers. Header extraction and editorial rules remain procedural; this is not a general mapping framework.
