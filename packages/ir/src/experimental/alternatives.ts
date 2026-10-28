@@ -7,16 +7,16 @@ export { LocalAnnotationSchema };
 export const AlternativeContentSchema = AnnotatedTextSchema;
 export const WitnessSchema = z.object({ ...record, kind: z.enum(['manuscript', 'edition', 'unspecified']), label: z.string().min(1).optional() }).strict();
 export const CandidateSchema = z.object({
-    ...record, role: z.enum(['editorial-base', 'variant']),
+    ...record, role: z.enum(['editorial-base', 'variant', 'abbreviated-form', 'expanded-form']),
     content: AlternativeContentSchema,
     witnessIds: z.array(z.string()), ...evidence,
 }).strict();
 export const AlternativeGroupSchema = z.object({
-    ...record, markerId: z.string().min(1), candidates: z.array(CandidateSchema).min(2),
+    ...record, kind: z.enum(['textual-variation', 'abbreviation-expansion']), markerId: z.string().min(1), candidates: z.array(CandidateSchema).min(2),
     notes: z.array(z.object({ ...record, content: AlternativeContentSchema, ...evidence }).strict()), ...evidence,
 }).strict();
 export const AlternativesStudySchema = z.object({
-    version: z.literal('0.2'), editionSha256: z.string().regex(/^[a-f0-9]{64}$/),
+    version: z.literal('0.3'), editionSha256: z.string().regex(/^[a-f0-9]{64}$/),
     witnesses: z.array(WitnessSchema), groups: z.array(AlternativeGroupSchema),
     diagnostics: z.array(z.object({ markerId: z.string(), code: z.string().min(1), message: z.string(), provenance: ProvenanceSchema }).strict()),
 }).strict().superRefine((study, context) => {
@@ -31,6 +31,9 @@ export const AlternativesStudySchema = z.object({
         if (markers.has(group.markerId)) issue('Duplicate group marker');
         markers.add(group.markerId);
         if (group.candidates.filter(candidate => candidate.role === 'editorial-base').length > 1) issue('More than one editorial base');
+        if (group.kind === 'abbreviation-expansion') {
+            if (group.candidates.length !== 2 || group.candidates.filter(c => c.role === 'abbreviated-form').length !== 1 || group.candidates.filter(c => c.role === 'expanded-form').length !== 1 || group.notes.length || group.candidates.some(c => c.witnessIds.length)) issue('Abbreviation/expansion groups require one neutral form of each kind and no apparatus evidence');
+        } else if (group.candidates.some(c => !['editorial-base', 'variant'].includes(c.role))) issue('Textual variation requires manuscript/edition candidate roles');
         for (const candidate of group.candidates) {
             if (new Set(candidate.witnessIds).size !== candidate.witnessIds.length) issue('Duplicate candidate witness');
             for (const id of candidate.witnessIds) if (!witnessIds.has(id)) issue('Unresolved witness ' + id);
@@ -120,6 +123,7 @@ export function assertAlternativeAnchors(edition: Edition, study: AlternativesSt
     for (const entry of [...study.groups, ...study.diagnostics]) {
         const marker = markers.get(entry.markerId);
         if (!marker?.range || parts.get(marker.range.partId)?.content?.text.slice(marker.range.start, marker.range.end) !== '\uFFFC') throw new Error('Study must anchor to an existing source marker');
+        if ('kind' in entry && marker.details.feature !== (entry.kind === 'abbreviation-expansion' ? 'text-alternatives' : 'textual-apparatus')) throw new Error('Alternative group kind differs from its base marker feature');
         if (marker.provenance.source !== entry.provenance.source || marker.provenance.selector !== entry.provenance.selector) throw new Error('Group provenance differs from its marker');
         markers.delete(entry.markerId);
     }

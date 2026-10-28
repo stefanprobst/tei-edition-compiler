@@ -2,9 +2,9 @@
 
 Run `bun run viewer:build` and `bun run viewer`, then open <http://127.0.0.1:3000/>. Expand **Open compiled artifacts** and select files by role:
 
-1. Edition JSON (required): validated IR v0.3.
+1. Edition JSON (required): validated IR v0.4.
 2. Compilation manifest (required): produced with the compiler's `--manifest` option.
-3. Alternatives extension (optional): experimental v0.2, compiled for that exact edition.
+3. Alternatives extension (optional): experimental v0.3, compiled for that exact edition.
 4. Presentation metadata (optional): version 1, described below.
 
 Press **Open artifacts**. File names are arbitrary; the viewer does not discover companion files. Files are read locally in the browser. XML is neither uploaded nor loaded. All supplied artifacts must validate before the current edition is replaced. A failed load preserves the current edition, reading choices and presentation metadata. Omitting either optional file clears its previous contents.
@@ -52,3 +52,5 @@ playwright-cli -s=tei-viewer run-code --filename=packages/viewer/scripts/artifac
 ```
 
 It checks optional alternatives, preview and source links, failed-load preservation, clearing omitted metadata, malformed JSON, mobile width, zero XML requests and zero browser runtime errors. Synthetic preview responses are test assets, not historical facsimiles.
+
+Older v0.3 editions and v0.2 alternatives must be recompiled; see the [v0.4 migration contract](ir-v0.4.md).

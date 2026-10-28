@@ -71,3 +71,7 @@ playwright-cli -s=tei-site run-code --filename=packages/site/scripts/akademie-br
 ```
 
 Browser checks cover meeting-date filtering, source headings, prominent incomplete-reading notice, marker visibility, shared-person backlinks, Back/reload, retained original image URI, mobile width and JavaScript-free reading. No XML/JSON requests or runtime exceptions occur. Image links are inspected without requesting facsimiles. Desktop/mobile screenshots are inspected separately.
+
+## Subsequent explicit-choice experiment
+
+The [alternatives v0.3 study](alternatives-experiment-v0.3.md) now represents all 64 abbreviation/expansion groups without removing these base diagnostics. Current preparation recompiles this cohort as IR v0.4 and writes a matching alternatives sidecar. The static site continues to publish the base marker-bearing artifact; the experimental viewer offers explicit choices with reversible source mappings. Polygon zones and physical layout remain uncompiled.

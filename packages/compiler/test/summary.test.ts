@@ -11,7 +11,7 @@ const edition = compile(sources);
 
 test('the artifact summary exposes heterogeneous document structure and unresolved evidence', () => {
     const report = summarizeEdition(edition);
-    expect(report.irVersion).toBe('0.3');
+    expect(report.irVersion).toBe('0.4');
     expect(report.totals.documents).toBe(5);
     expect(report.totals.parts).toBe(35);
     expect(report.totals.anchors).toBe(145);
@@ -52,7 +52,7 @@ test('synthetic authority labels and unowned authority diagnostics remain accura
 });
 
 test('an empty validated edition has explicit zero counts', () => {
-    const empty = EditionSchema.parse({ version: '0.3', id: 'empty', documents: [], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] });
+    const empty = EditionSchema.parse({ version: '0.4', id: 'empty', documents: [], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] });
     const report = summarizeEdition(empty);
     expect(report.totals.documents).toBe(0); expect(report.totals.textLength).toBe(0);
     expect(report.documents).toEqual([]); expect(report.entities.byKind).toEqual({});
@@ -89,14 +89,14 @@ test('inspection rejects invalid versioned artifacts before emitting a report', 
         const child = Bun.spawn(['bun', 'packages/ir/src/inspect-cli.ts', input], { stdout: Bun.file(output), stderr: Bun.file(error) });
         expect(await child.exited).not.toBe(0);
         expect(await Bun.file(output).text()).toBe('');
-        expect(await Bun.file(error).text()).toContain('0.3');
+        expect(await Bun.file(error).text()).toContain('0.4');
     } finally { await rm(directory, { recursive: true }); }
 });
 
 test('opaque IDs are never treated as inherited JavaScript object entries', () => {
     const provenance = { source: 'source.xml', selector: 'opaque' };
     const edition = EditionSchema.parse({
-        version: '0.3', id: 'opaque', documents: [{
+        version: '0.4', id: 'opaque', documents: [{
             id: 'document', provenance, metadata: { title: 'Opaque IDs', dates: [], languages: [], identifiers: [], rights: [] },
             parts: [{ id: 'constructor', kind: 'text', order: 0, content: { kind: 'text', text: 'X' }, resourceIds: [], provenance }],
             resourceIds: [], relationIds: [], annotationIds: [],

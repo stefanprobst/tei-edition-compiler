@@ -12,14 +12,14 @@
 - First slice: amp-transcript__0001, __0040, __0078. Revision stress fixtures __0028 and __0062 are now vendored and tested; their containment model does not yet establish a complete revision graph.
 - Keep packages/ir and packages/compiler minimal. The authorized local reference viewer lives in packages/viewer and consumes compiled JSON only; keep source inspection and compiler dependencies out of its browser bundle.
 - Record upstream commit, attribution and licensing before vendoring. Preserve original fixtures byte-for-byte.
-- Record model changes in the current versioned IR design notes; docs/ir-v0.1.md is the historical baseline and docs/ir-v0.2.md is historical and docs/ir-v0.3.md documents the current contract. Run typecheck and compiler tests after changes.
+- Record model changes in the current versioned IR design notes; docs/ir-v0.1.md is the historical baseline and docs/ir-v0.2.md is historical and docs/ir-v0.3.md is historical; docs/ir-v0.4.md documents the current contract. Run typecheck and compiler tests after changes.
 
 - Resolve interpretation links after indexing supplied sources, using full document identity plus fragment. Keep absent targets explicit with provenance and diagnostics; never fetch missing sources implicitly.
 - Entity identity uses full authority URIs; shared fragment scopes must be explicit in the project mapping. Keep occurrence labels on mentions until authority data supplies canonical labels; diagnose conflicting classifications.
 - Preserve date precision and explicit offsets. Validate the documented Gregorian subset; retain unsupported/conflicting dates as text with source diagnostics. Never invent a timezone or silently convert calendars.
 - Provenance selectors must round-trip through the compiler source index. Reject duplicate XML IDs, keep namespace-qualified structural paths unambiguous, and keep source DOMs out of IR.
 - Resolve facsimile pointers individually, preserving usable images when other pointers/bounds fail. Resource URLs may inherit XML bases; never fetch images implicitly or infer crop/zone semantics from surface bounds.
-- Current IR version is 0.3. Parts and anchors require a shared document-local order; runtime reading order must use IR fields, never provenance selectors. Recompile TEI rather than guessing missing order when migrating v0.1 JSON.
+- Current IR version is 0.4. Parts and anchors require a shared document-local order; runtime reading order must use IR fields, never provenance selectors. Recompile TEI rather than guessing missing order when migrating v0.1 JSON.
 - Authority enrichment is explicit and local: supplied TEI register records may provide labels/provenance, never occurrence text. Match full URIs, materialize only referenced entities, and keep synthetic register evidence clearly separate from upstream corpus fixtures.
 - Scholarly attribution uses explicit responsible-for relations from person entities to annotations. Keep raw responsibility tokens as evidence, scope local IDs to source documents, resolve only supplied contributor/authority records, and preserve definition and binding provenance separately.
 - Text projections must require explicit editorial filtering policies, leave source IR unchanged, preserve reverse mappings and anchors, and report cross-part deletion ambiguity instead of inferring revision chronology.
@@ -38,7 +38,7 @@
 
 - Unsupported apparatus/choice branches must not be concatenated into running text: emit source-backed uncompiled-content markers with precise diagnostics until a semantic alternatives model exists. Preserve explicit nonbreaking line continuations and manuscript page labels. The pinned DHARMA fixture is a diagnostic-bearing boundary cohort, not a claim of critical-edition support.
 
-- Text alternatives are currently a separate experimental v0.2 extension bound to a v0.3 edition fingerprint and existing markers. Keep candidate selection explicit, preserve empty/neutral readings and local witness scope, distinguish manuscripts from previous editions, and reject unsupported nested semantics atomically. Do not promote the experiment to the main IR or remove base diagnostics without resolving candidate-local interventions and reversible selection mappings.
+- Text alternatives are currently a separate experimental v0.3 extension bound to a v0.4 edition fingerprint and existing markers. Keep candidate selection explicit, preserve empty/neutral readings and local witness scope, distinguish manuscripts from previous editions, and reject unsupported nested semantics atomically. Do not promote the experiment to the main IR or remove base diagnostics without resolving candidate-local interventions and reversible selection mappings.
 
 - Experimental candidate and note annotations use their own bounded UTF-16 ranges and parent graphs. Projection requires an explicit candidate and deletion policy; retain reverse mappings and missing-text issues. Empty readings and gap/omission markers are different evidence. Candidate-local projections remain distinct from the experimental document composition API; neither mutates base-edition markers.
 
@@ -48,7 +48,7 @@
 
 - Inline notes outside apparatus are separate note annotations at lexical insertion points, never running text or inferred reference spans. Use the shared annotated-text content model for supported note bodies; keep unsupported content/attachment rules explicitly uncompiled with provenance. Do not infer authorship or language, flatten nested alternatives in notes, or leak note prose through ancestor annotation bodies.
 
-- Core note content and experimental candidate/note content share AnnotatedTextSchema, one compiler walker and one viewer renderer. Core annotations cannot carry both scalar body and structured content. Validate local IDs, parent graphs, bounds and source ownership; include local spans in manifest/source verification. Recompile v0.2 artifacts for v0.3 rather than guessing content or changing version literals.
+- Core note content and experimental candidate/note content share AnnotatedTextSchema, one compiler walker and one viewer renderer. Core annotations cannot carry both scalar body and structured content. Validate local IDs, parent graphs, bounds and source ownership; include local spans in manifest/source verification. Recompile older artifacts for v0.4 rather than guessing content or changing version literals.
 
 - Local artifact loading validates edition/manifest fingerprints, provenance inventory and supplied optional extension/presentation bindings atomically before replacing the view. Keep JSON consistency checks separate from source-byte/selector verification; never imply browser loading inspected XML. Omitted metadata clears previous mappings; do not infer companion files or leak demo metadata.
 
@@ -65,3 +65,6 @@
 
 - The independent Akademieprotokolle cohort is diagnostic-bearing: preserve unselected abbreviation choices, polygon zones and layout limitations explicitly. A source attendance heading does not establish participant roles for nearby mentions. Preserve questionable image identifiers rather than guessing repairs.
 - documentTitlePath selects exactly one nonempty source heading at compile time; diagnose missing/ambiguous selection and retain fallback titles. Number expressions and literal abbreviation marks are semantic text annotations, not inferred numeric values or expansions. Runtime source markers and incomplete-transcription notices must remain visible.
+
+- IR v0.4 extends shared local annotated text with literal abbreviation-marker and semantic superscript kinds. Alternatives v0.3 requires explicit group kinds: textual-variation retains witness roles, abbreviation-expansion requires one neutral abbreviated and expanded form each. Preserve source order/whitespace without implying preference. Recompile older IR/extensions and their bound sidecars; never edit version literals as migration.
+- The 64 Akademieprotokolle choices are represented in the experimental sidecar only. Base markers, source text, diagnostics, polygon/layout limitations and register identities remain unchanged. The browser renders semantic kinds and explicit selections without TEI tokens, source XML or inferred normalizations.

@@ -2,7 +2,7 @@
 
 An experimental TEI → typed, runtime-validated Edition IR compiler. TEI/XML is canonical; generated IR is derived and disposable. Runtime consumers use semantic records, text ranges, image resources and provenance without XML tooling.
 
-The current contract is **IR v0.3**. Documents may contain text, compound parts or photographs; they are not textual ASTs. The core contains no Auden-specific concepts.
+The current contract is **IR v0.4**. Documents may contain text, compound parts or photographs; they are not textual ASTs. The core contains no Auden-specific concepts.
 
 ## Install and check
 
@@ -86,7 +86,7 @@ See [fixture provenance and licensing](fixtures/auden-musulin/README.md) and the
 
 ## Independent edition validation
 
-A pinned, attributed [DHARMA Amaramālā fixture](fixtures/dharma/README.md) tests the compiler against real critical-edition apparatus and manuscript line continuations. It exposed concatenated alternative readings and incorrectly broken words. Unsupported alternatives now remain explicit source markers with diagnostics; no reading is guessed. This fixture intentionally fails strict compilation and is separate from the Auden cohorts. See [validation findings](docs/second-edition-validation.md) and the [executable alternatives experiment](docs/alternatives-experiment-v0.2.md). The experiment keeps candidates and witness evidence separate without changing Edition IR v0.3. Inline notes are now [separated from running text](docs/note-separation.md), with shared annotated text for supported rich note bodies and explicit diagnostics for unsupported content. An [experimental document projection](docs/document-alternatives-projection.md) composes explicit choices with source mappings and anchor preservation.
+A pinned, attributed [DHARMA Amaramālā fixture](fixtures/dharma/README.md) tests the compiler against real critical-edition apparatus and manuscript line continuations. It exposed concatenated alternative readings and incorrectly broken words. Unsupported alternatives now remain explicit source markers with diagnostics; no reading is guessed. This fixture intentionally fails strict compilation and is separate from the Auden cohorts. See [validation findings](docs/second-edition-validation.md) and the [executable alternatives experiment](docs/alternatives-experiment-v0.3.md). The experimental sidecar keeps candidates and witness evidence separate from Edition IR v0.4. Inline notes are now [separated from running text](docs/note-separation.md), with shared annotated text for supported rich note bodies and explicit diagnostics for unsupported content. An [experimental document projection](docs/document-alternatives-projection.md) composes explicit choices with source mappings and anchor preservation.
 
 ## Static publication study
 
@@ -103,6 +103,8 @@ Open <http://127.0.0.1:3011/diary/>. For real person-register names, run `bun ru
 The [paired letter-and-diary study](docs/paired-commentary-study.md) adds source-attached notes and a cross-edition diary link. Run `bun run site:prepare-pair`, `bun run site:build-pair`, then `PORT=3013 bun packages/site/scripts/serve.ts packages/site/dist/paired-public /pair/` and open <http://127.0.0.1:3013/pair/>.
 
 An independent [Akademieprotokolle study](docs/akademieprotokolle-study.md) tests meeting metadata, page structure and a different authority corpus. Run `bun run site:prepare-akademie`, `bun run site:build-akademie`, then `PORT=3014 bun packages/site/scripts/serve.ts packages/site/dist/akademie-public /akademie/`. Its 73 diagnostics explicitly retain unsupported reading choices, polygon zones and project layout; it is a partial-publication boundary cohort.
+
+The [abbreviation/expansion experiment](docs/alternatives-experiment-v0.3.md) now preserves all 64 Akademieprotokolle choices with literal marks and superscript. After `bun run viewer:build`, open the **Abbreviation study** in the viewer (`?edition=akademie`). Selection stays explicit and base compiler diagnostics remain. Current artifacts use IR v0.4 and alternatives v0.3; recompile older artifacts from canonical sources.
 
 ## Project mappings and authorities
 
@@ -156,7 +158,7 @@ Source inspection belongs outside runtime consumers. `Source.uri` supplies an ac
 
 ## Design and remaining questions
 
-- [Current IR v0.3 contract and migration](docs/ir-v0.3.md).
+- [Current IR v0.4 contract and migration](docs/ir-v0.4.md).
 - [Original evidence, interfaces and design questions](docs/ir-v0.1.md).
 - [Durable project constraints](AGENTS.md).
 

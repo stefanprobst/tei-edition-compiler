@@ -19,8 +19,8 @@ function sample(body: string, declarations = '<witness xml:id="w"><abbr>W</abbr>
 
 test('the experimental real-source study accounts for every marker without changing the edition', () => {
     expect(JSON.stringify(bundle)).toBe(before);
-    expect(study.version).toBe('0.2');
-    expect(bundle.edition.version).toBe('0.3');
+    expect(study.version).toBe('0.3');
+    expect(bundle.edition.version).toBe('0.4');
     expect(study.groups.filter(group => group.provenance.source === names[0])).toHaveLength(22);
     expect(study.groups.filter(group => group.provenance.source === names[1])).toHaveLength(13);
     expect(study.diagnostics).toHaveLength(2);

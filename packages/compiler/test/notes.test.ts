@@ -93,11 +93,11 @@ test('notes and candidates share one validated content model, including rich-not
     expect(() => verifyCompilationSources(edited.edition, edited.manifest, [source])).toThrow('Unresolved provenance');
 });
 
-test('IR v0.3 rejects stale versions, duplicate content IDs, foreign owners and dual text bodies', async () => {
+test('IR v0.4 rejects stale versions, duplicate content IDs, foreign owners and dual text bodies', async () => {
     const { EditionSchema } = await import('@acdh-oeaw/tei-edition-ir');
     const { edition } = compileWithManifest([fixture('A<note><hi>x</hi></note>B<note><hi>y</hi></note>')], mapping);
-    expect(edition.version).toBe('0.3');
-    expect(EditionSchema.safeParse({ ...edition, version: '0.2' }).success).toBe(false);
+    expect(edition.version).toBe('0.4');
+    expect(EditionSchema.safeParse({ ...edition, version: '0.3' }).success).toBe(false);
     const dual = structuredClone(edition); dual.annotations.find(annotation => annotation.kind === 'note')!.body = 'Duplicate';
     expect(EditionSchema.safeParse(dual).success).toBe(false);
     const local = edition.annotations.filter(annotation => annotation.kind === 'note');

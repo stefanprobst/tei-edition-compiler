@@ -44,6 +44,6 @@ playwright-cli -s=tei-viewer open http://127.0.0.1:3000/
 playwright-cli -s=tei-viewer run-code --filename=packages/viewer/scripts/alternatives-browser-check.js
 ```
 
-The original reader keeps its separate `browser-check.js`. Typecheck, the viewer build and all 238 tests pass. This is a plain browser-API consumer of the existing contracts; IR v0.3 supplies shared note content; the experimental extension remains v0.2.
+The original reader keeps its separate `browser-check.js`. Typecheck, the viewer build and the complete test suite pass. This is a plain browser-API consumer of the existing contracts; IR v0.4 supplies shared note/candidate content; the experimental extension is v0.3. See the [abbreviation/expansion extension](alternatives-experiment-v0.3.md) for the additional explicit group kinds and migration.
 
 The [artifact loader](artifact-loading.md) can open an independently compiled edition, matching manifest and experimental alternatives without editing the demo build. Optional versioned presentation metadata supplies explicit source links and previews.

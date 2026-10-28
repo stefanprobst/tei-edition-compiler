@@ -72,8 +72,8 @@ export function alternativesPanel(edition: Edition, study: AlternativesStudy, do
         const label = element('label', `Reading ${index + 1}`), select = element('select'); select.className = 'candidate-choice'; select.dataset.groupId = group.id;
         select.append(new Option('No selection — retain source marker', ''));
         for (const candidate of group.candidates) {
-            const names = candidate.witnessIds.map(id => { const witness = witnesses.get(id)!; return `${witness.label ?? 'Unlabelled'} (${witness.kind})`; }).join(', ') || 'no witness assertion';
-            select.append(new Option(`${human(candidate.role)} · ${names} · ${candidate.content.text ? candidate.content.text.replaceAll('\uFFFC', '◇').slice(0, 75) : '(empty reading)'}`, candidate.id));
+            const names = group.kind === 'abbreviation-expansion' ? 'source-encoded form; no preferred reading' : candidate.witnessIds.map(id => { const witness = witnesses.get(id)!; return `${witness.label ?? 'Unlabelled'} (${witness.kind})`; }).join(', ') || 'no witness assertion';
+            select.append(new Option(`${human(candidate.role)} · ${names} · ${candidate.content.text ? candidate.content.text.replaceAll('\uFFFC', '◇').replace(/\s+/g, ' ').trim().slice(0, 75) : '(empty reading)'}`, candidate.id));
             const card = element('article'); card.className = 'candidate-card';
             card.append(element('h3', `${human(candidate.role)} · ${names}`), renderAnnotatedText(candidate.content));
             const inspect = element('button', 'Inspect candidate'); inspect.type = 'button'; inspect.className = 'record-link'; inspect.onclick = () => options.onInspect(candidate.id); card.append(inspect);

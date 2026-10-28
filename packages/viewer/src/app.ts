@@ -324,7 +324,7 @@ document.querySelector<HTMLInputElement>('#upload')!.onchange = async event => {
     const input = event.target as HTMLInputElement; const file = input.files?.[0]; if (!file) return;
     const generation = ++inputGeneration;
     try { const data: unknown = JSON.parse(await file.text()); if (generation === inputGeneration) load(data, { attribution: '', previews: {}, sourceLinks: {} }); }
-    catch { if (generation === inputGeneration) status.textContent = 'Could not open file: expected valid Edition IR v0.3. The current edition is unchanged.'; }
+    catch { if (generation === inputGeneration) status.textContent = 'Could not open file: expected valid Edition IR v0.4. The current edition is unchanged.'; }
     if (generation === inputGeneration) input.value = '';
 };
 document.querySelector<HTMLFormElement>('#artifact-form')!.onsubmit = async event => {
@@ -348,12 +348,13 @@ document.querySelector<HTMLFormElement>('#artifact-form')!.onsubmit = async even
 };
 const demoGeneration = inputGeneration;
 try {
-    const studyDemo = new URLSearchParams(location.search).get('edition') === 'study';
+    const mode = new URLSearchParams(location.search).get('edition');
+    const prefix = mode === 'study' ? 'study' : mode === 'akademie' ? 'akademie' : undefined;
     const [response, metadata, manifest, studyResponse] = await Promise.all([
-        fetch(studyDemo ? '/study-edition.json' : '/edition.json'),
-        fetch(studyDemo ? '/study-presentation.json' : '/presentation.json'),
-        fetch(studyDemo ? '/study-edition.manifest.json' : '/edition.manifest.json'),
-        studyDemo ? fetch('/study.json') : Promise.resolve(undefined),
+        fetch(prefix ? `/${prefix}-edition.json` : '/edition.json'),
+        fetch(prefix ? `/${prefix}-presentation.json` : '/presentation.json'),
+        fetch(prefix ? `/${prefix}-edition.manifest.json` : '/edition.manifest.json'),
+        prefix ? fetch(prefix === 'study' ? '/study.json' : '/akademie-alternatives.json') : Promise.resolve(undefined),
     ]);
     if (!response.ok || !metadata.ok || !manifest.ok || (studyResponse && !studyResponse.ok)) throw new Error('Missing generated data');
     const result = await validateArtifactSet({ edition: await response.json(), manifest: await manifest.json(), presentation: await metadata.json(), ...(studyResponse ? { alternatives: await studyResponse.json() } : {}) });

@@ -9,7 +9,7 @@ const value = (element: Element, name: string) => element.getAttribute(name) ?? 
 
 type Input = { name: string; xml: string };
 const children = (element: Element) => Array.from(element.childNodes).filter((node): node is Element => node.nodeType === 1);
-/** Experimental, explicit-input study. Leaves the validated v0.3 edition and its diagnostics unchanged. */
+/** Experimental, explicit-input study. Leaves the validated v0.4 edition and its diagnostics unchanged. */
 export function compileAlternativesStudy(edition: Edition, manifestInput: unknown, sources: readonly Input[]): AlternativesStudy {
     const manifest = verifyCompilationManifest(edition, manifestInput);
     verifyCompilationSources(edition, manifest, sources);
@@ -38,7 +38,9 @@ export function compileAlternativesStudy(edition: Edition, manifestInput: unknow
         const index = indexes.get(marker.provenance.source)!;
         const entry = index.resolve(marker.provenance)!;
         try {
-            if (entry.namespaceURI !== TEI_NAMESPACE || entry.localName !== 'app') throw new Error('Only inline apparatus entries are covered by this experiment');
+            if (entry.namespaceURI !== TEI_NAMESPACE || !['app', 'choice'].includes(entry.localName)) throw new Error('Only inline apparatus or abbreviation/expansion choices are covered');
+            const kind = entry.localName === 'choice' ? 'abbreviation-expansion' as const : 'textual-variation' as const;
+            if (kind === 'abbreviation-expansion' && (children(entry).length !== 2 || children(entry).filter(child => child.namespaceURI === TEI_NAMESPACE && child.localName === 'abbr').length !== 1 || children(entry).filter(child => child.namespaceURI === TEI_NAMESPACE && child.localName === 'expan').length !== 1)) throw new Error('Choice requires exactly one abbreviated and one expanded form');
             checkTextAttributes(entry);
             if (Array.from(entry.childNodes).some(node => (node.nodeType === 3 || node.nodeType === 4) && node.nodeValue?.trim())) throw new Error('Unstructured text between reading candidates');
             const candidates: AlternativesStudy['groups'][number]['candidates'] = [], notes: AlternativesStudy['groups'][number]['notes'] = [];
@@ -46,24 +48,24 @@ export function compileAlternativesStudy(edition: Edition, manifestInput: unknow
                 if (child.namespaceURI !== TEI_NAMESPACE) throw new Error('Foreign content in apparatus entry');
                 const provenance = index.provenance(child);
                 const id = marker.id + ':study:' + index.selector(child);
-                if (child.localName === 'note') { notes.push({ id, content: compileAnnotatedText(child, id, index), provenance, ...evidence(child) }); continue; }
-                if (!['lem', 'rdg'].includes(child.localName)) throw new Error('Grouped or unsupported reading structure');
+                if (kind === 'textual-variation' && child.localName === 'note') { notes.push({ id, content: compileAnnotatedText(child, id, index), provenance, ...evidence(child) }); continue; }
+                if (!(kind === 'textual-variation' ? ['lem', 'rdg'] : ['abbr', 'expan']).includes(child.localName)) throw new Error('Grouped or unsupported reading structure');
                 const witnessIds = words(value(child, 'wit')).map(ref => {
                     if (!ref.startsWith('#') || ref.length < 2) throw new Error('Witness references must identify an explicitly supplied local declaration');
                     const definition = definitions.get(JSON.stringify([marker.provenance.source, decodeURIComponent(ref.slice(1))]));
                     if (!definition) throw new Error('Unresolved witness declaration ' + ref);
                     return definition.id;
                 });
-                candidates.push({ id, role: child.localName === 'lem' ? 'editorial-base' : 'variant', content: compileAnnotatedText(child, id, index, true), witnessIds: [...new Set(witnessIds)], provenance, ...evidence(child) });
+                candidates.push({ id, role: kind === 'abbreviation-expansion' ? child.localName === 'abbr' ? 'abbreviated-form' : 'expanded-form' : child.localName === 'lem' ? 'editorial-base' : 'variant', content: compileAnnotatedText(child, id, index, kind === 'textual-variation'), witnessIds: [...new Set(witnessIds)], provenance, ...evidence(child) });
             }
             if (candidates.length < 2 || candidates.filter(candidate => candidate.role === 'editorial-base').length > 1) throw new Error('Expected two or more candidates and at most one editorial base');
-            groups.push({ id: marker.id + ':study', markerId: marker.id, candidates, notes, provenance: marker.provenance, ...evidence(entry) });
+            groups.push({ id: marker.id + ':study', kind, markerId: marker.id, candidates, notes, provenance: marker.provenance, ...evidence(entry) });
         } catch (error) {
             diagnostics.push({ markerId: marker.id, code: 'unsupported-alternative-entry', message: error instanceof Error ? error.message : String(error), provenance: marker.provenance });
         }
     }
     const used = new Set(groups.flatMap(group => group.candidates.flatMap(candidate => candidate.witnessIds)));
-    return verifyAlternativesStudy(edition, { version: '0.2', editionSha256: manifest.editionSha256, witnesses: [...definitions.values()].filter(witness => used.has(witness.id)), groups, diagnostics });
+    return verifyAlternativesStudy(edition, { version: '0.3', editionSha256: manifest.editionSha256, witnesses: [...definitions.values()].filter(witness => used.has(witness.id)), groups, diagnostics });
 }
 
 /** Bind the experiment to its exact base artifact and account for every quarantined marker. */

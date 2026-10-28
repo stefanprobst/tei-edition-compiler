@@ -11,7 +11,7 @@
     },
     "packages/compiler": {
       "name": "@acdh-oeaw/tei-edition-compiler",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "dependencies": {
         "@acdh-oeaw/tei-edition-ir": "workspace:*",
         "@xmldom/xmldom": "^0.8.11",
@@ -20,7 +20,7 @@
     },
     "packages/ir": {
       "name": "@acdh-oeaw/tei-edition-ir",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "dependencies": {
         "zod": "^4.1.12",
       },

@@ -10,7 +10,7 @@ export const textEvidenceFields = {
 const record = { id: z.string().min(1), provenance: ProvenanceSchema };
 const LocalRangeSchema = z.object({ start: z.number().int().nonnegative().safe(), end: z.number().int().nonnegative().safe() }).strict().refine(range => range.end >= range.start, 'Reversed local range');
 export const LocalAnnotationSchema = z.object({
-    ...record, kind: z.enum(['deletion', 'insertion', 'language', 'emphasis', 'uncertain-reading', 'supplied-text', 'work-title', 'missing-text']),
+    ...record, kind: z.enum(['deletion', 'insertion', 'language', 'emphasis', 'uncertain-reading', 'supplied-text', 'work-title', 'missing-text', 'abbreviation-marker', 'superscript']),
     range: LocalRangeSchema, parentId: z.string().optional(), language: z.string().optional(), ...textEvidenceFields,
 }).strict();
 export const AnnotatedTextSchema = z.object({

@@ -28,7 +28,7 @@ export interface Source {
 export interface CompileOptions { authorities?: AuthoritySource[] }
 export function compile(sources: Source[], mapping: Mapping = audenMusulinMapping, options: CompileOptions = {}): Edition {
     mapping = MappingSchema.parse(mapping);
-    const out: Edition = { version: '0.3', id: 'edition', documents: [], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] };
+    const out: Edition = { version: '0.4', id: 'edition', documents: [], entities: [], mentions: [], relations: [], annotations: [], resources: [], anchors: [], diagnostics: [] };
     const names = new Set<string>();
     for (const source of [...sources, ...(options.authorities ?? [])]) {
         if (names.has(source.name)) throw new Error(`Duplicate source name ${source.name}`);

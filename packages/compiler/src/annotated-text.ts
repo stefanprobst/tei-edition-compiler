@@ -29,7 +29,7 @@ function declaredLanguage(element: Element): string | undefined {
 type Content = AnnotatedText;
 const inlineKinds = new Map<string, Content['annotations'][number]['kind']>([
     ['del', 'deletion'], ['add', 'insertion'], ['foreign', 'language'], ['hi', 'emphasis'],
-    ['unclear', 'uncertain-reading'], ['supplied', 'supplied-text'], ['title', 'work-title'], ['gap', 'missing-text'],
+    ['am', 'abbreviation-marker'], ['unclear', 'uncertain-reading'], ['supplied', 'supplied-text'], ['title', 'work-title'], ['gap', 'missing-text'],
 ]);
 export function compileAnnotatedText(element: Element, ownerId: string, index: ReturnType<typeof createSourceIndex>, witnessed = false, rootAttributes: string[] = [], onReference?: (element: Element) => void): Content {
     checkTextAttributes(element, witnessed, rootAttributes);
@@ -49,7 +49,7 @@ export function compileAnnotatedText(element: Element, ownerId: string, index: R
             for (const nested of Array.from(child.childNodes)) walk(nested, parentId);
             return;
         }
-        const kind = child.namespaceURI === TEI_NAMESPACE ? inlineKinds.get(child.localName) : undefined;
+        const kind = child.namespaceURI !== TEI_NAMESPACE ? undefined : child.localName === 'hi' && ['super', 'superscript'].includes(value(child, 'rend')) ? 'superscript' : inlineKinds.get(child.localName);
         if (!kind) throw new Error('Unsupported nested reading or note content');
         checkTextAttributes(child, false, kind === 'missing-text' ? ['reason'] : kind === 'insertion' ? ['place'] : []);
         const start = result.text.length;

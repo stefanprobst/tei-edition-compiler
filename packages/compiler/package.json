@@ -1,1 +1,1 @@
-{"name":"@acdh-oeaw/tei-edition-compiler","version":"0.3.0","type":"module","exports":{".":"./src/index.ts","./experimental/alternatives":"./src/experimental/alternatives.ts"},"dependencies":{"@acdh-oeaw/tei-edition-ir":"workspace:*","@xmldom/xmldom":"^0.8.11","zod":"^4.1.12"}}
+{"name":"@acdh-oeaw/tei-edition-compiler","version":"0.4.0","type":"module","exports":{".":"./src/index.ts","./experimental/alternatives":"./src/experimental/alternatives.ts"},"dependencies":{"@acdh-oeaw/tei-edition-ir":"workspace:*","@xmldom/xmldom":"^0.8.11","zod":"^4.1.12"}}

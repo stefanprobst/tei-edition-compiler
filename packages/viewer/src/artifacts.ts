@@ -27,12 +27,12 @@ function presentationMetadata(input: unknown): Presentation {
 /** Validate all supplied JSON before a caller replaces its current view. No source/sidecar fetching. */
 export async function validateArtifactSet(input: ArtifactInputs) {
     const editionResult = EditionSchema.safeParse(input.edition);
-    if (!editionResult.success) throw new Error('Edition must be valid IR v0.3');
+    if (!editionResult.success) throw new Error('Edition must be valid IR v0.4');
     const manifestResult = CompilationManifestSchema.safeParse(input.manifest);
-    if (!manifestResult.success) throw new Error('Manifest must be a valid compilation manifest for IR v0.3');
+    if (!manifestResult.success) throw new Error('Manifest must be a valid compilation manifest for IR v0.4');
     const edition = editionResult.data, manifest = manifestResult.data;
     const studyResult = input.alternatives === undefined ? undefined : AlternativesStudySchema.safeParse(input.alternatives);
-    if (studyResult && !studyResult.success) throw new Error('Alternatives must be a valid experimental v0.2 extension');
+    if (studyResult && !studyResult.success) throw new Error('Alternatives must be a valid experimental v0.3 extension');
     const alternatives = studyResult?.success ? studyResult.data : undefined;
     const presentation = input.presentation === undefined ? { version: '1' as const, editionSha256: manifest.editionSha256, attribution: '', sourceLinks: Object.create(null) as Record<string, string>, previews: Object.create(null) as Record<string, string> } : presentationMetadata(input.presentation);
     await verifyCompilationManifestArtifact(edition, manifest);

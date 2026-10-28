@@ -1,5 +1,7 @@
 # Edition IR v0.3: shared annotated text
 
+Historical contract, superseded by [IR v0.4](ir-v0.4.md).
+
 IR v0.3 adds structured content to annotations so notes can use the same text-and-ranges model as reading candidates. This supersedes the [v0.2 core contract](ir-v0.2.md); its other structures and ordering rules remain in force. TEI is canonical and generated artifacts remain disposable.
 
 ## One content model

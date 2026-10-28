@@ -46,3 +46,27 @@ await Promise.all([
     })),
 ]);
 console.log('Built alternatives study for ' + studyBundle.edition.documents.length + ' documents.');
+
+const akademieManifest = await Bun.file('fixtures/akademieprotokolle/manifest.json').json();
+const akademieSources = [], akademieAuthorities = [];
+for (const [name, info] of Object.entries(akademieManifest.files) as [string, { role: string; sha256: string }][]) {
+    if (!['document', 'authority'].includes(info.role)) continue;
+    const input = { name, xml: await Bun.file('fixtures/akademieprotokolle/' + name).text() };
+    createSourceIndex(input, { expectedSha256: info.sha256 });
+    if (info.role === 'document') akademieSources.push({ ...input, uri: 'https://id.acdh.oeaw.ac.at/akademieprotokolle/' + name });
+    else akademieAuthorities.push({ ...input, uri: 'https://id.acdh.oeaw.ac.at/akademieprotokolle/indices/listperson.xml' });
+}
+const akademieProfile = MappingProfileSchema.parse(await Bun.file('fixtures/akademieprotokolle/mapping.json').json());
+const akademieBundle = compileWithManifest(akademieSources, akademieProfile.mapping, { authorities: akademieAuthorities });
+const akademieStudy = compileAlternativesStudy(akademieBundle.edition, akademieBundle.manifest, [...akademieSources, ...akademieAuthorities]);
+await Promise.all([
+    Bun.write(output + '/akademie-edition.json', JSON.stringify(akademieBundle.edition)),
+    Bun.write(output + '/akademie-edition.manifest.json', JSON.stringify(akademieBundle.manifest)),
+    Bun.write(output + '/akademie-alternatives.json', JSON.stringify(akademieStudy)),
+    Bun.write(output + '/akademie-presentation.json', JSON.stringify({
+        version: '1', editionSha256: akademieBundle.manifest.editionSha256,
+        attribution: 'Akademieprotokolle · Stefan Sienell, ÖAW / ACDH and contributors credited in source metadata. ARCHE metadata declares CC BY 4.0; project description retains an ÖAW 2020 rights statement. Explicit experimental reading choices; polygon zones and physical layout remain uncompiled. Images retain original resource URIs.',
+        sourceLinks: Object.fromEntries([...akademieSources, ...akademieAuthorities].map(source => [source.name, `${akademieManifest.repository}/blob/${akademieManifest.commit}/${akademieManifest.files[source.name].path}`])), previews: {},
+    })),
+]);
+console.log(`Built abbreviation study: ${akademieStudy.groups.length} groups; ${akademieBundle.edition.diagnostics.length} base diagnostics retained.`);
