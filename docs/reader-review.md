@@ -1,6 +1,8 @@
 # Hosted preview reader review
 
-Preview: https://stefanprobst.github.io/tei-edition-compiler/
+Proposed preview URL (not live): https://stefanprobst.github.io/tei-edition-compiler/
+
+Hosting is blocked: on 2026-10-29 GitHub returned HTTP 422 when enabling Pages: “Your current plan does not support GitHub Pages for this repository.” The workflow is prepared but has not been dispatched. Repository visibility has not been changed. Hosting needs an eligible GitHub plan/repository or another static host. The verified local release remains available for review.
 
 This is the complete 73-document inventory at the pinned historical revision, with separately pinned registers. It retains source deletions, spacing markers, one unresolved responsibility and six missing authority labels. It is a publication pilot, not a normalized reading or the current expanded edition.
 

@@ -173,4 +173,4 @@ The local reference viewer exercises the current slice; there is no complete TEI
 
 Prepare a hosting-independent preview with `bun run amp:release /tei-edition-compiler/ packages/site/dist/amp-release` after the corpus audit. It emits a verified `public/` directory, deployment settings and a file-checksum inventory. Use a fresh output directory; see [release preparation](docs/publication-release.md).
 
-[Hosted edition preview](https://stefanprobst.github.io/tei-edition-compiler/) · [Reader-review tasks](docs/reader-review.md). Preview publication uses a separate manually dispatched workflow.
+[Reader-review tasks and hosting status](docs/reader-review.md). A manual Pages workflow is prepared, but GitHub rejected Pages activation for this repository under the current plan; no hosted preview is live.
