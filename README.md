@@ -6,7 +6,7 @@ The current contract is **IR v0.4**. Documents may contain text, compound parts 
 
 ## Install and check
 
-Requires Bun and Node.js for TypeScript checking. Run from the repository root:
+Requires Bun (the tested version is pinned in `.bun-version`) and Node.js for TypeScript checking. Run from the repository root:
 
 ```sh
 bun install
@@ -166,3 +166,7 @@ Source inspection belongs outside runtime consumers. `Source.uri` supplies an ac
 - [Durable project constraints](AGENTS.md).
 
 The local reference viewer exercises the current slice; there is no complete TEI/revision implementation. Physical components versus intellectual works, richer revision alternatives/chronology and broader mappings need further source and consumer evidence. Runtime consumers currently use text plus semantic ranges; richer content trees remain an open question. Recompile canonical TEI to migrate older generated output rather than guessing missing order or corrected spacing offsets.
+
+## Automated checks
+
+[Checks](.github/workflows/checks.yml) runs typechecking, unit tests, reference-reader builds and the independent static studies on pull requests and main-branch pushes. [Pinned Auden publication](.github/workflows/auden-publication.yml) runs separately on relevant main-branch pushes or manual dispatch: it explicitly fetches the locked XML inputs, then checks two clean publication builds. Neither workflow deploys a site or checks live image availability. See [CI coverage and local reproduction](docs/continuous-integration.md).
