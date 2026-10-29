@@ -30,4 +30,4 @@ bun run amp:fetch
 bun run amp:reproduce
 ```
 
-The workflow YAML and corresponding commands are verified locally. GitHub-hosted execution still requires pushing these workflow files; a local pass does not imply a hosted CI run or branch-protection status.
+The workflow YAML and corresponding commands are verified locally. The first hosted runs also passed on 2026-10-29 at commit `582d244`: [fast checks](https://github.com/stefanprobst/tei-edition-compiler/actions/runs/40837962440) and [pinned publication](https://github.com/stefanprobst/tei-edition-compiler/actions/runs/40837962409). The latter fetched the locked sources in a fresh runner and verified two clean builds. This records successful hosted execution; it does not imply branch-protection rules, browser automation in CI or site deployment.
