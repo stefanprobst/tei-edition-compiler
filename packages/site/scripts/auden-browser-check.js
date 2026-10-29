@@ -87,6 +87,7 @@ async page => {
     check((await page.locator('#search-status').innerText()).includes('Deleted text is included'), 'Search policy must be explicit');
     const searchUrl = page.url();
     await page.locator('#search-results a').first().click();
+    await page.locator(':target').waitFor({ state: 'attached' });
     check(await page.locator(':target').count() === 1, 'Search result must land on a generated source part');
     await page.goBack(); check(page.url() === searchUrl, 'Back must restore the search query');
     await page.locator('#search-results li').first().waitFor();
