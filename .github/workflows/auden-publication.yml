@@ -38,3 +38,5 @@ jobs:
         run: bun run amp:fetch
       - name: Verify two clean local publication builds
         run: bun run amp:reproduce
+      - name: Package and verify repository-subpath preview
+        run: bun run amp:release "/${GITHUB_REPOSITORY#*/}/" packages/site/dist/amp-release

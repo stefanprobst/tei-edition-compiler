@@ -170,3 +170,5 @@ The local reference viewer exercises the current slice; there is no complete TEI
 ## Automated checks
 
 [Checks](.github/workflows/checks.yml) runs typechecking, unit tests, reference-reader builds and the independent static studies on pull requests and main-branch pushes. [Pinned Auden publication](.github/workflows/auden-publication.yml) runs separately on relevant main-branch pushes or manual dispatch: it explicitly fetches the locked XML inputs, then checks two clean publication builds. Neither workflow deploys a site or checks live image availability. See [CI coverage and local reproduction](docs/continuous-integration.md).
+
+Prepare a hosting-independent preview with `bun run amp:release /tei-edition-compiler/ packages/site/dist/amp-release` after the corpus audit. It emits a verified `public/` directory, deployment settings and a file-checksum inventory. Use a fresh output directory; see [release preparation](docs/publication-release.md).

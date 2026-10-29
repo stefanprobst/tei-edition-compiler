@@ -8,7 +8,7 @@ The workflows use the tested Bun version in `.bun-version`, frozen dependency in
 
 ## Full pinned publication
 
-`.github/workflows/auden-publication.yml` runs separately on relevant main-branch pushes or manual dispatch. `amp:fetch` explicitly downloads the 78 locked source inputs and verifies size, SHA256 and upstream Git blob identity before compilation. `amp:reproduce` then performs two local compiler/source audits and clean static builds, checks the full publication baseline and compares 713 file digests. Compilation itself never fetches missing sources. There is no source cache in CI, so each run checks a fresh download.
+`.github/workflows/auden-publication.yml` runs separately on relevant main-branch pushes or manual dispatch. `amp:fetch` explicitly downloads the 78 locked source inputs and verifies size, SHA256 and upstream Git blob identity before compilation. `amp:reproduce` then performs two local compiler/source audits and clean static builds, checks the full publication baseline and compares 713 file digests. It then packages and verifies the repository-subpath preview using `amp:release`; this remains an unpublished local job output. Compilation itself never fetches missing sources. There is no source cache in CI, so each run checks a fresh download.
 
 This job does not run `amp:check-resources`: remote IIIF availability is a dated operational check, independent of compilation correctness. Fresh CI runs have no cached image report and therefore report no live-image verification. The known compiler diagnostic and missing authority labels remain explicit baseline evidence. No workflow uploads or deploys publication files.
 

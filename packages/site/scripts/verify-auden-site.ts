@@ -26,7 +26,7 @@ strictEqual(audit.projections.reduce((total: number, projection: { characterSpac
 
 const names = await readdir(output); strictEqual(names.length, baseline.counts.staticFiles);
 const files = new Map(await Promise.all(names.map(async name => [name, await Bun.file(output + '/' + name).text()] as const)));
-const config = await Bun.file(input + '/site.json').json();
+const config = await Bun.file(process.argv[3] ?? input + '/site.json').json();
 const base = config.basePath;
 let checkedLinks = 0;
 for (const [name, html] of files) {
