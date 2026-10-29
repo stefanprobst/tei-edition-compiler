@@ -115,3 +115,11 @@ The real register also exposed nested bibliographies being mistaken for standalo
 The enriched preparation checks that document content, mentions and entity identities are unchanged; asserts the 21 register names and an expected preferred name; and verifies all 126 emitted provenance records against all four original inputs. Entity provenance now points into `listperson.xml`, while mention provenance still points into the individual diary entries. Both sources and their hashes are recorded in the compilation manifest. The static site supplies a pinned source link to the original register and identifies register names explicitly.
 
 This optional real-source check is separate from the offline unit suite: the suite uses project-authored register samples for selection/ambiguity/nesting regressions and does not require the cached 24 MB file or network access. The site browser script accepts either explicitly prepared mode and verifies register provenance when the register mode is active.
+
+## Complete pinned Auden publication
+
+The [73-document pilot](auden-publication-pilot.md) extends publication settings with explicit document route filenames, resource preview URLs, optional local search and an escaped About page. Settings remain separate from core IR. Search is derived from an explicit retain-deletions/source-spacing policy, carries reverse part ranges and is fingerprint/digest bound. Source-backed commentary, responsibility, participant context and image/page backlinks render from IR alone.
+
+## Progressive image workspace
+
+Explicit preview settings enable a document-local image/text workspace. The browser reads rendered resource options and page-resource links, stores explicit selection in the URL and restores native history. Desktop panes and a mobile stack share the same transcription DOM. Static resource-card fallbacks remain available without JavaScript. No synchronization or alignment is inferred from resource order. See [the full pilot](auden-publication-pilot.md#imagetext-workspace).

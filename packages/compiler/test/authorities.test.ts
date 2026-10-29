@@ -130,3 +130,14 @@ test('bibliographies nested inside authority descriptions are not independent wo
     expect(result.entities[1].provenance.selector).toBe('id("work1")');
     expect(result.entities[2].provenance.source).toBe('document.xml');
 });
+
+test('declared authority child paths select the place itself, excluding a containing-place description', () => {
+    const input = register('<listPlace><place xml:id="place1"><settlement><placeName>Own City</placeName></settlement><location><placeName>Containing Country</placeName></location></place></listPlace>');
+    const sourceInput = source('<rs type="place" ref="#place1">here</rs>');
+    expect(compile([sourceInput], mapping, { authorities: [input] }).diagnostics[0].code).toBe('missing-authority-label');
+    const result = compile([sourceInput], { ...mapping, authorityLabelPaths: { place: ['placeName', 'settlement/placeName'] } }, { authorities: [input] });
+    expect(result.entities[0].label).toBe('Own City');
+    expect(result.diagnostics).toEqual([]);
+    const ambiguous = register('<listPlace><place xml:id="place1"><placeName>Another Name</placeName><settlement><placeName>Own City</placeName></settlement></place></listPlace>');
+    expect(compile([sourceInput], { ...mapping, authorityLabelPaths: { place: ['placeName', 'settlement/placeName'] } }, { authorities: [ambiguous] }).diagnostics[0].code).toBe('ambiguous-authority-label');
+});

@@ -68,3 +68,9 @@
 
 - IR v0.4 extends shared local annotated text with literal abbreviation-marker and semantic superscript kinds. Alternatives v0.3 requires explicit group kinds: textual-variation retains witness roles, abbreviation-expansion requires one neutral abbreviated and expanded form each. Preserve source order/whitespace without implying preference. Recompile older IR/extensions and their bound sidecars; never edit version literals as migration.
 - The 64 Akademieprotokolle choices are represented in the experimental sidecar only. Base markers, source text, diagnostics, polygon/layout limitations and register identities remain unchanged. The browser renders semantic kinds and explicit selections without TEI tokens, source XML or inferred normalizations.
+
+- Full publication corpora use pinned byte/hash inventories separate from small regression cohorts; source fetching and resource availability checks stay explicit. Preserve conflicting root XML IDs and use declared inventory Source.uri identities, never fuzzy repairs.
+- Authority label child paths and glyph-reference aliases are explicit compile-time project rules; preserve raw evidence and ambiguous/missing identities. Supplied labels may originate in authority records or contributor definitions; occurrence wording remains separate.
+- Static search requires an explicit text-projection policy, reversible source-part ranges and edition/index bindings. Publication route names, image preview adapters and About content stay outside core IR; retain no-JavaScript reading and root/subpath navigation checks.
+
+- The static image/text workspace uses only explicit publication preview URLs and page-resource links. Selection/history are presentation state; never infer alignment, fetch manifests or change transcription. Preserve static/no-JavaScript resource fallbacks and modified-click navigation.

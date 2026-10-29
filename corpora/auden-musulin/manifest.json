@@ -1,0 +1,558 @@
+{
+  "repository": "https://github.com/Auden-Musulin-Papers/amp-data",
+  "commit": "289a52de61aef0b6354e3c8298173bf1f889feb2",
+  "files": {
+    "amp-transcript__0001.xml": {
+      "path": "data/editions/amp-transcript__0001.xml",
+      "gitBlob": "82bb68cd14c487f346bdfaba77bb504f7fc94c28",
+      "bytes": 14377,
+      "sha256": "1a298d95a3f7c42a5c1540b8520e21d9cb7a0b852252a9346b49c9dba9987825",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0001.xml"
+    },
+    "amp-transcript__0002.xml": {
+      "path": "data/editions/amp-transcript__0002.xml",
+      "gitBlob": "cdf741b0f879c869335fa66882359f1e58e6129e",
+      "bytes": 19583,
+      "sha256": "3a55c91e6753fcc3d7b386d03430ae4cb20731152cd561c1cd5c691cd6021dd9",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0002.xml"
+    },
+    "amp-transcript__0003.xml": {
+      "path": "data/editions/amp-transcript__0003.xml",
+      "gitBlob": "1a49eb073aa44916e923d2012d3583fab7678efc",
+      "bytes": 14970,
+      "sha256": "d3fea83a124a5d33af5c8c3d055a5320737a39104f89d11447d18697785f17c1",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0003.xml"
+    },
+    "amp-transcript__0004.xml": {
+      "path": "data/editions/amp-transcript__0004.xml",
+      "gitBlob": "ea0407ae1cb33610a8cd54e985e821f27fd76b6e",
+      "bytes": 21437,
+      "sha256": "4a197aa9035d6dfbbbf047bf4eb8025b24e58e8d62cab20160a5893d89cce48d",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0004.xml"
+    },
+    "amp-transcript__0005.xml": {
+      "path": "data/editions/amp-transcript__0005.xml",
+      "gitBlob": "8da86667f71b5011f72ca9f2cf98811445d62bd4",
+      "bytes": 13163,
+      "sha256": "a9566446211c01e9040d4d5b76b4b9ea331a36004620a393383874bd5b39fa7c",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0005.xml"
+    },
+    "amp-transcript__0006.xml": {
+      "path": "data/editions/amp-transcript__0006.xml",
+      "gitBlob": "430f88a8ce9718d28e9f7e91e70114fdc65a9ee3",
+      "bytes": 13736,
+      "sha256": "8989beae3588c93e733511256b9d9c4c74e92b9188531f8e18022fce4de8a3dd",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0006.xml"
+    },
+    "amp-transcript__0007.xml": {
+      "path": "data/editions/amp-transcript__0007.xml",
+      "gitBlob": "9c5948da4b57a978c2766544e419f585d42b2ee7",
+      "bytes": 13595,
+      "sha256": "f9486ab63b15e139ef5c7d5780ed613a4a883ca76a6319d934487f61e1af2ff5",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0007.xml"
+    },
+    "amp-transcript__0008.xml": {
+      "path": "data/editions/amp-transcript__0008.xml",
+      "gitBlob": "6b6fbccb53c0dfac27336a0616f2e9a25a7895ed",
+      "bytes": 13326,
+      "sha256": "0c1542c9d4593211f9c35bb75362e6994262c3ca541b14b2805374a099dd517b",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0008.xml"
+    },
+    "amp-transcript__0009.xml": {
+      "path": "data/editions/amp-transcript__0009.xml",
+      "gitBlob": "c7cc4d67c5eea8c24d330ffd39fea1de56ec5db7",
+      "bytes": 17815,
+      "sha256": "404fec377170acf657a9d137f7e676de54ebd6216846e3d5f089daa74bb7461b",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0009.xml"
+    },
+    "amp-transcript__0010.xml": {
+      "path": "data/editions/amp-transcript__0010.xml",
+      "gitBlob": "9eedc398fe2cdfa0f94901ce9bf90f41906c644a",
+      "bytes": 11591,
+      "sha256": "2642a83803080f3e3fdfd16f86dc255ec9eaa529cc2dc1b5007ef3c277b498d6",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0010.xml"
+    },
+    "amp-transcript__0011.xml": {
+      "path": "data/editions/amp-transcript__0011.xml",
+      "gitBlob": "02005e9a81cc6d6f6e74a78ab3f9a36a5e8c3292",
+      "bytes": 14229,
+      "sha256": "a834267c937fbca4315ad1e677c2e7f3d26502e5a701c25cc9644da0510582c6",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0011.xml"
+    },
+    "amp-transcript__0012.xml": {
+      "path": "data/editions/amp-transcript__0012.xml",
+      "gitBlob": "068573a3a7818ab8364a3ef9ac316eb38cf9d102",
+      "bytes": 14713,
+      "sha256": "2e4367e53f560e0e31ec5e615e1aff74a0a86d6b23ca3bf886a718e5ce63cf28",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0012.xml"
+    },
+    "amp-transcript__0013.xml": {
+      "path": "data/editions/amp-transcript__0013.xml",
+      "gitBlob": "53e30422b038614cf09d273b893c9bd74a723466",
+      "bytes": 15074,
+      "sha256": "d350ef4dd7fffea7f2be60066ff392c14a813bcdb62b487c96d6adc778edeacd",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0013.xml"
+    },
+    "amp-transcript__0014.xml": {
+      "path": "data/editions/amp-transcript__0014.xml",
+      "gitBlob": "6d3a8e4ae60496c3415e51fd6f34fc20fde41636",
+      "bytes": 13265,
+      "sha256": "4760846d49ac46461a54b26a81687bbc8fade391c112416c38dcd49d14572016",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0014.xml"
+    },
+    "amp-transcript__0015.xml": {
+      "path": "data/editions/amp-transcript__0015.xml",
+      "gitBlob": "cafc9cfe50cede3bee7d3e460c74a93619f75d49",
+      "bytes": 13056,
+      "sha256": "e357ceace8e5310f93a8bfe93157d8acf9c0149b3372f6c71ecf54846a7bdcaf",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0015.xml"
+    },
+    "amp-transcript__0016.xml": {
+      "path": "data/editions/amp-transcript__0016.xml",
+      "gitBlob": "a98350a6904fcc559da9b3471e18724dd1559fb0",
+      "bytes": 12399,
+      "sha256": "14fbf5d61db506b1ea9302b3ee05da3c5c1ac5e939dc744703618625b85325b2",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0016.xml"
+    },
+    "amp-transcript__0017.xml": {
+      "path": "data/editions/amp-transcript__0017.xml",
+      "gitBlob": "72116116fd3667e82cb3acee79b64c24fb5b4d94",
+      "bytes": 11558,
+      "sha256": "052be1119b4a437b4b4abac1e751ddbf9b3c9ce123a9f2e8fd37ff047cee9a61",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0017.xml"
+    },
+    "amp-transcript__0018.xml": {
+      "path": "data/editions/amp-transcript__0018.xml",
+      "gitBlob": "66ce5c0942e380934a39314ebfef1ddc5cdc1108",
+      "bytes": 19496,
+      "sha256": "2bd6fdcc05199010206b879f04e8e7654347203bb920c900a6bd23b5a543c5f4",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0018.xml"
+    },
+    "amp-transcript__0019.xml": {
+      "path": "data/editions/amp-transcript__0019.xml",
+      "gitBlob": "14d391de213715d2a5bb8445c44e948536518467",
+      "bytes": 14345,
+      "sha256": "07682802897c17f99422c400e154a3128add6e596b93a03743abbe821ca06cd4",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0019.xml"
+    },
+    "amp-transcript__0020.xml": {
+      "path": "data/editions/amp-transcript__0020.xml",
+      "gitBlob": "1b35c539333b5a26b5d438ead2576d5af422a1eb",
+      "bytes": 12543,
+      "sha256": "fcdd9d107d33d704c6787df288f03db2a652ad70cfb7ab63bafd35a49d3cdd76",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0020.xml"
+    },
+    "amp-transcript__0021.xml": {
+      "path": "data/editions/amp-transcript__0021.xml",
+      "gitBlob": "39e11ff30d1e7aeb2bf3d2473ceaa83c8426d251",
+      "bytes": 12181,
+      "sha256": "0217e22663948d6d08d91a5ab969ad77ac43674136986b82c3c0bd2c73244341",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0021.xml"
+    },
+    "amp-transcript__0022.xml": {
+      "path": "data/editions/amp-transcript__0022.xml",
+      "gitBlob": "8eefdc5995d5a255d77dbe337857a554022933c5",
+      "bytes": 11974,
+      "sha256": "2f0c878371de222a7f93d55ffd4eb4c8d8fb2207b3eba851dee120642f3a200a",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0022.xml"
+    },
+    "amp-transcript__0023.xml": {
+      "path": "data/editions/amp-transcript__0023.xml",
+      "gitBlob": "fdc6a914869491c1733abd4625d60d7d8dd5b377",
+      "bytes": 11702,
+      "sha256": "9813f61fc497739aff99cf6248f6e42bb2284da0dd7af69af50a8ea898ecc9df",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0023.xml"
+    },
+    "amp-transcript__0024.xml": {
+      "path": "data/editions/amp-transcript__0024.xml",
+      "gitBlob": "b8d2ef13046510e4e30e62dcf202169701a8a046",
+      "bytes": 11689,
+      "sha256": "c0794a5e839c3d6c6d193ee96e23030a8be7bbe3fb58be62ce180e691883544f",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0024.xml"
+    },
+    "amp-transcript__0025.xml": {
+      "path": "data/editions/amp-transcript__0025.xml",
+      "gitBlob": "3db0a3f60c8e1030584fe569ce20f9de2b090d2f",
+      "bytes": 11794,
+      "sha256": "45b42c57efc6e4d4745ff0f18738e67f131989255100a774281bd3205c95c6c5",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0025.xml"
+    },
+    "amp-transcript__0026.xml": {
+      "path": "data/editions/amp-transcript__0026.xml",
+      "gitBlob": "6f701772ae8f3dae944170888c7d971e7998f050",
+      "bytes": 7598,
+      "sha256": "88da42e9e1a81c668f4333d1cd4b367b03002df929d73e3b554e46c87048e750",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0026.xml"
+    },
+    "amp-transcript__0028.xml": {
+      "path": "data/editions/amp-transcript__0028.xml",
+      "gitBlob": "7ba200159919651b713d49830bbbbe14f0e67178",
+      "bytes": 138577,
+      "sha256": "e0910a1a8a0d727aaf474f06404cc5f27590a86a50a3409963bcc74c46264212",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0028.xml"
+    },
+    "amp-transcript__0029.xml": {
+      "path": "data/editions/amp-transcript__0029.xml",
+      "gitBlob": "0a2f9055682fcab373f926cef142ac0aeaa22599",
+      "bytes": 14545,
+      "sha256": "30f9937887e80ba9c6dec18bd30fc9ed9b0ce0602181ad772ce804cf7e19ad0b",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0029.xml"
+    },
+    "amp-transcript__0030.xml": {
+      "path": "data/editions/amp-transcript__0030.xml",
+      "gitBlob": "dfda5538b35ffced66e4e0d461a3e4ece999d7de",
+      "bytes": 13700,
+      "sha256": "d99d55e34cef85ecd5a1cf0e6872714f52011d8f1e7386b3394ee38bb8adaf2c",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0030.xml"
+    },
+    "amp-transcript__0031.xml": {
+      "path": "data/editions/amp-transcript__0031.xml",
+      "gitBlob": "9c740a1d2ce04a040fc19dd3f14bdd3f97f0335e",
+      "bytes": 34170,
+      "sha256": "77a3670f195e9163db6677b225da081dd6e9f889e13d66c165e4f19de75f2420",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0031.xml"
+    },
+    "amp-transcript__0032.xml": {
+      "path": "data/editions/amp-transcript__0032.xml",
+      "gitBlob": "71dc38094935ac10a2636c66bd9e93b54aeddec5",
+      "bytes": 18185,
+      "sha256": "a2a040d582c903c6cbce72ed6bd1c3a6ca10510007a90eb0bcde4a230faa2c33",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0032.xml"
+    },
+    "amp-transcript__0033.xml": {
+      "path": "data/editions/amp-transcript__0033.xml",
+      "gitBlob": "c48fb38800bbe26b6ed49ecf20f65cfbd2c7df0d",
+      "bytes": 24539,
+      "sha256": "bbda1f2845be8b69453c458db4ce64e2cf4841a819fa8f0ff38bf58283c0990b",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0033.xml"
+    },
+    "amp-transcript__0034.xml": {
+      "path": "data/editions/amp-transcript__0034.xml",
+      "gitBlob": "e97459fc31642801943cf30776ea55b929f109ce",
+      "bytes": 15755,
+      "sha256": "a078dcf419eb01ac26d853c0ec13e17d14b23b6d142acb3d9d0ec306cb2f5b5a",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0034.xml"
+    },
+    "amp-transcript__0035.xml": {
+      "path": "data/editions/amp-transcript__0035.xml",
+      "gitBlob": "8972b3032dcd884b669af5239e60f9ef83538ec4",
+      "bytes": 9966,
+      "sha256": "57176810f566ab7ae20115da071a010e0e5eb7b329dcf35b8d998eb37b5c9130",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0035.xml"
+    },
+    "amp-transcript__0038.xml": {
+      "path": "data/editions/amp-transcript__0038.xml",
+      "gitBlob": "4d452d73d082a647f50b7fec068452a0ee383408",
+      "bytes": 33406,
+      "sha256": "4db3855844d7a9931938a504aa58f18efc1c3d5e7a85f74009bf2e1ef0349a7e",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0038.xml"
+    },
+    "amp-transcript__0039.xml": {
+      "path": "data/editions/amp-transcript__0039.xml",
+      "gitBlob": "d3e90c8fbb4619b362a6ce8193f41583ad8ae335",
+      "bytes": 46772,
+      "sha256": "a0ceb78d2238f509bac3370021da879ea41a324e6a10f6d663b041c7657cd990",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0039.xml"
+    },
+    "amp-transcript__0040.xml": {
+      "path": "data/editions/amp-transcript__0040.xml",
+      "gitBlob": "a68372a961c88424fbcca62355f0c72809ebdf54",
+      "bytes": 44709,
+      "sha256": "2e42771234ed05cd7184b5642bbc44afd62e658ec9202788af7622c3cdfe1b30",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0040.xml"
+    },
+    "amp-transcript__0041.xml": {
+      "path": "data/editions/amp-transcript__0041.xml",
+      "gitBlob": "04f6d71a8426fa76c07000dcfb372216a201aeb7",
+      "bytes": 19324,
+      "sha256": "2f262c5b23f52b49ca5b81c20b8a33e2f7e513abb56447409c047bc156f94e34",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0041.xml"
+    },
+    "amp-transcript__0042.xml": {
+      "path": "data/editions/amp-transcript__0042.xml",
+      "gitBlob": "d7eabff21d4482459d1f1310ef31e6c260d33ec9",
+      "bytes": 22994,
+      "sha256": "f21b69cc4ef9a752e54f09d6559933071cb2dfb72c6d1cf6da41dd28cd86947d",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0042.xml"
+    },
+    "amp-transcript__0043.xml": {
+      "path": "data/editions/amp-transcript__0043.xml",
+      "gitBlob": "9735695f02956b8900289fb49be4ee5948a4382e",
+      "bytes": 55753,
+      "sha256": "94eb57b9ad0918c1892a4acb6f199a351c0ba049ac844c675f62f5da5f7cb3ec",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0043.xml"
+    },
+    "amp-transcript__0044.xml": {
+      "path": "data/editions/amp-transcript__0044.xml",
+      "gitBlob": "0e69873f9435cc23c27c571e1fe882bd5a03bd19",
+      "bytes": 10630,
+      "sha256": "196de610d515bf07fc78e8c664f2cb7cd3cffd8f44d54977989232e78ba0fb0a",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0044.xml"
+    },
+    "amp-transcript__0045.xml": {
+      "path": "data/editions/amp-transcript__0045.xml",
+      "gitBlob": "52e35668dc44f06edba165747340ea550578cbaf",
+      "bytes": 11627,
+      "sha256": "f2e23900d427c5dab4dec7d83c974e25eb3def0f52ad12c76e786b122e5a1b94",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0045.xml"
+    },
+    "amp-transcript__0046.xml": {
+      "path": "data/editions/amp-transcript__0046.xml",
+      "gitBlob": "9fdc2ae02c049110f9517d9f5daf272c926fd8a2",
+      "bytes": 13024,
+      "sha256": "a15a7b3a9d3a1d8954c79be46cd38beb81d0950a60cea3773ba1543c16931f4c",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0046.xml"
+    },
+    "amp-transcript__0047.xml": {
+      "path": "data/editions/amp-transcript__0047.xml",
+      "gitBlob": "a1886740dfa683edeb8b259dd58bfe408c6bf523",
+      "bytes": 15020,
+      "sha256": "55db04824c7307f913d38d22e1ab7e06422f45754a9cb73b5146382edc34a3d7",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0047.xml"
+    },
+    "amp-transcript__0048.xml": {
+      "path": "data/editions/amp-transcript__0048.xml",
+      "gitBlob": "43bd7d09232666680a77be41a82ec7ee8e03b45a",
+      "bytes": 7111,
+      "sha256": "747c6647fbb54dfdee6101b455f1979548c86c5a7119d0b32142ddd9c904a48f",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0048.xml"
+    },
+    "amp-transcript__0049.xml": {
+      "path": "data/editions/amp-transcript__0049.xml",
+      "gitBlob": "034b8aabc6ee124d55c49b212f8df1d91b6f16f4",
+      "bytes": 8081,
+      "sha256": "7579c78fd12990c3315046869e59f61642dfb70068f81ac2e219523ed0461338",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0049.xml"
+    },
+    "amp-transcript__0050.xml": {
+      "path": "data/editions/amp-transcript__0050.xml",
+      "gitBlob": "397bd1a4f8a3a0d6373825b590a4f2b73b3d8d0e",
+      "bytes": 8016,
+      "sha256": "c39ade4cc362b940a63adcfac5c2166cc23182cf497b62f6d6c3cc3651134721",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0050.xml"
+    },
+    "amp-transcript__0051.xml": {
+      "path": "data/editions/amp-transcript__0051.xml",
+      "gitBlob": "fc716a1ecc2ab2d211408c066341e68673245518",
+      "bytes": 17001,
+      "sha256": "0a6d2b24533cf0dff14a303d092c218a9e8acecbe755af362d6df15d89db6b46",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0051.xml"
+    },
+    "amp-transcript__0052.xml": {
+      "path": "data/editions/amp-transcript__0052.xml",
+      "gitBlob": "c0357de30ff05ad3e28282678c332bc0f37787b9",
+      "bytes": 23913,
+      "sha256": "fc22c23d92a70e644deeac10c6c4d5f1bcbca42c978844efebd44a872d5df167",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0052.xml"
+    },
+    "amp-transcript__0053.xml": {
+      "path": "data/editions/amp-transcript__0053.xml",
+      "gitBlob": "2fcfc4c0a3b4beccf350d0740b260e052ab94230",
+      "bytes": 38143,
+      "sha256": "45dd44a5399f230d45709318b928a1c71937b4ed35ec215a14d523a1a4459059",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0053.xml"
+    },
+    "amp-transcript__0054.xml": {
+      "path": "data/editions/amp-transcript__0054.xml",
+      "gitBlob": "4e791b36d71ed401782961fed8eb542879ab0f28",
+      "bytes": 10134,
+      "sha256": "596694ef7781a8d87b25885f821440ca1d9acf97ead4b8d79b0ef7df407a6abf",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0054.xml"
+    },
+    "amp-transcript__0055.xml": {
+      "path": "data/editions/amp-transcript__0055.xml",
+      "gitBlob": "5982d1f5776e4b98d1b959f4462db5956adbbde5",
+      "bytes": 7135,
+      "sha256": "778f1dc879521819b1978c9b0af3c33f45405ae278fa3619871a498638f6ed60",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0055.xml"
+    },
+    "amp-transcript__0057.xml": {
+      "path": "data/editions/amp-transcript__0057.xml",
+      "gitBlob": "ffd503004d69b4bafa7ed513cd26735b1244c56f",
+      "bytes": 10817,
+      "sha256": "1862007e169e7c7404f3aeca6cfaa35cc5faa1209eda325c77e8d4be31a36751",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0057.xml"
+    },
+    "amp-transcript__0058.xml": {
+      "path": "data/editions/amp-transcript__0058.xml",
+      "gitBlob": "03d8044b963d9cdffa93d6de7dcef0af27accef5",
+      "bytes": 13102,
+      "sha256": "a10c30619e236f455fc112bbc2368d95ec530e92a3fef27a809cb5e32fdc2067",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0058.xml"
+    },
+    "amp-transcript__0059.xml": {
+      "path": "data/editions/amp-transcript__0059.xml",
+      "gitBlob": "faa0727465b313d51f7687d051a2e56c003c2ae3",
+      "bytes": 11811,
+      "sha256": "f98842bebe53f0a5e43725289a2d27460f753ae2f87c23424cd0411d3dd9499e",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0059.xml"
+    },
+    "amp-transcript__0060.xml": {
+      "path": "data/editions/amp-transcript__0060.xml",
+      "gitBlob": "f604db4ef1355da527d04b196368f18aeb7a8b09",
+      "bytes": 9996,
+      "sha256": "b35564bf5ae3aac08c37d161277957576be563f72ed5a6326915916154a9a652",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0060.xml"
+    },
+    "amp-transcript__0061.xml": {
+      "path": "data/editions/amp-transcript__0061.xml",
+      "gitBlob": "3b7d53d813e18092fc311d060ed39947480f981a",
+      "bytes": 11676,
+      "sha256": "aba20a27daf258a07591a38c3b97ebe3699b8c05be6253533f84375e7730563e",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0061.xml"
+    },
+    "amp-transcript__0062.xml": {
+      "path": "data/editions/amp-transcript__0062.xml",
+      "gitBlob": "025eca3f7e917a37c2f25aa4d8d62aee02ae1eb3",
+      "bytes": 333036,
+      "sha256": "51b106a64387211a94c1d08e7419cb4b0b4eaa5fbb57809e9f0a7bd680982fb9",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0062.xml"
+    },
+    "amp-transcript__0063.xml": {
+      "path": "data/editions/amp-transcript__0063.xml",
+      "gitBlob": "1121a0d8a89ec83bc9ca29e96b68c313fb5d3980",
+      "bytes": 14935,
+      "sha256": "20bbe43fbc72cf691aeb1304c6afa227213f89503e871626ab4e530d9ea70c80",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0063.xml"
+    },
+    "amp-transcript__0064.xml": {
+      "path": "data/editions/amp-transcript__0064.xml",
+      "gitBlob": "ddd1e08d51e918bd31b660e6640fbacd9a088ec8",
+      "bytes": 6759,
+      "sha256": "f0fefde103d9a6dfd694b484f9857c416d8f1e387191752e1050c1d582fa75a1",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0064.xml"
+    },
+    "amp-transcript__0065.xml": {
+      "path": "data/editions/amp-transcript__0065.xml",
+      "gitBlob": "82eff93dc7eb502a44de47b48c896bca1f68bda8",
+      "bytes": 7096,
+      "sha256": "e46d970d748675641d865e2eb3685aeb6d6753f12d5ee608feffd93caa363a5d",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0065.xml"
+    },
+    "amp-transcript__0066.xml": {
+      "path": "data/editions/amp-transcript__0066.xml",
+      "gitBlob": "9b65298f8b71cb6d401772cace4d0d8d23e76437",
+      "bytes": 7350,
+      "sha256": "af8f26d159a2f98ccb2601c8658b387fd0fc921d217830d847a7bb25e3b2be11",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0066.xml"
+    },
+    "amp-transcript__0067.xml": {
+      "path": "data/editions/amp-transcript__0067.xml",
+      "gitBlob": "70694494ab4599e25c19dc50a42be44e4b83c771",
+      "bytes": 7096,
+      "sha256": "e5c98f58c27e78e71205ba8f47ec5000c398b014778a823ddabd3ccb0d38df9e",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0067.xml"
+    },
+    "amp-transcript__0068.xml": {
+      "path": "data/editions/amp-transcript__0068.xml",
+      "gitBlob": "ba1ba3fd0568fc4fffb1f50abb4d8a8239b43ce6",
+      "bytes": 6747,
+      "sha256": "54601e16ec9126ba59f66225a074a1fafcf229e9203565a689cf35afffd7094f",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0068.xml"
+    },
+    "amp-transcript__0069.xml": {
+      "path": "data/editions/amp-transcript__0069.xml",
+      "gitBlob": "0ae57bf29a64c5b325d67fa1b3baf6efa7a6d082",
+      "bytes": 6994,
+      "sha256": "76f2d8895f57259b91f31e9e54d20d383abd2db61b7ed3d353f6fd0a0b536a20",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0069.xml"
+    },
+    "amp-transcript__0070.xml": {
+      "path": "data/editions/amp-transcript__0070.xml",
+      "gitBlob": "c1a5853940c9e3f84a74a32079317ba59f05639f",
+      "bytes": 14913,
+      "sha256": "3b3b4acd3c2a6e13953f43fa7704ecedae2f33c591788946fc6b740468e18df2",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0070.xml"
+    },
+    "amp-transcript__0071.xml": {
+      "path": "data/editions/amp-transcript__0071.xml",
+      "gitBlob": "5be1a5fc7c701dd6dd98b7a6fb37b56ad12641f5",
+      "bytes": 12861,
+      "sha256": "a2266ef0d992dc105bd09c04c122cc13f242b6c03f631340188086d5cbbc1e72",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0071.xml"
+    },
+    "amp-transcript__0072.xml": {
+      "path": "data/editions/amp-transcript__0072.xml",
+      "gitBlob": "aaf3e3c4ae0e88903d3a9127dd229cc6d15b3976",
+      "bytes": 7391,
+      "sha256": "1ab8e0efccc0d64c05052c89c563fefd5c60d62c41b7bed963ca215e82980755",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0072.xml"
+    },
+    "amp-transcript__0073.xml": {
+      "path": "data/editions/amp-transcript__0073.xml",
+      "gitBlob": "d11e006f3c1cf913801cb237bf1caeb0e680dcd5",
+      "bytes": 8751,
+      "sha256": "e73bb78e185aa3949378efa9ceb9d91c6036ac6bcb40112687edb1841f42e606",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0073.xml"
+    },
+    "amp-transcript__0074.xml": {
+      "path": "data/editions/amp-transcript__0074.xml",
+      "gitBlob": "41520c8217e666dc294b973a49ce075edaf9d8bd",
+      "bytes": 9148,
+      "sha256": "1f57636ab75307b91712789a5da9f4f4599c685ecccfc96ce7109dfa692aa48a",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0074.xml"
+    },
+    "amp-transcript__0075.xml": {
+      "path": "data/editions/amp-transcript__0075.xml",
+      "gitBlob": "adf5f0f4da73f8c577efa7c27c2e937fe4e534c7",
+      "bytes": 6966,
+      "sha256": "23bc15c156e5f71a4364a8a876c361d93bd592f5960e4a1d4d370cf0fed2ec40",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0075.xml"
+    },
+    "amp-transcript__0077.xml": {
+      "path": "data/editions/amp-transcript__0077.xml",
+      "gitBlob": "0f90186f6543f64243e536038a4ac28890be22af",
+      "bytes": 6920,
+      "sha256": "ead5fb4a8d3861da88acc8168855e1fd65bc7d8e52d4f1854e848e71680f3cfd",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0077.xml"
+    },
+    "amp-transcript__0078.xml": {
+      "path": "data/editions/amp-transcript__0078.xml",
+      "gitBlob": "86ad72e0fd0d62ce744833371f9402166e26dffc",
+      "bytes": 6920,
+      "sha256": "8ef7a64edb8d9f915c72a20e12c840fd7e7a43097ea1bbd0bda8eae1906c6aea",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0078.xml"
+    }
+  },
+  "authorities": {
+    "repository": "https://github.com/Auden-Musulin-Papers/amp-entities",
+    "commit": "c40710c90054e8adef5188a5168c09adb7d5c824",
+    "files": {
+      "amp-index-events.xml": {
+        "path": "out/amp-index-events.xml",
+        "gitBlob": "0a819dc5e9d4953a4ad3a7d0b7b6a7d24522a2ef",
+        "bytes": 154624,
+        "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-events.xml",
+        "sha256": "53df20e82d5ee1587fd5853ff257872e57721b34ae49c2f8ddf65cfb1471938d"
+      },
+      "amp-index-organizations.xml": {
+        "path": "out/amp-index-organizations.xml",
+        "gitBlob": "918e53450f9df8fcaf10d464265930e4ffd5d4e9",
+        "bytes": 115964,
+        "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-organizations.xml",
+        "sha256": "5103ed069c4580293124cfcd03784f30e720c1adc8422760aa35230399ee3042"
+      },
+      "amp-index-persons.xml": {
+        "path": "out/amp-index-persons.xml",
+        "gitBlob": "b822672404d69388078b50f8a4286ec3e96935f9",
+        "bytes": 406704,
+        "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-persons.xml",
+        "sha256": "ffd22ffc32eb21573408286948a1fb10e18ea4b96b6a4b7f4039bfc1d6b4e5ae"
+      },
+      "amp-index-places.xml": {
+        "path": "out/amp-index-places.xml",
+        "gitBlob": "9fae7b6c2662dc739e1daa1ba0d55a95d893d53b",
+        "bytes": 343981,
+        "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-places.xml",
+        "sha256": "b43642ea13abf1b7f2687d7b243a42a067fe1bd3c21fef26cef55d7c3176e656"
+      },
+      "amp-index-works.xml": {
+        "path": "out/amp-index-works.xml",
+        "gitBlob": "a60a4aa976cf560a8dfc993b72e347274649a0f9",
+        "bytes": 118597,
+        "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-works.xml",
+        "sha256": "1911ded052f95d701740b84db83fb3eb6f32199f4619313a6c81f2151ad681b3"
+      }
+    }
+  }
+}

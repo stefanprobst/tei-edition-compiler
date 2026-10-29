@@ -67,3 +67,7 @@ Keep project publication settings (branding, navigation, base path, editorial pr
 ## Completion criteria
 
 Record a per-feature assessment: preserved, explicitly unsupported, mapping gap, IR gap or presentation gap. Verify source hashes/selectors, semantic expectations and generated internal links; run browser reader tasks at root and a non-root base path. Record any deliberate rendering differences from the original website. Claim parity only for the tested tasks and pinned cohort, then repeat on a non-Schnitzler edition before generalizing.
+
+## Full-corpus publication checkpoint
+
+The [complete pinned Auden–Musulin pilot](auden-publication-pilot.md) now provides a functional reader-task comparison: 73 documents, register pages, commentary, image previews and local search. Its comparison table distinguishes implemented publication tasks from unported original-site design, essays, maps and deep zoom.

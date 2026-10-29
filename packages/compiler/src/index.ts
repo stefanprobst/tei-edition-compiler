@@ -133,6 +133,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             const aid = id(e, `:annotation:${kind}`);
             const a: Edition['annotations'][number] = { id: aid, kind, targetIds, ...(parentId ? { parentId } : {}), provenance: prov(e), ...(range ? { range } : {}), body: kind === 'language' ? undefined : text(e) || undefined, responsibility: [...new Set([attr(e, 'resp'), ...all(e, 'respons').map(r => attr(r, 'resp'))].flatMap(words))], certainty: attr(e, 'cert') || all(e, 'certainty').map(c => attr(c, 'cert')).join(' ') || undefined, evidence: words(attr(e, 'source')).concat(all(e, 'bibl').map(b => attr(b, 'source')).filter(Boolean)), details: {} };
             if (kind === 'name-component') a.details.component = nameComponents[e.localName];
+            if (kind === 'column-boundary' && e.hasAttribute('n')) a.details.label = attr(e, 'n');
             const properties: Record<string, string> = { place: 'placement', rend: 'rendering', reason: 'reason', quantity: 'quantity', unit: 'unit', extent: 'extent', min: 'minimum', atMost: 'maximum', 'xml:lang': 'language', hand: 'authoringHand', target: 'destination', rendition: 'renderingReference', facs: 'sourceResourcePointer' };
             for (const [k, v] of Object.entries(properties))
                 if (attr(e, k))
@@ -191,7 +192,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
         }
         const partKind = (e: Element) => e.namespaceURI === NS ? (e.localName === 'div' ? ownEntry(mapping.partKinds, attr(e, 'type')) : ownEntry(mapping.elementPartKinds, e.localName)) : undefined;
         const semantic = (e: Element) => !!partKind(e);
-        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', num: 'number-expression', am: 'abbreviation-marker', time: 'time-expression', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
+        const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', num: 'number-expression', am: 'abbreviation-marker', cb: 'column-boundary', time: 'time-expression', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
         const blocks = new Set(['p', 'l', 'lg', 'opener', 'closer', 'ab', 'address', 'dateline', 'salute', 'signed', 'head', 'addrLine', 'postscript']);
         let presentationReported = false;
         let nextOrder = 0;
@@ -370,7 +371,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
     for (const finalize of noteFinalizers) finalize();
     const glyphDefinitions = new Map<Element, Edition['annotations'][number]>();
     for (const { occurrence, refs, documentUri } of glyphs) for (const ref of refs) {
-        const pointer = annotationReference(ref, documentUri, mapping);
+        const pointer = annotationReference(ownEntry(mapping.glyphReferenceAliases, ref) ?? ref, documentUri, mapping);
         const index = pointer && sourceIndexes.get(pointer.source);
         const definition = index && pointer && index.resolve(pointer.selector);
         const parent = definition?.parentNode as Element | null | undefined;

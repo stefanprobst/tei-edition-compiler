@@ -1,0 +1,81 @@
+{
+  "scope": {
+    "documents": 73,
+    "authorities": 5,
+    "documentRepository": "https://github.com/Auden-Musulin-Papers/amp-data",
+    "documentCommit": "289a52de61aef0b6354e3c8298173bf1f889feb2",
+    "authorityRepository": "https://github.com/Auden-Musulin-Papers/amp-entities",
+    "authorityCommit": "c40710c90054e8adef5188a5168c09adb7d5c824"
+  },
+  "verified": {
+    "verifiedSources": 78,
+    "verifiedProvenanceRecords": 13508
+  },
+  "counts": {
+    "documents": 73,
+    "entities": 626,
+    "mentions": 2352,
+    "resources": 364,
+    "suppliedNames": 620,
+    "registerNames": 617,
+    "documentDefinitionNames": 3,
+    "missingNames": 6,
+    "compilerDiagnostics": 1,
+    "externalRelations": 16,
+    "externalAnnotations": 0,
+    "sourceSpacingIssues": 0,
+    "characterSpacingIssues": 271,
+    "staticFiles": 709
+  },
+  "unresolvedResponsibility": [
+    {
+      "code": "unresolved-responsibility",
+      "message": "tfruehwrith",
+      "provenance": {
+        "source": "amp-transcript__0002.xml",
+        "selector": "id(\"ana_023\")/respons[1]"
+      }
+    }
+  ],
+  "missingEntityReferences": [
+    {
+      "kind": "event",
+      "authorityRef": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-events.xml#amp_event_id_13",
+      "otherScopeMatches": []
+    },
+    {
+      "kind": "place",
+      "authorityRef": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-places.xml#amp_place_id_255",
+      "otherScopeMatches": []
+    },
+    {
+      "kind": "person",
+      "authorityRef": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-persons.xml#amp_person_162",
+      "otherScopeMatches": []
+    },
+    {
+      "kind": "place",
+      "authorityRef": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-places.xml#amp_place_id_211",
+      "otherScopeMatches": []
+    },
+    {
+      "kind": "event",
+      "authorityRef": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-events.xml#amp_place_id_257",
+      "otherScopeMatches": [
+        "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-places.xml#amp_place_id_257"
+      ]
+    },
+    {
+      "kind": "work",
+      "authorityRef": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-index-works.xml#lit_work_105",
+      "otherScopeMatches": []
+    }
+  ],
+  "documentIdentityDifferences": [
+    {
+      "declaredId": "amp-transkript__0015.xml",
+      "canonicalSource": "amp-transcript__0003.xml",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0003.xml"
+    }
+  ]
+}

@@ -19,7 +19,7 @@ async page => {
         const entityUrl = page.url();
         const registerName = (await page.locator('h1').innerText()) === 'Richard Beer-Hofmann';
         if (registerName) {
-            check((await page.locator('main').innerText()).includes('Name from the supplied authority register'), 'Register name must have an explanation');
+            check((await page.locator('main').innerText()).includes('Name supplied by the edition data'), 'Register name must have an explanation');
             await page.locator('main>details>summary').click();
             check((await page.getByRole('link', { name: 'Canonical source', exact: true }).getAttribute('href')).endsWith('/indices/listperson.xml'), 'Register name must link to the pinned register source');
         } else {

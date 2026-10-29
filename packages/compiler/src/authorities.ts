@@ -47,7 +47,9 @@ export function indexAuthorities(sources: AuthoritySource[], mapping: Mapping, r
             if (!fragment) { report('authority-record-without-id', `Authority ${rule.kind} record has no XML ID`, provenance); continue; }
             const identity = referenceUri(`#${encodeURIComponent(fragment)}`, uri.href, mapping)!.href;
             const allowedTypes = mapping.authorityLabelTypes && ownEntry(mapping.authorityLabelTypes, rule.kind);
-            const labels = [...new Set(Array.from(element.childNodes).filter((n): n is Element => n.nodeType === 1 && (n as Element).namespaceURI === NS && (n as Element).localName === rule.label).filter(label => !allowedTypes || allowedTypes.includes(label.getAttribute('type') ?? '')).map(labelText).filter(Boolean))];
+            const paths = (mapping.authorityLabelPaths && ownEntry(mapping.authorityLabelPaths, rule.kind)) ?? [rule.label];
+            const labelElements = paths.flatMap(path => path.split('/').reduce<Element[]>((owners, name) => owners.flatMap(owner => Array.from(owner.childNodes).filter((node): node is Element => node.nodeType === 1 && (node as Element).namespaceURI === NS && (node as Element).localName === name)), [element]));
+            const labels = [...new Set(labelElements.filter(label => !allowedTypes || allowedTypes.includes(label.getAttribute('type') ?? '')).map(labelText).filter(Boolean))];
             if (labels.length !== 1) report(labels.length ? 'ambiguous-authority-label' : 'missing-authority-label', `${identity}: ${labels.length ? labels.join(' | ') : 'no display label'}`, provenance);
             result.set(identity, { kind: rule.kind, ...(labels.length === 1 ? { label: labels[0] } : {}), provenance });
         }

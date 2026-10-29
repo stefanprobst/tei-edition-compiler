@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="amp-transcript__0018.xml" xml:base="https://id.acdh.oeaw.ac.at/auden-musulin-papers">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title level="s">Auden Musulin Papers: A Digital Edition of W. H. Auden´s Letters to Stella Musulin (FWF P 33754)</title>
+            <title level="a">Autograph Letter Signed W. H. Auden to Stella Musulin with Typescript W. H. Auden "Stark bewölkt" 1971-10-19</title>
+            <author ref="https://d-nb.info/gnd/118650963">Auden, W. H.</author>
+            <author ref="https://d-nb.info/gnd/127246711">Musulin, Stella Mary Bellairs</author>
+            <editor><name xml:id="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name xml:id="tfruehwirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name xml:id="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></editor>
+            <funder>
+               <name>Austrian Science Fund (FWF)</name>
+               <address>
+                  <street>Georg-Coch-Platz 2</street>
+                  <postCode>1010 Vienna</postCode>
+                  <placeName>
+                     <country>A</country>
+                     <settlement>Vienna</settlement>
+                  </placeName>
+               </address>
+            </funder>
+         </titleStmt>
+         <editionStmt>
+            <edition>
+               <title>Autograph Letter Signed W. H. Auden to Stella Musulin with Typescript W. H. Auden "Stark bewölkt" 1971-10-19</title>
+            </edition>
+            <respStmt><resp>Transcription and commentary</resp><name sameAs="smayer" ref="https://orcid.org/0000-0002-2915-5888">Mayer, Sandra</name><name sameAs="tfruewirth" ref="https://orcid.org/0000-0002-3997-5193">Frühwirth, Timo</name><name sameAs="dgrigoriou" ref="https://orcid.org/0000-0002-0914-9245">Grigoriou, Dimitra</name></respStmt>
+         <respStmt><resp>TEI Schema, ODD/RNG</resp><name ref="https://orcid.org/0000-0002-9575-9372" xml:id="pandorfer">Andorfer, Peter</name><name ref="https://orcid.org/0000-0002-0636-4476" xml:id="delsner">Elsner, Daniel</name></respStmt></editionStmt>
+         <publicationStmt>
+            <publisher>Austrian Centre for Digital Humanities and Cultural Heritage</publisher>
+            <pubPlace>Vienna</pubPlace>
+            <date when="2024">2024</date>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/deed.en">
+                  <p>You are free to: Share — copy and redistribute the material in any medium or format; adapt — remix, transform, and build upon the material
+for any purpose, even commercially.</p>
+                  <p>The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms:</p>
+                  <p>Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.</p>
+                  <p>Notices:</p>
+                  <p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation. No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.</p>
+               </licence>
+               <p>Copyright literary texts W. H. Auden Estate of W. H. Auden.</p>
+            </availability>
+         <idno type="handle">https://hdl.handle.net/21.11115/0000-000E-C317-C</idno></publicationStmt>
+         <seriesStmt>
+            <p>Machine-Readable Transcriptions of the Auden Musulin Papers</p>
+         </seriesStmt>
+         <sourceDesc>
+            <listWit>
+               <witness n="1">
+                  <msDesc>
+                     <msIdentifier>
+                        <country>A</country>
+                        <settlement>St. Pölten</settlement>
+                        <repository>State Collections of Lower Austria</repository>
+                        <collection>Stella Musulin (Depot)</collection>
+                        <idno>1, 31</idno>
+                     </msIdentifier>
+                     <history>
+                        <origin>
+                           <origDate notBefore-iso="1971-10-19T00:00:00+00:00" notAfter-iso="1971-10-19T23:59:59+00:00">1971-10-19</origDate>
+                           <origPlace ref="#amp_place_id_69">15 Loudoun Road</origPlace>
+                        </origin>
+                     </history>
+                  </msDesc>
+               </witness>
+            </listWit>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <charDecl>
+            <glyph xml:id="uml_o_uc_th">
+               <desc>upper-case German Ö rendered by superimposing handwritten trema (&#xA8;) on typed upper-case O</desc>
+            </glyph>
+         </charDecl>
+         <listPrefixDef>
+            <prefixDef ident="acdh" matchPattern="(.+)" replacementPattern="https://id.acdh.oeaw.ac.at/auden-musulin-papers/$1">
+               <p>Edition Documents Prefix</p>
+            </prefixDef>
+         </listPrefixDef>
+      </encodingDesc>
+      <profileDesc>
+         <langUsage>
+            <language ident="en">English</language>
+            <language ident="de">German</language>
+         </langUsage>
+         <correspDesc>
+            <correspAction type="sent">
+               <orgName><rs type="org" ref="#amp_organization_83">St John's Wood district office</rs></orgName>
+               <placeName><rs type="place" ref="#amp_place_id_56">London</rs></placeName>
+               <date notBefore-iso="1971-10-19T14:00:01+00:00" notAfter-iso="1971-10-19T14:29:59+00:00">1971-10-19T14:00:01+00:00/1971-10-19T14:29:59+00:00</date>
+            </correspAction>
+            <correspAction type="redirected">
+               <placeName><rs type="place" ref="#amp_place_id_1">Vienna</rs></placeName>
+            </correspAction>
+            <correspAction type="received">
+               <persName ref="#amp_person_2">Musulin, Stella</persName>
+               <placeName><rs type="place" ref="#amp_place_id_11">Neulinggasse 26</rs></placeName>
+            </correspAction>
+            <correspContext>
+               <ref type="belongsToCorrespondence" target="#amp_person_1">Auden, W. H.</ref>
+               <ref type="belongsToCorrespondence" target="#amp_person_2">Musulin, Stella</ref>
+               <ref subtype="previous_letter" type="withinCollection" target="#amp-transcript__0017.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1971-06-04</ref>
+               <ref subtype="next_letter" type="withinCollection" target="#amp-transcript__0019.xml">Autograph Letter Signed W. H. Auden to Stella Musulin 1972-02-22</ref>
+            </correspContext>
+         </correspDesc>
+      </profileDesc>
+      <revisionDesc status="published">
+         <change who="pandorfer" when="2021-09-21">template populated with script "create_templates.py"</change>
+         <change who="tfruehwirth" when="2021-10-14">text transcribed</change>
+         <change who="smayer" when="2021-10-15">text transcribed</change>
+         <change who="smayer tfruehwirth" when="2021-10-15">transcriptions collated</change>
+         <change who="smayer tfruehwirth" when="2022-03-15">transcription reviewed, `space` element and `hand` attributes added, date format in `origDate` and `correspAction`/`date` modified</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2023-02-21">entities and correspDesc collated</change>
+         <change who="dgrigoriou" when="2023-08-17">container structure updated</change>
+         <change who="dgrigoriou smayer tfruehwirth" when="2024-01-17">entities updated, events created</change>
+         <change who="smayer tfruehwirth" when="2024-06-18">revision markup updated, change space quantity for 2nd column</change>
+      </revisionDesc>
+   </teiHeader>
+   <facsimile>
+      <surface ulx="0" uly="0" lrx="5928" lry="3340">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0087/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5930" lry="3338">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0088/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5572" lry="7674">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0089/"/>
+      </surface>
+      <surface ulx="0" uly="0" lrx="5574" lry="7676">
+         <graphic url="https://iiif.acdh.oeaw.ac.at/amp/amp_0090/"/>
+      </surface>
+   </facsimile>
+   <text>
+      <body>
+         <div type="transcription" xml:id="transcription_amp_0018" xml:lang="en" hand="#handwritten">
+            <div type="envelope">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0087/" type="envelope" ed="1r"/>
+               <ab>
+                  Air<unclear>_</unclear>Mail
+               </ab>
+               <ab>
+                  <add place="margin">
+                     <rs type="lit_work" ref="#lit_work_id_165">Poem</rs> dedicated to <rs type="person" ref="#amp_person_2">S<unclear>_</unclear>M<unclear>_</unclear></rs>
+                  </add>
+               </ab>
+               <ab xml:lang="de">
+                  <rs type="person" ref="#amp_person_2">Die Baro<unclear>n</unclear>in<lb/>
+                  Stella Musulin</rs><lb/>
+                  <address> 
+                     <rs type="place" ref="#amp_place_id_11">Wien <del rend="overstrike">IV</del> 1030<lb/>
+                     Neulinggasse 26/14<lb/>
+                     <foreign xml:lang="en">Austria</foreign></rs>
+                  </address>
+               </ab>
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0088/" type="envelope" ed="1v"/>
+            </div>
+            <div type="letter">
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0089/" type="sheet" ed="2r"/>
+               <div type="letter_message">
+                  <opener>
+                     <dateline>
+                        <date rend="#block">Oct 19 th .</date>
+                        ℅ <rs type="person" ref="#amp_person_8 #amp_person_191">Spender</rs><lb/>
+                        <placeName>
+                           <address>          
+                             <rs type="place" ref="#amp_place_id_69">15 Loudoun Rd<lb/>
+                             London. N.W.8</rs>
+                           </address>
+                        </placeName>    
+                     </dateline>
+                     <salute>
+                        Dear <rs type="person" ref="#amp_person_2">Stella</rs><unclear>;</unclear>
+                     </salute>
+                  </opener>
+                  <p>
+                     Were very disappointed that <rs type="person" ref="#amp_person_1 #amp_person_4">we</rs> didn't
+                     see you again before we left. You seem<lb/>
+                     to have stayed in <rs type="place" ref="#amp_place_id_239">England</rs> much longer than<lb/>
+                     usual.
+                  </p>
+                  <p>
+                     This morning a copy of <rs type="lit_work" ref="#lit_work_id_45"><hi rend="underline">Austri<unclear>a</unclear></hi></rs> ar<unclear>r</unclear>ived<lb/>
+                     from <rs type="org" ref="#amp_organization_5">Faber's</rs>. <unclear>:</unclear> The illustrations, which I hadn't<lb/>
+                     seen before seem excellent
+                  </p>
+                  <p>
+                     Overleaf a <rs type="lit_work" ref="#lit_work_id_43">poem</rs> I want to dedicate to<lb/>
+                     you. Fir<unclear>s</unclear>tly , because of its subject and,<lb/>
+                     se<unclear>c</unclear>ondly, bec<unclear>a</unclear>use it is written in an i<unclear>m</unclear>itat<unclear>in</unclear><lb/>
+                     of a medieval Welsh metre called a <hi rend="underline">Cywydd<unclear>,</unclear></hi>
+                  </p>
+                  <p>
+                     <rs type="event" ref="#amp_event_id_101">Return to <rs type="place" ref="#amp_place_id_28">New York</rs> on N<unclear>Ov</unclear> 1st</rs>.
+                  </p>
+                  <closer>
+                     <salute>love</salute><lb/>
+                     <signed><rs type="person" ref="#amp_person_1">Wystan</rs></signed>
+                  </closer>
+               </div>     
+            <pb facs="https://iiif.acdh.oeaw.ac.at/amp/amp_0090/" type="sheet" ed="2v"/>
+               <div type="poem" hand="#typed">   
+                  <head>
+                     <space quantity="26" unit="char"/><rs type="lit_work" ref="#lit_work_id_43"><hi rend="underline"><foreign xml:lang="de">STARK BEW<subst><del rend="edited">O</del><add place="superimposed"><g ref="#uml_o_uc_th">Ö</g></add></subst>LKT</foreign></hi></rs><lb/>
+                     <space quantity="22" unit="char"/>(<hi rend="underline">for <rs type="person" ref="#amp_person_2">Stella Musulin</rs></hi>)
+                  </head>
+               <cb n="1"/>
+                  <lg>
+                     <lb/><l>I'm no photophil who burns</l>
+                     <lb/><l>his body brown on beaches:</l>
+                     <lb/><l>foolish I find this fashion</l>
+                     <lb/><l>of modern surf-riding man.</l>
+                     <lb/><l>Let plants by all means sun-bathe,</l>
+                     <lb/><l>it helps them to make their meals,</l>
+                     <lb/><l>exposure,though,to ultra-</l>
+                     <lb/><l>-<subst><del rend="overtyped">vi<gap quantity="2" unit="char" reason="illegible"/>et</del><add place="above">violet</add></subst> vapids the brain,</l>
+                     <lb/><l>bids us be stodge and stupi<subst><del rend="overwritten">e</del><add place="superimposed">d</add></subst>.</l> 
+                     <lb/><l>Still,safe in some sheltered shade,</l>
+                     <lb/><l>or watching through a window,</l>
+                     <lb/><l>an ageing male,I demand</l>
+                     <lb/><l>to see a shining summer,</l>
+                     <lb/><l>a sky bright and wholly blue,</l>
+                     <lb/><l>save for a drifting cloudlet</l>
+                     <lb/><l>like a dollop of whipped cream.</l>
+                     <lb/><l>This year all is unthuswise:</l>
+                     <lb/><l>O why so glum,weather-god?</l>
+                  </lg>
+                  <lg>
+                     <lb/><l>Day after day we waken</l>
+                     <lb/><l>to be scolded by a scowl,</l>
+                     <lb/><l>venomous and vindictive,</l>
+                     <lb/><l>a flat frowning Friday face,</l>
+                     <lb/><l>horrid as a hang-over</l>
+                     <lb/><l>and mean as well: if you must</l>
+                     <lb/><l>so disarray the heavens,</l>
+                     <lb/><l>at least you might let them rain.</l>
+                     <lb/><l>(Water is always welcome</l>
+                     <lb/><l>for trees to take neat and men</l>
+                     <lb/><l>to make brandy or beer with.)</l>
+                     <lb/><l>But,no,we don't get a drop:</l>
+                     <lb/><l>dry you remain and doleful</l>
+                     <lb/><l>in a perpetual pique.</l>
+                  </lg>
+                  <lg>
+                     <lb/><l>Fowls mope,flowers are wretched,</l>
+                     <lb/><l>the raspberry-canes are forced</l>
+                     <lb/><l>into phyllomania:</l>
+                     <lb/><l>to ignore you,not be cross,</l>
+                     <lb/><l>one would have to be either</l>
+                     <lb/><l>drunk,lit on amphetamines,</l>
+                     <lb/><l>or a feverish lover.</l>
+                     <lb/><l>Being dead sober all day,</l>
+                     <lb/><l>I find your bearing boorish,</l>
+                     <lb/><l>by four in the afternoon</l>
+                     <lb/> <l>frequently close the curtains</l>
+                     <lb/><l>to shut your shabbiness out.</l>
+                  </lg>
+                  <lg>
+                     <lb/><l>Who or what are you mad at?</l>
+                     <lb/><l>What has poor <rs type="place" ref="#amp_place_id_10">Austria</rs> done</l>
+                     <lb/><l>to draw such disapproval?</l>
+                     <lb/><l>The <hi rend="underline"><foreign xml:lang="de">Beamterei</foreign></hi>,it's true,</l>
+                     <lb/><l>is as awful as ever,</l>
+                     <lb/><l>the drivers are dangerous,</l>
+                     <lb/><l>standards at the <rs type="org" ref="#amp_organization_90"><hi rend="underline"><foreign xml:lang="de">Staatsoper</foreign></hi></rs></l>
+                     <lb/><l>steadily decline each year,</l>
+                     <lb/><l>and <hi rend="underline"><rs type="place" ref="#amp_place_id_1"><foreign xml:lang="de">Wien</foreign></rs></hi>'s become provincial</l>
+                     <lb/><l>compared to the pride she was.</l>
+                     <lb/><l>Still,it's a cosy country,</l>
+                     <lb/><l>unracked by riots or strikes</l>
+                     <lb/><l>and backward at drug-taking:</l>
+                     <lb/><l>I've heard of a dozen lands</l>
+                     <lb/><l>where life sounds far more ugsome,</l>
+                     <lb/><l>fitter goals for your disgust.</l>
+                     <lb/><l>(I needn't name them,for you,whose</l>
+                     <lb/><l>glance circumspects the whole globe,</l>
+                     <lb/><l>ken at first hand what's cooking.)</l>
+                  </lg>
+               <cb n="2"/>
+                  <lg>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>Have done! What good does it do,</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>dumb god,just to deject us?</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>Foul our function may be,but</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>foul weather won't reform it.</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>If you merely wish our world</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>to mend its ways,remember:</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>when happy,men on the whole</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>behave a wee bit better,</l>
+                     <lb/><space extent="undefined quantity of characters" min="1" unit="char"/><l>when unhappy,always worse.</l>
+                  </lg>
+                  <ab>
+                     <space quantity="55" unit="char"/>___
+                  </ab>
+               </div>
+            </div>     
+         </div>
+      </body>
+   </text>
+</TEI>

@@ -1,17 +1,43 @@
 {
   "version": "1",
   "mapping": {
-    "partKinds": { "transcription": "transcript", "envelope": "envelope", "letter": "letter", "poem": "poem", "photo": "photograph", "prose": "prose" },
-    "entityKinds": { "person": "person", "place": "place", "org": "organization", "event": "event", "lit_work": "work" },
-    "elementPartKinds": { "floatingText": "embedded-text" },
+    "partKinds": {
+      "transcription": "transcript",
+      "envelope": "envelope",
+      "letter": "letter",
+      "poem": "poem",
+      "photo": "photograph",
+      "prose": "prose"
+    },
+    "entityKinds": {
+      "person": "person",
+      "place": "place",
+      "org": "organization",
+      "event": "event",
+      "lit_work": "work"
+    },
+    "elementPartKinds": {
+      "floatingText": "embedded-text"
+    },
     "documentBaseUri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/",
-    "referencePrefixes": { "acdh": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/" },
+    "referencePrefixes": {
+      "acdh": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/"
+    },
     "authorityDocuments": {
       "person": "acdh:amp-index-persons.xml",
       "place": "acdh:amp-index-places.xml",
       "organization": "acdh:amp-index-organizations.xml",
       "event": "acdh:amp-index-events.xml",
       "work": "acdh:amp-index-works.xml"
+    },
+    "glyphReferenceAliases": {
+      "uml_u_lc_th": "#uml_u_lc_th"
+    },
+    "authorityLabelPaths": {
+      "place": [
+        "placeName",
+        "settlement/placeName"
+      ]
     }
   }
 }

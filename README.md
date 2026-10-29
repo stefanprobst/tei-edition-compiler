@@ -14,11 +14,14 @@ bun run typecheck
 bun test
 ```
 
-The repository contains three small packages:
+The repository contains four workspace packages:
 
 - `packages/ir`: strict Zod contracts, inferred TypeScript types and XML-free consumer helpers.
 - `packages/compiler`: semantic TEI extraction, declarative project profiles, source inspection and command-line tools.
 - `packages/viewer`: local reference reader consuming compiled JSON only.
+- `packages/site`: static publication generator consuming validated JSON only.
+
+The [full Auden–Musulin publication pilot](docs/auden-publication-pilot.md) builds all 73 documents at the pinned revision, with registers, commentary, previews and local search. Run `bun run amp:fetch`, `bun run amp:audit`, `bun run amp:build` and `bun run amp:verify`; run `bun run amp:reproduce` to compare two clean builds from the local source cache. See the pilot notes for scope, attribution and remaining issues.
 
 ## Compile, inspect and verify
 

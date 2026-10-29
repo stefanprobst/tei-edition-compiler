@@ -13,7 +13,7 @@ test('display names expose distinct text forms without promoting them to an auth
 
 test('a supplied register label takes precedence while retaining the recorded text forms', () => {
     const input = { entities: [{ ...entity, label: 'Beer-Hofmann, Richard' }], mentions: [mention('Richard', 'first')] };
-    expect(entityDisplayName(input, 'person')).toEqual({ label: 'Beer-Hofmann, Richard', source: 'register', forms: ['Richard'] });
+    expect(entityDisplayName(input, 'person')).toEqual({ label: 'Beer-Hofmann, Richard', source: 'supplied', forms: ['Richard'] });
 });
 
 test('missing names and unknown identities are explicit rather than guessed from identifiers', () => {

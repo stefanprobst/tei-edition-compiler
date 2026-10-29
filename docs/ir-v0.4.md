@@ -15,3 +15,11 @@ Both kinds have the existing local ID, bounded UTF-16 range, optional parent, so
 Recompile original TEI and explicitly supplied authorities with the recorded mapping. Regenerate the manifest, alternatives extension and presentation metadata for that exact artifact. Do not edit saved version literals or reuse an old edition fingerprint. The viewer explicitly rejects v0.3 editions and v0.2 alternatives; no guessing/migration of annotation kinds or reading roles occurs at runtime.
 
 The main Auden snapshot changes only its version literal. The shared local vocabulary enables more precise note/candidate evidence without changing base text, source bytes or the base alternative markers. Core compilers continue to emit markers and diagnostics for alternatives; the experiment does not erase them.
+
+## Full-corpus publication evidence
+
+The [full Auden pilot](auden-publication-pilot.md) requires no new structural IR version. Source-backed `column-boundary` annotations preserve column labels without layout inference. Project mappings may declare explicit glyph-reference aliases and restricted authority label child paths; raw evidence remains preserved. Entity display helpers classify labels as `supplied`, since authoritative labels can come from a supplied register or contributor definition; occurrence-text fallbacks remain separate and explicitly as written. Explicit Source.uri inventory identities resolve file/root-ID discrepancies without modifying canonical bytes or guessing identities. Publication routing, previews and search stay outside core semantics.
+
+## Annotated-text presentation runs
+
+`annotatedTextRuns` provides a shared pure presentation plan for validated structured note/candidate content. Runs retain local UTF-16 boundaries, original text and covering annotations. Explicit language declarations follow their parent graph and bounded specificity; conflicting equal-priority declarations expose `languageConflict` and reset the run to unknown. The static HTML publisher and reference DOM viewer adapt the same plan without XML dependencies or inferred readings. This helper adds no serialized IR fields and requires no version change.

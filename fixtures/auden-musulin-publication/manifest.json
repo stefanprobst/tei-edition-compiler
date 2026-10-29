@@ -1,0 +1,20 @@
+{
+  "repository": "https://github.com/Auden-Musulin-Papers/amp-data",
+  "commit": "289a52de61aef0b6354e3c8298173bf1f889feb2",
+  "files": {
+    "amp-transcript__0018.xml": {
+      "path": "data/editions/amp-transcript__0018.xml",
+      "gitBlob": "66ce5c0942e380934a39314ebfef1ddc5cdc1108",
+      "bytes": 19496,
+      "sha256": "2bd6fdcc05199010206b879f04e8e7654347203bb920c900a6bd23b5a543c5f4",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0018.xml"
+    },
+    "amp-transcript__0039.xml": {
+      "path": "data/editions/amp-transcript__0039.xml",
+      "gitBlob": "d3e90c8fbb4619b362a6ce8193f41583ad8ae335",
+      "bytes": 46772,
+      "sha256": "a0ceb78d2238f509bac3370021da879ea41a324e6a10f6d663b041c7657cd990",
+      "uri": "https://id.acdh.oeaw.ac.at/auden-musulin-papers/amp-transcript__0039.xml"
+    }
+  }
+}

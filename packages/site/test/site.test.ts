@@ -62,7 +62,7 @@ test('notes, interventions and nontextual documents remain renderable without so
     expect(document).toContain('class="deletion">B');
     expect(document).toContain('class="insertion">C');
     expect(document).toContain('Note &lt;script&gt;');
-    expect(document).toContain('photograph');
+    expect(document).toContain('<h2>Photograph</h2>');
     checkLinks(files, options.basePath);
 });
 
@@ -101,4 +101,81 @@ test('independent meeting edition retains incomplete-reading notices and valid s
         expect(general).toContain('Seite_NaN');
         expect(general).toContain('unsupported-facsimile-zones');
     }
+});
+
+test('source-backed editorial commentary and page-image links work without interpreting selectors', async () => {
+    const source = { name: 'comment.xml', xml: '<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="comment"><teiHeader><fileDesc><titleStmt><title>Commented document</title><editor xml:id="ed">Editor One</editor></titleStmt></fileDesc><encodingDesc><interp xml:id="c"><desc>Editorial comment</desc><respons resp="#ed"/><certainty cert="high"/></interp></encodingDesc></teiHeader><facsimile><graphic url="https://source.example/image.jpg"/></facsimile><text><body><p><pb facs="https://source.example/image.jpg" n="1"/><rs ana="#c">source phrase</rs></p></body></text></TEI>' };
+    const bundle = compileWithManifest([source], { partKinds: {}, entityKinds: {}, elementPartKinds: { body: 'text' } });
+    const before = JSON.stringify(bundle);
+    const files = await generateSite(bundle.edition, bundle.manifest, { title: 'Pilot', attribution: 'Test', basePath: '/', previews: { [bundle.edition.resources[0].id]: 'https://images.example/current.jpg' }, about: { title: 'About', paragraphs: ['<script>literal text</script>'] } });
+    expect(files.has('workspace.js')).toBe(true);
+    const workspacePage = [...files].find(([name, html]) => name.endsWith('.html') && html.includes('data-image-workspace'))?.[1]!;
+    expect(workspacePage).toContain('data-image-workspace hidden');
+    expect(workspacePage).toContain('Read beside transcription');
+    expect(workspacePage).toContain('No alignment is inferred');
+    checkLinks(files, '/');
+    const page = [...files].find(([name]) => name.startsWith('document-'))![1];
+    expect(page).toContain('source-comment-ref');
+    expect(page).toContain('Editorial comment');
+    expect(page).toContain('Responsibility:');
+    expect(page).toContain('Editor One');
+    expect(page).toContain('Certainty: high');
+    expect(page).toContain('Referenced passages:');
+    expect(page).toContain('View image');
+    expect(page).toContain('Back to page marker 1');
+    expect(page).toContain('href="https://images.example/current.jpg"');
+    expect(page).toContain('https://source.example/image.jpg');
+    expect(files.get('about.html')).toContain('&lt;script&gt;literal text&lt;/script&gt;');
+    expect(JSON.stringify(bundle)).toBe(before);
+});
+
+
+test('compound document contents follow semantic nesting and reading order', async () => {
+    const source = { name: 'amp-transcript__0040.xml', xml: await Bun.file(new URL('../../../fixtures/auden-musulin/amp-transcript__0040.xml', import.meta.url)).text() };
+    const compiled = compileWithManifest([source]);
+    const before = JSON.stringify(compiled.edition);
+    const files = await generateSite(compiled.edition, compiled.manifest, { ...options, sourceLinks: undefined });
+    checkLinks(files, options.basePath);
+    const html = [...files].find(([name]) => name.startsWith('document-'))![1];
+    expect(html).toContain('aria-label="Document parts"');
+    expect(html).toContain('<h2>Transcript</h2>');
+    expect(html).toContain('<h3>Envelope</h3>');
+    expect(html).toContain('<h3>Letter</h3>');
+    expect(html).toMatch(/<h[4-6]>Poem<\/h[4-6]>/);
+    expect(html.indexOf('>Envelope</a>')).toBeLessThan(html.indexOf('>Letter</a>'));
+    expect(JSON.stringify(compiled.edition)).toBe(before);
+});
+
+test('source marker inspection preserves each position, evidence and entity link without nested anchors', async () => {
+    const xml = '<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader/><text><body><p><persName ref="https://example.test/person">A<space quantity="3" unit="char"/>B</persName><gap reason="lost" extent="unknown"/><g ref="#missing"/><app><lem>Unselected</lem></app></p></body></text></TEI>';
+    const compiled = compileWithManifest([{ name: 'markers.xml', xml }], { partKinds: {}, elementPartKinds: { body: 'text' }, entityKinds: { persName: 'person' } });
+    const before = JSON.stringify(compiled.edition);
+    for (const basePath of ['/', '/edition/']) {
+        const files = await generateSite(compiled.edition, compiled.manifest, { ...options, sourceLinks: undefined, basePath });
+        checkLinks(files, basePath);
+        const html = [...files].find(([name]) => name.startsWith('document-'))![1];
+        expect((html.match(/class="source-marker"/g) ?? []).length).toBe(4);
+        expect((html.match(/>Back to source marker<\/a>/g) ?? []).length).toBe(4);
+        for (const kind of ['spacing', 'missing text', 'glyph', 'uncompiled content']) expect(html).toContain('Inspect ' + kind + ' marker');
+        expect(html).toContain('<dt>extent</dt><dd>unknown</dd>');
+        expect(html).not.toMatch(/<a\b[^>]*>(?:(?!<\/a>)[\s\S])*<a\b/);
+    }
+    expect(JSON.stringify(compiled.edition)).toBe(before);
+});
+
+test('rich notes retain local semantic styles, declared languages and missing-text evidence', async () => {
+    const compiled = compileWithManifest([{ name: 'note.xml', xml: '<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader/><text><body><p>Main<note xml:lang="en">A<del>B</del><hi>C</hi><hi rend="super">2</hi><am>.</am><foreign xml:lang="de">Wort</foreign><gap reason="lost"/>&lt;script&gt;</note>End</p></body></text></TEI>' }], { partKinds: {}, elementPartKinds: { body: 'text' }, entityKinds: {} });
+    const before = JSON.stringify(compiled.edition);
+    const files = await generateSite(compiled.edition, compiled.manifest, { ...options, sourceLinks: undefined });
+    checkLinks(files, options.basePath);
+    const html = [...files].find(([name]) => name.startsWith('document-'))![1];
+    expect(html).toContain('class="deletion" lang="en" title="deletion">B</span>');
+    expect(html).toContain('class="emphasis" lang="en" title="emphasis">C</span>');
+    expect(html).toContain('class="superscript"');
+    expect(html).toContain('class="abbreviation-marker"');
+    expect(html).toContain('lang="de" title="language">Wort</span>');
+    expect(html).toContain('aria-label="Inspect missing text in note"');
+    expect(html).toContain('extentReason: lost');
+    expect(html).toContain('&lt;script&gt;');
+    expect(JSON.stringify(compiled.edition)).toBe(before);
 });

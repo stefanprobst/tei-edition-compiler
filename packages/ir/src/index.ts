@@ -3,7 +3,7 @@ import { dateExtent, reversedInterval } from './dates';
 import { ProvenanceSchema } from './provenance';
 import { AnnotatedTextSchema } from './annotated-text';
 export { ProvenanceSchema } from './provenance';
-export { AnnotatedTextSchema, LocalAnnotationSchema, textEvidenceFields, type AnnotatedText, type LocalTextAnnotation } from './annotated-text';
+export { annotatedTextRuns, AnnotatedTextSchema, LocalAnnotationSchema, textEvidenceFields, type AnnotatedText, type LocalTextAnnotation } from './annotated-text';
 const base = { id: z.string().min(1), provenance: ProvenanceSchema };
 const DatePointSchema = z.string().refine(v => dateExtent(v) !== undefined, 'Unsupported or invalid Gregorian date value');
 export const DateValueSchema = z.discriminatedUnion('kind', [

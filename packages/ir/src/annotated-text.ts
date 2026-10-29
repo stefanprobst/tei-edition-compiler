@@ -38,3 +38,24 @@ export const AnnotatedTextSchema = z.object({
 export type AnnotatedText = z.infer<typeof AnnotatedTextSchema>;
 
 export type LocalTextAnnotation = z.infer<typeof LocalAnnotationSchema>;
+
+/** Presentation runs for validated annotated text. Coordinates remain local UTF-16 offsets. */
+export function annotatedTextRuns(content: AnnotatedText) {
+    const annotations = new Map(content.annotations.map(annotation => [annotation.id, annotation]));
+    const depth = (id: string) => { let count = 0; let current = annotations.get(id); while (current?.parentId) { count++; current = annotations.get(current.parentId); } return count; };
+    const points = [...new Set([0, content.text.length, ...content.annotations.flatMap(annotation => [annotation.range.start, annotation.range.end])])].sort((a, b) => a - b);
+    return points.slice(0, -1).map((start, index) => {
+        const end = points[index + 1];
+        const covering = content.annotations.filter(annotation => annotation.range.start <= start && annotation.range.end >= end);
+        const languages = covering.filter(annotation => annotation.kind === 'language').sort((a, b) => depth(b.id) - depth(a.id) || (a.range.end - a.range.start) - (b.range.end - b.range.start));
+        let language = content.language;
+        let languageConflict = false;
+        if (languages.length) {
+            const first = languages[0];
+            const tied = languages.filter(annotation => depth(annotation.id) === depth(first.id) && annotation.range.end - annotation.range.start === first.range.end - first.range.start);
+            languageConflict = new Set(tied.map(annotation => annotation.language ?? '')).size > 1;
+            language = languageConflict ? '' : first.language ?? '';
+        }
+        return { start, end, text: content.text.slice(start, end), annotations: covering, language, languageConflict };
+    });
+}
