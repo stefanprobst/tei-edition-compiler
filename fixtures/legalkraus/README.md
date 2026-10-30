@@ -1,0 +1,5 @@
+# Legal Kraus revision boundary fixture
+
+Source: karl-kraus/legalkraus-data at bc279c5e9a2b20be2777a5558f1348c18b2da79c, data/editions/D_000196-084-000.xml. Editor: Alexandra Rausch. Publishers: ACDH-CH/ÖAW, Ludwig Boltzmann Institut für Digital History, Wienbibliothek im Rathaus. The original file header declares Creative Commons Attribution 4.0 (https://creativecommons.org/licenses/by/4.0/); retain that complete attribution and license statement. Repository license discovery returned 404; the file-level declaration is explicit. Image rights remain separate. No images or authority registers are supplied or fetched.
+
+The manifest was recorded before copying the original bytes. This is a diagnostic-bearing documentary-revision boundary cohort, not a claim of support for restorations, witness alignment, scribal chronology or transposition. See ../../docs/legalkraus-assessment.md. The profile creates a transcript and a nested text section; it does not call them witnesses or infer authority scope. Source-local entity references remain local pending verified project register identity rules.

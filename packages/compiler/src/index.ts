@@ -163,6 +163,22 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             }
             return aid;
         };
+        for (const declaration of [...all(header, 'witness').filter(e => e.hasAttribute('facs')), ...all(header, 'handNote').filter(e => e.hasAttribute('scribeRef'))]) {
+            annotation(declaration, 'uncompiled-assertion', [docId]);
+            const assertion = out.annotations[out.annotations.length - 1];
+            delete assertion.body;
+            assertion.details.feature = declaration.localName === 'witness' ? 'witness-resource-binding' : 'hand-attribution';
+            for (const [attribute, key] of Object.entries({ facs: 'rawResourcePointers', scribeRef: 'rawScribeReference', source: 'rawSourceReferences', medium: 'medium' })) if (declaration.hasAttribute(attribute)) assertion.details[key] = attr(declaration, attribute);
+            out.diagnostics.push({ code: 'unsupported-' + assertion.details.feature, message: 'Declaration preserved as an uncompiled assertion; no identity or alignment inferred', provenance: prov(declaration) });
+        }
+        for (const transpose of all(header, 'transpose')) {
+            annotation(transpose, 'uncompiled-assertion', [docId]);
+            const assertion = out.annotations[out.annotations.length - 1];
+            delete assertion.body;
+            assertion.details.feature = 'transposition';
+            assertion.details.rawTargets = all(transpose, 'ptr').map(pointer => attr(pointer, 'target')).join(' ');
+            out.diagnostics.push({ code: 'unsupported-transposition', message: 'Source transposition declaration retained without reordering or target repair', provenance: prov(transpose) });
+        }
         for (const e of all(header, 'interp')) {
             annotation(e, 'interpretation', [docId]);
             const record = out.annotations[out.annotations.length - 1];
@@ -190,7 +206,7 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
             if (documentTarget) queueDocumentReference(e, docId, attr(e, 'subtype') || attr(e, 'type'), true);
             else relation(e, attr(e, 'subtype') || attr(e, 'type'), words(target).map(r => entity(r, 'person', e)));
         }
-        const partKind = (e: Element) => e.namespaceURI === NS ? (e.localName === 'div' ? ownEntry(mapping.partKinds, attr(e, 'type')) : ownEntry(mapping.elementPartKinds, e.localName)) : undefined;
+        const partKind = (e: Element) => e.namespaceURI === NS ? (e.localName === 'div' ? ownEntry(mapping.partKinds, attr(e, 'type')) ?? ownEntry(mapping.elementPartKinds, 'div') : ownEntry(mapping.elementPartKinds, e.localName)) : undefined;
         const semantic = (e: Element) => !!partKind(e);
         const editorial: Record<string, string> = { forename: 'name-component', surname: 'name-component', roleName: 'name-component', num: 'number-expression', am: 'abbreviation-marker', cb: 'column-boundary', time: 'time-expression', add: 'insertion', del: 'deletion', unclear: 'uncertain-reading', gap: 'missing-text', space: 'spacing', hi: 'emphasis', supplied: 'supplied-text', sic: 'original-reading', corr: 'correction', subst: 'substitution', foreign: 'language', p: 'paragraph', l: 'verse-line', lg: 'stanza', head: 'heading', title: 'work-title', postscript: 'postscript', g: 'glyph', addrLine: 'address-line', quote: 'quotation', stamp: 'stamp', ref: 'link' };
         const blocks = new Set(['p', 'l', 'lg', 'opener', 'closer', 'ab', 'address', 'dateline', 'salute', 'signed', 'head', 'addrLine', 'postscript']);
@@ -279,6 +295,16 @@ export function compile(sources: Source[], mapping: Mapping = audenMusulinMappin
                         note.details.contentStatus = 'uncompiled';
                         out.diagnostics.push({ code: 'unsupported-note-content', message: 'Note body or attachment remains uncompiled; inspect the canonical source', provenance: prov(el) });
                     }
+                    return;
+                }
+                if (el.localName === 'restore' || (el.localName === 'seg' && attr(el, 'type') === 'transposition') || (el.localName === 'metamark' && attr(el, 'function') === 'transposition')) {
+                    const start = content.length;
+                    content += '\uFFFC';
+                    annotation(el, 'uncompiled-content', [p.id], { partId: p.id, start, end: content.length }, parentAnnotationId);
+                    const marker = out.annotations[out.annotations.length - 1];
+                    delete marker.body;
+                    marker.details.feature = el.localName === 'restore' ? 'restoration' : 'transposition';
+                    out.diagnostics.push({ code: el.localName === 'restore' ? 'unsupported-restoration' : 'unsupported-transposition', message: 'Revision semantics remain uncompiled at a source-backed marker; no reading or order inferred', provenance: prov(el) });
                     return;
                 }
                 if (el.localName === 'app' || el.localName === 'choice') {

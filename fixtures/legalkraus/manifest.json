@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/karl-kraus/legalkraus-data",
+  "commit": "bc279c5e9a2b20be2777a5558f1348c18b2da79c",
+  "files": {
+    "D_000196-084-000.xml": {
+      "path": "data/editions/D_000196-084-000.xml",
+      "uri": "https://id.acdh.oeaw.ac.at/legalkraus/D_000196-084-000.xml",
+      "bytes": 599808,
+      "sha256": "903d0a60a9b8ce238b68c03c675e90be2980ccefa4a443f5a0b98d7bce7ef39b",
+      "gitBlob": "60889596bae4b718d5887a288570c1b26a616554"
+    }
+  }
+}

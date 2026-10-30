@@ -1,0 +1,20 @@
+{
+  "version": "1",
+  "mapping": {
+    "partKinds": {},
+    "elementPartKinds": {
+      "body": "transcript",
+      "div": "text-section"
+    },
+    "entityKinds": {
+      "person": "person",
+      "institution": "organization",
+      "work": "work",
+      "place": "place",
+      "law": "unknown"
+    },
+    "documentDatePaths": [
+      "teiHeader/profileDesc/creation/date"
+    ]
+  }
+}

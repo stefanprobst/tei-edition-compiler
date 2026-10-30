@@ -23,3 +23,7 @@ The [full Auden pilot](auden-publication-pilot.md) requires no new structural IR
 ## Annotated-text presentation runs
 
 `annotatedTextRuns` provides a shared pure presentation plan for validated structured note/candidate content. Runs retain local UTF-16 boundaries, original text and covering annotations. Explicit language declarations follow their parent graph and bounded specificity; conflicting equal-priority declarations expose `languageConflict` and reset the run to unknown. The static HTML publisher and reference DOM viewer adapt the same plan without XML dependencies or inferred readings. This helper adds no serialized IR fields and requires no version change.
+
+## Documentary-revision boundary evidence
+
+The Legal Kraus cohort adds no schema version: generic `uncompiled-content` markers and `uncompiled-assertion` annotations represent unsupported restoration, transposition, witness-resource binding and scribe attribution with diagnostics and source provenance. Restoration/transposition subtrees are atomic and never concatenated into a purported reading. Raw source pointers remain evidence, not resolved identities or a revision graph. See [the assessment](legalkraus-assessment.md).

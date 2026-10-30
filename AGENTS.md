@@ -74,3 +74,5 @@
 - Static search requires an explicit text-projection policy, reversible source-part ranges and edition/index bindings. Publication route names, image preview adapters and About content stay outside core IR; retain no-JavaScript reading and root/subpath navigation checks.
 
 - The static image/text workspace uses only explicit publication preview URLs and page-resource links. Selection/history are presentation state; never infer alignment, fetch manifests or change transcription. Preserve static/no-JavaScript resource fallbacks and modified-click navigation.
+
+- Legal Kraus is a diagnostic-bearing revision boundary cohort. Preserve unsupported restorations/transposition segments atomically as markers and header witness/hand/transposition declarations as uncompiled assertions. Never repair target mismatches, infer witness alignment or treat deletion exclusion as restoration-aware reading. Explicit div fallback mappings create text sections, not witness roles.
